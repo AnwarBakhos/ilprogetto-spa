@@ -490,7 +490,7 @@ function HomePage() {
         <div className="overflow-hidden min-h-[480px]" style={{ background: 'var(--warmer, #edece7)' }}>
           <img
             src="/images/Cal Map.JPG"
-            alt="iL Progetto service area — San Diego County and surrounding areas"
+            alt="iL Progetto LLC service area map — San Diego, Orange, Riverside and San Bernardino Counties"
             className="w-full h-full object-cover object-center"
             loading="lazy"
             onError={(e) => {
@@ -701,7 +701,7 @@ function HeroBookingSurvey() {
           </div>
           <button type="submit" disabled={submitting}
             style={{ width: '100%', background: 'var(--sand)', color: '#fff', border: 'none', padding: '13px 20px', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1, fontFamily: 'var(--sans)', transition: 'opacity 0.2s' }}>
-            {submitting ? 'Sending...' : 'Schedule My Free Consultation'}
+            {submitting ? 'Sending...' : 'Get My Free Quote & Consultation'}
           </button>
         </form>
       )}

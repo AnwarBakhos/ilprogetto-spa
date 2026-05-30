@@ -63,11 +63,89 @@ function BreadcrumbSchema() {
   )
 }
 
+
+function LocalBusinessSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "HomeGoodsStore"],
+    "name": "iL Progetto LLC",
+    "alternateName": "iL Progetto Window Treatments",
+    "description": "Custom window treatments for San Diego homes and offices. Roller shades, zebra shades, motorized blinds, plantation shutters — measured and installed by our licensed team.",
+    "telephone": "+18583381678",
+    "email": "info@ilprogettollc.com",
+    "url": "https://www.ilprogettollc.com",
+    "logo": "https://drive.google.com/thumbnail?id=12-BstvEgekN4HhaUGclChCXWUp5JdJaA&sz=w300",
+    "image": "https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200",
+    "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Financing",
+    "openingHours": "Mo-Sa 08:00-18:00",
+    "foundingYear": "2022",
+    "slogan": "Where Luxury Meets Affordability",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Diego",
+      "addressRegion": "CA",
+      "postalCode": "92127",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "32.9595",
+      "longitude": "-117.0865"
+    },
+    "areaServed": [
+      {"@type": "AdministrativeArea", "name": "San Diego County"},
+      {"@type": "AdministrativeArea", "name": "Orange County"},
+      {"@type": "AdministrativeArea", "name": "Riverside County"},
+      {"@type": "AdministrativeArea", "name": "San Bernardino County"}
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-858-338-1678",
+      "contactType": "customer service",
+      "areaServed": "Southern California",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://www.instagram.com/ilprogetto.design",
+      "https://www.facebook.com/61561253288372",
+      "https://yelp.to/fuCV4NqXEu"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "30",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Custom Window Treatments",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Roller Shades Installation"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Motorized Blinds Installation"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Plantation Shutters Installation"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Zebra Shades Installation"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cellular Honeycomb Shades"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Curtains and Drapery Installation"}}
+      ]
+    }
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 function RootLayout() {
   return (
     <>
       <HeadContent />
       <BreadcrumbSchema />
+      <LocalBusinessSchema />
       <a href="#page-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:text-[12px] focus:tracking-[0.1em] focus:uppercase"
         style={{ background: 'var(--sand)', color: '#fff' }}>

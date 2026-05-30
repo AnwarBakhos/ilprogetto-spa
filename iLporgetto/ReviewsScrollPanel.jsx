@@ -157,17 +157,6 @@ const REVIEWS_DATA = [
     photos: 1
   },
   {
-    id: 15,
-    name: "Lois S.",
-    location: "Southampton, PA",
-    date: "Mar 19, 2026",
-    rating: 5,
-    text: "We contacted iL Progetto Shades and Blinds based on the exceptional reviews online to install custom draperies manufactured and shipped from the east coast. Younan was polite and responsive in a very timely manner. He was professional and Face Timed with the decorator to insure that he understood exactly what the job would entail.",
-    reviews: 0,
-    friends: 1,
-    photos: 0
-  },
-  {
     id: 16,
     name: "Allison M.",
     location: "Escondido, CA",
@@ -320,17 +309,6 @@ const REVIEWS_DATA = [
     reviews: 0,
     friends: 10,
     photos: 0
-  },
-  {
-    id: 30,
-    name: "Carly G.",
-    location: "Manhattan, New York, NY",
-    date: "Jul 12, 2025",
-    rating: 5,
-    text: "I wholeheartedly recommend Younan and his business for your home's shades and blinds. We stumbled upon Il Progetto online and within a few hours of calling, Younan was at our house showing us samples. It is extremely important to see the fabric/material samples in your own home and he has plenty to choose from.",
-    reviews: 0,
-    friends: 5,
-    photos: 3
   },
   {
     id: 31,
@@ -580,46 +558,4 @@ const ReviewsScrollPanel = ({ autoPlayInterval = 5000, showControls = true, comp
           )}
 
           {/* Right arrow */}
-          {showControls && canScrollRight && (
-            <button
-              onClick={() => scroll('right')}
-              style={{ ...navBtnStyle, right: '-22px' }}
-              aria-label="Scroll right"
-            >
-              <ChevronRight size={20} />
-            </button>
-          )}
-        </div>
-
-        {/* Play/pause + label */}
-        {showControls && (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginTop: '32px' }}>
-            <button
-              onClick={toggleAutoPlay}
-              style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                border: `1px solid ${brand.goldMuted}`,
-                backgroundColor: 'transparent',
-                color: brand.gold,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-              }}
-              aria-label={isAutoPlaying ? 'Pause' : 'Play'}
-            >
-              {isAutoPlaying ? <Pause size={14} /> : <Play size={14} />}
-            </button>
-            <span style={{ fontSize: '11px', color: brand.goldMuted, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-              {isAutoPlaying ? 'Auto-scrolling' : 'Paused'}
-            </span>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export { ReviewsScrollPanel, ReviewCard, REVIEWS_DATA };
+          {showControls && canScrollRight

@@ -69,6 +69,10 @@ function LegalPage() {
             <p className="text-[13px] mb-10" style={{ color: 'var(--mid)' }}><em>Last updated: January 2025</em></p>
             <Section title="Services"><p>iL Progetto LLC provides custom window treatment consultation, measurement, and installation services in San Diego County, Riverside County, Orange County, and San Bernardino County. All consultations are provided at no cost and with no obligation to purchase.</p></Section>
             <Section title="Quotes & Pricing"><p>Written quotes provided during or following a consultation are valid for thirty days from the date of issue. Prices are subject to change after this period due to material costs and availability.</p></Section>
+            
+            <Section title="Down Payment & California CSLB Rules">
+              <p>In accordance with California Contractors State License Board (CSLB) regulations, iL Progetto LLC does not collect a down payment exceeding 10% of the total contract price or $1,000, whichever is less. Any deposit required to begin a project will be clearly stated in your written contract prior to the start of work. Our California Contractors License number is #1127055.</p>
+            </Section>
             <Section title="Installation"><p>Installation is performed by iL Progetto LLC employees holding California Contractors License #1127055. We carry full general liability insurance and workers' compensation coverage. We do not subcontract installation work.</p></Section>
             <Section title="Warranty"><p>All products carry the manufacturer's warranty applicable to the specific item. Our workmanship is warranted for one year from the installation date.</p></Section>
             <Section title="Cancellations & Rescheduling"><p>Consultations may be cancelled or rescheduled at no charge with at least 24 hours' notice. Please call (858) 338-1678 or email info@ilprogettollc.com to reschedule.</p></Section>

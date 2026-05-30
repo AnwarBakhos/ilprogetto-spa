@@ -38,17 +38,6 @@ export const REVIEWS_DATA: CarouselReview[] = [
     photos: 1
   },
   {
-    id: 3,
-    name: "Wun-Ming Y.",
-    location: "MI, MI",
-    date: "May 27, 2026",
-    rating: 5,
-    text: "I want to give a special recognition to IL Progetto LLC for the exceptional level of customer service and expertise provided throughout my experience. The owner took the time to carefully understand my situation, patiently answer all of my questions regarding the removal and installation of the window blinds, and guided me through the process with professionalism and kindness.",
-    reviews: 0,
-    friends: 1,
-    photos: 0
-  },
-  {
     id: 4,
     name: "Cindy S.",
     location: "San Diego, CA",
@@ -168,17 +157,6 @@ export const REVIEWS_DATA: CarouselReview[] = [
     reviews: 0,
     friends: 7,
     photos: 1
-  },
-  {
-    id: 15,
-    name: "Lois S.",
-    location: "Southampton, PA",
-    date: "Mar 19, 2026",
-    rating: 5,
-    text: "We contacted iL Progetto Shades and Blinds based on the exceptional reviews online to install custom draperies manufactured and shipped from the east coast. Younan was polite and responsive in a very timely manner. He was professional and Face Timed with the decorator to insure that he understood exactly what the job would entail.",
-    reviews: 0,
-    friends: 1,
-    photos: 0
   },
   {
     id: 16,
@@ -333,17 +311,6 @@ export const REVIEWS_DATA: CarouselReview[] = [
     reviews: 0,
     friends: 10,
     photos: 0
-  },
-  {
-    id: 30,
-    name: "Carly G.",
-    location: "Manhattan, New York, NY",
-    date: "Jul 12, 2025",
-    rating: 5,
-    text: "I wholeheartedly recommend Younan and his business for your home's shades and blinds. We stumbled upon Il Progetto online and within a few hours of calling, Younan was at our house showing us samples. It is extremely important to see the fabric/material samples in your own home and he has plenty to choose from.",
-    reviews: 0,
-    friends: 5,
-    photos: 3
   },
   {
     id: 31,
