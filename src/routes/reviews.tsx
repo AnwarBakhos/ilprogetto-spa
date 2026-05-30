@@ -179,7 +179,7 @@ function ReviewsPage() {
       </header>
 
       {/* ── Reviews Carousel ── */}
-      <ReviewsScrollPanel autoPlayInterval={6000} showControls={true} compact={false} />
+      <ReviewsScrollPanel autoPlayInterval={6000} showControls={true} compact={true} />
 
       {/* ── Platform cards ── */}
       <section

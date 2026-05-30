@@ -7,6 +7,17 @@ export function cn(...classes: (string | undefined | false | null)[]): string {
 // ─── IntersectionObserver scroll-reveal ────────────────────────────────────────
 // Call once per page to wire up `.fade-up` elements.
 export function setupScrollReveal(root?: Element): () => void {
+  const targets = Array.from((root ?? document).querySelectorAll('.fade-up'))
+
+  // Immediately reveal any element already in the viewport on load
+  const vh = window.innerHeight
+  targets.forEach((el) => {
+    const rect = (el as Element).getBoundingClientRect()
+    if (rect.top < vh && rect.bottom > 0) {
+      (el as Element).classList.add('visible')
+    }
+  })
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -16,13 +27,15 @@ export function setupScrollReveal(root?: Element): () => void {
         }
       })
     },
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
   )
 
-  const targets = (root ?? document).querySelectorAll('.fade-up')
-  targets.forEach((el) => observer.observe(el))
+  targets.forEach((el) => {
+    if (!(el as Element).classList.contains('visible')) {
+      observer.observe(el as Element)
+    }
+  })
 
-  // Return cleanup for useEffect
   return () => observer.disconnect()
 }
 
