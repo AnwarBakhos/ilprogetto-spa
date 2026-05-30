@@ -236,31 +236,26 @@ function FaqPage() {
               </em>
             </h2>
             <p className="text-[15px] leading-[1.85]" style={{ color: 'var(--mid)' }}>
-              Our designers are available by phone, email, or in-home consultation. For complex
+              Our designers are available for complex
+e for complex
               projects — commercial installations, HOA coordination, or smart home integration —
               a conversation with our team will answer questions this page can't.
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <Link
-              to="/booking"
+            <Link to="/booking"
               className="flex items-center justify-center gap-2.5 py-4 text-[11px] tracking-[0.18em] uppercase transition-colors"
-              style={{ background: 'var(--ink)', color: 'var(--cream)' }}
-            >
+              style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
               Book Free Consultation
             </Link>
-            <a
-              href="tel:+18583381678"
+            <a href="tel:+18583381678"
               className="flex items-center justify-center gap-2.5 py-4 text-[11px] tracking-[0.18em] uppercase border transition-colors"
-              style={{ borderColor: 'var(--ink)', color: 'var(--ink)' }}
-            >
+              style={{ borderColor: 'var(--ink)', color: 'var(--ink)' }}>
               Call (858) 338-1678
             </a>
-            <a
-              href="mailto:info@ilprogettollc.com"
+            <a href="mailto:info@ilprogettollc.com"
               className="text-center text-[13px] transition-colors"
-              style={{ color: 'var(--mid)' }}
-            >
+              style={{ color: 'var(--mid)' }}>
               info@ilprogettollc.com
             </a>
           </div>

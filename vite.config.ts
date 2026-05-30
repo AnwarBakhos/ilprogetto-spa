@@ -32,30 +32,24 @@ export default defineConfig({
           if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
             return 'react-vendor'
           }
-          // TanStack Router — rarely changes
           if (id.includes('node_modules/@tanstack/react-router') ||
               id.includes('node_modules/@tanstack/router-core') ||
               id.includes('node_modules/@tanstack/react-store')) {
             return 'router-vendor'
           }
-          // TanStack Query
           if (id.includes('node_modules/@tanstack/react-query') ||
               id.includes('node_modules/@tanstack/query-core')) {
             return 'query-vendor'
           }
-          // Zod validation
           if (id.includes('node_modules/zod')) {
             return 'zod-vendor'
           }
-          // SEO data files — large but static, split for caching
           if (id.includes('/src/data/seo') || id.includes('/src/data/blog')) {
             return 'seo-data'
           }
-          // Location + careers route pages — 320+ pages, keep separate
           if (id.includes('/src/routes/locations') || id.includes('/src/routes/careers')) {
             return 'location-routes'
           }
-          // Smart home pages
           if (id.includes('/src/routes/smart-home')) {
             return 'smart-home-routes'
           }
@@ -64,4 +58,3 @@ export default defineConfig({
     },
   },
 })
-

@@ -112,7 +112,7 @@ function BlogPostPage() {
         <div className="max-w-[740px]">
           <div className="flex items-center gap-4 mb-6">
             <Link
-              to="/blog"
+              to={"/blog/" as any}
               className="text-[11px] tracking-[0.14em] uppercase flex items-center gap-2 hover:text-[var(--sand)] transition-colors"
               style={{ color: 'var(--mid)' }}
             >
@@ -187,7 +187,7 @@ function BlogPostPage() {
           <meta itemProp="headline" content={post.title} />
           <meta itemProp="datePublished" content={post.publishedAt} />
 
-          {post.sections.map((section, i) => (
+          {post.sections.map((section: any, i: number) => (
             <section key={i} className="mb-12">
               {section.heading && (
                 <h2
@@ -201,7 +201,7 @@ function BlogPostPage() {
                   {section.heading}
                 </h2>
               )}
-              {section.paragraphs.map((para, j) => (
+              {section.paragraphs.map((para: string, j: number) => (
                 <p
                   key={j}
                   itemProp="articleBody"
@@ -216,7 +216,7 @@ function BlogPostPage() {
 
           {/* ── Keyword tags ─────────────────────────────────────────── */}
           <div className="flex flex-wrap gap-2 pt-10 border-t mb-10" style={{ borderColor: 'var(--hairline)' }}>
-            {post.keywords.map((kw) => (
+            {post.keywords.map((kw: string) => (
               <KeywordTag key={kw}>{kw}</KeywordTag>
             ))}
           </div>
@@ -235,7 +235,7 @@ function BlogPostPage() {
                 Explore Related Products
               </p>
               <div className="flex flex-wrap gap-3">
-                {post.relatedProducts.map((productId) => (
+                {post.relatedProducts.map((productId: string) => (
                   <Link
                     key={productId}
                     to="/catalog"
@@ -270,7 +270,7 @@ function BlogPostPage() {
           </p>
           <nav aria-label="Article contents" className="mb-10">
             <ol className="space-y-2 list-none">
-              {post.sections.filter((s) => s.heading).map((s, i) => (
+              {post.sections.filter((s: any) => s.heading).map((s: any, i: number) => (
                 <li key={i}>
                   <span className="text-[13px] leading-[1.5]" style={{ color: 'var(--mid)' }}>
                     {i + 1}. {s.heading}
@@ -308,19 +308,13 @@ function BlogPostPage() {
                 style={{ color: 'var(--mid)' }}
               >
                 More Articles
-              </p>
+   
+              More Articles
+            </p>
               <div className="space-y-4">
                 {related.map((p) => (
-                  <Link
-                    key={p.slug}
-                    to="/blog/$slug"
-                    params={{ slug: p.slug }}
-                    className="block group"
-                  >
-                    <p
-                      className="text-[13px] leading-[1.5] group-hover:text-[var(--sand)] transition-colors"
-                      style={{ color: 'var(--ink)' }}
-                    >
+                  <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="block group">
+                    <p className="text-[13px] leading-[1.5] group-hover:text-[var(--sand)] transition-colors" style={{ color: 'var(--ink)' }}>
                       {p.title}
                     </p>
                     <p className="text-[12px] mt-1" style={{ color: 'var(--mid)' }}>

@@ -164,7 +164,7 @@ export function buildOwnerEmail(booking: BookingFormData, bookingId: string): st
     <a href="mailto:${booking.email}" style="display:inline-block;background-color:${SAND};color:#fff;text-decoration:none;padding:14px 28px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;margin-right:12px;">
       Email Client
     </a>
-    <a href="tel:${booking.phone}" style="display:inline-block;background-color:${INK};color:#fff;text-decoration:none;padding:14px 28px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">
+    <a href="tel:${booking.phone}" style="display:inline-block;background-color:${INK};color:#fff;text-decoration:none;paddig-color:${INK};color:#fff;text-decoration:none;padding:14px 28px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">
       Call Client
     </a>
   `)

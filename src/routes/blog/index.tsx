@@ -157,51 +157,23 @@ function BlogIndexPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {rest.map((post) => (
             <article key={post.slug} className="blog-card relative group">
-              {/* Stretched link covers entire card — clicking anywhere navigates */}
-              <Link
-                to="/blog/$slug"
-                params={{ slug: post.slug }}
-                className="blog-card-link"
-                aria-label={`Read: ${post.title}`}
-              />
+              <Link to="/blog/$slug" params={{ slug: post.slug }} className="blog-card-link" aria-label={`Read: ${post.title}`} />
               <div className="flex items-center gap-3 mb-4">
-                <span
-                  className="text-[10px] tracking-[0.18em] uppercase px-2.5 py-1 border"
-                  style={{ borderColor: 'var(--hairline)', color: 'var(--mid)' }}
-                >
+                <span className="text-[10px] tracking-[0.18em] uppercase px-2.5 py-1 border" style={{ borderColor: 'var(--hairline)', color: 'var(--mid)' }}>
                   {CATEGORY_LABELS[post.category] ?? post.category}
                 </span>
-                <time
-                  dateTime={post.publishedAt}
-                  className="text-[12px]"
-                  style={{ color: 'var(--mid)' }}
-                >
-                  {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                    month: 'short', day: 'numeric', year: 'numeric',
-                  })}
+                <time dateTime={post.publishedAt} className="text-[12px]" style={{ color: 'var(--mid)' }}>
+                  {new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </time>
               </div>
-
-              <h2
-                className="blog-card-title font-[300] leading-[1.15] mb-3 transition-colors"
-                style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(20px, 2vw, 26px)' }}
-              >
+              <h2 className="blog-card-title font-[300] leading-[1.15] mb-3 transition-colors" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(20px, 2vw, 26px)' }}>
                 {post.title}
               </h2>
-
-              <p
-                className="text-[14px] leading-[1.8] mb-6"
-                style={{ color: 'var(--mid)' }}
-              >
-                {post.description}
-              </p>
-
-              {/* High-contrast Read Full Article button — always visible */}
+              <p className="text-[14px] leading-[1.8] mb-6" style={{ color: 'var(--mid)' }}>{post.description}</p>
               <span className="read-btn">
                 Read Full Article
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="group-hover:translate-x-1 transition-transform">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                 </svg>
               </span>
             </article>
@@ -209,25 +181,13 @@ function BlogIndexPage() {
         </div>
       </section>
 
-      {/* ── Catalog link ─────────────────────────────────────────────────── */}
-      <section
-        className="px-10 md:px-20 py-16 border-t"
-        style={{ borderColor: 'var(--hairline)', background: 'var(--warm)' }}
-      >
+      <section className="px-10 md:px-20 py-16 border-t" style={{ borderColor: 'var(--hairline)', background: 'var(--warm)' }}>
         <div className="flex items-center justify-between flex-wrap gap-6">
           <div>
-            <p className="text-[15px] mb-1" style={{ color: 'var(--ink)' }}>
-              Ready to explore our product range?
-            </p>
-            <p className="text-[14px]" style={{ color: 'var(--mid)' }}>
-              Browse roller shades, motorized systems, zebra shades, and more.
-            </p>
+            <p className="text-[15px] mb-1" style={{ color: 'var(--ink)' }}>Ready to explore our product range?</p>
+            <p className="text-[14px]" style={{ color: 'var(--mid)' }}>Browse roller shades, motorized systems, zebra shades, and more.</p>
           </div>
-          <Link
-            to="/catalog"
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase border"
-            style={{ borderColor: 'var(--ink)', color: 'var(--ink)' }}
-          >
+          <Link to="/catalog" className="inline-flex items-center gap-2.5 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase border" style={{ borderColor: 'var(--ink)', color: 'var(--ink)' }}>
             Browse Catalog <span aria-hidden="true">→</span>
           </Link>
         </div>

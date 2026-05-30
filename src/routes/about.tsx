@@ -587,29 +587,12 @@ function AboutPage() {
               { label: 'Service Area', value: 'San Diego, Riverside, Orange & San Bernardino Counties', href: undefined },
               { label: 'License', value: 'California Contractors License #1127055', href: undefined },
             ].map(({ label, value, href }) => (
-              <div
-                key={label}
-                className="flex flex-col py-5 border-b last:border-0"
-                style={{ borderColor: 'var(--hairline)' }}
-              >
-                <span
-                  className="text-[10px] tracking-[0.18em] uppercase mb-1.5"
-                  style={{ color: 'var(--mid)' }}
-                >
-                  {label}
-                </span>
+              <div key={label} className="flex flex-col py-5 border-b last:border-0" style={{ borderColor: 'var(--hairline)' }}>
+                <span className="text-[10px] tracking-[0.18em] uppercase mb-1.5" style={{ color: 'var(--mid)' }}>{label}</span>
                 {href ? (
-                  <a
-                    href={href}
-                    className="text-[15px] hover:text-[var(--sand)] transition-colors"
-                    style={{ color: 'var(--ink)' }}
-                  >
-                    {value}
-                  </a>
+                  <a href={href} className="text-[15px] hover:text-[var(--sand)] transition-colors" style={{ color: 'var(--ink)' }}>{value}</a>
                 ) : (
-                  <span className="text-[15px]" style={{ color: 'var(--ink)' }}>
-                    {value}
-                  </span>
+                  <span className="text-[15px]" style={{ color: 'var(--ink)' }}>{value}</span>
                 )}
               </div>
             ))}

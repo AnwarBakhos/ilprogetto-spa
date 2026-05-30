@@ -429,7 +429,7 @@ function CatalogPage() {
 
       {/* ── Bottom CTA ─────────────────────────────────────────────────── */}
       <section className="text-center px-10 py-24 border-t border-[var(--hairline)]" style={{ background: 'var(--warm)' }}>
-        <p className="inline-flex items-center justify-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-5"
+        <p className="inline-flex items-center r gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-5"
            style={{ color: 'var(--sand)' }}>
           <span className="inline-block w-8 h-px bg-[var(--sand)]" aria-hidden="true" />
           Not sure where to start?

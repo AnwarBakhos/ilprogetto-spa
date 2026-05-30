@@ -309,7 +309,7 @@ export function Footer() {
                 onMouseEnter: (e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.currentTarget.style.borderColor = hoverColor
                   e.currentTarget.style.color = '#fff'
-                  e.currentTarget.style.background = `${hoverColor}22`
+                  e.currentTarget.style.background = hoverColor + '22'
                 },
                 onMouseLeave: (e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'
@@ -328,7 +328,8 @@ export function Footer() {
                   {label}
                 </a>
               )
-            })}
+            })
+          }
           </div>
         </div>
       </div>

@@ -608,11 +608,7 @@ function HomePage() {
                 className="flex items-center gap-3.5 px-6 py-5 border border-[var(--hairline)] text-[14px] transition-colors hover:bg-[var(--sand-pale)]"
                 style={{ background: 'var(--warm)' }}
               >
-                <span
-                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                  style={{ background: 'var(--sand)' }}
-                  aria-hidden="true"
-                />
+                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'var(--sand)' }} aria-hidden="true" />
                 {county}
               </div>
             ))}
@@ -658,17 +654,10 @@ function HeroBookingSurvey() {
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName,
-          email,
-          phone,
-          service,
-          message: 'Hero survey lead',
-        }),
+        body: JSON.stringify({ firstName, email, phone, service, message: 'Hero survey lead' }),
       })
       setStep('sent')
     } catch {
-      // silent fail — still show success to not block user
       setStep('sent')
     } finally {
       setSubmitting(false)
@@ -676,152 +665,30 @@ function HeroBookingSurvey() {
   }
 
   return (
-    <div
-      style={{
-        background: 'rgba(10,10,10,0.72)',
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
-        border: '1px solid rgba(255,255,255,0.1)',
-        padding: '36px',
-      }}
-    >
+    <div style={{ background: 'rgba(10,10,10,0.72)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,0.1)', padding: '36px' }}>
       {step === 'sent' ? (
-        /* ── Success state ── */
         <div style={{ textAlign: 'center', padding: '12px 0' }}>
-          {/* Checkmark */}
           <div style={{ marginBottom: '16px' }}>
-            <svg
-              width="20" height="20" viewBox="0 0 20 20"
-              fill="none" stroke="var(--sand)" strokeWidth="2"
-              strokeLinecap="round" strokeLinejoin="round"
-              aria-hidden="true"
-              style={{ display: 'inline-block' }}
-            >
-              <circle cx="10" cy="10" r="9" />
-              <polyline points="5 10 8.5 13.5 15 7" />
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--sand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: 'inline-block' }}>
+              <circle cx="10" cy="10" r="9" /><polyline points="5 10 8.5 13.5 15 7" />
             </svg>
           </div>
-          <p
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '22px',
-              fontWeight: 300,
-              color: 'var(--cream)',
-              marginBottom: '10px',
-              lineHeight: 1.2,
-            }}
-          >
-            Request Received!
-          </p>
-          <p
-            style={{
-              fontSize: '13px',
-              color: 'rgba(251,251,249,0.65)',
-              lineHeight: 1.7,
-              marginBottom: '20px',
-            }}
-          >
-            We'll be in touch within 24 hours to confirm your consultation.
-          </p>
-          <Link
-            to="/booking"
-            style={{
-              color: 'var(--sand)',
-              fontSize: '12px',
-              textDecoration: 'none',
-              letterSpacing: '0.04em',
-            }}
-          >
-            Or book online now →
-          </Link>
+          <p style={{ fontFamily: 'var(--serif)', fontSize: '22px', fontWeight: 300, color: 'var(--cream)', marginBottom: '10px', lineHeight: 1.2 }}>Request Received!</p>
+          <p style={{ fontSize: '13px', color: 'rgba(251,251,249,0.65)', lineHeight: 1.7, marginBottom: '20px' }}>We'll be in touch within 24 hours to confirm your consultation.</p>
+          <Link to="/booking" style={{ color: 'var(--sand)', fontSize: '12px', textDecoration: 'none', letterSpacing: '0.04em' }}>Or book online now →</Link>
         </div>
       ) : (
-        /* ── Form state ── */
         <form onSubmit={handleSubmit} noValidate>
-          {/* Eyebrow */}
-          <p
-            style={{
-              color: 'var(--sand)',
-              fontSize: '10px',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              marginBottom: '10px',
-              fontFamily: 'var(--sans)',
-            }}
-          >
-            Free Consultation
-          </p>
-
-          {/* Title */}
-          <p
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '26px',
-              fontWeight: 300,
-              color: 'var(--cream)',
-              lineHeight: 1.15,
-              marginBottom: '6px',
-            }}
-          >
-            Get Your Free Quote
-          </p>
-
-          {/* Subtitle */}
-          <p
-            style={{
-              fontSize: '13px',
-              color: 'rgba(251,251,249,0.6)',
-              marginBottom: '22px',
-              lineHeight: 1.5,
-            }}
-          >
-            We bring the showroom to you.
-          </p>
-
-          {/* Fields */}
+          <p style={{ color: 'var(--sand)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '10px', fontFamily: 'var(--sans)' }}>Free Consultation</p>
+          <p style={{ fontFamily: 'var(--serif)', fontSize: '26px', fontWeight: 300, color: 'var(--cream)', lineHeight: 1.15, marginBottom: '6px' }}>Get Your Free Quote</p>
+          <p style={{ fontSize: '13px', color: 'rgba(251,251,249,0.6)', marginBottom: '22px', lineHeight: 1.5 }}>We bring the showroom to you.</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
-            <input
-              type="text"
-              placeholder="First Name"
-              required
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              style={fieldStyle}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={fieldStyle}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-            <input
-              type="tel"
-              placeholder="Phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              style={fieldStyle}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-            <select
-              value={service}
-              onChange={(e) => setService(e.target.value)}
-              style={{
-                ...fieldStyle,
-                appearance: 'none',
-                WebkitAppearance: 'none',
-                cursor: 'pointer',
-                color: service ? 'var(--cream)' : 'rgba(251,251,249,0.45)',
-              }}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            >
+            <input type="text" placeholder="First Name" required value={firstName} onChange={(e) => setFirstName(e.target.value)} style={fieldStyle} onFocus={handleFocus} onBlur={handleBlur} />
+            <input type="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} style={fieldStyle} onFocus={handleFocus} onBlur={handleBlur} />
+            <input type="tel" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} style={fieldStyle} onFocus={handleFocus} onBlur={handleBlur} />
+            <select value={service} onChange={(e) => setService(e.target.value)}
+              style={{ ...fieldStyle, appearance: 'none', WebkitAppearance: 'none', cursor: 'pointer', color: service ? 'var(--cream)' : 'rgba(251,251,249,0.45)' }}
+              onFocus={handleFocus} onBlur={handleBlur}>
               <option value="" disabled hidden>What are you interested in?</option>
               <option value="General Consultation" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>General Consultation</option>
               <option value="Roller Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Roller Shades</option>
@@ -832,27 +699,9 @@ function HeroBookingSurvey() {
               <option value="Curtains & Drapery" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Curtains &amp; Drapery</option>
             </select>
           </div>
-
-          {/* Submit button */}
-          <button
-            type="submit"
-            disabled={submitting}
-            style={{
-              width: '100%',
-              background: 'var(--sand)',
-              color: '#fff',
-              border: 'none',
-              padding: '13px 20px',
-              fontSize: '11px',
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              cursor: submitting ? 'not-allowed' : 'pointer',
-              opacity: submitting ? 0.7 : 1,
-              fontFamily: 'var(--sans)',
-              transition: 'opacity 0.2s',
-            }}
-          >
-            {submitting ? 'Sending…' : 'Schedule My Free Consultation →'}
+          <button type="submit" disabled={submitting}
+            style={{ width: '100%', background: 'var(--sand)', color: '#fff', border: 'none', padding: '13px 20px', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1, fontFamily: 'var(--sans)', transition: 'opacity 0.2s' }}>
+            {submitting ? 'Sending...' : 'Schedule My Free Consultation'}
           </button>
         </form>
       )}

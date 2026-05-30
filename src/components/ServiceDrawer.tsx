@@ -403,7 +403,7 @@ export function ServiceDrawer() {
           </svg>
         </button>
 
-        {/* Bottom sheet — always in DOM, slides via transform */}
+        {/* Bottom sheet */}
         <div
           className="fixed left-0 right-0"
           style={{ zIndex: 900, bottom: '52px', height: '72vh', transform: open ? 'translateY(0)' : 'translateY(100%)', transition: 'transform 0.38s cubic-bezier(0.4,0,0.2,1)', boxShadow: '0 -8px 40px rgba(0,0,0,0.4)', borderRadius: '16px 16px 0 0', overflow: 'hidden' }}
@@ -411,10 +411,8 @@ export function ServiceDrawer() {
           aria-modal="true"
           aria-label="Service info and offers"
         >
-          {/* Drag handle */}
           <div style={{ background: 'rgba(18,18,16,0.98)', padding: '10px 0 0' }}>
-            <div className="w-10 h-1 rounded-full mx-auto"
-                 style={{ background: 'rgba(255,255,255,0.2)' }} aria-hidden="true" />
+            <div className="w-10 h-1 rounded-full mx-auto" style={{ background: 'rgba(255,255,255,0.2)' }} aria-hidden="true" />
           </div>
           <div style={{ height: 'calc(100% - 20px)', overflow: 'hidden' }}>
             {drawerContent}

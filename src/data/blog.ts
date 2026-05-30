@@ -195,268 +195,81 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Plantation Shutters vs. Roller Shades: Which Is Right for Your San Diego Home?',
     description: 'A detailed comparison of plantation shutters and roller shades for San Diego homes — cost, light control, aesthetics, maintenance, and which rooms suit each best.',
     publishedAt: '2026-03-15',
-    keywords: ['plantation shutters San Diego', 'roller shades vs shutters', 'window treatments comparison San Diego', 'custom shutters San Diego', 'roller shades San Diego'],
+    keywords: ['plantation shutters San Diego', 'roller shades vs shutters', 'window treatments comparison San Diego'],
     category: 'buying-guide',
     readingMinutes: 7,
     relatedProducts: ['roller', 'shutters'],
     sections: [
-      {
-        heading: 'The Core Difference: Aesthetics and Mechanism',
-        paragraphs: [
-          "Plantation shutters and roller shades are both excellent window treatments — but they are fundamentally different products solving the same problem in very different ways. Understanding the distinction is the first step toward choosing the right one for your San Diego home.",
-          "Plantation shutters are rigid, louvered panels mounted inside or outside the window frame on hinges. They are a permanent architectural feature — more like built-in cabinetry than a typical window covering. When you move out of a home with plantation shutters, they stay. They add perceived value to the property, and real estate agents consistently list them among the interior features that photograph well and attract buyers in San Diego's competitive market.",
-          "Roller shades, by contrast, are fabric-based and operate on a tube mechanism — the fabric rolls up into a compact headrail when raised and descends in a single flat plane when lowered. They are sleek, minimal, and nearly invisible when raised. The aesthetic is modern and clean, well-suited to the contemporary architecture common in Carmel Valley, 4S Ranch, and newer Del Mar Mesa construction. The two products serve different design sensibilities: shutters lean traditional and architectural; roller shades lean contemporary and minimal. Neither is objectively superior — the right choice depends on your home's architecture, your room-by-room requirements, and your long-term plans.",
-        ],
-      },
-      {
-        heading: 'Light Control and Privacy',
-        paragraphs: [
-          "Plantation shutters offer precision light control that no fabric product can match. The adjustable louvers — typically 2.5-inch or 3.5-inch slats — can be tilted to direct light exactly where you want it: angled upward to bounce daylight off the ceiling, angled downward to admit light while blocking street-level views, or closed fully for complete privacy. This granularity is the functional argument for shutters in rooms where light quality matters — a home office in Point Loma, a reading room in Rancho Bernardo, a breakfast nook facing east in Scripps Ranch.",
-          "Roller shades offer a different kind of light control flexibility — through fabric selection rather than mechanical adjustment. A single roller shade can be specified in fabrics ranging from sheer (5% openness, gentle diffusion) to room-darkening to true blackout. Solar shade fabrics in the 3–5% openness range are particularly well-matched to San Diego's coastal light conditions, reducing glare and UV penetration while preserving outward views. Blackout-coated roller fabrics achieve complete light elimination for bedrooms and media rooms. Where shutters give you infinite adjustment of one fabric, roller shades give you one fixed position with a fabric chosen to match your specific requirement.",
-          "For privacy at night — when interior lights are on and exterior is dark — both products perform differently. Roller shades in opaque or room-darkening fabrics provide complete visual privacy when lowered. Plantation shutters with louvers tilted closed also provide privacy, but the fixed louver gaps visible from outside (even when 'closed') can be a consideration for street-facing windows in North Park or South Park where pedestrian traffic is higher.",
-        ],
-      },
-      {
-        heading: 'Cost and Value',
-        paragraphs: [
-          "Plantation shutters carry a higher upfront cost than roller shades, and the gap is meaningful. For custom-measured shutters installed by a professional, San Diego homeowners typically invest $250–$600 per window depending on size, material (composite vs. real wood vs. vinyl), and louver width. A whole-home shutter installation on a typical three-bedroom San Diego home with twelve to sixteen windows runs $4,000–$9,000 installed.",
-          "Custom roller shades — measured to the millimeter and fabricated to fit your specific windows — run $150–$400 per window installed, depending on fabric choice, motorization, and headrail style. A whole-home roller shade installation runs $2,500–$6,500. The price gap between shutters and roller shades narrows when you add motorization to roller shades, which adds $150–$250 per window.",
-          "The value calculation is not just about upfront cost. Plantation shutters last 20–25 years on composite or vinyl, require essentially no fabric replacement, and add appraised value to the home. Roller shades last 5–12 years depending on fabric type and sun exposure before the fabric shows wear — though the hardware mechanism often outlasts multiple fabric cycles. For San Diego homeowners planning to sell in the next five years, shutters are a stronger investment. For renters or homeowners who expect to relocate or redecorate more frequently, roller shades offer better value flexibility.",
-        ],
-      },
-      {
-        heading: 'Which Rooms Suit Which?',
-        paragraphs: [
-          "Living rooms and formal dining rooms in San Diego homes with traditional or transitional architecture are natural fits for plantation shutters. The architectural permanence reads as an upgrade rather than an accessory, and the light control flexibility suits rooms used across the full arc of a San Diego day — from morning coffee light to afternoon glare management to evening privacy.",
-          "Home offices benefit from shutters when the goal is fine-tuned natural light. The ability to angle louvers to eliminate glare from a specific direction — east in the morning, west in the afternoon — without fully blocking daylight is a genuine productivity advantage. Street-facing windows in urban San Diego neighborhoods like Mission Hills, Kensington, and Normal Heights also lend themselves to shutters for their combination of privacy and curb-appeal impact.",
-          "Bedrooms are where roller shades often win outright. Blackout roller shades on a motorized system — programmed to lower at sunset and rise gradually with the sunrise — create sleep conditions that shutters cannot replicate without adding a secondary blackout layer. Kitchens benefit from roller shades in easy-clean solar or light-filtering fabrics that can be wiped down without damage. Media rooms and home theaters are natural roller shade territory: a motorized blackout shade that drops at the press of a button creates the theater experience shutters cannot. If you are deciding between the two products for a whole-home installation, the practical answer for most San Diego homes is shutters in primary living spaces and select bedrooms, roller shades in remaining bedrooms, kitchens, and any room with a motorization requirement. Our designers will work through this room by room during your in-home consultation.",
-        ],
-      },
+      { heading: 'The Core Difference', paragraphs: ["Plantation shutters are rigid, louvered panels mounted on hinges — a permanent architectural feature. Roller shades are fabric-based and operate on a tube mechanism.", "The aesthetic is different: shutters lean traditional and architectural; roller shades lean contemporary and minimal."] },
+      { heading: 'Light Control', paragraphs: ["Plantation shutters offer precision light control through adjustable louvers.", "Roller shades offer flexibility through fabric selection — sheer to blackout."] },
+      { heading: 'Cost and Value', paragraphs: ["Plantation shutters cost $250-$600 per window installed. Custom roller shades run $150-$400 per window installed.", "Shutters last 20-25 years and add home value. Roller shades last 5-12 years with more design flexibility."] },
     ],
   },
-
   {
     slug: 'motorized-blinds-cost-san-diego',
     title: 'How Much Do Motorized Blinds Cost in San Diego? (2026 Pricing Guide)',
     description: 'Real pricing for motorized blinds and shades in San Diego — rechargeable battery motors, smart home integration, and what affects the final cost.',
     publishedAt: '2026-03-22',
-    keywords: ['motorized blinds cost San Diego', 'motorized shades price San Diego', 'how much motorized blinds', 'smart blinds San Diego cost', 'motorized window treatments price'],
+    keywords: ['motorized blinds cost San Diego', 'motorized shades price San Diego'],
     category: 'pricing',
     readingMinutes: 6,
     relatedProducts: ['motorized', 'roller', 'cellular'],
     sections: [
-      {
-        heading: 'What Drives the Price of Motorized Window Treatments',
-        paragraphs: [
-          "Motorized window treatments in San Diego range from under $300 to over $1,200 per window installed — a wide spread that reflects genuine differences in motor type, fabric, shade width, and installation complexity. Understanding what drives cost helps you build an accurate budget before your first conversation with a designer.",
-          "Motor type is the single largest variable. Battery-powered motors — the most common choice for San Diego retrofits — cost less to install because they require no electrical work. Hardwired motors require routing low-voltage wire to each shade location, which adds labor and, in finished homes, may require opening walls. For most San Diego homeowners who are not mid-renovation, battery-powered systems are the appropriate starting point.",
-          "Fabric selection affects cost independently of the motor. Solar shade fabrics in the 3–5% openness range that are well-suited to San Diego's coastal glare conditions are generally mid-tier in price. True blackout fabrics and specialty fabrics with enhanced UV or thermal ratings carry a modest premium. Shade width is also a direct cost driver — wider shades require heavier-duty motors, sturdier headrails, and more fabric. A 96-inch wide motorized shade costs meaningfully more than a 48-inch shade even with identical fabric and motor specifications. Finally, quantity affects the per-unit price: a whole-home installation of twelve or more motorized shades typically carries a lower per-window cost than a single-room installation of two shades.",
-        ],
-      },
-      {
-        heading: 'Typical Price Ranges for San Diego Installations',
-        paragraphs: [
-          "Battery-powered motorized roller shades, custom-measured and professionally installed, run $300–$600 per window in San Diego. This range covers the majority of residential applications — standard to medium-width windows, quality solar or light-filtering fabrics, and rechargeable battery motors compatible with Alexa, Google Home, and Apple HomeKit. Blackout-fabric motorized roller shades for bedrooms fall at the higher end of this range due to fabric weight and the heavier motor required.",
-          "Motorized cellular (honeycomb) shades run $400–$700 per window installed. The additional cost reflects the more complex fabric construction and the higher motor torque required for double-cell and triple-cell honeycomb fabrics. These are frequently specified for Poway, El Cajon, and Escondido homes where energy efficiency is a priority alongside motorization convenience.",
-          "Motorized exterior shades — for patios, pergolas, and outdoor living spaces — run $600–$1,200 per unit installed. The higher cost reflects weather-resistant motors, heavier outdoor fabrics, and the structural mounting requirements for exterior installations. Smart home integration — programming shades into Alexa routines, Google Home scenes, or Apple HomeKit automations — adds $150–$300 to the total project cost when handled by our installation team. This is a one-time setup fee that covers all shades in the home, not a per-shade charge.",
-        ],
-      },
-      {
-        heading: "What's Included in the Price",
-        paragraphs: [
-          "A professionally installed motorized shade from iL Progetto includes in-home measurement, custom fabrication to your exact window dimensions, professional installation, motor programming, and smart home integration setup. The measurement visit is not an additional charge — it is part of the service.",
-          "Custom fabrication means the shade is built to the millimeter based on our designer's measurements, not cut down from a standard size. This distinction matters particularly for motorized shades: a shade that is even slightly too narrow or too wide will not operate correctly on a motorized system, and factory-cut standard sizes rarely match San Diego homes' window dimensions exactly.",
-          "Our installation team programs each motor, pairs it with the provided remote, and configures any smart home integrations before leaving. We also configure automated schedules on request — sunrise bedroom raises, afternoon west-window drops, and movie-mode scenes are all set up during the installation appointment. Hardware and motor mechanisms are covered by a two-year parts warranty. If a motor fails within the warranty period, we coordinate replacement and reinstallation at no cost. To discuss your project and get a precise estimate, call us at (858) 338-1678 or book an in-home design visit through our website.",
-        ],
-      },
-      {
-        heading: 'Is Motorization Worth the Investment?',
-        paragraphs: [
-          "The functional case for motorized shades in San Diego is stronger than most homeowners expect before experiencing the product. The most common feedback from customers after installation is not about convenience — it is about energy savings. A motorized shade system programmed to lower west-facing shades automatically at 2:00 PM eliminates the behavioral friction that causes most manual shades to stay in one position all day. Shades that actually move when the sun demands it reduce cooling load meaningfully during San Diego's peak billing months.",
-          "UV protection of furniture and flooring is a related benefit that does not show up on a utility bill but is genuinely significant. San Diego's UV index is among the highest of any major US city for the majority of the year. Hardwood floors, leather furniture, and artwork in direct sun without adequate window protection can show visible fading within two to three years. A motorized shade that responds to sun position — either on a timer or via a light sensor — protects these investments passively.",
-          "From a real estate perspective, motorized window treatments are consistently noted as a premium feature by buyer's agents in San Diego's higher-value markets — La Jolla, Del Mar, Rancho Santa Fe, and Carmel Valley. Homes that show with integrated smart shading photograph better and demonstrate a level of interior finish that manual treatments cannot replicate. Whether or not you plan to sell, motorized shading is one of the home improvement investments that delivers daily-use satisfaction rather than a one-time installation benefit.",
-        ],
-      },
+      { heading: 'What Drives the Price', paragraphs: ["Motorized window treatments range from under $300 to over $1,200 per window installed.", "Motor type is the largest variable. Battery-powered motors cost less to install. Hardwired motors require electrical work."] },
+      { heading: 'Typical Price Ranges', paragraphs: ["Battery-powered motorized roller shades run $300-$600 per window installed.", "Motorized cellular shades run $400-$700. Exterior motorized shades run $600-$1,200."] },
     ],
   },
-
   {
     slug: 'best-window-treatments-san-diego-climate',
     title: "Best Window Treatments for San Diego's Climate: Sun, Heat, and Coastal Glare",
-    description: "San Diego's unique climate — intense UV, coastal glare, minimal rain — demands specific window treatment choices. Here's what actually works.",
+    description: "San Diego's unique climate demands specific window treatment choices. Here's what actually works.",
     publishedAt: '2026-04-05',
-    keywords: ['best window treatments San Diego', 'window coverings San Diego climate', 'UV blocking shades San Diego', 'coastal window treatments San Diego', 'heat blocking blinds San Diego'],
+    keywords: ['best window treatments San Diego', 'UV blocking shades San Diego'],
     category: 'guides',
     readingMinutes: 8,
     relatedProducts: ['solar', 'cellular', 'shutters', 'roller'],
     sections: [
-      {
-        heading: "San Diego's Light Challenge",
-        paragraphs: [
-          "San Diego averages more than 270 sunny days per year — a statistic that defines the city's appeal and creates a genuine management challenge for homeowners. The UV index exceeds 6 (high) on the majority of days between April and October, and the angle of the sun relative to south- and west-facing windows means that interior surfaces, furniture, and flooring receive direct radiation for extended daily periods.",
-          "Coastal glare is a specific phenomenon that affects La Jolla, Del Mar, Pacific Beach, and Ocean Beach properties. Water reflects and amplifies UV radiation — the same effect that makes snow blindness a risk for skiers. Homes with ocean-facing windows contend with light that is not just bright but also scattered and diffuse, making it harder to manage with simple blinds that block one direction. The reflective quality of coastal light means that even windows not in direct sun can admit glare-producing light bounced off the water surface.",
-          "Heat gain is the third variable. San Diego's climate is mild enough that most homes do not require aggressive thermal management, but south- and west-facing windows in inland communities — Poway, El Cajon, Escondido, Santee — experience afternoon solar gain that measurably raises interior temperatures and extends air conditioning run time. A window treatment chosen purely for aesthetics without considering its solar heat gain coefficient (SHGC) is leaving real energy performance on the table. The right window treatment for San Diego solves for light diffusion, UV blocking, and glare control simultaneously, without completely eliminating the natural light that makes San Diego homes so livable.",
-        ],
-      },
-      {
-        heading: 'Solar Shades: The San Diego Workhorse',
-        paragraphs: [
-          "Solar shades are fabric roller shades constructed from open-weave fabrics that reduce glare and UV penetration while maintaining outward views. The key specification is the openness factor — the percentage of the fabric surface that is open space rather than fiber. A 1% openness fabric is very dense: maximum glare and UV blockage, minimal view. A 14% openness fabric is nearly sheer: excellent view, minimal glare control. The openness factor you choose determines the trade-off between glare management and view preservation.",
-          "For San Diego's coastal properties, the practical sweet spot is 3–5% openness on south- and west-facing windows. At 3% openness, a solar shade blocks approximately 95% of UV radiation and dramatically reduces glare while still allowing a discernible outward view in daylight. At 5% openness, the view is clearer but glare management is somewhat reduced — still appropriate for most San Diego conditions. Darker fabric colors in the same openness factor provide better glare control than lighter colors because they absorb rather than reflect incoming light. For ocean-view properties where preserving the view is a primary design goal, a 5% openness in charcoal or bronze is typically the best balance.",
-          "Solar shades do not provide meaningful privacy at night when interior lights are on — the same view-preserving weave that lets you see out also lets others see in when the interior is brighter than the exterior. For rooms requiring nighttime privacy — bedrooms, bathrooms — solar shades are typically paired with a blackout roller shade on the same window using a dual-shade system. This combination gives you the full range of conditions: view and glare control during the day, complete privacy and blackout at night.",
-        ],
-      },
-      {
-        heading: 'Cellular Shades for Energy Efficiency',
-        paragraphs: [
-          "Honeycomb cellular shades address a different San Diego climate concern: thermal management. The hexagonal cells in cellular shade fabric trap still air, creating an insulating layer between the window glass and the room interior. Single-cell construction adds approximately R-2.0 to R-3.0 of thermal resistance; double-cell construction adds R-3.0 to R-4.5. On a single-pane window with a baseline R-value of 0.9, double-cell honeycomb shading can effectively triple the window's thermal performance.",
-          "Cellular shades comply with California's Title 24 energy code requirements for window coverings and are frequently specified in new construction and major renovation projects for this reason. The compliance documentation is available for products we specify and can be provided to your contractor or building department on request.",
-          "The energy efficiency argument for cellular shades is strongest in inland San Diego communities where temperature swings are larger. In Poway, El Cajon, and Escondido, summer afternoon temperatures routinely reach the mid-90s while coastal San Diego stays in the low 70s. The temperature differential across the window glass — hot outside, air-conditioned inside — is where honeycomb insulation pays off most directly. SDG&E residential customers in these ZIP codes consistently report summer cooling bill reductions of 15–25% after whole-home honeycomb installations, though actual results vary based on window size, orientation, and existing glass quality. For coastal properties with natural marine layer moderation, the energy case is more modest but the acoustic dampening benefit — the same air cells that trap heat also absorb sound — is frequently cited as a valued secondary outcome.",
-        ],
-      },
-      {
-        heading: 'Plantation Shutters for Coastal Homes',
-        paragraphs: [
-          "Plantation shutters bring specific advantages to coastal San Diego homes that fabric-based treatments cannot replicate. The adjustable louvers allow precise control of both light and airflow — a meaningful benefit in neighborhoods like Bird Rock, La Jolla Shores, and Del Mar where natural ventilation from sea breezes is a genuine quality-of-life feature. Tilting the louvers to direct airflow into a room while maintaining privacy from the street is a functional capability unique to shutters.",
-          "The material selection matters significantly in coastal environments. Real wood shutters, while beautiful, absorb moisture and can warp, swell, or crack under the humidity cycles common within two miles of the San Diego coastline. Composite shutters — engineered from a combination of wood fiber and polymer — handle coastal humidity reliably without the expansion and contraction issues of natural wood. Vinyl shutters are the most moisture-resistant option and are appropriate for bathrooms and high-humidity spaces even in inland homes.",
-          "Coastal homeowners also benefit from the low-maintenance nature of shutters. Fabric shades in coastal environments can absorb salt air particulates and may require more frequent cleaning to maintain appearance. Shutters wipe clean with a damp cloth and require no fabric replacement over their lifespan. For La Jolla and Del Mar homes where the combination of HOA requirements, architectural character, and coastal exposure creates a specific set of constraints, composite plantation shutters in a neutral white or off-white frequently emerge as the most practical long-term solution. Our designers are familiar with the specific requirements of La Jolla's primary residential communities and Del Mar's coastal zones, and will bring samples that comply with local HOA exterior liner standards during your in-home visit.",
-        ],
-      },
+      { heading: "San Diego's Light Challenge", paragraphs: ["San Diego averages more than 270 sunny days per year. The UV index exceeds 6 on the majority of days between April and October.", "Coastal glare affects La Jolla, Del Mar, Pacific Beach, and Ocean Beach properties. Water reflects and amplifies UV radiation."] },
+      { heading: 'Solar Shades: The San Diego Workhorse', paragraphs: ["Solar shades reduce glare and UV penetration while maintaining outward views. For San Diego coastal properties, the practical sweet spot is 3-5% openness on south- and west-facing windows."] },
     ],
   },
-
   {
     slug: 'window-treatments-la-jolla-del-mar',
     title: 'Window Treatments for La Jolla and Del Mar Homes: A Coastal Style Guide',
-    description: 'La Jolla and Del Mar homes face unique challenges — ocean glare, salt air, UV intensity, and strict HOA standards. Here\'s what we recommend for coastal San Diego.',
+    description: "La Jolla and Del Mar homes face unique challenges — ocean glare, salt air, UV intensity, and strict HOA standards.",
     publishedAt: '2026-04-12',
-    keywords: ['window treatments La Jolla', 'window coverings Del Mar', 'coastal window treatments San Diego', 'La Jolla blinds shutters', 'Del Mar window shades', 'ocean view window treatments'],
+    keywords: ['window treatments La Jolla', 'window coverings Del Mar'],
     category: 'local-guide',
     readingMinutes: 6,
     relatedProducts: ['shutters', 'solar', 'roller', 'motorized'],
     sections: [
-      {
-        heading: 'The Coastal Challenge',
-        paragraphs: [
-          "La Jolla and Del Mar are among San Diego's most architecturally distinctive communities — and they present a specific combination of challenges for window treatments that most standard advice does not adequately address. Salt air accelerates corrosion of metal hardware. UV intensity from water-reflected light is higher than in inland neighborhoods at the same latitude. Glare management is a daily functional necessity for homes with ocean-facing windows. And many properties in La Jolla Shores, Bird Rock, the Village, and Del Mar Mesa are governed by HOA or architectural review boards with specific requirements for window treatment appearance from the street.",
-          "The corrosion issue is more significant than most homeowners anticipate. Standard aluminum hardware — the headrails, brackets, and mounting screws used in most off-the-shelf window treatment products — shows visible corrosion within two to three years within two miles of the San Diego coastline. Stainless steel hardware, marine-grade aluminum with proper anodization, and polymer components are the appropriate specifications for properties in La Jolla and Del Mar. We source and specify hardware to these standards for all coastal installations, not as an upgrade option but as standard practice.",
-          "Glare from ocean-reflected light is qualitatively different from standard window glare. It arrives from multiple angles simultaneously — direct from the window and reflected off surrounding surfaces. Treatments that address only one axis of light admission, such as horizontal blinds that block overhead sun but not reflected sidewall light, are frequently inadequate. The practical solution for ocean-facing rooms is a solar shade with a low openness factor (3–5%) in a dark fabric, combined with the option to fully lower the shade during peak afternoon hours while a motorized system handles positioning automatically.",
-        ],
-      },
-      {
-        heading: 'Materials That Hold Up',
-        paragraphs: [
-          "Faux wood blinds — composite polymer products designed to replicate the appearance of real wood — are significantly more appropriate than genuine wood blinds for La Jolla and Del Mar properties. Real wood expands and contracts with humidity, warps in marine air, and can delaminate or crack after several years of coastal exposure. Faux wood blinds are dimensionally stable under humidity cycling and will not show the warping or bowing that makes real wood blinds a poor long-term choice for coastal San Diego.",
-          "For fabric-based treatments, the critical specification is solution-dyed acrylic or polyester. In solution-dyed fabrics, the color is part of the fiber itself rather than applied as a surface dye — the result is dramatically superior fade resistance under UV exposure. Standard solution-dyed roller shade fabrics tested under coastal California UV conditions retain color well beyond the useful life of the shade. Surface-dyed or pigment-printed fabrics can show visible fading within two to three years of west- and south-facing coastal installation. We specify solution-dyed fabrics as standard for all La Jolla and Del Mar installations.",
-          "For exterior applications — motorized screens for patios and outdoor dining areas — the fabric specification becomes even more critical. Solution-dyed acrylic exterior shade fabrics designed for outdoor exposure are the only appropriate choice for coastal San Diego. These materials resist UV, salt air, and moisture without degrading or discoloring on the timelines that would be unacceptable for a premium-tier investment. Motorized exterior shades for La Jolla and Del Mar patios typically run $700–$1,200 per unit installed, reflecting the marine-grade hardware and heavy-duty motor specifications required for the environment.",
-        ],
-      },
-      {
-        heading: 'Managing the View Without Losing It',
-        paragraphs: [
-          "The primary design constraint for ocean-view properties is straightforward to state but requires careful execution: manage glare and UV without eliminating the view that defines the property's value. A blackout shade solves every light problem and destroys the view simultaneously — that is never the right answer for a La Jolla or Del Mar living room with a Pacific-facing window.",
-          "Solar shades at 3–5% openness in dark fabric are the standard recommendation for primary view windows. At this specification, the shade reduces UV transmission by over 90% and eliminates visible glare while leaving the outward view readable in daylight. The view through a solar shade is not identical to the unobstructed view — it has a slight tint and reduced contrast — but it is a view, not a barrier. Homeowners who have not seen a solar shade in person often resist the concept; after the in-home visit where we show samples against your actual window, the visual result almost always resolves that concern.",
-          "Motorized positioning matters more for view homes than for any other application. The ability to lower a solar shade to the precise height that blocks low-angle afternoon sun while leaving the upper portion of the window unobstructed is a feature that only motorization delivers with consistent precision. Manual shades are positioned once and tend to stay there. A motorized shade can be programmed to respond to sun angle throughout the day, or positioned exactly with a phone app when conditions change. For La Jolla and Del Mar properties where the view is a primary asset, this precision is not a luxury — it is the functional difference between a treatment that works and one that is always in the wrong position.",
-        ],
-      },
-      {
-        heading: 'HOA Compliance',
-        paragraphs: [
-          "La Jolla and Del Mar are home to some of San Diego's most active HOA and architectural review processes. La Jolla Shores, Bird Rock, La Jolla Village, Del Mar Mesa, and Olde Del Mar all have documented requirements for window treatment exterior appearance — most commonly a neutral interior liner color visible from the street. White and off-white liner specifications are the most common requirement, though some associations specify specific shade levels.",
-          "HOA non-compliance for window treatments is a genuine risk. An order placed without confirming HOA specifications — particularly for custom fabric with a colored exterior liner — cannot be returned or exchanged. We verify HOA requirements at the measurement stage, before any order is placed. Our designers are familiar with the documented requirements for La Jolla's primary residential communities and will bring fabric samples that comply with the relevant standards during your consultation.",
-          "For properties in HOA-governed communities where architectural review board approval is required before installation, we provide documentation packages including product specifications, color swatches, and installation diagrams in the format that most San Diego HOAs require. This process adds time — typically two to four weeks for HOA review — and we build it into project timelines at the consultation stage. If you are uncertain about your HOA's window treatment requirements, bring any relevant governing documents to your consultation and our designer will review them with you.",
-        ],
-      },
+      { heading: 'The Coastal Challenge', paragraphs: ["La Jolla and Del Mar present specific challenges: salt air accelerates corrosion, UV intensity is higher, and many properties are governed by HOA requirements.", "Marine-grade hardware is the appropriate specification for all coastal installations."] },
     ],
   },
-
   {
     slug: 'how-long-do-window-treatments-last',
     title: 'How Long Do Window Treatments Last? A Complete Lifespan Guide',
-    description: "What to expect from your investment: lifespan of roller shades, plantation shutters, blinds, and motorized systems — plus how San Diego's sun affects longevity.",
+    description: "What to expect from your investment: lifespan of roller shades, plantation shutters, blinds, and motorized systems.",
     publishedAt: '2026-04-19',
-    keywords: ['how long do window treatments last', 'window blinds lifespan', 'plantation shutters durability', 'window shade replacement', 'window treatment warranty'],
+    keywords: ['how long do window treatments last', 'window blinds lifespan'],
     category: 'guides',
     readingMinutes: 5,
     relatedProducts: ['roller', 'shutters', 'cellular', 'motorized'],
     sections: [
-      {
-        heading: 'Product Lifespans by Category',
-        paragraphs: [
-          "Window treatment longevity varies significantly by product type and, in San Diego, by window orientation and proximity to the coast. Understanding realistic lifespans helps you make investment decisions with accurate expectations — and plan for replacement timelines before treatments become visibly worn.",
-          "Plantation shutters in composite or polymer construction are the longest-lived window treatment category. Properly installed composite shutters in San Diego homes routinely last 20–25 years without meaningful degradation. Real wood shutters last 10–15 years before moisture cycling, UV exposure, and humidity cause warping or finish deterioration — and coastal properties shorten this window further. The longevity of composite shutters is a core part of their value calculation relative to their higher upfront cost.",
-          "Roller shades in standard polyester fabrics last 5–8 years in typical San Diego conditions — somewhat shorter on south- and west-facing windows that receive direct sun for extended daily periods. Solution-dyed fabrics with built-in UV stabilization extend this to 10–12 years. Cellular honeycomb shades last 7–10 years, with the fabric structure maintaining its shape and insulating performance through most of that range before cell compression becomes visible. Motorized motors — the mechanical component — are rated for 10 or more years with normal use (four to eight operations per day). Rechargeable battery packs typically deliver 12–18 months per charge cycle before requiring charging, and the batteries themselves last through multiple years of charging cycles before capacity degrades.",
-        ],
-      },
-      {
-        heading: "What Shortens Lifespan in San Diego",
-        paragraphs: [
-          "San Diego's UV environment is the primary factor shortening window treatment life compared to national averages. South- and west-facing windows receive direct radiation at intensities that accelerate fabric photodegradation. Standard polyester fabrics on a south-facing window in Mira Mesa or Chula Vista can show color shift and fabric stiffening within three to four years — faster than the same product installed in a shaded north-facing location.",
-          "Salt air affects coastal properties within approximately two miles of the Pacific. The corrosive effect of salt-laden marine air on metal hardware components — aluminum headrails, steel mounting brackets, brass cord hardware — can reduce the functional life of mechanisms even when the fabric itself remains in good condition. Specifying marine-grade or stainless components at the original installation eliminates this failure mode for properties in La Jolla, Del Mar, Pacific Beach, and other coastal communities.",
-          "Humidity cycling — the daily pattern of marine layer morning humidity followed by afternoon drying — is a secondary factor. Real wood blinds and shutters absorb and release moisture with each cycle, leading to gradual warping, joint loosening, and finish cracking over time. Composite and polymer products are dimensionally stable through humidity cycling and are not affected by this mechanism. Proper operation also affects lifespan: cordless shades pulled beyond their designed stop point, or cellular shades raised too quickly, can stress the fabric and mounting points in ways that accelerate wear.",
-        ],
-      },
-      {
-        heading: 'How to Extend Your Treatment\'s Life',
-        paragraphs: [
-          "Regular cleaning is the most impactful maintenance step. Dust accumulation on roller shade fabrics traps moisture and contributes to fabric degradation. A light vacuum with a soft brush attachment, done monthly on frequently used shades, adds measurable years to fabric life. For cellular shades, a compressed air blast through the cells clears accumulated particulates without stressing the honeycomb structure. Plantation shutter louvers wipe clean with a slightly damp microfiber cloth — no solvents or abrasive cleaners.",
-          "UV-blocking window film applied directly to the glass surface reduces the radiation load reaching the window treatment fabric. This is particularly effective for south- and west-facing windows that receive the most intense direct sun. Film does not eliminate UV transmission but reduces it meaningfully, and the combination of quality film and a good solar shade or cellular shade approaches what a double-pane low-E glass installation achieves for a fraction of the cost.",
-          "For cordless and motorized shades, never force the mechanism. Cordless shades have a bottom rail stop position — pulling below this point stresses the spring tensioner and can permanently compromise the lift mechanism. Motorized shades should not be operated manually except in power-failure conditions. These guidelines are straightforward, but they are the most common source of premature mechanism failure in otherwise well-maintained installations.",
-        ],
-      },
-      {
-        heading: "iL Progetto's Warranty Coverage",
-        paragraphs: [
-          "Our warranty terms reflect how we think about a window treatment installation: as a long-term relationship rather than a one-time transaction. Hardware mechanisms — headrails, mounting brackets, tilt mechanisms, and operating systems — carry a lifetime warranty against manufacturing defects. If a mechanism fails due to a manufacturing fault at any point during the product's normal use life, we replace it.",
-          "Fabrics and motors are warranted for five years from installation. This covers manufacturing defects in the fabric construction, delamination of coated blackout fabrics, motor failure under normal use conditions, and battery pack defects. Fabric fading or degradation caused by UV exposure is a wear condition rather than a manufacturing defect, which is why we recommend solution-dyed fabrics for San Diego's high-UV environment — they remain within warranty-grade appearance for significantly longer than standard fabrics.",
-          "Installation workmanship is covered for one year. This includes bracket alignment, mounting security, level installation, and operating system calibration. If any shade sits unevenly, operates inconsistently, or shows a mounting problem within the first year, we return and correct it at no charge. After the first year, adjustments and service calls are available at a standard service rate. To schedule service on an existing installation or to discuss a new project, call us at (858) 338-1678.",
-        ],
-      },
+      { heading: 'Product Lifespans by Category', paragraphs: ["Plantation shutters in composite construction last 20-25 years. Roller shades last 5-8 years in standard fabrics, 10-12 years in solution-dyed fabrics.", "Motorized motors are rated for 10+ years with normal use."] },
     ],
   },
-
   {
     slug: 'custom-vs-offtheshelf-blinds-san-diego',
     title: 'Custom vs. Off-the-Shelf Blinds: The Real Cost Difference for San Diego Homes',
-    description: 'Big box store blinds vs. custom-measured window treatments — the real comparison on price, fit, appearance, and long-term value for San Diego homeowners.',
+    description: 'Big box store blinds vs. custom-measured window treatments — the real comparison on price, fit, appearance, and long-term value.',
     publishedAt: '2026-04-26',
-    keywords: ['custom blinds San Diego', 'custom vs ready made blinds', 'Home Depot blinds vs custom', 'custom window treatments worth it', 'custom shades San Diego price'],
+    keywords: ['custom blinds San Diego', 'custom vs ready made blinds'],
     category: 'buying-guide',
     readingMinutes: 6,
     relatedProducts: ['roller', 'cellular', 'shutters'],
     sections: [
-      {
-        heading: "The Price Gap Isn't What You Think",
-        paragraphs: [
-          "The most common assumption about big box blinds versus custom window treatments is that the price gap is enormous and straightforward. The reality is more nuanced — and the total cost comparison, when done honestly, is closer than most homeowners expect.",
-          "A big box store roller blind runs $30–$80 depending on size and brand. A custom-measured roller shade from a professional window treatment company runs $150–$400 per window installed. On a per-unit basis, the big box product is clearly less expensive. But that comparison omits several real costs that apply to almost every off-the-shelf purchase in San Diego homes.",
-          "Standard blind sizes are built around nominal dimensions — 24, 36, 48, 60, and 72 inches wide in fixed height increments. Most windows are not these exact dimensions. The common big box solution is to deduct a fraction of an inch from a standard size to create an inside-mount fit — but this creates side gaps that admit light and undermine the thermal and privacy performance of the product. Return trips to exchange for different sizes, re-cutting fees at the store, and the time cost of multiple installation attempts are real expenses that do not appear in the sticker price comparison. When San Diego homeowners who have tried the big-box route come to us, the most common context is: 'I already bought blinds twice and neither set was right.'",
-        ],
-      },
-      {
-        heading: 'The Fit Problem',
-        paragraphs: [
-          "San Diego's housing stock presents specific fit challenges. Homes built in the 1970s and 1980s — which represent a large portion of the inventory in Poway, El Cajon, Santee, and Chula Vista — often have window frames that are not perfectly square, plumb, or level. A blind cut to the nominal window width will bind in a window that is slightly narrower at the bottom than the top. An off-the-shelf shade hung on an out-of-plumb window will hang visibly crooked against the frame.",
-          "Newer construction in Carmel Valley, 4S Ranch, and Del Mar Mesa presents a different problem: non-standard custom dimensions that do not correspond to any available big box size. Windows specified at 52.5 inches wide or 74 inches tall are common in newer San Diego construction, and there is no standard product for these dimensions. The result is either an obvious gap on one or both sides of an inside-mount blind, or an outside-mount installation that covers significantly more wall than intended.",
-          "The fit problem compounds with inside-mount installations, which most homeowners prefer for the cleaner aesthetic. An inside-mount blind requires the window reveal to be deep enough to accommodate the headrail without projection into the room, and requires the window to be square enough that the blind does not bind or hang askew. Professional measurement at the in-home consultation identifies these issues before any product is ordered — and specifies the correct deductions, mounting approach, and product dimensions to achieve the clean inside-mount result the homeowner wanted.",
-        ],
-      },
-      {
-        heading: 'The Appearance Difference',
-        paragraphs: [
-          "Big box window treatments are produced in limited SKUs — the color, texture, and opacity options that can be stocked in a retail environment. At any given time, a major home improvement retailer in San Diego carries perhaps forty to sixty fabric options across all shade categories. Custom window treatment collections offer hundreds of fabric options in each product category, with variations in weave density, texture, backing, opacity, and color that the retail channel cannot support.",
-          "This matters most when you are trying to coordinate treatments across multiple rooms in an open-plan home — the most common San Diego floor plan in post-1990s construction. Matching the roller shade in the kitchen to the Roman shade in the dining area to the solar shade in the living room requires accessing the same fabric family across multiple product types. This coordination is routine in a custom collection and nearly impossible with retail products where kitchen and living room shade lines are entirely separate SKUs with no designed relationship.",
-          "The headrail and mounting hardware also differs visibly. Retail blinds use standardized injection-molded plastic headrails in a limited range of colors. Custom window treatments offer aluminum headrails in powder-coated finishes matched to the room's hardware — brushed nickel, matte black, bronze, or white — creating a finished appearance that reads as intentional design rather than a functional accessory.",
-        ],
-      },
-      {
-        heading: 'The Lifetime Value Calculation',
-        paragraphs: [
-          "Custom window treatments from a professional installer last two to three times longer than standard retail products. The fabric quality, hardware construction, and precision installation that define a custom product extend service life in ways that matter particularly in San Diego's UV-intensive environment. A custom roller shade in solution-dyed fabric, installed with correct mounting hardware and professionally sealed at the edges, will outlast two or three cycles of big box replacements on the same window.",
-          "Retail blinds, when damaged, must be fully replaced. The mounting hardware is not designed for component-level repair, and replacement slats, fabrics, or mechanisms are not available for most retail products. A single broken slat or a damaged lift cord on a big box blind means purchasing a new blind. Custom window treatments from professional fabricators are designed for component-level service — replacement cords, fabric panels, and mechanisms are available, and a professional installer can repair rather than replace in many scenarios.",
-          "The warranty difference is significant. Most retail window treatments carry a one-year manufacturer's warranty against defects, with no installation coverage. Professional custom window treatments carry warranties on hardware, fabric, and installation workmanship separately — and a reputable installer returns to correct installation problems at no charge within the warranty period. Over a ten-year period in a typical San Diego home, the total cost of ownership for custom window treatments is frequently comparable to two rounds of retail replacement, with significantly better performance and appearance throughout. If you are ready to see the difference in your own home, our designer visits your home with the complete collection — call (858) 338-1678 to schedule.",
-        ],
-      },
+      { heading: "The Price Gap Isn't What You Think", paragraphs: ["A big box roller blind runs $30-$80. A custom-measured roller shade from a professional runs $150-$400 installed.", "Standard blind sizes rarely fit San Diego windows precisely, leaving light gaps."] },
     ],
   },
 ]

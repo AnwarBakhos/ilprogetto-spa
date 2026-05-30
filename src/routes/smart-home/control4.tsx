@@ -425,7 +425,7 @@ function Control4Page() {
             </a>
           </div>
           <Link
-            to="/smart-home"
+            to={"/smart-home/" as any}
             className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase fade-up delay-3 hover:gap-3 transition-all"
             style={{ color: 'var(--mid)' }}
           >

@@ -192,7 +192,7 @@ export function Nav() {
           </li>
 
           <li>
-            <Link to="/blog" className={linkCls}
+            <Link to={"/blog/" as any} className={linkCls}
               activeProps={{ className: 'text-white border-b border-white pb-0.5 text-[11px] tracking-[0.18em] uppercase font-[500]' }}
               inactiveProps={{ className: linkCls }}>
               Journal

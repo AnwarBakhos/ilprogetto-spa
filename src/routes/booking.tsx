@@ -136,24 +136,12 @@ function BookingPage() {
             ))}
           </ul>
 
-          {/* Contact fallback */}
-          <div
-            className="px-4 py-4 border"
-            style={{ borderColor: 'var(--hairline)', background: 'var(--cream)' }}
-          >
-            <p className="text-[11px] tracking-[0.12em] uppercase mb-2" style={{ color: 'var(--mid)' }}>
-              Prefer to call?
-            </p>
-            <a
-              href="tel:+18583381678"
-              className="text-[20px] font-[300] hover:text-[var(--sand)] transition-colors"
-              style={{ fontFamily: 'var(--serif)', color: 'var(--ink)' }}
-            >
+          <div className="px-4 py-4 border" style={{ borderColor: 'var(--hairline)', background: 'var(--cream)' }}>
+            <p className="text-[11px] tracking-[0.12em] uppercase mb-2" style={{ color: 'var(--mid)' }}>Prefer to call?</p>
+            <a href="tel:+18583381678" className="text-[20px] font-[300] hover:text-[var(--sand)] transition-colors" style={{ fontFamily: 'var(--serif)', color: 'var(--ink)' }}>
               (858) 338-1678
             </a>
-            <p className="text-[12px] mt-1" style={{ color: 'var(--mid)' }}>
-              Call or text — we respond same day.
-            </p>
+            <p className="text-[12px] mt-1" style={{ color: 'var(--mid)' }}>Call or text — we respond same day.</p>
           </div>
         </aside>
       </section>

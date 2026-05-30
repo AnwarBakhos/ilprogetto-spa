@@ -56,9 +56,7 @@ function CareersIndexPage() {
                   ? 'Measure and install custom window treatments in high-end residential and commercial properties across Southern California.'
                   : 'Conduct in-home consultations, present product recommendations, and close custom window treatment orders for homeowners across our service area.'}
               </p>
-              <p className="text-[11px] tracking-[0.14em] uppercase mb-3" style={{ color: 'var(--mid)' }}>
-                Select your area
-              </p>
+              <p className="text-[11px] tracking-[0.14em] uppercase mb-3" style={{ color: 'var(--mid)' }}>Select your area</p>
               <div className="flex flex-wrap gap-1.5">
                 {CITY_SLUGS.slice(0, 8).map(city => (
                   <a key={city}

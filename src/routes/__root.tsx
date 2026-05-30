@@ -17,7 +17,6 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
 const BASE_URL = 'https://ilprogetto-spa.vercel.app'
 
-// Label overrides for path segments
 const SEGMENT_LABELS: Record<string, string> = {
   blog: 'Journal',
   'smart-home': 'Smart Home',
@@ -34,21 +33,14 @@ const SEGMENT_LABELS: Record<string, string> = {
 
 function toLabel(segment: string): string {
   return SEGMENT_LABELS[segment] ??
-    segment
-      .split('-')
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(' ')
+    segment.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 }
 
 function BreadcrumbSchema() {
   const location = useLocation()
   const pathname = location.pathname
-
-  // Skip on homepage
   if (pathname === '/') return null
-
   const segments = pathname.replace(/\/$/, '').split('/').filter(Boolean)
-
   const items = [
     { name: 'Home', id: BASE_URL + '/' },
     ...segments.map((seg, i) => ({
@@ -56,7 +48,6 @@ function BreadcrumbSchema() {
       id: BASE_URL + '/' + segments.slice(0, i + 1).join('/'),
     })),
   ]
-
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -67,12 +58,8 @@ function BreadcrumbSchema() {
       item: item.id,
     })),
   }
-
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   )
 }
 
@@ -81,12 +68,9 @@ function RootLayout() {
     <>
       <HeadContent />
       <BreadcrumbSchema />
-      {/* ── Skip to main content (WCAG 2.4.1) ── */}
-      <a
-        href="#page-content"
+      <a href="#page-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:text-[12px] focus:tracking-[0.1em] focus:uppercase"
-        style={{ background: 'var(--sand)', color: '#fff' }}
-      >
+        style={{ background: 'var(--sand)', color: '#fff' }}>
         Skip to main content
       </a>
       <Nav />
