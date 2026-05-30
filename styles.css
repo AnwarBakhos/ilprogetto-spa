@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* Force Tailwind v4 to deep-scan every component */
+@source "./src/**/*.{tsx,ts,jsx,js}";
+
+/* ─── Brand Tokens ─────────────────────────────────── */
+:root {
+  --cream: #fbfbf9;
+  --ink: #1c1c1c;
+  --sand: #c5a880;
+  --sand-light: #e2d4be;
+  --sand-pale: #f5ede0;
+  --mid: #707070;
+  --warm: #f5f3ef;
+  --hairline: rgba(28, 28, 28, 0.08);
+
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --nav-h: 76px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Base ─────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--cream);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--sand);
+  color: var(--cream);
+}
+
+/* ─── Accessibility: keyboard focus ring ───────────────── */
+/* Only shows for keyboard navigation (not mouse clicks).  */
+/* Uses lower specificity — won't override component styles */
+:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 2px;
+}
+
+/* ─── Accessibility toolbar CSS hooks ──────────────────── */
+
+/* Font size — only applied when user activates A+ or A++.
+   Sets root font-size so all rem/em units scale naturally.
+   No rule in default state = zero impact on existing styles. */
+html[data-fontsize='large']  { font-size: 108%; }
+html[data-fontsize='larger'] { font-size: 116%; }
+
+/* High contrast mode */
+html[data-contrast='high'] {
+  --cream: #ffffff;
+  --ink:   #000000;
+  --mid:   #333333;
+  --sand:  #8a6030;
+  --sand-light: #6a4820;
+  --warm:  #f0f0f0;
+  --hairline: rgba(0,0,0,0.3);
+}
+html[data-contrast='high'] body {
+  background: #fff;
+  color: #000;
+}
+html[data-contrast='high'] a {
+  text-decoration: underline;
+}
+
+/* Reduced motion */
+html[data-motion='reduced'] *,
+html[data-motion='reduced'] *::before,
+html[data-motion='reduced'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+html[data-motion='reduced'] .fade-up {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Wide text spacing (WCAG 1.4.12) */
+html[data-spacing='wide'] body {
+  letter-spacing: 0.12em;
+  word-spacing: 0.16em;
+  line-height: 1.9;
+}
+
+/* ─── Typography helpers ────────────────────────────── */
+.font-serif { font-family: var(--serif); }
+.font-sans  { font-family: var(--sans); }
+
+/* ─── Scroll-reveal ─────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.16s; }
+.delay-3 { transition-delay: 0.24s; }
+.delay-4 { transition-delay: 0.32s; }
+
+/* ─── Range input (Blinds Configurator) ─────────────── */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(28, 28, 28, 0.1);
+  height: 2px;
+  width: 100%;
+  cursor: pointer;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--ink);
+  border-radius: 50%;
+  transition: transform 0.1s ease;
+}
+input[type='range']::-webkit-slider-thumb:hover { transform: scale(1.25); }
+input[type='range']::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--ink);
+  border-radius: 50%;
+  border: none;
+  transition: transform 0.1s ease;
+}
+input[type='range']::-moz-range-thumb:hover { transform: scale(1.25); }
+
+/* ─── Nav backdrop ──────────────────────────────────── */
+.nav-glass {
+  background: rgba(251, 251, 249, 0.92);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* ─── Micro-interactions ───────────────────────────────── */
+@keyframes btn-jiggle {
+  0%   { transform: scale(1) rotate(0deg); }
+  20%  { transform: scale(1.04) rotate(-1.2deg); }
+  40%  { transform: scale(1.04) rotate(1.2deg); }
+  60%  { transform: scale(1.02) rotate(-0.6deg); }
+  80%  { transform: scale(1.02) rotate(0.6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.btn-interactive {
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              background 0.2s ease, 
+              box-shadow 0.2s ease;
+}
+.btn-interactive:hover {
+  transform: scale(1.04);
+}
+.btn-interactive:active {
+  transform: scale(0.97);
+}
+
+/* Blog card stretched link */
+.blog-card {
+  position: relative;
+}
+.blog-card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.blog-card:hover .blog-card-title {
+  color: var(--sand);
+}
+
+/* ─── Read More button ─────────────────────────────────── */
+.read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 0.5px solid var(--sand);
+  color: var(--sand);
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 2;
+}
+.read-btn:hover {
+  background: var(--sand);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ─── High contrast fix ───────────────────────────────── */
+/* Ensure mid-tone text on dark backgrounds is always legible */
+.on-dark p, .on-dark span, .on-dark li {
+  color: rgba(251, 251, 249, 0.75);
+}
+.on-dark h2, .on-dark h3 {
+  color: rgba(251, 251, 249, 0.95);
+}

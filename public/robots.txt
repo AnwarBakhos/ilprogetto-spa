@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /booking/confirmed
+
+Sitemap: https://ilprogetto-spa.vercel.app/sitemap.xml
