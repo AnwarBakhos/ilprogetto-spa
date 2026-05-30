@@ -9,19 +9,18 @@ interface ReviewCardProps {
 export function ReviewCard({ review, onClick, showButtons = false }: ReviewCardProps) {
   return (
     <div
-      className="flex-shrink-0 w-96 h-full flex flex-col p-9 cursor-pointer transition-all duration-300 hover:shadow-xl"
+      className="flex-shrink-0 w-96 h-full flex flex-col p-9 transition-all duration-300 hover:shadow-xl"
       style={{
         background: 'var(--cream)',
         borderLeft: '3px solid var(--sand)',
+        cursor: onClick ? 'pointer' : 'default',
       }}
       onClick={onClick}
       onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          onClick?.()
-        }
+        if (e.key === 'Enter' || e.key === ' ') onClick?.()
       }}
-      role="button"
-      tabIndex={0}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
     >
       {/* Stars */}
       <div className="flex items-center gap-1.5 mb-7">
@@ -47,33 +46,31 @@ export function ReviewCard({ review, onClick, showButtons = false }: ReviewCardP
         </p>
       </div>
 
-      {/* Action Buttons */}
+      {/* Action Buttons — real navigation links */}
       {showButtons && (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
           <a
             href="/booking"
-            onClick={(e) => { e.preventDefault(); onClick?.() }}
-            className="inline-block px-5 py-2 text-[10px] tracking-[0.16em] uppercase transition-colors btn-interactive"
+            className="inline-block px-5 py-2 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
             style={{ background: 'var(--sand)', color: 'var(--ink)', fontFamily: 'var(--sans)' }}
           >
             Book Now
           </a>
           <a
             href="/reviews"
-            onClick={(e) => { e.preventDefault(); onClick?.() }}
-            className="inline-block px-5 py-2 text-[10px] tracking-[0.16em] uppercase transition-colors btn-interactive"
+            className="inline-block px-5 py-2 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
             style={{ background: 'var(--ink)', color: 'var(--cream)', fontFamily: 'var(--sans)' }}
           >
-            See More
+            See More Reviews
           </a>
           <a
             href="https://www.yelp.com/writeareview/biz/bbN_heYMnYXA2esAoUKpmQ?return_url=%2Fbiz%2FbbN_heYMnYXA2esAoUKpmQ"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-5 py-2 text-[10px] tracking-[0.16em] uppercase transition-colors btn-interactive"
+            className="inline-block px-5 py-2 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
             style={{ background: 'var(--sand)', color: 'var(--ink)', fontFamily: 'var(--sans)' }}
           >
-            Yelp Review
+            Leave Yelp Review
           </a>
         </div>
       )}
