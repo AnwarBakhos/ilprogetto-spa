@@ -151,7 +151,7 @@ function ReviewsPage() {
     <div style={{ background: 'var(--warm)', minHeight: '100vh' }}>
 
       {/* ── Hero ── */}
-      <header className="px-10 md:px-20 pt-32 pb-20 text-center max-w-[680px] mx-auto">
+      <header className="px-4 md:px-10 lg:px-20 pt-32 pb-20 text-center max-w-[680px] mx-auto">
         <p
           className="text-[11px] tracking-[0.22em] uppercase mb-8"
           style={{ color: 'var(--sand)', fontFamily: 'var(--sans)' }}
@@ -183,7 +183,7 @@ function ReviewsPage() {
 
       {/* ── Platform cards ── */}
       <section
-        className="px-10 md:px-20 py-20 max-w-[900px] mx-auto"
+        className="px-4 md:px-10 lg:px-20 py-20 max-w-[900px] mx-auto"
         style={{ background: 'var(--cream)' }}
         aria-label="Review platforms"
       >
@@ -209,7 +209,7 @@ function ReviewsPage() {
 
       {/* ── Closing note ── */}
       <section
-        className="px-10 md:px-20 pb-32 text-center max-w-[620px] mx-auto"
+        className="px-4 md:px-10 lg:px-20 pb-32 text-center max-w-[620px] mx-auto"
         aria-label="Thank you note"
       >
         <p

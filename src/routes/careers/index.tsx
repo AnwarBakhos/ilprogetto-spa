@@ -27,7 +27,7 @@ export const Route = createFileRoute('/careers/')({
 function CareersIndexPage() {
   return (
     <div>
-      <header className="px-10 md:px-20 py-20 md:py-28 text-center"
+      <header className="px-4 md:px-10 lg:px-20 py-20 md:py-28 text-center"
               style={{ background: 'var(--ink)' }}>
         <p className="inline-flex items-center justify-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-5"
            style={{ color: 'var(--sand)' }}>
@@ -44,7 +44,7 @@ function CareersIndexPage() {
         </p>
       </header>
 
-      <section className="px-10 md:px-20 py-16">
+      <section className="px-4 md:px-10 lg:px-20 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-[860px]">
           {Object.entries(POSITION_SLUGS).map(([slug, title]) => (
             <div key={slug} className="border p-8"

@@ -114,7 +114,7 @@ function CityOverviewPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 px-10 md:px-20 pb-20 md:pb-28 max-w-[860px]">
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-20 md:pb-28 max-w-[860px]">
           <p
             className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 fade-up"
             style={{ color: 'var(--sand-light)' }}
@@ -171,7 +171,7 @@ function CityOverviewPage() {
 
       {/* ══ PRODUCTS GRID ═════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--warm)' }}
         aria-labelledby="products-heading"
       >
@@ -237,7 +237,7 @@ function CityOverviewPage() {
 
       {/* ══ WHY iL PROGETTO ═══════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--cream)' }}
         aria-labelledby="why-heading"
       >
@@ -298,7 +298,7 @@ function CityOverviewPage() {
 
       {/* ══ CTA ═══════════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--ink)' }}
         aria-label="Book a consultation"
       >
@@ -345,14 +345,4 @@ function CityOverviewPage() {
             <a
               href="tel:+18583381678"
               className="inline-flex items-center gap-2.5 px-9 py-4 text-[11px] tracking-[0.2em] uppercase border transition-colors hover:border-[var(--sand-light)]"
-              style={{ borderColor: 'rgba(255,255,255,0.25)', color: 'rgba(251,251,249,0.7)' }}
-            >
-              Call (858) 338-1678
-            </a>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  )
-}
+              style={{ borderColor: 'rgba(255,255,255,0

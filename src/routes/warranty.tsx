@@ -150,7 +150,7 @@ function WarrantyPage() {
     <div ref={ref}>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section
-        className="px-10 md:px-20 py-28 md:py-36"
+        className="px-4 md:px-10 lg:px-20 py-28 md:py-36"
         style={{ background: 'var(--ink)' }}
         aria-label="Warranty overview"
       >
@@ -186,7 +186,7 @@ function WarrantyPage() {
       {/* ── Three warranty tier cards ─────────────────────────────────────── */}
       <section
         aria-labelledby="tiers-heading"
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--warm)' }}
       >
         <h2 id="tiers-heading" className="sr-only">
@@ -260,7 +260,7 @@ function WarrantyPage() {
       {/* ── Covered / Not Covered ─────────────────────────────────────────── */}
       <section
         aria-labelledby="coverage-heading"
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--cream)' }}
       >
         <p
@@ -378,7 +378,7 @@ function WarrantyPage() {
       {/* ── How to Make a Claim ───────────────────────────────────────────── */}
       <section
         aria-labelledby="claim-heading"
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--warm)' }}
       >
         <p
@@ -443,7 +443,7 @@ function WarrantyPage() {
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="cta-heading"
-        className="px-10 md:px-20 py-24 text-center"
+        className="px-4 md:px-10 lg:px-20 py-24 text-center"
         style={{ background: 'var(--ink)' }}
       >
         <p

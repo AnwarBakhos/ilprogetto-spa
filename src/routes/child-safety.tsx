@@ -127,7 +127,7 @@ function ChildSafetyPage() {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section
         aria-label="Child safety introduction"
-        className="px-10 md:px-20 py-28 md:py-36"
+        className="px-4 md:px-10 lg:px-20 py-28 md:py-36"
         style={{ background: 'var(--sand-pale)' }}
       >
         <p
@@ -163,7 +163,7 @@ function ChildSafetyPage() {
       {/* ── Safety by design ─────────────────────────────────────────────── */}
       <section
         aria-labelledby="design-heading"
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--warm)' }}
       >
         <p
@@ -222,7 +222,7 @@ function ChildSafetyPage() {
       {/* ── WCMA Compliance ──────────────────────────────────────────────── */}
       <section
         aria-labelledby="wcma-heading"
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--cream)' }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -304,7 +304,7 @@ function ChildSafetyPage() {
       {/* ── Safe products grid ────────────────────────────────────────────── */}
       <section
         aria-labelledby="products-heading"
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--warm)' }}
       >
         <p
@@ -363,7 +363,7 @@ function ChildSafetyPage() {
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="cta-heading"
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--sand-pale)' }}
       >
         <div className="max-w-[620px]">

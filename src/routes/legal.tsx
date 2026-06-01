@@ -36,7 +36,7 @@ function LegalPage() {
 
   return (
     <div>
-      <header className="px-10 md:px-20 py-16 border-b" style={{ background: 'var(--warm)', borderColor: 'var(--hairline)' }}>
+      <header className="px-4 md:px-10 lg:px-20 py-16 border-b" style={{ background: 'var(--warm)', borderColor: 'var(--hairline)' }}>
         <h1 className="font-[300] leading-[1.04] tracking-[-0.015em] mb-6" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px, 4vw, 52px)' }}>
           Legal Information
         </h1>
@@ -51,7 +51,7 @@ function LegalPage() {
         </nav>
       </header>
 
-      <main className="px-10 md:px-20 py-16 max-w-[740px]">
+      <main className="px-4 md:px-10 lg:px-20 py-16 max-w-[740px]">
         {tab === 'privacy' && (
           <article aria-label="Privacy Policy">
             <p className="text-[13px] mb-10" style={{ color: 'var(--mid)' }}><em>Last updated: January 2025</em></p>

@@ -125,7 +125,7 @@ function AppleHomekitPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 px-10 md:px-20 pb-20 md:pb-28 max-w-[860px]">
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-20 md:pb-28 max-w-[860px]">
           <p
             className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 fade-up"
             style={{ color: 'var(--sand-light)' }}
@@ -175,7 +175,7 @@ function AppleHomekitPage() {
 
       {/* ══ WHAT YOU CAN SAY ══════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--warm)' }}
         aria-labelledby="commands-heading"
       >
@@ -219,7 +219,7 @@ function AppleHomekitPage() {
 
       {/* ══ HOW SETUP WORKS ═══════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--cream)' }}
         aria-labelledby="setup-heading"
       >
@@ -277,7 +277,7 @@ function AppleHomekitPage() {
 
       {/* ══ WHY HOMEKIT ═══════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--warm)' }}
         aria-labelledby="benefits-heading"
       >
@@ -325,7 +325,7 @@ function AppleHomekitPage() {
 
       {/* ══ SERVICE AREAS ═════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-20"
+        className="px-4 md:px-10 lg:px-20 py-20"
         style={{ background: 'var(--cream)' }}
         aria-labelledby="areas-heading"
       >
@@ -365,7 +365,7 @@ function AppleHomekitPage() {
 
       {/* ══ CTA ═══════════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--sand-pale)' }}
         aria-label="Book a consultation"
       >

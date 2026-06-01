@@ -65,7 +65,7 @@ function ConfirmedPage() {
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <header
-        className="px-10 md:px-20 py-24 md:py-32 text-center"
+        className="px-4 md:px-10 lg:px-20 py-24 md:py-32 text-center"
         style={{ background: 'var(--ink)' }}
       >
         {/* Animated checkmark */}
@@ -112,7 +112,7 @@ function ConfirmedPage() {
       </header>
 
       {/* ── What Happens Next ─────────────────────────────────────────── */}
-      <section className="px-10 md:px-20 py-24" aria-label="Next steps">
+      <section className="px-4 md:px-10 lg:px-20 py-24" aria-label="Next steps">
         <div className="max-w-[860px] mx-auto">
           <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-5"
              style={{ color: 'var(--sand)' }}>
@@ -146,7 +146,7 @@ function ConfirmedPage() {
       </section>
 
       {/* ── Contact + Links ───────────────────────────────────────────── */}
-      <section className="px-10 md:px-20 py-16 border-t border-[var(--hairline)]"
+      <section className="px-4 md:px-10 lg:px-20 py-16 border-t border-[var(--hairline)]"
                style={{ background: 'var(--warm)' }}>
         <div className="max-w-[860px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>

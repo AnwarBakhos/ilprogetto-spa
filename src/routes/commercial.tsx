@@ -139,7 +139,7 @@ function CommercialPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 px-10 md:px-20 pb-20 md:pb-28 max-w-[860px]">
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-20 md:pb-28 max-w-[860px]">
           <p
             className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 fade-up"
             style={{ color: 'var(--sand-light)' }}
@@ -174,7 +174,7 @@ function CommercialPage() {
 
       {/* ══ WHO WE SERVE ══════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--cream)' }}
         aria-labelledby="serve-heading"
       >
@@ -238,7 +238,7 @@ function CommercialPage() {
 
       {/* ══ WHY IL PROGETTO ═══════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--warm)' }}
         aria-labelledby="why-heading"
       >
@@ -296,7 +296,7 @@ function CommercialPage() {
 
       {/* ══ PROCESS ═══════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--cream)' }}
         aria-labelledby="process-heading"
       >
@@ -357,7 +357,7 @@ function CommercialPage() {
 
       {/* ══ CTA ══════════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--ink)' }}
         aria-label="Start a commercial project"
       >

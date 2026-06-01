@@ -166,7 +166,7 @@ function FaqPage() {
       {/* ── Category filter ───────────────────────────────────────────── */}
       <nav
         aria-label="Filter FAQ by category"
-        className="px-10 md:px-20 py-8 border-b flex flex-wrap gap-2"
+        className="px-4 md:px-10 lg:px-20 py-8 border-b flex flex-wrap gap-2"
         style={{ borderColor: 'var(--hairline)', background: '#fff' }}
       >
         <button
@@ -202,7 +202,7 @@ function FaqPage() {
       {/* ── Accordion ─────────────────────────────────────────────────── */}
       <section
         aria-label="FAQ questions"
-        className="px-10 md:px-20 py-16 max-w-[860px]"
+        className="px-4 md:px-10 lg:px-20 py-16 max-w-[860px]"
       >
         {filtered.map((item) => (
           <AccordionItem key={item.id} item={item} />
@@ -213,7 +213,7 @@ function FaqPage() {
 
       {/* ── Bottom CTA ────────────────────────────────────────────────── */}
       <section
-        className="px-10 md:px-20 py-20 border-t"
+        className="px-4 md:px-10 lg:px-20 py-20 border-t"
         style={{ borderColor: 'var(--hairline)', background: 'var(--warm)' }}
         aria-label="Still have questions"
       >

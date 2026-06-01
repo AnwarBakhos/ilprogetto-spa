@@ -47,7 +47,7 @@ function BlogIndexPage() {
     <div>
       {/* ── Header ──────────────────────────────────────────────────────── */}
       <header
-        className="px-10 md:px-20 py-20 md:py-28"
+        className="px-4 md:px-10 lg:px-20 py-20 md:py-28"
         style={{ background: 'var(--warm)' }}
       >
         <div className="max-w-[680px]">
@@ -78,7 +78,7 @@ function BlogIndexPage() {
         </div>
       </header>
 
-      <section className="px-10 md:px-20 py-16" aria-label="Articles">
+      <section className="px-4 md:px-10 lg:px-20 py-16" aria-label="Articles">
 
         {/* ── Lead article ────────────────────────────────────────────── */}
         {lead && (
@@ -181,7 +181,7 @@ function BlogIndexPage() {
         </div>
       </section>
 
-      <section className="px-10 md:px-20 py-16 border-t" style={{ borderColor: 'var(--hairline)', background: 'var(--warm)' }}>
+      <section className="px-4 md:px-10 lg:px-20 py-16 border-t" style={{ borderColor: 'var(--hairline)', background: 'var(--warm)' }}>
         <div className="flex items-center justify-between flex-wrap gap-6">
           <div>
             <p className="text-[15px] mb-1" style={{ color: 'var(--ink)' }}>Ready to explore our product range?</p>

@@ -159,7 +159,7 @@ function AboutPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 px-10 md:px-20 pb-20 md:pb-28 max-w-[860px]">
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-20 md:pb-28 max-w-[860px]">
           <p
             className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 fade-up"
             style={{ color: 'var(--sand-light)' }}
@@ -219,7 +219,7 @@ function AboutPage() {
 
       {/* ══ BRAND STATEMENT ═══════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--warm)' }}
         aria-label="Our philosophy"
       >
@@ -266,7 +266,7 @@ function AboutPage() {
 
       {/* ══ HOW IT WORKS ══════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--cream)' }}
         aria-labelledby="process-heading"
       >
@@ -327,7 +327,7 @@ function AboutPage() {
 
       {/* ══ WHY WE'RE DIFFERENT ═══════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--warm)' }}
         aria-labelledby="diff-heading"
       >
@@ -386,7 +386,7 @@ function AboutPage() {
 
       {/* ══ SERVICE AREA ══════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--ink)' }}
         aria-labelledby="area-heading"
       >
@@ -453,7 +453,7 @@ function AboutPage() {
 
       {/* ══ TESTIMONIAL PULL QUOTE ════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--cream)' }}
         aria-label="Client testimonial"
       >
@@ -516,7 +516,7 @@ function AboutPage() {
 
       {/* ══ CTA ══════════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--warm)' }}
         aria-label="Book a consultation"
       >

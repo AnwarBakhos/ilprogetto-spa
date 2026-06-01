@@ -265,7 +265,7 @@ function CityProductPage() {
       <LocalBusinessSchema city={city} product={product} />
 
       {/* Hero */}
-      <header className="px-10 md:px-20 py-20 md:py-28" style={{ background: 'var(--warm)' }}>
+      <header className="px-4 md:px-10 lg:px-20 py-14 md:py-20 lg:py-28" style={{ background: 'var(--warm)' }}>
         <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-5"
            style={{ color: 'var(--sand)' }}>
           <span className="inline-block w-8 h-px bg-[var(--sand)]" aria-hidden="true" />
@@ -355,7 +355,7 @@ function CityProductPage() {
 
       {/* Product deep-dive */}
       {desc && (
-        <section className="px-10 md:px-20 py-20 border-t border-[var(--hairline)]"
+        <section className="px-4 md:px-10 lg:px-20 py-14 md:py-20 border-t border-[var(--hairline)]"
                  style={{ background: 'var(--cream)' }}>
           <div className="max-w-[860px]">
             <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-6"
@@ -380,7 +380,7 @@ function CityProductPage() {
       )}
 
       {/* How it works */}
-      <section className="px-10 md:px-20 py-20 border-t border-[var(--hairline)]"
+      <section className="px-4 md:px-10 lg:px-20 py-14 md:py-20 border-t border-[var(--hairline)]"
                style={{ background: 'var(--warm)' }}>
         <div className="max-w-[860px]">
           <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-6"
@@ -425,7 +425,7 @@ function CityProductPage() {
 
       {/* FAQ accordion */}
       {faqs.length > 0 && (
-        <section className="px-10 md:px-20 py-20 border-t border-[var(--hairline)]"
+        <section className="px-4 md:px-10 lg:px-20 py-14 md:py-20 border-t border-[var(--hairline)]"
                  style={{ background: 'var(--cream)' }}>
           <div className="max-w-[760px]">
             <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-6"
@@ -448,7 +448,7 @@ function CityProductPage() {
       )}
 
       {/* Social proof strip */}
-      <section className="px-10 md:px-20 py-20 border-t border-[var(--hairline)]"
+      <section className="px-4 md:px-10 lg:px-20 py-14 md:py-20 border-t border-[var(--hairline)]"
                style={{ background: 'var(--ink)' }}>
         <div className="max-w-[1000px]">
           <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-10"
@@ -456,7 +456,7 @@ function CityProductPage() {
             <span className="inline-block w-6 h-px" style={{ background: 'var(--sand)' }} aria-hidden="true" />
             What Our Clients Say
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {getPageReviews(city, product, 4).map((review) => (
               <div key={review.id} className="flex flex-col gap-4">
                 <div className="flex gap-1">
@@ -480,7 +480,7 @@ function CityProductPage() {
       </section>
 
       {/* Why iL Progetto */}
-      <section className="px-10 md:px-20 py-20 border-t border-[var(--hairline)]"
+      <section className="px-4 md:px-10 lg:px-20 py-14 md:py-20 border-t border-[var(--hairline)]"
                style={{ background: 'var(--warm)' }}>
         <div className="max-w-[860px]">
           <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-4"
@@ -513,7 +513,7 @@ function CityProductPage() {
       </section>
 
       {/* Final CTA banner */}
-      <section className="px-10 md:px-20 py-24 border-t border-[var(--hairline)] text-center"
+      <section className="px-4 md:px-10 lg:px-20 py-16 md:py-24 border-t border-[var(--hairline)] text-center"
                style={{ background: 'var(--ink)' }}>
         <p className="inline-flex items-center justify-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-6"
            style={{ color: 'var(--sand)' }}>
@@ -548,7 +548,7 @@ function CityProductPage() {
       </section>
 
       {/* Nearby cities */}
-      <section className="px-10 md:px-20 py-16 border-t border-[var(--hairline)]"
+      <section className="px-4 md:px-10 lg:px-20 py-12 md:py-16 border-t border-[var(--hairline)]"
                style={{ background: 'var(--cream)' }}>
         <p className="text-[10px] tracking-[0.22em] uppercase mb-5" style={{ color: 'var(--mid)' }}>
           Also serving
@@ -557,12 +557,4 @@ function CityProductPage() {
           {CITY_SLUGS.filter(c => c !== city).slice(0, 8).map(c => (
             <a key={c} href={`/locations/${c}/${product}`}
                className="px-3.5 py-2 text-[11px] tracking-[0.12em] uppercase border transition-colors hover:border-[var(--sand)] hover:text-[var(--sand)]"
-               style={{ borderColor: 'var(--hairline)', color: 'var(--mid)' }}>
-              {cityName(c)}
-            </a>
-          ))}
-        </div>
-      </section>
-    </div>
-  )
-}
+               style={{ borderColor: 'var(

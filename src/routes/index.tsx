@@ -318,7 +318,7 @@ function HomePage() {
         />
 
         {/* Content */}
-        <div className="relative z-[2] px-10 md:px-20 pb-24 md:pb-28 w-full flex flex-col lg:flex-row lg:items-end lg:gap-16">
+        <div className="relative z-[2] px-4 md:px-10 lg:px-20 pb-20 md:pb-24 lg:pb-28 w-full flex flex-col lg:flex-row lg:items-end lg:gap-16">
           {/* Left: existing hero text */}
           <div className="flex-1 min-w-0">
             <p className="hero fade-up inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 text-[var(--sand-light)]">
@@ -384,7 +384,7 @@ function HomePage() {
           </div>
 
           {/* Right: booking survey card */}
-          <div className="lg:w-[380px] flex-shrink-0 pb-0 lg:pb-4">
+          <div className="w-full lg:w-[380px] flex-shrink-0 pb-0 lg:pb-4 mt-8 lg:mt-0">
             <HeroBookingSurvey />
           </div>
         </div>
@@ -393,7 +393,7 @@ function HomePage() {
       {/* ── TRUST BAR ─────────────────────────────────────────────────────────── */}
       <section
         aria-label="Trust indicators"
-        className="flex justify-between items-center px-10 md:px-20 py-9 flex-wrap gap-6"
+        className="flex justify-center items-center px-4 md:px-10 lg:px-20 py-9 flex-wrap gap-4 md:gap-6"
         style={{ background: 'var(--ink)' }}
       >
         {(
@@ -428,7 +428,7 @@ function HomePage() {
       <section
         id="services"
         aria-labelledby="services-heading"
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-16 md:py-28"
         style={{ background: 'var(--warm)' }}
       >
         {/* Section header */}
@@ -496,7 +496,7 @@ function HomePage() {
             loading="lazy"
           />
         </div>
-        <div className="flex flex-col justify-center px-12 md:px-20 py-20">
+        <div className="flex flex-col justify-center px-4 md:px-12 lg:px-20 py-12 md:py-20">
           <p className="fade-up text-[10px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
             Our Mobile Showroom
           </p>
@@ -531,7 +531,7 @@ function HomePage() {
       {/* ── FINANCING BANNER ─────────────────────────────────────────────────── */}
       <section
         aria-labelledby="financing-heading"
-        className="text-center px-10 py-24"
+        className="text-center px-4 md:px-10 py-16 md:py-24"
         style={{ background: 'var(--sand-pale, #f5ede0)' }}
       >
         <Eyebrow>Financing Available</Eyebrow>
@@ -575,9 +575,9 @@ function HomePage() {
       {/* ── SERVICE AREA ─────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="area-heading"
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-16 md:py-28"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div>
             <Eyebrow>Where We Serve</Eyebrow>
             <h2
@@ -599,7 +599,7 @@ function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-0.5 fade-up delay-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0.5 fade-up delay-2">
             {(
               ['San Diego County', 'Riverside County', 'Orange County', 'San Bernardino County'] as const
             ).map((county) => (
@@ -665,7 +665,7 @@ function HeroBookingSurvey() {
   }
 
   return (
-    <div style={{ background: 'rgba(10,10,10,0.72)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,0.1)', padding: '36px' }}>
+    <div style={{ background: 'rgba(10,10,10,0.72)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,0.1)', padding: 'clamp(20px, 5vw, 36px)' }}>
       {step === 'sent' ? (
         <div style={{ textAlign: 'center', padding: '12px 0' }}>
           <div style={{ marginBottom: '16px' }}>
@@ -694,17 +694,4 @@ function HeroBookingSurvey() {
               <option value="Roller Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Roller Shades</option>
               <option value="Zebra Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Zebra Shades</option>
               <option value="Motorized Blinds" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Motorized Blinds</option>
-              <option value="Plantation Shutters" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Plantation Shutters</option>
-              <option value="Cellular Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Cellular Shades</option>
-              <option value="Curtains & Drapery" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Curtains &amp; Drapery</option>
-            </select>
-          </div>
-          <button type="submit" disabled={submitting}
-            style={{ width: '100%', background: 'var(--sand)', color: '#fff', border: 'none', padding: '13px 20px', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1, fontFamily: 'var(--sans)', transition: 'opacity 0.2s' }}>
-            {submitting ? 'Sending...' : 'Get My Free Quote & Consultation'}
-          </button>
-        </form>
-      )}
-    </div>
-  )
-}
+              <option value="Plantation Shutters" style={{ background: '#1c1c1a', color: 

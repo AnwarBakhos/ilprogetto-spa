@@ -47,7 +47,7 @@ export function Footer() {
       className="bg-[var(--ink)]"
       style={{ borderTop: '0.5px solid rgba(255,255,255,0.08)' }}
     >
-      <div className="max-w-[1600px] mx-auto px-8 xl:px-12 pt-20 pb-10">
+      <div className="max-w-[1600px] mx-auto px-4 md:px-8 xl:px-12 pt-12 md:pt-20 pb-10">
 
         {/* ── Top section: Brand + Nav + Products (by category) + Contact ── */}
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_1.2fr] gap-16 mb-16">
@@ -152,7 +152,7 @@ export function Footer() {
           </div>
 
           {/* ── Contact & Legal ── */}
-          <div className="lg:text-right lg:ml-auto">
+          <div className="lg:text-right lg:ml-auto text-left">
             <p
               className="text-[10px] tracking-[0.22em] uppercase mb-6"
               style={{ color: 'rgba(251,251,249,0.35)' }}
@@ -198,8 +198,8 @@ export function Footer() {
         </div>
 
         {/* ── SEO city/product links ── */}
-        <div className="border-t pt-12 mb-12" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-          <div className="flex items-center justify-between mb-6">
+        <div className="border-t pt-8 md:pt-12 mb-8 md:mb-12" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
             <p className="text-[10px] tracking-[0.22em] uppercase"
                style={{ color: 'rgba(251,251,249,0.25)' }}>
               Local Service Areas
@@ -330,9 +330,4 @@ export function Footer() {
               )
             })
           }
-          </div>
-        </div>
-      </div>
-    </footer>
-  )
-}
+     

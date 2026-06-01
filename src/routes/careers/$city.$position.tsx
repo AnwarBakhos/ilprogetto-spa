@@ -310,7 +310,7 @@ function CareersPage() {
   return (
     <div>
       {/* ── Hero ── */}
-      <header className="px-10 md:px-20 py-20" style={{ background: 'var(--ink)' }}>
+      <header className="px-4 md:px-10 lg:px-20 py-20" style={{ background: 'var(--ink)' }}>
         <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-5"
            style={{ color: 'var(--sand-light)' }}>
           <span className="inline-block w-8 h-px bg-current" aria-hidden="true" />
@@ -332,7 +332,7 @@ function CareersPage() {
       </header>
 
       {/* ── Content + form ── */}
-      <section className="px-10 md:px-20 py-16 grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-12">
+      <section className="px-4 md:px-10 lg:px-20 py-16 grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-12">
         {/* Left — qualifications */}
         <div>
           {content && (

@@ -43,7 +43,7 @@ function BookingPage() {
     <div>
       {/* ── Page header ─────────────────────────────────────────────────── */}
       <header
-        className="px-10 md:px-20 py-20 md:py-28"
+        className="px-4 md:px-10 lg:px-20 py-20 md:py-28"
         style={{ background: 'var(--warm)' }}
         aria-label="Book a consultation"
       >
@@ -78,7 +78,7 @@ function BookingPage() {
         aria-label="Booking form"
       >
         {/* ── Calendar ──────────────────────────────────────────────────── */}
-        <div className="px-10 md:px-20 py-16" style={{ background: '#fff' }}>
+        <div className="px-4 md:px-10 lg:px-20 py-16" style={{ background: '#fff' }}>
           <BookingCalendar preselectedService={service} />
         </div>
 

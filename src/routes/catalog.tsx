@@ -344,7 +344,7 @@ function CatalogPage() {
       </header>
 
       {/* ── Sticky filter bar — desktop only ───────────────────────────── */}
-      <nav id="catalog-filter-bar" aria-label="Jump to product" className="hidden lg:flex flex-wrap gap-2 px-10 md:px-20 py-3 z-40"
+      <nav id="catalog-filter-bar" aria-label="Jump to product" className="hidden lg:flex flex-wrap gap-2 px-4 md:px-10 lg:px-20 py-3 z-40"
            style={{ position: 'sticky', top: '76px', background: 'rgba(245,243,239,0.97)',
                     backdropFilter: 'blur(8px)', borderBottom: '0.5px solid var(--hairline)' }}>
         <button
@@ -385,7 +385,7 @@ function CatalogPage() {
       </div>
 
       {/* ── Product grid ───────────────────────────────────────────────── */}
-      <section aria-label="Product catalog" className="px-10 md:px-20 py-8">
+      <section aria-label="Product catalog" className="px-4 md:px-10 lg:px-20 py-8">
 
         {/* Desktop: rows of 3, drawer injects after the active row */}
         <div className="hidden lg:block">

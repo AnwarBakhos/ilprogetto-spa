@@ -28,13 +28,16 @@ html {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--cream);
   color: var(--ink);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   font-family: var(--sans);
   font-weight: 300;
   overflow-x: hidden;
-  max-width: 100vw;
+  max-width: 100%;
+  width: 100%;
   position: relative;
 }
 
@@ -222,7 +225,16 @@ input[type='range']::-moz-range-thumb:hover { transform: scale(1.25); }
 /* ─── Mobile overflow containment ──────────────────── */
 * {
   box-sizing: border-box;
+  min-width: 0;
 }
 img, video, iframe {
   max-width: 100%;
+  height: auto;
+}
+
+/* Ensure no section overflows horizontally on mobile */
+@media (max-width: 768px) {
+  section, header, footer, nav, div {
+    max-width: 100%;
+  }
 }

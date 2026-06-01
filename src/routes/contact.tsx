@@ -118,7 +118,7 @@ function ContactPage() {
       >
         {/* ── Left: info ───────────────────────────────────────────────────── */}
         <div
-          className="flex flex-col justify-center px-10 md:px-20 py-20"
+          className="flex flex-col justify-center px-4 md:px-10 lg:px-20 py-20"
           style={{ background: 'var(--ink)' }}
         >
           <p
@@ -181,7 +181,7 @@ function ContactPage() {
 
         {/* ── Right: form ──────────────────────────────────────────────────── */}
         <div
-          className="flex flex-col justify-center px-10 md:px-20 py-20"
+          className="flex flex-col justify-center px-4 md:px-10 lg:px-20 py-20"
           style={{ background: 'var(--warm)' }}
         >
           <h2
@@ -316,7 +316,7 @@ function ContactPage() {
       {/* ── Service area ─────────────────────────────────────────────────── */}
       <section
         aria-labelledby="area-heading"
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--warm)' }}
       >
         <p

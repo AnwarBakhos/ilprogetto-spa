@@ -43,11 +43,13 @@ function makeIconHtml(active: boolean) {
 }
 
 export function InteractiveServiceMap() {
-  const mapRef     = useRef<HTMLDivElement>(null)
-  const leafletRef = useRef<any>(null)
-  const markersRef = useRef<any[]>([])
-  const [activeCity, setActiveCity] = useState<City | null>(null)
-  const [mapReady,   setMapReady]   = useState(false)
+  const mapRef      = useRef<HTMLDivElement>(null)
+  const leafletRef  = useRef<any>(null)
+  const markersRef  = useRef<any[]>([])
+  const [activeCity,   setActiveCity]   = useState<City | null>(null)
+  const [mapReady,     setMapReady]     = useState(false)
+  const [mapActivated, setMapActivated] = useState(false)  // mobile: require tap to enable map interaction
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024
 
   function resetMarkers(L: any, activeSlug?: string) {
     markersRef.current.forEach((m, i) => {
@@ -70,9 +72,15 @@ export function InteractiveServiceMap() {
         shadowUrl:     'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
       })
 
+      const mobile = window.innerWidth < 1024
       const map = L.map(mapRef.current!, {
-        center: [32.95, -117.15], zoom: 9,
-        zoomControl: false, attributionControl: false, scrollWheelZoom: false,
+        center: [32.95, -117.15], zoom: mobile ? 8 : 9,
+        zoomControl: false, attributionControl: false,
+        scrollWheelZoom: false,
+        dragging: !mobile,         // disable drag on mobile until activated
+        touchZoom: !mobile,        // disable pinch-zoom on mobile until activated
+        doubleClickZoom: !mobile,
+        tap: false,                // prevent tap handler conflicts on iOS
       })
       leafletRef.current = map
 
@@ -143,7 +151,7 @@ export function InteractiveServiceMap() {
       `}</style>
 
       {/* Header */}
-      <div style={{ padding:'64px 40px 40px', textAlign:'center' }}>
+      <div style={{ padding:'clamp(32px,5vw,64px) clamp(16px,5vw,40px) 32px', textAlign:'center' }}>
         <p style={{ fontFamily:'var(--sans)', fontSize:'11px', letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--sand)', marginBottom:'16px', display:'inline-flex', alignItems:'center', gap:'14px' }}>
           <span style={{ display:'inline-block', width:'32px', height:'1px', background:'currentColor' }} aria-hidden="true" />
           Service Area
@@ -157,27 +165,45 @@ export function InteractiveServiceMap() {
         </p>
       </div>
 
-      {/* Map + sidebar */}
+      {/* Map + sidebar — stacks vertically on mobile */}
       <div style={{
         display:'grid',
-        gridTemplateColumns: activeCity ? '1fr 300px' : '1fr',
-        minHeight:'500px',
+        gridTemplateColumns: activeCity && window.innerWidth >= 1024 ? '1fr 300px' : '1fr',
+        gridTemplateRows: activeCity && window.innerWidth < 1024 ? 'auto auto' : undefined,
+        minHeight: window.innerWidth < 1024 ? '360px' : '500px',
         borderTop:'1px solid rgba(255,255,255,0.06)',
         borderBottom:'1px solid rgba(255,255,255,0.06)',
         transition:'grid-template-columns 0.3s ease',
       }}>
         {/* Map */}
-        <div ref={mapRef} style={{ minHeight:'500px', position:'relative' }} aria-label="Service area map">
+        <div ref={mapRef} style={{ minHeight: window.innerWidth < 1024 ? '360px' : '500px', position:'relative' }} aria-label="Service area map">
           {!mapReady && (
             <div style={{ position:'absolute', inset:0, zIndex:10, background:'var(--ink)', display:'flex', alignItems:'center', justifyContent:'center' }}>
               <p style={{ fontFamily:'var(--sans)', fontSize:'11px', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(197,165,114,0.4)' }}>Loading map…</p>
             </div>
           )}
+          {/* Mobile: tap-to-interact overlay */}
+          {mapReady && !mapActivated && window.innerWidth < 1024 && (
+            <div
+              onClick={() => {
+                setMapActivated(true)
+                if (leafletRef.current) {
+                  leafletRef.current.dragging.enable()
+                  leafletRef.current.touchZoom.enable()
+                  leafletRef.current.doubleClickZoom.enable()
+                }
+              }}
+              style={{ position:'absolute', inset:0, zIndex:20, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'10px', background:'rgba(0,0,0,0.45)', cursor:'pointer' }}
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c5a572" strokeWidth="1.5" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              <p style={{ fontFamily:'var(--sans)', fontSize:'11px', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(197,165,114,0.9)' }}>Tap to interact</p>
+            </div>
+          )}
         </div>
 
-        {/* Sidebar */}
+        {/* Sidebar — below map on mobile, beside on desktop */}
         {activeCity && (
-          <div style={{ background:'rgba(12,10,8,0.97)', borderLeft:'1px solid rgba(197,165,114,0.15)', padding:'36px 28px', display:'flex', flexDirection:'column', gap:'24px' }}>
+          <div style={{ background:'rgba(12,10,8,0.97)', borderLeft: window.innerWidth >= 1024 ? '1px solid rgba(197,165,114,0.15)' : 'none', borderTop: window.innerWidth < 1024 ? '1px solid rgba(197,165,114,0.15)' : 'none', padding:'28px', display:'flex', flexDirection:'column', gap:'20px' }}>
             <button onClick={() => { setActiveCity(null); import('leaflet').then((L) => resetMarkers(L)) }}
               style={{ alignSelf:'flex-end', background:'none', border:'none', color:'rgba(251,251,249,0.35)', cursor:'pointer', fontSize:'20px', lineHeight:1, padding:'2px' }} aria-label="Close">
               &times;
@@ -222,14 +248,14 @@ export function InteractiveServiceMap() {
       </div>
 
       {/* City pills */}
-      <div style={{ padding:'20px 32px', display:'flex', flexWrap:'wrap', gap:'8px', justifyContent:'center', borderBottom:'1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ padding:'16px clamp(12px,4vw,32px)', display:'flex', flexWrap:'wrap', gap:'8px', justifyContent:'center', borderBottom:'1px solid rgba(255,255,255,0.06)' }}>
         {CITIES.map(pill)}
       </div>
 
-      {/* Stats */}
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', borderBottom:'1px solid rgba(255,255,255,0.06)' }}>
+      {/* Stats — 2x2 on mobile, 4x1 on desktop */}
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(2,1fr)', borderBottom:'1px solid rgba(255,255,255,0.06)' }} className="sm:grid-cols-4">
         {STATS.map((s, i) => (
-          <div key={s.label} style={{ padding:'26px 16px', textAlign:'center', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+          <div key={s.label} style={{ padding:'20px 12px', textAlign:'center', borderRight: (i % 2 === 0) ? '1px solid rgba(255,255,255,0.06)' : 'none', borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
             <span style={{ display:'block', fontFamily:'var(--serif)', fontSize:'clamp(18px,2vw,28px)', fontWeight:300, color:'var(--sand)', lineHeight:1, marginBottom:'7px' }}>{s.num}</span>
             <span style={{ display:'block', fontFamily:'var(--sans)', fontSize:'10px', letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--cream)', opacity:0.55 }}>{s.label}</span>
           </div>
@@ -237,7 +263,7 @@ export function InteractiveServiceMap() {
       </div>
 
       {/* CTAs */}
-      <div style={{ display:'flex', flexWrap:'wrap', gap:'12px', padding:'28px 32px', justifyContent:'center' }}>
+      <div style={{ display:'flex', flexWrap:'wrap', gap:'12px', padding:'20px clamp(12px,4vw,32px)', justifyContent:'center' }}>
         <a href="https://maps.google.com/?q=iL+Progetto+LLC+San+Diego+CA" target="_blank" rel="noopener noreferrer"
           style={{ display:'inline-flex', alignItems:'center', gap:'8px', background:'var(--sand)', color:'var(--cream)', fontFamily:'var(--sans)', fontSize:'11px', letterSpacing:'0.18em', textTransform:'uppercase', padding:'14px 28px', textDecoration:'none' }}>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>

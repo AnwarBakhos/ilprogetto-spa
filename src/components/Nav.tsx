@@ -57,9 +57,16 @@ export function Nav() {
           <img
             src={LOGO_URL}
             alt="iL Progetto LLC"
+            className="xl:hidden"
+            style={{ maxHeight: '44px', width: 'auto' }}
+          />
+          <img
+            src={LOGO_URL}
+            alt="iL Progetto LLC"
+            className="hidden xl:block"
             style={{ maxHeight: '72px', width: 'auto' }}
           />
-          <div>
+          <div className="hidden xl:block">
             <p className="text-[17px] leading-tight tracking-[0.04em] text-white font-[400]"
                style={{ fontFamily: 'var(--serif)' }}>
               iL Progetto LLC
@@ -287,9 +294,15 @@ export function Nav() {
         <div
           className="xl:hidden border-t flex flex-col overflow-y-auto"
           style={{
+            position: 'fixed',
+            top: '76px',
+            left: 0,
+            right: 0,
+            bottom: 0,
             background: 'rgba(10,10,10,0.98)',
             borderColor: 'rgba(255,255,255,0.1)',
-            maxHeight: 'calc(100vh - 76px)',
+            zIndex: 49,
+            WebkitOverflowScrolling: 'touch',
           }}
         >
           {/* Static links */}
@@ -339,17 +352,4 @@ export function Nav() {
             <a href="tel:+18583381678"
                className="text-[20px] font-[400] text-white tracking-[0.02em]"
                style={{ fontFamily: 'var(--sans)' }}>
-              (858) 338-1678
-            </a>
-            <Link to="/booking"
-              className="py-3.5 text-[11px] tracking-[0.2em] uppercase text-center text-white transition-all hover:opacity-90"
-              style={{ background: 'var(--sand)' }}
-              onClick={() => setMenuOpen(false)}>
-              Book Free Consultation
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
-  )
-}
+              (858) 338-16

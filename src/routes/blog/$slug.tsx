@@ -105,7 +105,7 @@ function BlogPostPage() {
 
       {/* ── Article header ──────────────────────────────────────────────── */}
       <header
-        className="px-10 md:px-20 py-20 border-b"
+        className="px-4 md:px-10 lg:px-20 py-20 border-b"
         style={{ background: 'var(--warm)', borderColor: 'var(--hairline)' }}
         aria-label="Article header"
       >
@@ -180,7 +180,7 @@ function BlogPostPage() {
 
         {/* Body */}
         <article
-          className="px-10 md:px-20 py-16 max-w-[740px]"
+          className="px-4 md:px-10 lg:px-20 py-16 max-w-[740px]"
           itemScope
           itemType="https://schema.org/Article"
         >

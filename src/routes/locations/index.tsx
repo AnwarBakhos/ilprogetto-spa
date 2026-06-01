@@ -75,7 +75,7 @@ function LocationsIndexPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 px-10 md:px-20 pb-16 md:pb-20 max-w-[860px]">
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-16 md:pb-20 max-w-[860px]">
           <p
             className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 fade-up"
             style={{ color: 'var(--sand-light)' }}
@@ -110,7 +110,7 @@ function LocationsIndexPage() {
 
       {/* ══ CITY GRID ═════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--warm)' }}
         aria-labelledby="cities-heading"
       >
@@ -187,7 +187,7 @@ function LocationsIndexPage() {
 
       {/* ══ CTA ═══════════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-24"
+        className="px-4 md:px-10 lg:px-20 py-24"
         style={{ background: 'var(--sand-light)', opacity: undefined }}
         aria-label="Book a consultation"
       >

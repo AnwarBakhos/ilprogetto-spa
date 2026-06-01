@@ -139,7 +139,7 @@ function Control4Page() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 px-10 md:px-20 pb-20 md:pb-28 max-w-[860px]">
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-20 md:pb-28 max-w-[860px]">
           <p
             className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 fade-up"
             style={{ color: 'var(--sand-light)' }}
@@ -196,7 +196,7 @@ function Control4Page() {
 
       {/* ══ WHAT CONTROL4 UNLOCKS ═════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--warm)' }}
         aria-labelledby="features-heading"
       >
@@ -248,7 +248,7 @@ function Control4Page() {
 
       {/* ══ WHO THIS IS FOR ═══════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--cream)' }}
         aria-labelledby="who-heading"
       >
@@ -300,7 +300,7 @@ function Control4Page() {
 
       {/* ══ HOW IT WORKS ══════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--warm)' }}
         aria-labelledby="process-heading"
       >
@@ -358,7 +358,7 @@ function Control4Page() {
 
       {/* ══ INTEGRATOR NOTE ═══════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-14"
+        className="px-4 md:px-10 lg:px-20 py-14"
         style={{ background: 'var(--warm)' }}
         aria-label="Note for integrators"
       >
@@ -376,7 +376,7 @@ function Control4Page() {
 
       {/* ══ CTA ═══════════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--sand-pale)' }}
         aria-label="Book a consultation"
       >

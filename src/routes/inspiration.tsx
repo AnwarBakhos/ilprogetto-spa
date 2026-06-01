@@ -104,7 +104,7 @@ function InspirationPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 px-10 md:px-20 pb-20 md:pb-28 max-w-[860px]">
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-20 md:pb-28 max-w-[860px]">
           <p
             className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 fade-up"
             style={{ color: 'var(--sand-light)' }}
@@ -139,7 +139,7 @@ function InspirationPage() {
 
       {/* ══ FILTER TABS ═══════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-12 border-b"
+        className="px-4 md:px-10 lg:px-20 py-12 border-b"
         style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
         aria-label="Filter inspiration by room and style"
       >
@@ -215,7 +215,7 @@ function InspirationPage() {
 
       {/* ══ INSPIRATION GRID ══════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-16"
+        className="px-4 md:px-10 lg:px-20 py-16"
         style={{ background: 'var(--warm)' }}
         aria-label="Inspiration gallery"
       >
@@ -309,7 +309,7 @@ function InspirationPage() {
 
       {/* ══ CTA ══════════════════════════════════════════════════════════════ */}
       <section
-        className="px-10 md:px-20 py-28"
+        className="px-4 md:px-10 lg:px-20 py-28"
         style={{ background: 'var(--ink)' }}
         aria-label="Book a consultation"
       >
