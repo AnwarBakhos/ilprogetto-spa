@@ -19,8 +19,8 @@ export const Route = (createFileRoute as any)('/smart-home/apple-homekit')({
         content:
           'Control motorized blinds and shades with Apple HomeKit and Siri in San Diego. iL Progetto LLC installs HomeKit-compatible window treatments. Automate with the Home app, Siri, and Apple Watch.',
       },
-      { property: 'og:url', content: 'https://ilprogetto-spa.vercel.app/smart-home/apple-homekit' },
-      { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
+      { property: 'og:url', content: 'https://www.ilprogettollc.com/smart-home/apple-homekit' },
+      { property: 'og:image', content: '/images/og-image.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Apple HomeKit Motorized Blinds San Diego | Siri Window Shades — iL Progetto LLC' },
       {
@@ -35,7 +35,7 @@ export const Route = (createFileRoute as any)('/smart-home/apple-homekit')({
           name: 'iL Progetto LLC',
           telephone: '+18583381678',
           description: 'Apple HomeKit motorized window treatment installation in San Diego',
-          url: 'https://ilprogetto-spa.vercel.app/smart-home/apple-homekit',
+          url: 'https://www.ilprogettollc.com/smart-home/apple-homekit',
           areaServed: 'San Diego',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -44,7 +44,7 @@ export const Route = (createFileRoute as any)('/smart-home/apple-homekit')({
         }),
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/smart-home/apple-homekit' }],
+    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/smart-home/apple-homekit' }],
   }),
   component: AppleHomekitPage,
 })

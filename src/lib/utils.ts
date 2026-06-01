@@ -38,7 +38,3 @@ export function setupScrollReveal(root?: Element): () => void {
 
   return () => observer.disconnect()
 }
-
-// ─── Drive thumbnail helper ────────────────────────────────────────────────────
-export const driveThumb = (id: string, size = 'w900'): string =>
-  `https://drive.google.com/thumbnail?id=${id}&sz=${size}`

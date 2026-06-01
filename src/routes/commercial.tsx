@@ -19,8 +19,8 @@ export const Route = (createFileRoute as any)('/commercial')({
         content:
           'iL Progetto LLC offers custom window treatments for commercial spaces, builders, interior designers, and property managers across San Diego. Volume pricing, fast turnaround, professional installation.',
       },
-      { property: 'og:url', content: 'https://ilprogetto-spa.vercel.app/commercial' },
-      { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
+      { property: 'og:url', content: 'https://www.ilprogettollc.com/commercial' },
+      { property: 'og:image', content: '/images/og-image.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Commercial Window Treatments San Diego | Builder & Trade Program — iL Progetto LLC' },
       {
@@ -30,7 +30,7 @@ export const Route = (createFileRoute as any)('/commercial')({
       },
     ],
     links: [
-      { rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/commercial' },
+      { rel: 'canonical', href: 'https://www.ilprogettollc.com/commercial' },
     ],
   }),
   component: CommercialPage,

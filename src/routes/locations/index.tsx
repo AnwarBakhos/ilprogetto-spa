@@ -15,11 +15,11 @@ export const Route = (createFileRoute as any)('/locations')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Window Treatment Service Areas San Diego County | iL Progetto LLC' },
       { property: 'og:description', content: 'iL Progetto LLC provides custom window treatment installation across San Diego County and Southern California — roller shades, plantation shutters, motorized blinds, and more in every neighborhood we serve.' },
-      { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
+      { property: 'og:image', content: '/images/og-image.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [
-      { rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/locations' },
+      { rel: 'canonical', href: 'https://www.ilprogettollc.com/locations' },
     ],
     scripts: [
       {
@@ -28,7 +28,7 @@ export const Route = (createFileRoute as any)('/locations')({
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
           name: 'iL Progetto LLC',
-          url: 'https://ilprogetto-spa.vercel.app',
+          url: 'https://www.ilprogettollc.com',
           telephone: '+18583381678',
           email: 'info@ilprogettollc.com',
           address: {

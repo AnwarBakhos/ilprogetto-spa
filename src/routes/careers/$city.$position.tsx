@@ -22,14 +22,14 @@ export const Route = createFileRoute('/careers/$city/$position')({
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: `${pName} Job in ${cName}, CA | iL Progetto LLC` },
         { property: 'og:description', content: `Now hiring a ${pName} to serve ${cName} and surrounding communities. Competitive pay, great team.` },
-        { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
+        { property: 'og:image', content: '/images/og-image.jpg' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: `${pName} Job in ${cName}, CA | iL Progetto LLC` },
         { name: 'twitter:description', content: `Now hiring a ${pName} to serve ${cName} and surrounding communities. Competitive pay, great team.` },
         { name: 'robots', content: 'index, follow' },
       ],
       links: [
-        { rel: 'canonical', href: `https://ilprogetto-spa.vercel.app/careers/${city}/${position}` },
+        { rel: 'canonical', href: `https://www.ilprogettollc.com/careers/${city}/${position}` },
       ],
     }
   },

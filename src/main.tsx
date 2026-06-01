@@ -1,3 +1,4 @@
+import '../styles.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from '@tanstack/react-router'
@@ -45,5 +46,5 @@ ReactDOM.createRoot(root).render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>
-  </React.StrictMode>,
+    </React.StrictMode>,
 )

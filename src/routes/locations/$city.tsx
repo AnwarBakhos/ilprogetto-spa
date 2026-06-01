@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { createFileRoute, Link, notFound, Outlet, useMatches } from '@tanstack/react-router'
 import { CITY_SLUGS, PRODUCT_SLUGS, cityName } from '@/data/seo'
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
@@ -84,6 +84,10 @@ const TRUST_POINTS = [
 function CityOverviewPage() {
   const { city } = Route.useParams()
   if (!CITY_SLUGS.includes(city as typeof CITY_SLUGS[number])) throw notFound()
+
+  const matches = useMatches()
+  const isProductPage = matches.some((m: any) => m.routeId?.includes('$product'))
+  if (isProductPage) return <Outlet />
 
   const cName = cityName(city)
   const productEntries = Object.entries(PRODUCT_SLUGS)

@@ -26,14 +26,14 @@ export const Route = createFileRoute('/catalog')({
         { property: 'og:site_name',   content: 'iL Progetto LLC' },
         { property: 'og:title',       content: p ? `${p.name} | iL Progetto LLC San Diego` : 'Window Treatment Catalog | iL Progetto LLC San Diego' },
         { property: 'og:description', content: p ? `${p.description} Free in-home consultation.` : 'Custom shades, blinds, shutters, and drapery for San Diego homes. In-home consultations — our designer visits your space with the complete collection.' },
-        { property: 'og:image',       content: p?.coverImage ?? 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
-        { property: 'og:url',         content: p ? `https://ilprogetto-spa.vercel.app/catalog?product=${p.id}` : 'https://ilprogetto-spa.vercel.app/catalog' },
+        { property: 'og:image',       content: p?.coverImage ?? '/images/og-image.jpg' },
+        { property: 'og:url',         content: p ? `https://www.ilprogettollc.com/catalog?product=${p.id}` : 'https://www.ilprogettollc.com/catalog' },
         { name: 'twitter:card',        content: 'summary_large_image' },
         { name: 'twitter:title',       content: p ? `${p.name} | iL Progetto` : 'Window Treatment Catalog | iL Progetto' },
         { name: 'twitter:description', content: p?.description ?? 'Custom window treatments for San Diego homes. Free in-home consultation.' },
       ],
       links: [
-        { rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/catalog' },
+        { rel: 'canonical', href: 'https://www.ilprogettollc.com/catalog' },
       ],
     }
   },
@@ -310,12 +310,12 @@ function CatalogPage() {
         '@context': 'https://schema.org', '@type': 'ItemList',
         name: 'iL Progetto LLC — Custom Window Treatment Catalog',
         description: "San Diego's complete custom window treatment catalog.",
-        url: 'https://ilprogetto-spa.vercel.app/catalog',
+        url: 'https://www.ilprogettollc.com/catalog',
         numberOfItems: PRODUCTS.length,
         itemListElement: PRODUCTS.map((p, i) => ({
           '@type': 'ListItem', position: i + 1, name: p.name,
           description: p.description,
-          url: `https://ilprogetto-spa.vercel.app/catalog?product=${p.id}`,
+          url: `https://www.ilprogettollc.com/catalog?product=${p.id}`,
           image: p.coverImage,
         })),
       }) }} />

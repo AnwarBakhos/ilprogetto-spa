@@ -20,7 +20,7 @@ export const Route = createFileRoute('/legal')({
         { name: 'description', content: 'Legal information for iL Progetto LLC — a custom window treatment company based in San Diego, CA.' },
         { name: 'robots', content: 'noindex, follow' },
       ],
-      links: [{ rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/legal' }],
+      links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/legal' }],
     }
   },
   component: LegalPage,

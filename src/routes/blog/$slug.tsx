@@ -23,15 +23,15 @@ export const Route = createFileRoute('/blog/$slug')({
         { property: 'og:type', content: 'article' },
         { property: 'og:title', content: loaderData.title },
         { property: 'og:description', content: loaderData.description },
-        { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
-        { property: 'og:url', content: `https://ilprogetto-spa.vercel.app/blog/${loaderData.slug}` },
+        { property: 'og:image', content: '/images/og-image.jpg' },
+        { property: 'og:url', content: `https://www.ilprogettollc.com/blog/${loaderData.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: loaderData.title },
         { name: 'twitter:description', content: loaderData.description },
         { name: 'robots', content: 'index, follow' },
       ],
       links: [
-        { rel: 'canonical', href: `https://ilprogetto-spa.vercel.app/blog/${loaderData.slug}` },
+        { rel: 'canonical', href: `https://www.ilprogettollc.com/blog/${loaderData.slug}` },
       ],
     }
   },
@@ -58,20 +58,20 @@ function ArticleSchema({ post }: { post: BlogPost }) {
       name: 'iL Progetto LLC',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://drive.google.com/thumbnail?id=1wfwwSHE5JIBxwExmnk1i_pTUij3ThrpF&sz=w300',
+        url: '/images/logo-300.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `https://www.ilprogettollc.com/blog/${post.slug}`,
     },
-    image: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200',
+    image: '/images/og-image.jpg',
     wordCount: 1500,
     inLanguage: 'en-US',
     isPartOf: {
       '@type': 'Blog',
       name: 'iL Progetto Journal',
-      url: 'https://ilprogetto-spa.vercel.app/blog/',
+      url: 'https://www.ilprogettollc.com/blog/',
     },
   }
   return (
@@ -308,9 +308,7 @@ function BlogPostPage() {
                 style={{ color: 'var(--mid)' }}
               >
                 More Articles
-   
-              More Articles
-            </p>
+              </p>
               <div className="space-y-4">
                 {related.map((p) => (
                   <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="block group">

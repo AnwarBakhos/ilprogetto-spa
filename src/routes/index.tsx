@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
 import { ReviewsScrollPanel } from '@/components/ReviewsScrollPanel'
+import { InteractiveServiceMap } from '@/components/InteractiveServiceMap'
 // ─── SEO ──────────────────────────────────────────────────────────────────────
 export const Route = createFileRoute('/')({
   // TanStack Router v1 head API — sets <title> and <meta> for this route
@@ -299,8 +300,7 @@ function HomePage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              'url(https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w1600)',
+            backgroundImage: 'url(/images/hero.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: 0.55,
@@ -447,7 +447,7 @@ function HomePage() {
         </div>
 
         {/* 8-card grid — 2 col mobile → 4 col desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--hairline)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-[var(--hairline)]">
           {GRID_ITEMS.map((item, i) => (
             <ProductCard key={item.id} {...item} index={i} />
           ))}
@@ -482,51 +482,51 @@ function HomePage() {
       {/* ── CUSTOMER REVIEWS ─────────────────────────────────────────────────── */}
       <ReviewsScrollPanel autoPlayInterval={5000} showControls={true} compact={false} darkBg={true} enableModal={false} showButtons={true} />
 
-      {/* ── IN-HOME DESIGN EXPERIENCE ───────────────────────────────────────── */}
+      {/* ── MOBILE SHOWROOM ──────────────────────────────────────────────── */}
       <section
-        aria-label="In-home design service"
+        aria-labelledby="showroom-heading"
         className="grid grid-cols-1 lg:grid-cols-2"
+        style={{ background: 'var(--warm)' }}
       >
-        <div className="overflow-hidden min-h-[480px]" style={{ background: 'var(--warmer, #edece7)' }}>
+        <div className="overflow-hidden min-h-[420px]">
           <img
-            src="/images/Cal Map.JPG"
-            alt="iL Progetto LLC service area map — San Diego, Orange, Riverside and San Bernardino Counties"
+            src="/images/hero.webp"
+            alt="iL Progetto designer visiting a client's home with fabric samples"
             className="w-full h-full object-cover object-center"
             loading="lazy"
-            onError={(e) => {
-              const t = e.currentTarget
-              if (!t.dataset.tried) {
-                t.dataset.tried = '1'
-                t.src = '/images/Cal Map.jpg'
-              }
-            }}
           />
         </div>
-        <div
-          className="flex flex-col justify-center p-16 md:p-24"
-          style={{ background: 'var(--warmer, #edece7)' }}
-        >
-          <Eyebrow>We Come to You</Eyebrow>
-          <SectionTitle className="delay-1 mb-6">
-            Your Home, Our <em className="italic" style={{ color: 'var(--sand)' }}>Showroom</em>
-          </SectionTitle>
-          <p className="fade-up delay-2 text-[15px] leading-[1.85] mb-5" style={{ color: 'var(--mid)' }}>
-            Choosing window treatments online is one thing. Holding a fabric swatch in your actual
-            living-room light, against your actual wall color, is another.
+        <div className="flex flex-col justify-center px-12 md:px-20 py-20">
+          <p className="fade-up text-[10px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+            Our Mobile Showroom
+          </p>
+          <h2 id="showroom-heading" className="fade-up delay-1 font-[300] leading-[1.08] mb-6"
+              style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(30px, 3.2vw, 46px)', color: 'var(--ink)' }}>
+            Your Home Is <em className="italic" style={{ color: 'var(--sand)' }}>Our Showroom</em>
+          </h2>
+          <p className="fade-up delay-2 text-[15px] leading-[1.85] mb-6" style={{ color: 'var(--mid)' }}>
+            Choosing window treatments in a showroom is one thing — holding a fabric swatch in your actual living room, in your actual light, is another. That's exactly how we work.
           </p>
           <p className="fade-up delay-2 text-[15px] leading-[1.85] mb-10" style={{ color: 'var(--mid)' }}>
-            Our designer arrives at your door with our full catalog of fabrics and colors —
-            before you commit to anything.
+            Our designer arrives at your door with the full catalog: every fabric, every color, every operating system — so you can see exactly how it looks before committing to anything.
           </p>
-          <Link
-            to="/booking"
-            className="fade-up delay-3 self-start inline-block px-8 py-4 text-[11px] tracking-[0.18em] uppercase transition-colors btn-interactive"
-            style={{ background: 'var(--ink)', color: 'var(--cream)' }}
-          >
-            Schedule a Visit
+          <div className="fade-up delay-3 grid grid-cols-2 gap-3 mb-10">
+            {['Full fabric & color library', 'Motorized system demos', 'Accurate measure & quote', 'Zero-pressure consultation'].map((item) => (
+              <div key={item} className="flex items-start gap-2.5 text-[13px]" style={{ color: 'var(--mid)' }}>
+                <span className="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'var(--sand)' }} aria-hidden="true" />
+                {item}
+              </div>
+            ))}
+          </div>
+          <Link to="/booking" className="fade-up delay-4 self-start inline-block px-9 py-4 text-[11px] tracking-[0.18em] uppercase btn-interactive"
+                style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
+            Book a Free Visit
           </Link>
         </div>
       </section>
+
+      {/* ── INTERACTIVE SERVICE MAP ──────────────────────────────────────── */}
+      <InteractiveServiceMap />
 
       {/* ── FINANCING BANNER ─────────────────────────────────────────────────── */}
       <section

@@ -19,8 +19,8 @@ export const Route = (createFileRoute as any)('/smart-home/google-home')({
         content:
           'Control motorized blinds and shades with Google Home in San Diego. iL Progetto LLC installs Google-compatible window treatments. Say "Hey Google, open the shades" — it just works.',
       },
-      { property: 'og:url', content: 'https://ilprogetto-spa.vercel.app/smart-home/google-home' },
-      { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
+      { property: 'og:url', content: 'https://www.ilprogettollc.com/smart-home/google-home' },
+      { property: 'og:image', content: '/images/og-image.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Google Home Motorized Blinds San Diego | Hey Google Window Treatments — iL Progetto LLC' },
       {
@@ -35,7 +35,7 @@ export const Route = (createFileRoute as any)('/smart-home/google-home')({
           name: 'iL Progetto LLC',
           telephone: '+18583381678',
           description: 'Google Home motorized window treatment installation in San Diego',
-          url: 'https://ilprogetto-spa.vercel.app/smart-home/google-home',
+          url: 'https://www.ilprogettollc.com/smart-home/google-home',
           areaServed: 'San Diego',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -44,7 +44,7 @@ export const Route = (createFileRoute as any)('/smart-home/google-home')({
         }),
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/smart-home/google-home' }],
+    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/smart-home/google-home' }],
   }),
   component: GoogleHomePage,
 })

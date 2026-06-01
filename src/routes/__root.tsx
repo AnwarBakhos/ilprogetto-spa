@@ -15,7 +15,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   component: RootLayout,
 })
 
-const BASE_URL = 'https://ilprogetto-spa.vercel.app'
+const BASE_URL = 'https://www.ilprogettollc.com'
 
 const SEGMENT_LABELS: Record<string, string> = {
   blog: 'Journal',
@@ -74,8 +74,8 @@ function LocalBusinessSchema() {
     "telephone": "+18583381678",
     "email": "info@ilprogettollc.com",
     "url": "https://www.ilprogettollc.com",
-    "logo": "https://drive.google.com/thumbnail?id=12-BstvEgekN4HhaUGclChCXWUp5JdJaA&sz=w300",
-    "image": "https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200",
+    "logo": "/images/logo-300.png",
+    "image": "/images/og-image.jpg",
     "priceRange": "$$",
     "currenciesAccepted": "USD",
     "paymentAccepted": "Cash, Credit Card, Financing",
@@ -115,7 +115,7 @@ function LocalBusinessSchema() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "30",
+      "reviewCount": "32",
       "bestRating": "5",
       "worstRating": "1"
     },

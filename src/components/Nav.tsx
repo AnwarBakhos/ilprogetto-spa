@@ -3,7 +3,7 @@ import { Link, useRouterState } from '@tanstack/react-router'
 import { MEGA_MENU } from '@/data/catalog'
 
 const LOGO_URL =
-  'https://drive.google.com/thumbnail?id=1wfwwSHE5JIBxwExmnk1i_pTUij3ThrpF&sz=w300'
+  '/images/logo-300.png'
 
 // ─── The nav is always dark (rgba(0,0,0,0.85) + blur) on every page ───────────
 // On the homepage it sits over the dark hero — consistent brand feel throughout.
@@ -57,8 +57,7 @@ export function Nav() {
           <img
             src={LOGO_URL}
             alt="iL Progetto LLC"
-            className="object-contain rounded-sm"
-            style={{ maxHeight: '60px', width: 'auto' }}
+            style={{ maxHeight: '72px', width: 'auto' }}
           />
           <div>
             <p className="text-[17px] leading-tight tracking-[0.04em] text-white font-[400]"

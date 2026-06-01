@@ -20,13 +20,13 @@ export const Route = (createFileRoute as any)('/child-safety')({
       },
       {
         property: 'og:image',
-        content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200',
+        content: '/images/og-image.jpg',
       },
-      { property: 'og:url', content: 'https://ilprogetto-spa.vercel.app/child-safety' },
+      { property: 'og:url', content: 'https://www.ilprogettollc.com/child-safety' },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/child-safety' }],
+    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/child-safety' }],
   }),
   component: ChildSafetyPage,
 })

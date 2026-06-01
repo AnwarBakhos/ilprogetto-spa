@@ -19,8 +19,8 @@ export const Route = (createFileRoute as any)('/inspiration')({
         content:
           'Browse window treatment ideas by room and style. Roller shades, plantation shutters, motorized blinds, and drapery for San Diego homes — inspiration for every space.',
       },
-      { property: 'og:url', content: 'https://ilprogetto-spa.vercel.app/inspiration' },
-      { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
+      { property: 'og:url', content: 'https://www.ilprogettollc.com/inspiration' },
+      { property: 'og:image', content: '/images/og-image.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Window Treatment Ideas & Style Inspiration | iL Progetto LLC San Diego' },
       {
@@ -30,7 +30,7 @@ export const Route = (createFileRoute as any)('/inspiration')({
       },
     ],
     links: [
-      { rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/inspiration' },
+      { rel: 'canonical', href: 'https://www.ilprogettollc.com/inspiration' },
     ],
   }),
   component: InspirationPage,
@@ -51,18 +51,18 @@ const INSPIRATION_ITEMS: {
   style: Style
   img: string
 }[] = [
-  { id: 1, product: 'Roller Shades', productId: 'roller', room: 'Living Room', style: 'Modern', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 2, product: 'Plantation Shutters', productId: 'plantation', room: 'Bedroom', style: 'Traditional', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 3, product: 'Zebra Shades', productId: 'zebra', room: 'Living Room', style: 'Modern', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 4, product: 'Motorized Shading', productId: 'motorized', room: 'Home Office', style: 'Minimalist', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 5, product: 'Woven Wood Shades', productId: 'woven-wood', room: 'Bedroom', style: 'Farmhouse', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 6, product: 'Curtains & Drapery', productId: 'blackout-curtains', room: 'Bedroom', style: 'Traditional', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 7, product: 'Cellular Shades', productId: 'cellular', room: 'Kitchen', style: 'Minimalist', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 8, product: 'Roman Shades', productId: 'roman', room: 'Kitchen', style: 'Farmhouse', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 9, product: 'Shangri-La Shades', productId: 'sheer', room: 'Living Room', style: 'Coastal', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 10, product: 'Motorized Exterior', productId: 'motorized-exterior', room: 'Outdoor', style: 'Modern', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 11, product: 'Plantation Shutters', productId: 'plantation', room: 'Home Office', style: 'Coastal', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
-  { id: 12, product: 'Faux Wood Blinds', productId: 'faux-wood', room: 'Bedroom', style: 'Coastal', img: 'https://drive.google.com/thumbnail?id=1XsdrMcM8LFVVPXYPZXFRD19l59RxgN_h&sz=w800' },
+  { id: 1, product: 'Roller Shades', productId: 'roller', room: 'Living Room', style: 'Modern', img: '/images/hero.jpg' },
+  { id: 2, product: 'Plantation Shutters', productId: 'plantation', room: 'Bedroom', style: 'Traditional', img: '/images/hero.jpg' },
+  { id: 3, product: 'Zebra Shades', productId: 'zebra', room: 'Living Room', style: 'Modern', img: '/images/hero.jpg' },
+  { id: 4, product: 'Motorized Shading', productId: 'motorized', room: 'Home Office', style: 'Minimalist', img: '/images/hero.jpg' },
+  { id: 5, product: 'Woven Wood Shades', productId: 'woven-wood', room: 'Bedroom', style: 'Farmhouse', img: '/images/hero.jpg' },
+  { id: 6, product: 'Curtains & Drapery', productId: 'blackout-curtains', room: 'Bedroom', style: 'Traditional', img: '/images/hero.jpg' },
+  { id: 7, product: 'Cellular Shades', productId: 'cellular', room: 'Kitchen', style: 'Minimalist', img: '/images/hero.jpg' },
+  { id: 8, product: 'Roman Shades', productId: 'roman', room: 'Kitchen', style: 'Farmhouse', img: '/images/hero.jpg' },
+  { id: 9, product: 'Shangri-La Shades', productId: 'sheer', room: 'Living Room', style: 'Coastal', img: '/images/hero.jpg' },
+  { id: 10, product: 'Motorized Exterior', productId: 'motorized-exterior', room: 'Outdoor', style: 'Modern', img: '/images/hero.jpg' },
+  { id: 11, product: 'Plantation Shutters', productId: 'plantation', room: 'Home Office', style: 'Coastal', img: '/images/hero.jpg' },
+  { id: 12, product: 'Faux Wood Blinds', productId: 'faux-wood', room: 'Bedroom', style: 'Coastal', img: '/images/hero.jpg' },
 ]
 
 // ─── InspirationPage ──────────────────────────────────────────────────────────

@@ -19,8 +19,8 @@ export const Route = (createFileRoute as any)('/smart-home/alexa')({
         content:
           'Control your motorized blinds and shades with Amazon Alexa in San Diego. iL Progetto LLC installs and programs Alexa-compatible window treatments. Say "Alexa, close the blinds" and it happens.',
       },
-      { property: 'og:url', content: 'https://ilprogetto-spa.vercel.app/smart-home/alexa' },
-      { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
+      { property: 'og:url', content: 'https://www.ilprogettollc.com/smart-home/alexa' },
+      { property: 'og:image', content: '/images/og-image.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Alexa Motorized Blinds San Diego | Voice-Controlled Window Treatments — iL Progetto LLC' },
       {
@@ -35,7 +35,7 @@ export const Route = (createFileRoute as any)('/smart-home/alexa')({
           name: 'iL Progetto LLC',
           telephone: '+18583381678',
           description: 'Alexa-compatible motorized window treatment installation in San Diego',
-          url: 'https://ilprogetto-spa.vercel.app/smart-home/alexa',
+          url: 'https://www.ilprogettollc.com/smart-home/alexa',
           areaServed: 'San Diego',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -44,7 +44,7 @@ export const Route = (createFileRoute as any)('/smart-home/alexa')({
         }),
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/smart-home/alexa' }],
+    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/smart-home/alexa' }],
   }),
   component: AlexaPage,
 })

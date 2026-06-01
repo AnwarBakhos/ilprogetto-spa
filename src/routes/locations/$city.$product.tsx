@@ -1,9 +1,24 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { useRef, useState } from 'react'
+import { REVIEWS_DATA } from '@/data/reviews'
+
+// Deterministic seeded selection — same reviews every time for a given city+product
+function getPageReviews(city: string, product: string, count = 4) {
+  const seed = (city + product).split('').reduce((a, c) => a + c.charCodeAt(0), 0)
+  const shuffled = [...REVIEWS_DATA].sort((a, b) => {
+    const ha = ((seed * 1103515245 + a.id * 12345) & 0x7fffffff)
+    const hb = ((seed * 1103515245 + b.id * 12345) & 0x7fffffff)
+    return ha - hb
+  })
+  return shuffled.slice(0, count)
+}
 import {
   CITY_SLUGS, PRODUCT_SLUGS, cityName, PRODUCT_VIDEO,
   PRODUCT_CATALOG_ID, PRODUCT_DESCRIPTIONS, PRODUCT_FAQ, CITY_CONTEXT,
+  getCityProductParagraph, getCityProductH1, getCityProductH2, getCityInstallParagraph,
 } from '@/data/seo'
+import { CITY_PRODUCT_UNIQUE } from '@/data/city-product-unique'
+import { CITY_PRODUCT_FAQ_UNIQUE } from '@/data/city-product-faq-unique'
 
 // --- Route ---
 export const Route = createFileRoute('/locations/$city/$product')({
@@ -26,15 +41,15 @@ export const Route = createFileRoute('/locations/$city/$product')({
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: `Custom ${pName} in ${cName}, CA | iL Progetto LLC` },
         { property: 'og:description', content: `Premium custom ${pName} for ${cName} homes. Free in-home consultation.` },
-        { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
-        { property: 'og:url', content: `https://ilprogetto-spa.vercel.app/locations/${city}/${product}` },
+        { property: 'og:image', content: '/images/og-image.jpg' },
+        { property: 'og:url', content: `https://www.ilprogettollc.com/locations/${city}/${product}` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: `Custom ${pName} in ${cName}, CA | iL Progetto LLC` },
         { name: 'twitter:description', content: `Premium custom ${pName} for homes in ${cName}, CA. Free in-home consultation.` },
         { name: 'robots', content: 'index, follow' },
       ],
       links: [
-        { rel: 'canonical', href: `https://ilprogetto-spa.vercel.app/locations/${city}/${product}` },
+        { rel: 'canonical', href: `https://www.ilprogettollc.com/locations/${city}/${product}` },
       ],
     }
   },
@@ -52,7 +67,7 @@ function LocalBusinessSchema({ city, product }: { city: string; product: string 
     description: `Custom ${pName} installation in ${cName}, CA. Free in-home consultation.`,
     telephone: '+18583381678',
     email: 'info@ilprogettollc.com',
-    url: `https://ilprogetto-spa.vercel.app/locations/${city}/${product}`,
+    url: `https://www.ilprogettollc.com/locations/${city}/${product}`,
     areaServed: { '@type': 'City', name: cName, addressRegion: 'CA' },
     address: { '@type': 'PostalAddress', addressLocality: 'San Diego', addressRegion: 'CA', addressCountry: 'US' },
     priceRange: '$$',
@@ -243,6 +258,7 @@ function CityProductPage() {
   const catId   = PRODUCT_CATALOG_ID[product]
   const faqs    = PRODUCT_FAQ[product] ?? []
   const cityCtx = CITY_CONTEXT[city] ?? ''
+  const cityFaq = CITY_PRODUCT_FAQ_UNIQUE[`${city}:${product}`]
 
   return (
     <div>
@@ -257,9 +273,7 @@ function CityProductPage() {
         </p>
         <h1 className="font-[300] leading-[1.04] tracking-[-0.015em] mb-6 max-w-[760px]"
             style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(34px, 4.5vw, 60px)' }}>
-          Premium Custom{' '}
-          <em className="italic" style={{ color: 'var(--sand)' }}>{pName}</em>
-          <br />Engineered for Homes in {cName}
+          {(() => { const t = getCityProductH1(city, product); return <>{t.prefix}<em className="italic" style={{ color: 'var(--sand)' }}>{t.emphasis}</em>{t.suffix}</> })()}
         </h1>
         {desc && (
           <p className="text-[16px] leading-[1.85] max-w-[600px]" style={{ color: 'var(--mid)' }}>
@@ -287,6 +301,12 @@ function CityProductPage() {
                     {f}
                   </li>
                 ))}
+                {cityFaq?.feature && (
+                  <li className="flex items-start gap-3 text-[14px]" style={{ color: 'var(--mid)' }}>
+                    <svg className="flex-shrink-0 mt-0.5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sand)" strokeWidth="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                    {cityFaq.feature}
+                  </li>
+                )}
               </ul>
             </div>
           )}
@@ -319,6 +339,12 @@ function CityProductPage() {
                   {f}
                 </li>
               ))}
+              {cityFaq?.feature && (
+                <li className="flex items-start gap-3 text-[14px]" style={{ color: 'var(--mid)' }}>
+                  <svg className="flex-shrink-0 mt-0.5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sand)" strokeWidth="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                  {cityFaq.feature}
+                </li>
+              )}
             </ul>
           </div>
         )}
@@ -339,17 +365,14 @@ function CityProductPage() {
             </p>
             <h2 className="font-[300] leading-[1.06] mb-8"
                 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px, 2.8vw, 34px)' }}>
-              Why {pName} Are Ideal for {cName} Homes
+              {getCityProductH2(city, product)}
             </h2>
             <div className="flex flex-col gap-6">
               <p className="text-[15px] leading-[1.9]" style={{ color: 'var(--mid)' }}>
-                {desc.intro}{cityCtx ? ' ' + cityCtx : ''}
+                {CITY_PRODUCT_UNIQUE[`${city}:${product}`] || getCityProductParagraph(city, product)}
               </p>
               <p className="text-[15px] leading-[1.9]" style={{ color: 'var(--mid)' }}>
-                Every {pName.toLowerCase()} we install in {cName} is custom-measured and built to your exact window dimensions -- not cut down from a standard size. iL Progetto's designer visits your home with our complete collection of samples so you can see exactly how each fabric, finish, or louver width looks in your actual light conditions and against your existing interior. This is the only accurate way to make a window treatment decision, and it costs you nothing.
-              </p>
-              <p className="text-[15px] leading-[1.9]" style={{ color: 'var(--mid)' }}>
-                After measurement, your {pName.toLowerCase()} are custom-fabricated and returned for professional installation by our own licensed team -- California Contractor License #1127055. We do not use subcontractors. Our installer handles all mounting, hardware adjustment, and mechanism calibration, then walks you through operation before leaving. Most installations are completed in a single appointment. We serve {cName} with availability typically within 3-5 business days of your consultation.
+                {getCityInstallParagraph(city, product)}
               </p>
             </div>
           </div>
@@ -415,6 +438,7 @@ function CityProductPage() {
               {pName} FAQs for {cName} Homeowners
             </h2>
             <div style={{ borderTop: '0.5px solid var(--hairline)' }}>
+              {cityFaq && <FaqItem q={cityFaq.faq_q} a={cityFaq.faq_a} />}
               {faqs.map((faq: { q: string; a: string }) => (
                 <FaqItem key={faq.q} q={faq.q} a={faq.a} />
               ))}
@@ -432,25 +456,9 @@ function CityProductPage() {
             <span className="inline-block w-6 h-px" style={{ background: 'var(--sand)' }} aria-hidden="true" />
             What Our Clients Say
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: 'Younan came to our home with an enormous range of samples and took his time helping us find exactly the right fit. The installation was flawless. We have already referred three neighbors.',
-                name: 'Patricia M.',
-                location: 'Rancho Santa Fe',
-              },
-              {
-                quote: 'We had motorized shades installed throughout the house. The integration with HomeKit was seamless -- the installer configured everything before he left. Could not be happier with the result.',
-                name: 'David & Sarah K.',
-                location: 'La Jolla',
-              },
-              {
-                quote: 'The plantation shutters transformed our living room. Excellent craftsmanship, fair pricing, and the team was respectful of our home throughout the process. Will absolutely use iL Progetto again.',
-                name: 'Maria L.',
-                location: 'Poway',
-              },
-            ].map(({ quote, name, location }) => (
-              <div key={name} className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {getPageReviews(city, product, 4).map((review) => (
+              <div key={review.id} className="flex flex-col gap-4">
                 <div className="flex gap-1">
                   {[1,2,3,4,5].map(i => (
                     <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="var(--sand)" stroke="none">
@@ -459,11 +467,11 @@ function CityProductPage() {
                   ))}
                 </div>
                 <p className="text-[14px] leading-[1.85] italic" style={{ color: 'var(--cream)', opacity: 0.88 }}>
-                  "{quote}"
+                  "{review.text}"
                 </p>
                 <div>
-                  <p className="text-[12px] font-[500]" style={{ color: 'var(--sand)' }}>{name}</p>
-                  <p className="text-[11px] tracking-[0.1em] uppercase" style={{ color: 'var(--cream)', opacity: 0.5 }}>{location}</p>
+                  <p className="text-[12px] font-[500]" style={{ color: 'var(--sand)' }}>{review.name}</p>
+                  <p className="text-[11px] tracking-[0.1em] uppercase" style={{ color: 'var(--cream)', opacity: 0.5 }}>{review.location}</p>
                 </div>
               </div>
             ))}

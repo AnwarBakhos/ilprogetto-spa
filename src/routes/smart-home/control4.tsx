@@ -19,8 +19,8 @@ export const Route = (createFileRoute as any)('/smart-home/control4')({
         content:
           'Integrate motorized window treatments with Control4 in San Diego. iL Progetto LLC programs blinds and shades into your Control4 system for whole-home automation. Licensed installers. Free consultation.',
       },
-      { property: 'og:url', content: 'https://ilprogetto-spa.vercel.app/smart-home/control4' },
-      { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
+      { property: 'og:url', content: 'https://www.ilprogettollc.com/smart-home/control4' },
+      { property: 'og:image', content: '/images/og-image.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Control4 Motorized Blinds San Diego | Luxury Smart Home Window Treatments — iL Progetto LLC' },
       {
@@ -35,7 +35,7 @@ export const Route = (createFileRoute as any)('/smart-home/control4')({
           name: 'iL Progetto LLC',
           telephone: '+18583381678',
           description: 'Control4 integrated motorized window treatment installation in San Diego',
-          url: 'https://ilprogetto-spa.vercel.app/smart-home/control4',
+          url: 'https://www.ilprogettollc.com/smart-home/control4',
           areaServed: 'San Diego',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -44,7 +44,7 @@ export const Route = (createFileRoute as any)('/smart-home/control4')({
         }),
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/smart-home/control4' }],
+    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/smart-home/control4' }],
   }),
   component: Control4Page,
 })

@@ -3,7 +3,7 @@ import { MEGA_MENU } from '@/data/catalog'
 import { CITY_SLUGS, PRODUCT_SLUGS, POSITION_SLUGS, cityName } from '@/data/seo'
 
 const LOGO_WHITE =
-  'https://drive.google.com/thumbnail?id=12-BstvEgekN4HhaUGclChCXWUp5JdJaA&sz=w300'
+  '/images/logo-300.png'
 
 // ─── Social Icons ─────────────────────────────────────────────────────────────
 const Icons = {
@@ -60,7 +60,7 @@ export function Footer() {
               className="mb-8 opacity-95"
               style={{
                 filter: 'brightness(0) invert(1)',
-                height: '80px',
+                height: '110px',
                 width: 'auto',
                 objectFit: 'contain',
               }}

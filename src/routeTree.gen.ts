@@ -208,6 +208,34 @@ export interface FileRoutesByTo {
   '/smart-home/apple-homekit': typeof SmartHomeAppleHomekitRoute
   '/smart-home/control4': typeof SmartHomeControl4Route
   '/smart-home/google-home': typeof SmartHomeGoogleHomeRoute
+  '/blog': typeof BlogIndexRoute
+  '/careers': typeof CareersIndexRoute
+  '/locations': typeof LocationsIndexRoute
+  '/smart-home': typeof SmartHomeIndexRoute
+  '/careers/$city/$position': typeof CareersCityPositionRoute
+  '/locations/$city/$product': typeof LocationsCityProductRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/booking': typeof BookingRouteWithChildren
+  '/catalog': typeof CatalogRoute
+  '/child-safety': typeof ChildSafetyRoute
+  '/commercial': typeof CommercialRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/inspiration': typeof InspirationRoute
+  '/legal': typeof LegalRoute
+  '/reviews': typeof ReviewsRoute
+  '/warranty': typeof WarrantyRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/booking/confirmed': typeof BookingConfirmedRoute
+  '/locations/$city': typeof LocationsCityRouteWithChildren
+  '/smart-home/alexa': typeof SmartHomeAlexaRoute
+  '/smart-home/apple-homekit': typeof SmartHomeAppleHomekitRoute
+  '/smart-home/control4': typeof SmartHomeControl4Route
+  '/smart-home/google-home': typeof SmartHomeGoogleHomeRoute
   '/blog/': typeof BlogIndexRoute
   '/careers/': typeof CareersIndexRoute
   '/locations/': typeof LocationsIndexRoute
@@ -217,10 +245,86 @@ export interface FileRoutesByTo {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/booking' | '/catalog' | '/child-safety' | '/commercial' | '/contact' | '/faq' | '/inspiration' | '/legal' | '/reviews' | '/warranty' | '/blog/$slug' | '/booking/confirmed' | '/locations/$city' | '/smart-home/alexa' | '/smart-home/apple-homekit' | '/smart-home/control4' | '/smart-home/google-home' | '/blog/' | '/careers/' | '/locations/' | '/smart-home/' | '/careers/$city/$position' | '/locations/$city/$product'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/booking'
+    | '/catalog'
+    | '/child-safety'
+    | '/commercial'
+    | '/contact'
+    | '/faq'
+    | '/inspiration'
+    | '/legal'
+    | '/reviews'
+    | '/warranty'
+    | '/blog/$slug'
+    | '/booking/confirmed'
+    | '/locations/$city'
+    | '/smart-home/alexa'
+    | '/smart-home/apple-homekit'
+    | '/smart-home/control4'
+    | '/smart-home/google-home'
+    | '/blog/'
+    | '/careers/'
+    | '/locations/'
+    | '/smart-home/'
+    | '/careers/$city/$position'
+    | '/locations/$city/$product'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/booking' | '/catalog' | '/child-safety' | '/commercial' | '/contact' | '/faq' | '/inspiration' | '/legal' | '/reviews' | '/warranty' | '/blog/$slug' | '/booking/confirmed' | '/locations/$city' | '/smart-home/alexa' | '/smart-home/apple-homekit' | '/smart-home/control4' | '/smart-home/google-home' | '/blog' | '/careers' | '/locations' | '/smart-home' | '/careers/$city/$position' | '/locations/$city/$product'
-  id: '__root__' | '/' | '/about' | '/booking' | '/catalog' | '/child-safety' | '/commercial' | '/contact' | '/faq' | '/inspiration' | '/legal' | '/reviews' | '/warranty' | '/blog/$slug' | '/booking/confirmed' | '/locations/$city' | '/smart-home/alexa' | '/smart-home/apple-homekit' | '/smart-home/control4' | '/smart-home/google-home' | '/blog/' | '/careers/' | '/locations/' | '/smart-home/' | '/careers/$city/$position' | '/locations/$city/$product'
+  to:
+    | '/'
+    | '/about'
+    | '/booking'
+    | '/catalog'
+    | '/child-safety'
+    | '/commercial'
+    | '/contact'
+    | '/faq'
+    | '/inspiration'
+    | '/legal'
+    | '/reviews'
+    | '/warranty'
+    | '/blog/$slug'
+    | '/booking/confirmed'
+    | '/locations/$city'
+    | '/smart-home/alexa'
+    | '/smart-home/apple-homekit'
+    | '/smart-home/control4'
+    | '/smart-home/google-home'
+    | '/blog'
+    | '/careers'
+    | '/locations'
+    | '/smart-home'
+    | '/careers/$city/$position'
+    | '/locations/$city/$product'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/booking'
+    | '/catalog'
+    | '/child-safety'
+    | '/commercial'
+    | '/contact'
+    | '/faq'
+    | '/inspiration'
+    | '/legal'
+    | '/reviews'
+    | '/warranty'
+    | '/blog/$slug'
+    | '/booking/confirmed'
+    | '/locations/$city'
+    | '/smart-home/alexa'
+    | '/smart-home/apple-homekit'
+    | '/smart-home/control4'
+    | '/smart-home/google-home'
+    | '/blog/'
+    | '/careers/'
+    | '/locations/'
+    | '/smart-home/'
+    | '/careers/$city/$position'
+    | '/locations/$city/$product'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -251,47 +355,232 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/warranty': { id: '/warranty'; path: '/warranty'; fullPath: '/warranty'; preLoaderRoute: typeof WarrantyRouteImport; parentRoute: typeof rootRouteImport }
-    '/reviews': { id: '/reviews'; path: '/reviews'; fullPath: '/reviews'; preLoaderRoute: typeof ReviewsRouteImport; parentRoute: typeof rootRouteImport }
-    '/legal': { id: '/legal'; path: '/legal'; fullPath: '/legal'; preLoaderRoute: typeof LegalRouteImport; parentRoute: typeof rootRouteImport }
-    '/inspiration': { id: '/inspiration'; path: '/inspiration'; fullPath: '/inspiration'; preLoaderRoute: typeof InspirationRouteImport; parentRoute: typeof rootRouteImport }
-    '/faq': { id: '/faq'; path: '/faq'; fullPath: '/faq'; preLoaderRoute: typeof FaqRouteImport; parentRoute: typeof rootRouteImport }
-    '/contact': { id: '/contact'; path: '/contact'; fullPath: '/contact'; preLoaderRoute: typeof ContactRouteImport; parentRoute: typeof rootRouteImport }
-    '/commercial': { id: '/commercial'; path: '/commercial'; fullPath: '/commercial'; preLoaderRoute: typeof CommercialRouteImport; parentRoute: typeof rootRouteImport }
-    '/child-safety': { id: '/child-safety'; path: '/child-safety'; fullPath: '/child-safety'; preLoaderRoute: typeof ChildSafetyRouteImport; parentRoute: typeof rootRouteImport }
-    '/catalog': { id: '/catalog'; path: '/catalog'; fullPath: '/catalog'; preLoaderRoute: typeof CatalogRouteImport; parentRoute: typeof rootRouteImport }
-    '/booking': { id: '/booking'; path: '/booking'; fullPath: '/booking'; preLoaderRoute: typeof BookingRouteImport; parentRoute: typeof rootRouteImport }
-    '/about': { id: '/about'; path: '/about'; fullPath: '/about'; preLoaderRoute: typeof AboutRouteImport; parentRoute: typeof rootRouteImport }
-    '/': { id: '/'; path: '/'; fullPath: '/'; preLoaderRoute: typeof IndexRouteImport; parentRoute: typeof rootRouteImport }
-    '/smart-home/': { id: '/smart-home/'; path: '/smart-home'; fullPath: '/smart-home/'; preLoaderRoute: typeof SmartHomeIndexRouteImport; parentRoute: typeof rootRouteImport }
-    '/locations/': { id: '/locations/'; path: '/locations'; fullPath: '/locations/'; preLoaderRoute: typeof LocationsIndexRouteImport; parentRoute: typeof rootRouteImport }
-    '/careers/': { id: '/careers/'; path: '/careers'; fullPath: '/careers/'; preLoaderRoute: typeof CareersIndexRouteImport; parentRoute: typeof rootRouteImport }
-    '/blog/': { id: '/blog/'; path: '/blog'; fullPath: '/blog/'; preLoaderRoute: typeof BlogIndexRouteImport; parentRoute: typeof rootRouteImport }
-    '/smart-home/google-home': { id: '/smart-home/google-home'; path: '/smart-home/google-home'; fullPath: '/smart-home/google-home'; preLoaderRoute: typeof SmartHomeGoogleHomeRouteImport; parentRoute: typeof rootRouteImport }
-    '/smart-home/control4': { id: '/smart-home/control4'; path: '/smart-home/control4'; fullPath: '/smart-home/control4'; preLoaderRoute: typeof SmartHomeControl4RouteImport; parentRoute: typeof rootRouteImport }
-    '/smart-home/apple-homekit': { id: '/smart-home/apple-homekit'; path: '/smart-home/apple-homekit'; fullPath: '/smart-home/apple-homekit'; preLoaderRoute: typeof SmartHomeAppleHomekitRouteImport; parentRoute: typeof rootRouteImport }
-    '/smart-home/alexa': { id: '/smart-home/alexa'; path: '/smart-home/alexa'; fullPath: '/smart-home/alexa'; preLoaderRoute: typeof SmartHomeAlexaRouteImport; parentRoute: typeof rootRouteImport }
-    '/locations/$city': { id: '/locations/$city'; path: '/locations/$city'; fullPath: '/locations/$city'; preLoaderRoute: typeof LocationsCityRouteImport; parentRoute: typeof rootRouteImport }
-    '/booking/confirmed': { id: '/booking/confirmed'; path: '/confirmed'; fullPath: '/booking/confirmed'; preLoaderRoute: typeof BookingConfirmedRouteImport; parentRoute: typeof BookingRoute }
-    '/blog/$slug': { id: '/blog/$slug'; path: '/blog/$slug'; fullPath: '/blog/$slug'; preLoaderRoute: typeof BlogSlugRouteImport; parentRoute: typeof rootRouteImport }
-    '/locations/$city/$product': { id: '/locations/$city/$product'; path: '/$product'; fullPath: '/locations/$city/$product'; preLoaderRoute: typeof LocationsCityProductRouteImport; parentRoute: typeof LocationsCityRoute }
-    '/careers/$city/$position': { id: '/careers/$city/$position'; path: '/careers/$city/$position'; fullPath: '/careers/$city/$position'; preLoaderRoute: typeof CareersCityPositionRouteImport; parentRoute: typeof rootRouteImport }
+    '/warranty': {
+      id: '/warranty'
+      path: '/warranty'
+      fullPath: '/warranty'
+      preLoaderRoute: typeof WarrantyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inspiration': {
+      id: '/inspiration'
+      path: '/inspiration'
+      fullPath: '/inspiration'
+      preLoaderRoute: typeof InspirationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commercial': {
+      id: '/commercial'
+      path: '/commercial'
+      fullPath: '/commercial'
+      preLoaderRoute: typeof CommercialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/child-safety': {
+      id: '/child-safety'
+      path: '/child-safety'
+      fullPath: '/child-safety'
+      preLoaderRoute: typeof ChildSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catalog': {
+      id: '/catalog'
+      path: '/catalog'
+      fullPath: '/catalog'
+      preLoaderRoute: typeof CatalogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-home/': {
+      id: '/smart-home/'
+      path: '/smart-home'
+      fullPath: '/smart-home/'
+      preLoaderRoute: typeof SmartHomeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/': {
+      id: '/locations/'
+      path: '/locations'
+      fullPath: '/locations/'
+      preLoaderRoute: typeof LocationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/': {
+      id: '/careers/'
+      path: '/careers'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-home/google-home': {
+      id: '/smart-home/google-home'
+      path: '/smart-home/google-home'
+      fullPath: '/smart-home/google-home'
+      preLoaderRoute: typeof SmartHomeGoogleHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-home/control4': {
+      id: '/smart-home/control4'
+      path: '/smart-home/control4'
+      fullPath: '/smart-home/control4'
+      preLoaderRoute: typeof SmartHomeControl4RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-home/apple-homekit': {
+      id: '/smart-home/apple-homekit'
+      path: '/smart-home/apple-homekit'
+      fullPath: '/smart-home/apple-homekit'
+      preLoaderRoute: typeof SmartHomeAppleHomekitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-home/alexa': {
+      id: '/smart-home/alexa'
+      path: '/smart-home/alexa'
+      fullPath: '/smart-home/alexa'
+      preLoaderRoute: typeof SmartHomeAlexaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/$city': {
+      id: '/locations/$city'
+      path: '/locations/$city'
+      fullPath: '/locations/$city'
+      preLoaderRoute: typeof LocationsCityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking/confirmed': {
+      id: '/booking/confirmed'
+      path: '/confirmed'
+      fullPath: '/booking/confirmed'
+      preLoaderRoute: typeof BookingConfirmedRouteImport
+      parentRoute: typeof BookingRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/$city/$product': {
+      id: '/locations/$city/$product'
+      path: '/$product'
+      fullPath: '/locations/$city/$product'
+      preLoaderRoute: typeof LocationsCityProductRouteImport
+      parentRoute: typeof LocationsCityRoute
+    }
+    '/careers/$city/$position': {
+      id: '/careers/$city/$position'
+      path: '/careers/$city/$position'
+      fullPath: '/careers/$city/$position'
+      preLoaderRoute: typeof CareersCityPositionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
-interface BookingRouteChildren { BookingConfirmedRoute: typeof BookingConfirmedRoute }
-const BookingRouteChildren: BookingRouteChildren = { BookingConfirmedRoute: BookingConfirmedRoute }
-const BookingRouteWithChildren = BookingRoute._addFileChildren(BookingRouteChildren)
+interface BookingRouteChildren {
+  BookingConfirmedRoute: typeof BookingConfirmedRoute
+}
 
-interface LocationsCityRouteChildren { LocationsCityProductRoute: typeof LocationsCityProductRoute }
-const LocationsCityRouteChildren: LocationsCityRouteChildren = { LocationsCityProductRoute: LocationsCityProductRoute }
-const LocationsCityRouteWithChildren = LocationsCityRoute._addFileChildren(LocationsCityRouteChildren)
+const BookingRouteChildren: BookingRouteChildren = {
+  BookingConfirmedRoute: BookingConfirmedRoute,
+}
+
+const BookingRouteWithChildren =
+  BookingRoute._addFileChildren(BookingRouteChildren)
+
+interface LocationsCityRouteChildren {
+  LocationsCityProductRoute: typeof LocationsCityProductRoute
+}
+
+const LocationsCityRouteChildren: LocationsCityRouteChildren = {
+  LocationsCityProductRoute: LocationsCityProductRoute,
+}
+
+const LocationsCityRouteWithChildren = LocationsCityRoute._addFileChildren(
+  LocationsCityRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute, AboutRoute, BookingRoute: BookingRouteWithChildren, CatalogRoute, ChildSafetyRoute,
-  CommercialRoute, ContactRoute, FaqRoute, InspirationRoute, LegalRoute, ReviewsRoute, WarrantyRoute,
-  BlogSlugRoute, LocationsCityRoute: LocationsCityRouteWithChildren, SmartHomeAlexaRoute,
-  SmartHomeAppleHomekitRoute, SmartHomeControl4Route, SmartHomeGoogleHomeRoute,
-  BlogIndexRoute, CareersIndexRoute, LocationsIndexRoute, SmartHomeIndexRoute, CareersCityPositionRoute,
+  IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BookingRoute: BookingRouteWithChildren,
+  CatalogRoute: CatalogRoute,
+  ChildSafetyRoute: ChildSafetyRoute,
+  CommercialRoute: CommercialRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  InspirationRoute: InspirationRoute,
+  LegalRoute: LegalRoute,
+  ReviewsRoute: ReviewsRoute,
+  WarrantyRoute: WarrantyRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  LocationsCityRoute: LocationsCityRouteWithChildren,
+  SmartHomeAlexaRoute: SmartHomeAlexaRoute,
+  SmartHomeAppleHomekitRoute: SmartHomeAppleHomekitRoute,
+  SmartHomeControl4Route: SmartHomeControl4Route,
+  SmartHomeGoogleHomeRoute: SmartHomeGoogleHomeRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  CareersIndexRoute: CareersIndexRoute,
+  LocationsIndexRoute: LocationsIndexRoute,
+  SmartHomeIndexRoute: SmartHomeIndexRoute,
+  CareersCityPositionRoute: CareersCityPositionRoute,
 }
-export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>()
+export const routeTree = rootRouteImport
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
