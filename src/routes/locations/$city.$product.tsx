@@ -557,4 +557,12 @@ function CityProductPage() {
           {CITY_SLUGS.filter(c => c !== city).slice(0, 8).map(c => (
             <a key={c} href={`/locations/${c}/${product}`}
                className="px-3.5 py-2 text-[11px] tracking-[0.12em] uppercase border transition-colors hover:border-[var(--sand)] hover:text-[var(--sand)]"
-               style={{ borderColor: 'var(
+               style={{ borderColor: 'var(--hairline)', color: 'var(--mid)' }}>
+              {cityName(c)}
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  )
+}

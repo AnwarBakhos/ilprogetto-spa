@@ -41,7 +41,7 @@ export function Nav() {
     <nav
       role="navigation"
       aria-label="Main navigation"
-      className="fixed top-0 left-0 right-0 z-50"
+      className="fixed top-0 left-0 right-0 z-[1100]"
       style={{
         height: '76px',
         background: 'rgba(0,0,0,0.85)',
@@ -108,7 +108,7 @@ export function Nav() {
             {/* ── Mega menu panel ── */}
             {megaOpen && (
               <div
-                className="absolute top-[calc(100%+16px)] left-1/2 -translate-x-1/2 z-50 shadow-2xl"
+                className="absolute top-[calc(100%+16px)] left-1/2 -translate-x-1/2 z-[1100] shadow-2xl"
                 style={{
                   width: 'min(920px, 90vw)',
                   background: 'rgba(10,10,10,0.97)',
@@ -301,7 +301,7 @@ export function Nav() {
             bottom: 0,
             background: 'rgba(10,10,10,0.98)',
             borderColor: 'rgba(255,255,255,0.1)',
-            zIndex: 49,
+            zIndex: 1099,
             WebkitOverflowScrolling: 'touch',
           }}
         >
@@ -352,4 +352,19 @@ export function Nav() {
             <a href="tel:+18583381678"
                className="text-[20px] font-[400] text-white tracking-[0.02em]"
                style={{ fontFamily: 'var(--sans)' }}>
-              (858) 338-16
+              (858) 338-1678
+            </a>
+            <Link
+              to="/booking"
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-[11px] tracking-[0.18em] uppercase"
+              style={{ background: 'var(--sand)', color: '#fff' }}
+            >
+              Book Free Consultation
+            </Link>
+          </div>
+        </div>
+      )}
+    </nav>
+  )
+}

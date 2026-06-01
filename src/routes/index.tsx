@@ -694,4 +694,20 @@ function HeroBookingSurvey() {
               <option value="Roller Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Roller Shades</option>
               <option value="Zebra Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Zebra Shades</option>
               <option value="Motorized Blinds" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Motorized Blinds</option>
-              <option value="Plantation Shutters" style={{ background: '#1c1c1a', color: 
+              <option value="Plantation Shutters" style={{ background: '#1c1c1a', color:  'var(--cream)' }}>Plantation Shutters</option>
+              <option value="Roman Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Roman Shades</option>
+              <option value="Wood Blinds" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Wood Blinds</option>
+              <option value="Drapery / Curtains" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Drapery / Curtains</option>
+              <option value="Cellular Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Cellular Shades</option>
+            </select>
+          </div>
+          <button type="submit" disabled={submitting}
+            style={{ width: '100%', background: 'var(--sand)', color: '#fff', border: 'none', padding: '13px', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', cursor: submitting ? 'wait' : 'pointer', fontFamily: 'var(--sans)', opacity: submitting ? 0.7 : 1 }}>
+            {submitting ? 'Sending…' : 'Get My Free Quote →'}
+          </button>
+          <p style={{ fontSize: '11px', color: 'rgba(251,251,249,0.35)', marginTop: '10px', textAlign: 'center', lineHeight: 1.6 }}>No obligation · We come to you · Same-day callbacks</p>
+        </form>
+      )}
+    </div>
+  )
+}

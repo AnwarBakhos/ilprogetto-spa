@@ -345,4 +345,12 @@ function CityOverviewPage() {
             <a
               href="tel:+18583381678"
               className="inline-flex items-center gap-2.5 px-9 py-4 text-[11px] tracking-[0.2em] uppercase border transition-colors hover:border-[var(--sand-light)]"
-              style={{ borderColor: 'rgba(255,255,255,0
+              style={{ borderColor: 'rgba(255,255,255,0.25)', color: 'rgba(251,251,249,0.65)' }}>
+              (858) 338-1678
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

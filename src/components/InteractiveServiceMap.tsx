@@ -80,6 +80,7 @@ export function InteractiveServiceMap() {
         dragging: !mobile,         // disable drag on mobile until activated
         touchZoom: !mobile,        // disable pinch-zoom on mobile until activated
         doubleClickZoom: !mobile,
+        // @ts-ignore — tap is a valid Leaflet option not reflected in @types/leaflet
         tap: false,                // prevent tap handler conflicts on iOS
       })
       leafletRef.current = map
