@@ -9,7 +9,7 @@ interface ReviewCardProps {
 export function ReviewCard({ review, onClick, showButtons = false }: ReviewCardProps) {
   return (
     <div
-      className="flex-shrink-0 w-96 h-full flex flex-col p-9 transition-all duration-300 hover:shadow-xl"
+      className="flex-shrink-0 w-[85vw] sm:w-80 md:w-96 h-full flex flex-col p-9 transition-all duration-300 hover:shadow-xl"
       style={{
         background: 'var(--cream)',
         borderLeft: '3px solid var(--sand)',

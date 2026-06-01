@@ -388,7 +388,7 @@ export function ServiceDrawer() {
           aria-label="Open service info"
           aria-expanded={open}
           className="fixed bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4"
-          style={{ zIndex: 901, background: 'rgba(18,18,16,0.97)', borderTop: '0.5px solid rgba(255,255,255,0.1)', minHeight: '52px' }}
+          style={{ zIndex: 901, background: 'rgba(18,18,16,0.97)', borderTop: '0.5px solid rgba(255,255,255,0.1)', minHeight: '52px', paddingBottom: 'max(16px, env(safe-area-inset-bottom))' }}
         >
           <span className="text-[10px] tracking-[0.2em] uppercase"
                 style={{ color: 'var(--sand-light)' }}>
@@ -406,7 +406,7 @@ export function ServiceDrawer() {
         {/* Bottom sheet */}
         <div
           className="fixed left-0 right-0"
-          style={{ zIndex: 900, bottom: '52px', height: '72vh', transform: open ? 'translateY(0)' : 'translateY(100%)', transition: 'transform 0.38s cubic-bezier(0.4,0,0.2,1)', boxShadow: '0 -8px 40px rgba(0,0,0,0.4)', borderRadius: '16px 16px 0 0', overflow: 'hidden' }}
+          style={{ zIndex: 900, bottom: 'calc(52px + env(safe-area-inset-bottom))', height: '72vh', transform: open ? 'translateY(0)' : 'translateY(100%)', transition: 'transform 0.38s cubic-bezier(0.4,0,0.2,1)', boxShadow: '0 -8px 40px rgba(0,0,0,0.4)', borderRadius: '16px 16px 0 0', overflow: 'hidden' }}
           role="dialog"
           aria-modal="true"
           aria-label="Service info and offers"
