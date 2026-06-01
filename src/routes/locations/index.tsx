@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { useEffect, useRef } from 'react'
+import { setupScrollReveal } from '@/lib/utils'
 import { CITY_SLUGS, PRODUCT_SLUGS, cityName } from '@/data/seo'
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
@@ -51,10 +53,17 @@ export const Route = (createFileRoute as any)('/locations')({
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 function LocationsIndexPage() {
+  const ref = useRef<HTMLDivElement>(null)
   const productEntries = Object.entries(PRODUCT_SLUGS)
 
+  useEffect(() => {
+    if (!ref.current) return
+    ref.current.querySelectorAll('.fade-up').forEach((el) => el.classList.add('visible'))
+    return setupScrollReveal(ref.current)
+  }, [])
+
   return (
-    <div>
+    <div ref={ref}>
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header

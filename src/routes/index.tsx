@@ -66,8 +66,7 @@ export const Route = createFileRoute('/')({
 // Video files live in /public/videos/products/
 // Exact filenames from the asset folder (Image 2):
 //   Roller S.mp4 | Zebra S.mp4 | Cellular S.mp4 | Roman S.mp4
-//   Wood & Aluminum Blinds.mp4 | Shangri-La S.mp4
-// Cards 07-08 have no video yet — they render static only (graceful fallback).
+//   Wood & Aluminum Blinds.mp4 | Shangri-La S.mp4 | Curtain.mp4 | Moter.mp4
 const GRID_ITEMS = [
   { num: '01', id: 'roller',          name: 'Roller Shades',         desc: 'Clean cassette tube mechanism. Modern panels in blackout, light-filtering, or sheer.',         video: '/videos/products/Roller S.mp4' },
   { num: '02', id: 'zebra',           name: 'Zebra Shades',          desc: 'Alternating sheer and solid bands. Tune privacy and daylight with a single pull.',             video: '/videos/products/Zebra S.mp4' },
@@ -75,8 +74,8 @@ const GRID_ITEMS = [
   { num: '04', id: 'roman',           name: 'Roman Shades',          desc: 'Tailored horizontal folds. Soft architectural drape with structured lift.',                    video: '/videos/products/Roman S.mp4' },
   { num: '05', id: 'faux-wood',       name: 'Wood & Aluminum Blinds',desc: 'Ladder-cord slats with precise tilt. Natural wood or matte aluminum.',                       video: '/videos/products/Wood & Aluminum Blinds.mp4' },
   { num: '06', id: 'sheer',           name: 'Shangri-La Shades',     desc: 'Floating fabric vanes between sheer facings. Filtered light, sculpted depth.',                video: '/videos/products/Shangri-La S.mp4' },
-  { num: '07', id: 'blackout-curtains', name: 'Curtains & Drapery',  desc: 'Continuous ripple folds on hand-finished metal track. Floor-grazing fall.',                   video: null },
-  { num: '08', id: 'motorized',       name: 'Motorized Shading',     desc: 'Whisper-quiet motors recessed in fascia. App, voice, and scheduled scenes.',                  video: null },
+  { num: '07', id: 'blackout-curtains', name: 'Curtains & Drapery',  desc: 'Continuous ripple folds on hand-finished metal track. Floor-grazing fall.',                   video: '/videos/products/Curtain.mp4' },
+  { num: '08', id: 'motorized',       name: 'Motorized Shading',     desc: 'Whisper-quiet motors recessed in fascia. App, voice, and scheduled scenes.',                  video: '/videos/products/Moter.mp4' },
 ] as const
 
 // ─── ProductCard — hover-to-play on desktop, IntersectionObserver on mobile ───
@@ -490,13 +489,15 @@ function HomePage() {
         className="grid grid-cols-1 lg:grid-cols-2"
         style={{ background: 'var(--warm)' }}
       >
-        <div className="overflow-hidden min-h-[420px]">
-          <img
-            src="/images/hero.webp"
-            alt="iL Progetto designer visiting a client's home with fabric samples"
-            className="w-full h-full object-cover object-center"
-            loading="lazy"
-          />
+        <div className="py-12 md:py-20">
+          <div className="overflow-hidden h-full min-h-[340px]">
+            <img
+              src="/images/m-showroom.png"
+              alt="iL Progetto designer visiting a client's home with fabric samples"
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
         </div>
         <div className="flex flex-col justify-center px-4 md:px-12 lg:px-20 py-12 md:py-20">
           <p className="fade-up text-[10px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
@@ -707,7 +708,8 @@ function HeroBookingSurvey() {
             style={{ width: '100%', background: 'var(--sand)', color: '#fff', border: 'none', padding: '13px', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', cursor: submitting ? 'wait' : 'pointer', fontFamily: 'var(--sans)', opacity: submitting ? 0.7 : 1 }}>
             {submitting ? 'Sending…' : 'Get My Free Quote →'}
           </button>
-          <p style={{ fontSize: '11px', color: 'rgba(251,251,249,0.35)', marginTop: '10px', textAlign: 'center', lineHeight: 1.6 }}>No obligation · We come to you · Same-day callbacks</p>        </form>
+          <p style={{ fontSize: '11px', color: 'rgba(251,251,249,0.35)', marginTop: '10px', textAlign: 'center', lineHeight: 1.6 }}>No obligation · We come to you · No spam.</p>
+        </form>
       )}
     </div>
   )

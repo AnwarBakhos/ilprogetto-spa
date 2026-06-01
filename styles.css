@@ -225,16 +225,4 @@ input[type='range']::-moz-range-thumb:hover { transform: scale(1.25); }
 /* ─── Mobile overflow containment ──────────────────── */
 * {
   box-sizing: border-box;
-  min-width: 0;
-}
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Ensure no section overflows horizontally on mobile */
-@media (max-width: 768px) {
-  section, header, footer, nav, div {
-    max-width: 100%;
-  }
 }
