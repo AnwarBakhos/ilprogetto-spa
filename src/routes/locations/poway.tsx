@@ -1,0 +1,351 @@
+import { createFileRoute, Link } from '@tanstack/react-router'
+
+export const Route = (createFileRoute as any)('/locations/poway')({
+  head: () => ({
+    meta: [
+      { title: 'Custom Window Treatments Poway CA — Heat Control | iL Progetto LLC' },
+      {
+        name: 'description',
+        content:
+          "Energy-efficient window treatments for Poway's hot inland climate. Cellular shades, solar screens & motorized exterior shades — free in-home consultation.",
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'Custom Window Treatments Poway CA — Heat Control | iL Progetto LLC' },
+      { property: 'og:description', content: "Energy-efficient window treatments for Poway's hot inland climate. Cellular shades, solar screens & motorized exterior shades — free in-home consultation." },
+      { property: 'og:image', content: '/images/og-image.jpg' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
+    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/poway' }],
+  }),
+  component: PowayPage,
+})
+
+const heatProducts = [
+  {
+    img: '/images/products/Cellular Shades.png',
+    name: 'Cellular Shades',
+    benefit: 'Traps heat before it enters',
+    detail:
+      'Honeycomb cells form an insulating air barrier right at the glass — keeping rooms measurably cooler without sacrificing natural light.',
+  },
+  {
+    img: '/images/products/Sun Screens.png',
+    name: 'Sun Screens',
+    benefit: 'Blocks UV at the glass',
+    detail:
+      'Solar screen fabric cuts up to 90% of solar heat gain while preserving your view of the Poway hills and valley below.',
+  },
+  {
+    img: '/images/products/Motorized Exterior.png',
+    name: 'Motorized Exterior',
+    benefit: 'Stops heat before the window',
+    detail:
+      'Exterior shading intercepts sun before it touches the glass — the single most effective heat-rejection solution for west and south exposures.',
+  },
+]
+
+const moreProducts = [
+  {
+    img: '/images/products/Roller Shades.png',
+    name: 'Roller Shades',
+    note: 'Clean modern lines — blackout or solar fabric, your choice.',
+  },
+  {
+    img: '/images/products/Faux Wood.jpg',
+    name: 'Faux Wood Blinds',
+    note: "Engineered to never warp in Poway's dry heat — ever.",
+  },
+  {
+    img: '/images/products/Plantation Shutters.png',
+    name: 'Plantation Shutters',
+    note: 'Timeless light control with genuine insulation value.',
+  },
+]
+
+function PowayPage() {
+  return (
+    <div>
+
+      {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
+      <header
+        className="relative flex flex-col justify-end overflow-hidden"
+        style={{ background: 'linear-gradient(rgba(15,13,11,0.62), rgba(15,13,11,0.62)), url(/images/locations/poway.png) center/cover no-repeat', minHeight: '62vh', paddingTop: '76px' }}
+        aria-label="Poway window treatments hero"
+      >
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)',
+            backgroundSize: '20px 20px',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Large decorative temperature */}
+        <div
+          className="absolute right-0 top-0 bottom-0 flex items-center justify-end pr-4 md:pr-16 pointer-events-none select-none"
+          aria-hidden="true"
+        >
+          <span
+            className="font-[300] leading-none tracking-[-0.04em]"
+            style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(120px, 20vw, 300px)',
+              color: 'var(--sand)',
+              opacity: 0.09,
+            }}
+          >
+            95°F
+          </span>
+        </div>
+
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-16 md:pb-24 max-w-[820px]">
+          <p
+            className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8"
+            style={{ color: 'var(--sand-light)' }}
+          >
+            <span className="inline-block w-9 h-px bg-current" aria-hidden="true" />
+            Poway, CA — Inland San Diego
+          </p>
+
+          <h1
+            className="font-[300] leading-[1.02] tracking-[-0.025em] mb-8"
+            style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(36px, 5.5vw, 70px)',
+              color: 'var(--cream)',
+            }}
+          >
+            Poway Summers{' '}
+            <em className="italic" style={{ color: 'var(--sand-light)' }}>
+              Hit Different
+            </em>
+          </h1>
+
+          <p
+            className="text-[16px] leading-[1.85] max-w-[540px] mb-10"
+            style={{ color: 'rgba(251,251,249,0.72)' }}
+          >
+            Twenty miles inland, the marine layer never arrives. Poway sits in a natural bowl that
+            collects heat — and without the coastal breeze, every degree of thermal control inside
+            your home matters. Our window treatments are selected specifically for Poway's climate.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-5">
+            <Link
+              to="/booking"
+              className="inline-flex items-center gap-2.5 px-9 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+              style={{ background: 'var(--sand)', color: 'var(--ink)' }}
+            >
+              Book Free Consultation
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+            <a
+              href="tel:+18583381678"
+              className="text-[13px] tracking-[0.06em]"
+              style={{ color: 'rgba(251,251,249,0.6)' }}
+            >
+              (858) 338-1678
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* ══ HEAT-FIGHTING SOLUTIONS ═══════════════════════════════════════════ */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-24"
+        style={{ background: 'var(--cream)' }}
+        aria-labelledby="heat-solutions-heading"
+      >
+        <div className="mb-14">
+          <p
+            className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-5"
+            style={{ color: 'var(--sand)' }}
+          >
+            <span className="inline-block w-8 h-px bg-current" aria-hidden="true" />
+            Purpose-Built for Poway
+          </p>
+          <h2
+            id="heat-solutions-heading"
+            className="font-[300] leading-[1.06] tracking-[-0.015em]"
+            style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(28px, 3.5vw, 48px)',
+            }}
+          >
+            Our Heat-Fighting{' '}
+            <em className="italic" style={{ color: 'var(--sand)' }}>
+              Solutions
+            </em>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {heatProducts.map((p, i) => (
+            <article
+              key={p.name}
+              className="group flex flex-col"
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
+              <div className="w-full overflow-hidden mb-6" style={{ aspectRatio: '4/3' }}>
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                />
+              </div>
+              <div
+                className="flex-1 pt-5 pb-6 px-1 border-t"
+                style={{ borderColor: 'rgba(0,0,0,0.1)' }}
+              >
+                <p
+                  className="text-[10px] tracking-[0.2em] uppercase mb-2 font-[500]"
+                  style={{ color: 'var(--sand)' }}
+                >
+                  {p.benefit}
+                </p>
+                <h3
+                  className="text-[22px] font-[300] mb-3 leading-[1.2]"
+                  style={{ fontFamily: 'var(--serif)' }}
+                >
+                  {p.name}
+                </h3>
+                <p className="text-[14px] leading-[1.75]" style={{ color: 'var(--mid)' }}>
+                  {p.detail}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* ══ MORE PRODUCTS ═════════════════════════════════════════════════════ */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-20"
+        style={{ background: 'var(--warm)' }}
+        aria-labelledby="more-poway-heading"
+      >
+        <h2
+          id="more-poway-heading"
+          className="font-[300] leading-[1.06] tracking-[-0.015em] mb-12"
+          style={{
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(24px, 2.8vw, 38px)',
+          }}
+        >
+          Also Popular in{' '}
+          <em className="italic" style={{ color: 'var(--sand)' }}>
+            Poway Homes
+          </em>
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {moreProducts.map((p, i) => (
+            <article
+              key={p.name}
+              className="group flex items-center gap-5 p-5"
+              style={{ background: 'var(--cream)', transitionDelay: `${i * 0.08}s` }}
+            >
+              <div className="flex-shrink-0 w-24 h-24 overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-500"
+                />
+              </div>
+              <div>
+                <h3
+                  className="text-[17px] font-[400] mb-1.5 leading-[1.25]"
+                  style={{ fontFamily: 'var(--serif)' }}
+                >
+                  {p.name}
+                </h3>
+                <p className="text-[12px] leading-[1.65]" style={{ color: 'var(--mid)' }}>
+                  {p.note}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+        {/* See Full Selection */}
+        <div style={{ textAlign: 'center', marginTop: 48, paddingBottom: 8 }}>
+          <Link
+            to="/catalog"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '13px 32px',
+              fontSize: 11,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              border: '1px solid rgba(0,0,0,0.25)',
+              color: 'var(--ink)',
+              textDecoration: 'none',
+              transition: 'all 0.2s',
+            }}
+          >
+            See Full Selection →
+          </Link>
+        </div>
+
+      {/* ══ CTA ═══════════════════════════════════════════════════════════════ */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-28 text-center"
+        style={{ background: 'var(--ink)' }}
+        aria-label="Book a consultation"
+      >
+        <p
+          className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-6"
+          style={{ color: 'var(--sand-light)' }}
+        >
+          <span className="inline-block w-8 h-px bg-current" aria-hidden="true" />
+          Free In-Home Visit · Poway
+        </p>
+        <h2
+          className="font-[300] leading-[1.05] tracking-[-0.02em] mb-6"
+          style={{
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(30px, 4vw, 54px)',
+            color: 'var(--cream)',
+          }}
+        >
+          Beat the Poway{' '}
+          <em className="italic" style={{ color: 'var(--sand)' }}>
+            Heat
+          </em>
+        </h2>
+        <p
+          className="text-[15px] leading-[1.85] max-w-[480px] mx-auto mb-10"
+          style={{ color: 'rgba(251,251,249,0.65)' }}
+        >
+          Our designer visits your home with samples, measurements, and transparent pricing — all
+          in one appointment. No showroom required. Call{' '}
+          <a href="tel:+18583381678" className="underline" style={{ color: 'var(--sand-light)' }}>
+            (858) 338-1678
+          </a>{' '}
+          or book online.
+        </p>
+        <Link
+          to="/booking"
+          className="inline-flex items-center gap-2.5 px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+          style={{ background: 'var(--sand)', color: 'var(--ink)' }}
+        >
+          Book Free Consultation
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </Link>
+      </section>
+
+    </div>
+  )
+}

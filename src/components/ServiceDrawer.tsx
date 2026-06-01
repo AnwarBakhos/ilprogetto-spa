@@ -19,7 +19,6 @@ const SERVICE_AREA_LINKS: { name: string; slug: string | null }[] = [
   { name: 'San Marcos',      slug: 'san-marcos' },
   { name: 'Vista',           slug: 'vista' },
   { name: 'Temecula',        slug: 'temecula' },
-  { name: 'Orange County',   slug: null },
 ]
 
 type AccordionId = 'areas' | 'discount' | 'contact' | null
@@ -220,7 +219,7 @@ export function ServiceDrawer() {
                       style={{ background: 'var(--sand)' }} aria-hidden="true" />
                 {slug ? (
                   <Link
-                    to={`/locations/${slug}/roller-shades` as any}
+                    to={`/locations/${slug}` as any}
                     className="text-[12px] transition-colors hover:text-[var(--sand-light)] underline-offset-2 hover:underline"
                     style={{ color: 'rgba(251,251,249,0.65)' }}
                     onClick={() => setOpen(false)}

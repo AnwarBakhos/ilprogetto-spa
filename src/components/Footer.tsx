@@ -210,26 +210,13 @@ export function Footer() {
               ← All Service Areas
             </a>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-8">
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
             {CITY_SLUGS.map(city => (
-              <div key={city}>
-                <a href={`/locations/${city}`}
-                   className="block text-[10px] tracking-[0.16em] uppercase mb-2 hover:text-[var(--sand-light)] transition-colors"
-                   style={{ color: 'rgba(251,251,249,0.45)' }}>
-                  {cityName(city)}
-                </a>
-                <ul className="flex flex-col gap-1.5 list-none">
-                  {Object.keys(PRODUCT_SLUGS).map(product => (
-                    <li key={product}>
-                      <a href={`/locations/${city}/${product}`}
-                         className="text-[11px] transition-colors hover:text-[var(--sand-light)]"
-                         style={{ color: 'rgba(251,251,249,0.28)' }}>
-                        {PRODUCT_SLUGS[product]}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <a key={city} href={`/locations/${city}`}
+                 className="text-[11px] tracking-[0.12em] uppercase hover:text-[var(--sand-light)] transition-colors"
+                 style={{ color: 'rgba(251,251,249,0.45)' }}>
+                {cityName(city)}
+              </a>
             ))}
           </div>
         </div>

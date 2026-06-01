@@ -29,6 +29,22 @@ import { Route as SmartHomeGoogleHomeRouteImport } from './routes/smart-home/goo
 import { Route as SmartHomeControl4RouteImport } from './routes/smart-home/control4'
 import { Route as SmartHomeAppleHomekitRouteImport } from './routes/smart-home/apple-homekit'
 import { Route as SmartHomeAlexaRouteImport } from './routes/smart-home/alexa'
+import { Route as LocationsVistaRouteImport } from './routes/locations/vista'
+import { Route as LocationsTemeculaRouteImport } from './routes/locations/temecula'
+import { Route as LocationsSolanaBeachRouteImport } from './routes/locations/solana-beach'
+import { Route as LocationsSanMarcosRouteImport } from './routes/locations/san-marcos'
+import { Route as LocationsSanDiegoRouteImport } from './routes/locations/san-diego'
+import { Route as LocationsRanchoSantaFeRouteImport } from './routes/locations/rancho-santa-fe'
+import { Route as LocationsPowayRouteImport } from './routes/locations/poway'
+import { Route as LocationsNationalCityRouteImport } from './routes/locations/national-city'
+import { Route as LocationsLaJollaRouteImport } from './routes/locations/la-jolla'
+import { Route as LocationsEscondidoRouteImport } from './routes/locations/escondido'
+import { Route as LocationsEncinitasRouteImport } from './routes/locations/encinitas'
+import { Route as LocationsElCajonRouteImport } from './routes/locations/el-cajon'
+import { Route as LocationsDelMarRouteImport } from './routes/locations/del-mar'
+import { Route as LocationsCoronadoRouteImport } from './routes/locations/coronado'
+import { Route as LocationsChulaVistaRouteImport } from './routes/locations/chula-vista'
+import { Route as LocationsCarlsbadRouteImport } from './routes/locations/carlsbad'
 import { Route as LocationsCityRouteImport } from './routes/locations/$city'
 import { Route as BookingConfirmedRouteImport } from './routes/booking/confirmed'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
@@ -135,6 +151,86 @@ const SmartHomeAlexaRoute = SmartHomeAlexaRouteImport.update({
   path: '/smart-home/alexa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsVistaRoute = LocationsVistaRouteImport.update({
+  id: '/locations/vista',
+  path: '/locations/vista',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsTemeculaRoute = LocationsTemeculaRouteImport.update({
+  id: '/locations/temecula',
+  path: '/locations/temecula',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsSolanaBeachRoute = LocationsSolanaBeachRouteImport.update({
+  id: '/locations/solana-beach',
+  path: '/locations/solana-beach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsSanMarcosRoute = LocationsSanMarcosRouteImport.update({
+  id: '/locations/san-marcos',
+  path: '/locations/san-marcos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsSanDiegoRoute = LocationsSanDiegoRouteImport.update({
+  id: '/locations/san-diego',
+  path: '/locations/san-diego',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsRanchoSantaFeRoute = LocationsRanchoSantaFeRouteImport.update({
+  id: '/locations/rancho-santa-fe',
+  path: '/locations/rancho-santa-fe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsPowayRoute = LocationsPowayRouteImport.update({
+  id: '/locations/poway',
+  path: '/locations/poway',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsNationalCityRoute = LocationsNationalCityRouteImport.update({
+  id: '/locations/national-city',
+  path: '/locations/national-city',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsLaJollaRoute = LocationsLaJollaRouteImport.update({
+  id: '/locations/la-jolla',
+  path: '/locations/la-jolla',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsEscondidoRoute = LocationsEscondidoRouteImport.update({
+  id: '/locations/escondido',
+  path: '/locations/escondido',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsEncinitasRoute = LocationsEncinitasRouteImport.update({
+  id: '/locations/encinitas',
+  path: '/locations/encinitas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsElCajonRoute = LocationsElCajonRouteImport.update({
+  id: '/locations/el-cajon',
+  path: '/locations/el-cajon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsDelMarRoute = LocationsDelMarRouteImport.update({
+  id: '/locations/del-mar',
+  path: '/locations/del-mar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsCoronadoRoute = LocationsCoronadoRouteImport.update({
+  id: '/locations/coronado',
+  path: '/locations/coronado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsChulaVistaRoute = LocationsChulaVistaRouteImport.update({
+  id: '/locations/chula-vista',
+  path: '/locations/chula-vista',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsCarlsbadRoute = LocationsCarlsbadRouteImport.update({
+  id: '/locations/carlsbad',
+  path: '/locations/carlsbad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsCityRoute = LocationsCityRouteImport.update({
   id: '/locations/$city',
   path: '/locations/$city',
@@ -177,6 +273,22 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/booking/confirmed': typeof BookingConfirmedRoute
   '/locations/$city': typeof LocationsCityRouteWithChildren
+  '/locations/carlsbad': typeof LocationsCarlsbadRoute
+  '/locations/chula-vista': typeof LocationsChulaVistaRoute
+  '/locations/coronado': typeof LocationsCoronadoRoute
+  '/locations/del-mar': typeof LocationsDelMarRoute
+  '/locations/el-cajon': typeof LocationsElCajonRoute
+  '/locations/encinitas': typeof LocationsEncinitasRoute
+  '/locations/escondido': typeof LocationsEscondidoRoute
+  '/locations/la-jolla': typeof LocationsLaJollaRoute
+  '/locations/national-city': typeof LocationsNationalCityRoute
+  '/locations/poway': typeof LocationsPowayRoute
+  '/locations/rancho-santa-fe': typeof LocationsRanchoSantaFeRoute
+  '/locations/san-diego': typeof LocationsSanDiegoRoute
+  '/locations/san-marcos': typeof LocationsSanMarcosRoute
+  '/locations/solana-beach': typeof LocationsSolanaBeachRoute
+  '/locations/temecula': typeof LocationsTemeculaRoute
+  '/locations/vista': typeof LocationsVistaRoute
   '/smart-home/alexa': typeof SmartHomeAlexaRoute
   '/smart-home/apple-homekit': typeof SmartHomeAppleHomekitRoute
   '/smart-home/control4': typeof SmartHomeControl4Route
@@ -204,6 +316,22 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/booking/confirmed': typeof BookingConfirmedRoute
   '/locations/$city': typeof LocationsCityRouteWithChildren
+  '/locations/carlsbad': typeof LocationsCarlsbadRoute
+  '/locations/chula-vista': typeof LocationsChulaVistaRoute
+  '/locations/coronado': typeof LocationsCoronadoRoute
+  '/locations/del-mar': typeof LocationsDelMarRoute
+  '/locations/el-cajon': typeof LocationsElCajonRoute
+  '/locations/encinitas': typeof LocationsEncinitasRoute
+  '/locations/escondido': typeof LocationsEscondidoRoute
+  '/locations/la-jolla': typeof LocationsLaJollaRoute
+  '/locations/national-city': typeof LocationsNationalCityRoute
+  '/locations/poway': typeof LocationsPowayRoute
+  '/locations/rancho-santa-fe': typeof LocationsRanchoSantaFeRoute
+  '/locations/san-diego': typeof LocationsSanDiegoRoute
+  '/locations/san-marcos': typeof LocationsSanMarcosRoute
+  '/locations/solana-beach': typeof LocationsSolanaBeachRoute
+  '/locations/temecula': typeof LocationsTemeculaRoute
+  '/locations/vista': typeof LocationsVistaRoute
   '/smart-home/alexa': typeof SmartHomeAlexaRoute
   '/smart-home/apple-homekit': typeof SmartHomeAppleHomekitRoute
   '/smart-home/control4': typeof SmartHomeControl4Route
@@ -232,6 +360,22 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/booking/confirmed': typeof BookingConfirmedRoute
   '/locations/$city': typeof LocationsCityRouteWithChildren
+  '/locations/carlsbad': typeof LocationsCarlsbadRoute
+  '/locations/chula-vista': typeof LocationsChulaVistaRoute
+  '/locations/coronado': typeof LocationsCoronadoRoute
+  '/locations/del-mar': typeof LocationsDelMarRoute
+  '/locations/el-cajon': typeof LocationsElCajonRoute
+  '/locations/encinitas': typeof LocationsEncinitasRoute
+  '/locations/escondido': typeof LocationsEscondidoRoute
+  '/locations/la-jolla': typeof LocationsLaJollaRoute
+  '/locations/national-city': typeof LocationsNationalCityRoute
+  '/locations/poway': typeof LocationsPowayRoute
+  '/locations/rancho-santa-fe': typeof LocationsRanchoSantaFeRoute
+  '/locations/san-diego': typeof LocationsSanDiegoRoute
+  '/locations/san-marcos': typeof LocationsSanMarcosRoute
+  '/locations/solana-beach': typeof LocationsSolanaBeachRoute
+  '/locations/temecula': typeof LocationsTemeculaRoute
+  '/locations/vista': typeof LocationsVistaRoute
   '/smart-home/alexa': typeof SmartHomeAlexaRoute
   '/smart-home/apple-homekit': typeof SmartHomeAppleHomekitRoute
   '/smart-home/control4': typeof SmartHomeControl4Route
@@ -261,6 +405,22 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/booking/confirmed'
     | '/locations/$city'
+    | '/locations/carlsbad'
+    | '/locations/chula-vista'
+    | '/locations/coronado'
+    | '/locations/del-mar'
+    | '/locations/el-cajon'
+    | '/locations/encinitas'
+    | '/locations/escondido'
+    | '/locations/la-jolla'
+    | '/locations/national-city'
+    | '/locations/poway'
+    | '/locations/rancho-santa-fe'
+    | '/locations/san-diego'
+    | '/locations/san-marcos'
+    | '/locations/solana-beach'
+    | '/locations/temecula'
+    | '/locations/vista'
     | '/smart-home/alexa'
     | '/smart-home/apple-homekit'
     | '/smart-home/control4'
@@ -288,6 +448,22 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/booking/confirmed'
     | '/locations/$city'
+    | '/locations/carlsbad'
+    | '/locations/chula-vista'
+    | '/locations/coronado'
+    | '/locations/del-mar'
+    | '/locations/el-cajon'
+    | '/locations/encinitas'
+    | '/locations/escondido'
+    | '/locations/la-jolla'
+    | '/locations/national-city'
+    | '/locations/poway'
+    | '/locations/rancho-santa-fe'
+    | '/locations/san-diego'
+    | '/locations/san-marcos'
+    | '/locations/solana-beach'
+    | '/locations/temecula'
+    | '/locations/vista'
     | '/smart-home/alexa'
     | '/smart-home/apple-homekit'
     | '/smart-home/control4'
@@ -315,6 +491,22 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/booking/confirmed'
     | '/locations/$city'
+    | '/locations/carlsbad'
+    | '/locations/chula-vista'
+    | '/locations/coronado'
+    | '/locations/del-mar'
+    | '/locations/el-cajon'
+    | '/locations/encinitas'
+    | '/locations/escondido'
+    | '/locations/la-jolla'
+    | '/locations/national-city'
+    | '/locations/poway'
+    | '/locations/rancho-santa-fe'
+    | '/locations/san-diego'
+    | '/locations/san-marcos'
+    | '/locations/solana-beach'
+    | '/locations/temecula'
+    | '/locations/vista'
     | '/smart-home/alexa'
     | '/smart-home/apple-homekit'
     | '/smart-home/control4'
@@ -342,6 +534,22 @@ export interface RootRouteChildren {
   WarrantyRoute: typeof WarrantyRoute
   BlogSlugRoute: typeof BlogSlugRoute
   LocationsCityRoute: typeof LocationsCityRouteWithChildren
+  LocationsCarlsbadRoute: typeof LocationsCarlsbadRoute
+  LocationsChulaVistaRoute: typeof LocationsChulaVistaRoute
+  LocationsCoronadoRoute: typeof LocationsCoronadoRoute
+  LocationsDelMarRoute: typeof LocationsDelMarRoute
+  LocationsElCajonRoute: typeof LocationsElCajonRoute
+  LocationsEncinitasRoute: typeof LocationsEncinitasRoute
+  LocationsEscondidoRoute: typeof LocationsEscondidoRoute
+  LocationsLaJollaRoute: typeof LocationsLaJollaRoute
+  LocationsNationalCityRoute: typeof LocationsNationalCityRoute
+  LocationsPowayRoute: typeof LocationsPowayRoute
+  LocationsRanchoSantaFeRoute: typeof LocationsRanchoSantaFeRoute
+  LocationsSanDiegoRoute: typeof LocationsSanDiegoRoute
+  LocationsSanMarcosRoute: typeof LocationsSanMarcosRoute
+  LocationsSolanaBeachRoute: typeof LocationsSolanaBeachRoute
+  LocationsTemeculaRoute: typeof LocationsTemeculaRoute
+  LocationsVistaRoute: typeof LocationsVistaRoute
   SmartHomeAlexaRoute: typeof SmartHomeAlexaRoute
   SmartHomeAppleHomekitRoute: typeof SmartHomeAppleHomekitRoute
   SmartHomeControl4Route: typeof SmartHomeControl4Route
@@ -495,6 +703,118 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SmartHomeAlexaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/vista': {
+      id: '/locations/vista'
+      path: '/locations/vista'
+      fullPath: '/locations/vista'
+      preLoaderRoute: typeof LocationsVistaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/temecula': {
+      id: '/locations/temecula'
+      path: '/locations/temecula'
+      fullPath: '/locations/temecula'
+      preLoaderRoute: typeof LocationsTemeculaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/solana-beach': {
+      id: '/locations/solana-beach'
+      path: '/locations/solana-beach'
+      fullPath: '/locations/solana-beach'
+      preLoaderRoute: typeof LocationsSolanaBeachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/san-marcos': {
+      id: '/locations/san-marcos'
+      path: '/locations/san-marcos'
+      fullPath: '/locations/san-marcos'
+      preLoaderRoute: typeof LocationsSanMarcosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/san-diego': {
+      id: '/locations/san-diego'
+      path: '/locations/san-diego'
+      fullPath: '/locations/san-diego'
+      preLoaderRoute: typeof LocationsSanDiegoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/rancho-santa-fe': {
+      id: '/locations/rancho-santa-fe'
+      path: '/locations/rancho-santa-fe'
+      fullPath: '/locations/rancho-santa-fe'
+      preLoaderRoute: typeof LocationsRanchoSantaFeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/poway': {
+      id: '/locations/poway'
+      path: '/locations/poway'
+      fullPath: '/locations/poway'
+      preLoaderRoute: typeof LocationsPowayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/national-city': {
+      id: '/locations/national-city'
+      path: '/locations/national-city'
+      fullPath: '/locations/national-city'
+      preLoaderRoute: typeof LocationsNationalCityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/la-jolla': {
+      id: '/locations/la-jolla'
+      path: '/locations/la-jolla'
+      fullPath: '/locations/la-jolla'
+      preLoaderRoute: typeof LocationsLaJollaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/escondido': {
+      id: '/locations/escondido'
+      path: '/locations/escondido'
+      fullPath: '/locations/escondido'
+      preLoaderRoute: typeof LocationsEscondidoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/encinitas': {
+      id: '/locations/encinitas'
+      path: '/locations/encinitas'
+      fullPath: '/locations/encinitas'
+      preLoaderRoute: typeof LocationsEncinitasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/el-cajon': {
+      id: '/locations/el-cajon'
+      path: '/locations/el-cajon'
+      fullPath: '/locations/el-cajon'
+      preLoaderRoute: typeof LocationsElCajonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/del-mar': {
+      id: '/locations/del-mar'
+      path: '/locations/del-mar'
+      fullPath: '/locations/del-mar'
+      preLoaderRoute: typeof LocationsDelMarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/coronado': {
+      id: '/locations/coronado'
+      path: '/locations/coronado'
+      fullPath: '/locations/coronado'
+      preLoaderRoute: typeof LocationsCoronadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/chula-vista': {
+      id: '/locations/chula-vista'
+      path: '/locations/chula-vista'
+      fullPath: '/locations/chula-vista'
+      preLoaderRoute: typeof LocationsChulaVistaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/carlsbad': {
+      id: '/locations/carlsbad'
+      path: '/locations/carlsbad'
+      fullPath: '/locations/carlsbad'
+      preLoaderRoute: typeof LocationsCarlsbadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations/$city': {
       id: '/locations/$city'
       path: '/locations/$city'
@@ -571,6 +891,22 @@ const rootRouteChildren: RootRouteChildren = {
   WarrantyRoute: WarrantyRoute,
   BlogSlugRoute: BlogSlugRoute,
   LocationsCityRoute: LocationsCityRouteWithChildren,
+  LocationsCarlsbadRoute: LocationsCarlsbadRoute,
+  LocationsChulaVistaRoute: LocationsChulaVistaRoute,
+  LocationsCoronadoRoute: LocationsCoronadoRoute,
+  LocationsDelMarRoute: LocationsDelMarRoute,
+  LocationsElCajonRoute: LocationsElCajonRoute,
+  LocationsEncinitasRoute: LocationsEncinitasRoute,
+  LocationsEscondidoRoute: LocationsEscondidoRoute,
+  LocationsLaJollaRoute: LocationsLaJollaRoute,
+  LocationsNationalCityRoute: LocationsNationalCityRoute,
+  LocationsPowayRoute: LocationsPowayRoute,
+  LocationsRanchoSantaFeRoute: LocationsRanchoSantaFeRoute,
+  LocationsSanDiegoRoute: LocationsSanDiegoRoute,
+  LocationsSanMarcosRoute: LocationsSanMarcosRoute,
+  LocationsSolanaBeachRoute: LocationsSolanaBeachRoute,
+  LocationsTemeculaRoute: LocationsTemeculaRoute,
+  LocationsVistaRoute: LocationsVistaRoute,
   SmartHomeAlexaRoute: SmartHomeAlexaRoute,
   SmartHomeAppleHomekitRoute: SmartHomeAppleHomekitRoute,
   SmartHomeControl4Route: SmartHomeControl4Route,

@@ -1,0 +1,349 @@
+import { createFileRoute, Link } from '@tanstack/react-router'
+
+export const Route = (createFileRoute as any)('/locations/el-cajon')({
+  head: () => ({
+    meta: [
+      { title: 'Custom Window Treatments El Cajon CA — Heat Solutions | iL Progetto LLC' },
+      {
+        name: 'description',
+        content:
+          "El Cajon's heat demands more. Cellular shades, solar screens & motorized exterior shading for 100°F+ summers. Free in-home consultation by iL Progetto LLC.",
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'Custom Window Treatments El Cajon CA — Heat Solutions | iL Progetto LLC' },
+      { property: 'og:description', content: "El Cajon's heat demands more. Cellular shades, solar screens & motorized exterior shading for 100°F+ summers. Free in-home consultation by iL Progetto LLC." },
+      { property: 'og:image', content: '/images/og-image.jpg' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
+    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/el-cajon' }],
+  }),
+  component: ElCajonPage,
+})
+
+const supportProducts = [
+  {
+    img: '/images/products/Sun Screens.png',
+    name: 'Sun Screens',
+    desc: 'Block up to 90% of solar heat gain while preserving your outward view.',
+  },
+  {
+    img: '/images/products/Motorized Exterior.png',
+    name: 'Motorized Exterior',
+    desc: "Intercept the sun before it reaches the glass — El Cajon's most effective shading solution.",
+  },
+  {
+    img: '/images/products/Roller Shades.png',
+    name: 'Roller Shades',
+    desc: 'Solar or blackout fabric on a clean cassette system. Works in any room.',
+  },
+  {
+    img: '/images/products/Faux Wood.jpg',
+    name: 'Faux Wood Blinds',
+    desc: 'Moisture and heat-resistant alternative to real wood. Won\'t warp or crack in El Cajon\'s 100°F+ summers — ideal for west-facing windows.',
+  },
+  {
+    img: '/images/products/Plantation Shutters.png',
+    name: 'Plantation Shutters',
+    desc: 'Solid louvered panels add an insulating air barrier between the glass and the room, reducing heat transfer by up to 45% compared to uncovered windows.',
+  },
+]
+
+function ElCajonPage() {
+  return (
+    <div>
+
+      {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
+      <header
+        className="relative flex flex-col justify-end overflow-hidden"
+        style={{
+          background: 'linear-gradient(rgba(15,13,11,0.62), rgba(15,13,11,0.62)), url(/images/locations/el-cajon.png) center/cover no-repeat',
+          minHeight: '64vh',
+          paddingTop: '76px',
+        }}
+        aria-label="El Cajon window treatments hero"
+      >
+        {/* Decorative +15°F */}
+        <div
+          className="absolute right-0 top-0 bottom-0 flex items-center justify-end pr-4 md:pr-14 pointer-events-none select-none"
+          aria-hidden="true"
+        >
+          <span
+            className="font-[300] leading-none tracking-[-0.04em]"
+            style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(100px, 17vw, 260px)',
+              color: '#c5a572',
+              opacity: 0.1,
+            }}
+          >
+            +15°F
+          </span>
+        </div>
+
+        <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-16 md:pb-24 max-w-[860px]">
+          <p
+            className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8"
+            style={{ color: '#d4b896' }}
+          >
+            <span className="inline-block w-9 h-px bg-current" aria-hidden="true" />
+            El Cajon, CA — East County
+          </p>
+
+          <h1
+            className="font-[300] leading-[1.03] tracking-[-0.025em] mb-8"
+            style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(34px, 5vw, 66px)',
+              color: 'var(--cream)',
+            }}
+          >
+            El Cajon Runs Hot.{' '}
+            <br className="hidden md:block" />
+            <em className="italic" style={{ color: '#d4b896' }}>
+              Your Windows Don't Have To.
+            </em>
+          </h1>
+
+          <p
+            className="text-[16px] leading-[1.85] max-w-[560px] mb-10"
+            style={{ color: 'rgba(251,251,249,0.68)' }}
+          >
+            El Cajon regularly hits 100°F+ in summer — running 5 to 15 degrees hotter than the
+            coast. Ranch homes and hillside properties here were built for a breezier era. Today,
+            the right window treatments are the fastest upgrade you can make.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-5">
+            <Link
+              to="/booking"
+              className="inline-flex items-center gap-2.5 px-9 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+              style={{ background: '#c5a572', color: '#1a0e00' }}
+            >
+              Book Free Consultation
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+            <a
+              href="tel:+18583381678"
+              className="text-[13px] tracking-[0.06em]"
+              style={{ color: 'rgba(251,251,249,0.55)' }}
+            >
+              (858) 338-1678
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* ══ FEATURED PRODUCT — CELLULAR SHADES ═══════════════════════════════ */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-24"
+        style={{ background: 'var(--cream)' }}
+        aria-labelledby="featured-heading"
+      >
+        <div className="mb-10">
+          <p
+            className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-5"
+            style={{ color: 'var(--sand)' }}
+          >
+            <span className="inline-block w-8 h-px bg-current" aria-hidden="true" />
+            Featured Solution
+          </p>
+          <h2
+            id="featured-heading"
+            className="font-[300] leading-[1.06] tracking-[-0.015em]"
+            style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(26px, 3.2vw, 44px)',
+            }}
+          >
+            The #1 Choice for{' '}
+            <em className="italic" style={{ color: 'var(--sand)' }}>
+              El Cajon Homes
+            </em>
+          </h2>
+        </div>
+
+        <article className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+          {/* Image — 16:9 */}
+          <div className="w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
+            <img
+              src="/images/products/Cellular Shades.png"
+              alt="Cellular Shades"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Content panel */}
+          <div
+            className="flex flex-col justify-center px-8 md:px-12 py-10"
+            style={{ background: 'var(--warm)' }}
+          >
+            <h3
+              className="text-[30px] font-[300] mb-4 leading-[1.15]"
+              style={{ fontFamily: 'var(--serif)' }}
+            >
+              Cellular Shades
+            </h3>
+            <p className="text-[15px] leading-[1.8] mb-8" style={{ color: 'var(--mid)' }}>
+              Honeycomb construction creates a thermal buffer between the glass and your living
+              space. In El Cajon, that air pocket works as a heat shield on every sun-facing window.
+            </p>
+            <ul className="flex flex-col gap-4 mb-8">
+              {[
+                'Reduces solar heat gain by up to 40% on south/west exposures',
+                'Available in single, double, or triple-cell for maximum insulation',
+                'Top-down/bottom-up options for privacy and light at the same time',
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-3">
+                  <span
+                    className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full"
+                    style={{ background: 'var(--sand)' }}
+                    aria-hidden="true"
+                  />
+                  <span className="text-[14px] leading-[1.7]" style={{ color: 'var(--mid)' }}>
+                    {b}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/booking"
+              className="self-start inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase"
+              style={{ color: 'var(--sand)' }}
+            >
+              Get a quote <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </article>
+      </section>
+
+      {/* ══ THREE MORE PRODUCTS ═══════════════════════════════════════════════ */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-20"
+        style={{ background: 'var(--warm)' }}
+        aria-labelledby="more-el-cajon-heading"
+      >
+        <h2
+          id="more-el-cajon-heading"
+          className="font-[300] leading-[1.06] tracking-[-0.015em] mb-12"
+          style={{
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(24px, 2.8vw, 38px)',
+          }}
+        >
+          More Ways to Cool{' '}
+          <em className="italic" style={{ color: 'var(--sand)' }}>
+            Your Home
+          </em>
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {supportProducts.map((p, i) => (
+            <article
+              key={p.name}
+              className="group flex flex-col"
+              style={{ background: 'var(--cream)', transitionDelay: `${i * 0.09}s` }}
+            >
+              <div className="w-full overflow-hidden" style={{ aspectRatio: '3/2' }}>
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                />
+              </div>
+              <div className="p-6">
+                <h3
+                  className="text-[20px] font-[300] mb-2 leading-[1.2]"
+                  style={{ fontFamily: 'var(--serif)' }}
+                >
+                  {p.name}
+                </h3>
+                <p className="text-[13px] leading-[1.75]" style={{ color: 'var(--mid)' }}>
+                  {p.desc}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+        {/* See Full Selection */}
+        <div style={{ textAlign: 'center', marginTop: 48, paddingBottom: 8 }}>
+          <Link
+            to="/catalog"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '13px 32px',
+              fontSize: 11,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              border: '1px solid rgba(0,0,0,0.25)',
+              color: 'var(--ink)',
+              textDecoration: 'none',
+              transition: 'all 0.2s',
+            }}
+          >
+            See Full Selection →
+          </Link>
+        </div>
+
+      {/* ══ CTA ═══════════════════════════════════════════════════════════════ */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-28"
+        style={{ background: 'linear-gradient(135deg, #1a0e00 0%, #2d1a00 100%)' }}
+        aria-label="Book a consultation"
+      >
+        <div className="max-w-[660px]">
+          <p
+            className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-6"
+            style={{ color: '#d4b896' }}
+          >
+            <span className="inline-block w-8 h-px bg-current" aria-hidden="true" />
+            Free In-Home Visit · El Cajon
+          </p>
+          <h2
+            className="font-[300] leading-[1.05] tracking-[-0.02em] mb-6"
+            style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(30px, 4vw, 52px)',
+              color: 'var(--cream)',
+            }}
+          >
+            Ready to Make Your Home{' '}
+            <em className="italic" style={{ color: '#c5a572' }}>
+              Comfortable Again?
+            </em>
+          </h2>
+          <p
+            className="text-[15px] leading-[1.85] mb-10"
+            style={{ color: 'rgba(251,251,249,0.62)' }}
+          >
+            Our designer visits your home with the full collection — samples, measurements, and
+            pricing — all in one appointment. Call{' '}
+            <a href="tel:+18583381678" className="underline" style={{ color: '#d4b896' }}>
+              (858) 338-1678
+            </a>{' '}
+            or book a free consultation online.
+          </p>
+          <Link
+            to="/booking"
+            className="inline-flex items-center gap-2.5 px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+            style={{ background: '#c5a572', color: '#1a0e00' }}
+          >
+            Book Free Consultation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Link>
+        </div>
+      </section>
+
+    </div>
+  )
+}
