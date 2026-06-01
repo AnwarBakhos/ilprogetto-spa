@@ -182,12 +182,16 @@ function VistaPage() {
             </article>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: 48 }}>
+        <div style={{ textAlign: 'center', marginTop: 56 }}>
           <Link
             to="/catalog"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 32px', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', border: '1px solid rgba(0,0,0,0.25)', color: 'var(--ink)', textDecoration: 'none' }}
+            className="inline-flex items-center gap-3 px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+            style={{ background: 'var(--sand)', color: '#fff', textDecoration: 'none' }}
           >
-            See Full Selection →
+            Browse Full Catalog
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
           </Link>
         </div>
       </section>

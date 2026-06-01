@@ -63,23 +63,7 @@ function ElCajonPage() {
         }}
         aria-label="El Cajon window treatments hero"
       >
-        {/* Decorative +15°F */}
-        <div
-          className="absolute right-0 top-0 bottom-0 flex items-center justify-end pr-4 md:pr-14 pointer-events-none select-none"
-          aria-hidden="true"
-        >
-          <span
-            className="font-[300] leading-none tracking-[-0.04em]"
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: 'clamp(100px, 17vw, 260px)',
-              color: '#c5a572',
-              opacity: 0.1,
-            }}
-          >
-            +15°F
-          </span>
-        </div>
+
 
         <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-16 md:pb-24 max-w-[860px]">
           <p
@@ -269,26 +253,16 @@ function ElCajonPage() {
           ))}
         </div>
       </section>
-
-        {/* See Full Selection */}
-        <div style={{ textAlign: 'center', marginTop: 48, paddingBottom: 8 }}>
+        <div style={{ textAlign: 'center', marginTop: 56 }}>
           <Link
             to="/catalog"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '13px 32px',
-              fontSize: 11,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              border: '1px solid rgba(0,0,0,0.25)',
-              color: 'var(--ink)',
-              textDecoration: 'none',
-              transition: 'all 0.2s',
-            }}
+            className="inline-flex items-center gap-3 px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+            style={{ background: 'var(--sand)', color: '#fff', textDecoration: 'none' }}
           >
-            See Full Selection →
+            Browse Full Catalog
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
           </Link>
         </div>
 

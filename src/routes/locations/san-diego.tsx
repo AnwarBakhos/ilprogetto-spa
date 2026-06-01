@@ -85,19 +85,7 @@ function SanDiegoPage() {
           aria-hidden="true"
         />
 
-        <span
-          className="absolute right-10 bottom-0 select-none pointer-events-none leading-none"
-          style={{
-            fontFamily: 'var(--serif)',
-            fontSize: 'clamp(80px, 14vw, 180px)',
-            color: 'rgba(197,165,114,0.07)',
-            fontWeight: 300,
-            letterSpacing: '-0.03em',
-          }}
-          aria-hidden="true"
-        >
-          San Diego
-        </span>
+
 
         <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-20 max-w-[860px]">
           <p
@@ -245,26 +233,16 @@ function SanDiegoPage() {
           ))}
         </div>
       </section>
-
-        {/* See Full Selection */}
-        <div style={{ textAlign: 'center', marginTop: 48, paddingBottom: 8 }}>
+        <div style={{ textAlign: 'center', marginTop: 56 }}>
           <Link
             to="/catalog"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '13px 32px',
-              fontSize: 11,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              border: '1px solid rgba(0,0,0,0.25)',
-              color: 'var(--ink)',
-              textDecoration: 'none',
-              transition: 'all 0.2s',
-            }}
+            className="inline-flex items-center gap-3 px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+            style={{ background: 'var(--sand)', color: '#fff', textDecoration: 'none' }}
           >
-            See Full Selection →
+            Browse Full Catalog
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
           </Link>
         </div>
 

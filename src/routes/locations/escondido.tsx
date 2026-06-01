@@ -56,7 +56,7 @@ function EscondidoPage() {
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header
         className="relative flex flex-col justify-end overflow-hidden"
-        style={{ background: 'linear-gradient(rgba(251,249,245,0.74), rgba(251,249,245,0.74)), url(/images/locations/escondido.png) center/cover no-repeat', minHeight: '58vh', paddingTop: '76px' }}
+        style={{ background: 'linear-gradient(rgba(15,13,11,0.62), rgba(15,13,11,0.62)), url(/images/locations/escondido.png) center/cover no-repeat', minHeight: '58vh', paddingTop: '76px' }}
         aria-label="Escondido window treatments hero"
       >
         {/* Subtle organic texture */}
@@ -83,7 +83,7 @@ function EscondidoPage() {
             style={{
               fontFamily: 'var(--serif)',
               fontSize: 'clamp(36px, 5.5vw, 70px)',
-              color: 'var(--ink)',
+              color: 'var(--cream)',
             }}
           >
             Window Treatments That{' '}
@@ -94,7 +94,7 @@ function EscondidoPage() {
 
           <p
             className="text-[16px] leading-[1.85] max-w-[560px] mb-10"
-            style={{ color: 'var(--mid)' }}
+            style={{ color: 'rgba(251,251,249,0.72)' }}
           >
             Escondido's hillside properties and ranch homes have a character that synthetic
             materials can't match. Organic textures — bamboo, grasscloth, linen — belong here.
@@ -106,7 +106,7 @@ function EscondidoPage() {
             <Link
               to="/booking"
               className="inline-flex items-center gap-2.5 px-9 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
-              style={{ background: 'var(--ink)', color: 'var(--cream)' }}
+              style={{ background: 'var(--sand)', color: '#fff' }}
             >
               Book Free Consultation
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -117,7 +117,7 @@ function EscondidoPage() {
             <a
               href="tel:+18583381678"
               className="text-[13px] tracking-[0.06em]"
-              style={{ color: 'var(--mid)' }}
+              style={{ color: 'rgba(251,251,249,0.6)' }}
             >
               (858) 338-1678
             </a>
@@ -125,48 +125,6 @@ function EscondidoPage() {
         </div>
       </header>
 
-      {/* ══ LARGE FEATURED PRODUCT — WOVEN WOOD ══════════════════════════════ */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: 'var(--ink)' }}
-        aria-labelledby="featured-escondido-heading"
-      >
-        {/* Full-width image at 50vh */}
-        <div
-          className="w-full overflow-hidden"
-          style={{ height: '50vh', minHeight: '340px', maxHeight: '600px' }}
-        >
-          <img
-            src="/images/products/Woven Wood Shades.jpg"
-            alt="Woven Wood Shades in a warm interior"
-            className="w-full h-full object-cover opacity-60"
-          />
-        </div>
-
-        {/* Overlay text */}
-        <div className="absolute inset-0 flex flex-col justify-end px-4 md:px-10 lg:px-20 pb-12 md:pb-16">
-          <p
-            className="text-[11px] tracking-[0.22em] uppercase mb-4"
-            style={{ color: 'var(--sand-light)' }}
-          >
-            Natural Choice for Escondido Interiors
-          </p>
-          <h2
-            id="featured-escondido-heading"
-            className="font-[300] leading-[1.05] tracking-[-0.02em] max-w-[600px]"
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: 'clamp(28px, 4vw, 54px)',
-              color: 'var(--cream)',
-            }}
-          >
-            Woven Wood Shades —{' '}
-            <em className="italic" style={{ color: 'var(--sand)' }}>
-              The Natural Choice
-            </em>
-          </h2>
-        </div>
-      </section>
 
       {/* ══ THREE PRODUCTS IN A ROW ═══════════════════════════════════════════ */}
       <section
@@ -250,26 +208,16 @@ function EscondidoPage() {
           </Link>
         </div>
       </section>
-
-        {/* See Full Selection */}
-        <div style={{ textAlign: 'center', marginTop: 48, paddingBottom: 8 }}>
+        <div style={{ textAlign: 'center', marginTop: 56 }}>
           <Link
             to="/catalog"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '13px 32px',
-              fontSize: 11,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              border: '1px solid rgba(0,0,0,0.25)',
-              color: 'var(--ink)',
-              textDecoration: 'none',
-              transition: 'all 0.2s',
-            }}
+            className="inline-flex items-center gap-3 px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+            style={{ background: 'var(--sand)', color: '#fff', textDecoration: 'none' }}
           >
-            See Full Selection →
+            Browse Full Catalog
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
           </Link>
         </div>
 

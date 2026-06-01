@@ -83,18 +83,7 @@ function SolanaBeachPage() {
           aria-hidden="true"
         />
 
-        {/* large typographic accent */}
-        <div
-          className="absolute right-10 top-1/2 -translate-y-1/2 text-[220px] font-[300] leading-none select-none pointer-events-none hidden lg:block"
-          style={{
-            fontFamily: 'var(--serif)',
-            color: 'rgba(255,255,255,0.025)',
-            letterSpacing: '-0.04em',
-          }}
-          aria-hidden="true"
-        >
-          Light
-        </div>
+
 
         <div className="relative z-10 px-4 md:px-10 lg:px-20 pb-16 md:pb-24 max-w-[860px]">
           <p
@@ -359,26 +348,16 @@ function SolanaBeachPage() {
           ))}
         </div>
       </section>
-
-        {/* See Full Selection */}
-        <div style={{ textAlign: 'center', marginTop: 48, paddingBottom: 8 }}>
+        <div style={{ textAlign: 'center', marginTop: 56 }}>
           <Link
             to="/catalog"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '13px 32px',
-              fontSize: 11,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              border: '1px solid rgba(255,255,255,0.3)',
-              color: 'rgba(251,251,249,0.8)',
-              textDecoration: 'none',
-              transition: 'all 0.2s',
-            }}
+            className="inline-flex items-center gap-3 px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+            style={{ background: 'var(--sand)', color: '#fff', textDecoration: 'none' }}
           >
-            See Full Selection →
+            Browse Full Catalog
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
           </Link>
         </div>
 
