@@ -393,9 +393,10 @@ function HomePage() {
       {/* ── TRUST BAR ─────────────────────────────────────────────────────────── */}
       <section
         aria-label="Trust indicators"
-        className="flex justify-center items-center px-4 md:px-10 lg:px-20 py-9 flex-wrap gap-4 md:gap-6"
+        className="px-6 md:px-10 lg:px-20 py-9"
         style={{ background: 'var(--ink)' }}
       >
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 lg:gap-4">
         {(
           [
             { num: '4', label: 'Counties Served' },
@@ -407,21 +408,22 @@ function HomePage() {
             { num: 'Lifetime', label: 'Warranty' },
           ] as const
         ).map(({ num, label }, i) => (
-          <div key={i} className="text-center flex-1 min-w-[100px]">
+          <div key={i} className="text-center">
             <span
-              className="block text-[38px] font-[300] leading-none tracking-[-0.01em]"
+              className="block text-[28px] md:text-[38px] font-[300] leading-none tracking-[-0.01em]"
               style={{ fontFamily: 'var(--serif)', color: 'var(--cream)' }}
             >
               {num}
             </span>
             <span
-              className="block text-[10px] tracking-[0.2em] uppercase mt-2.5"
+              className="block text-[9px] md:text-[10px] tracking-[0.18em] uppercase mt-2"
               style={{ color: 'var(--sand-light)' }}
             >
               {label}
             </span>
           </div>
         ))}
+        </div>
       </section>
 
       {/* ── PREMIUM SHOWCASE GRID ─────────────────────────────────────────────── */}
@@ -705,8 +707,7 @@ function HeroBookingSurvey() {
             style={{ width: '100%', background: 'var(--sand)', color: '#fff', border: 'none', padding: '13px', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', cursor: submitting ? 'wait' : 'pointer', fontFamily: 'var(--sans)', opacity: submitting ? 0.7 : 1 }}>
             {submitting ? 'Sending…' : 'Get My Free Quote →'}
           </button>
-          <p style={{ fontSize: '11px', color: 'rgba(251,251,249,0.35)', marginTop: '10px', textAlign: 'center', lineHeight: 1.6 }}>No obligation · We come to you · Same-day callbacks</p>
-        </form>
+          <p style={{ fontSize: '11px', color: 'rgba(251,251,249,0.35)', marginTop: '10px', textAlign: 'center', lineHeight: 1.6 }}>No obligation · We come to you · Same-day callbacks</p>        </form>
       )}
     </div>
   )

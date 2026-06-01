@@ -38,6 +38,7 @@ export function Nav() {
   const linkCls = 'text-[11px] tracking-[0.18em] uppercase font-[500] transition-colors duration-150 text-white/80 hover:text-white'
 
   return (
+    <>
     <nav
       role="navigation"
       aria-label="Main navigation"
@@ -288,23 +289,24 @@ export function Nav() {
           ))}
         </button>
       </div>
+    </nav>
 
-      {/* ── Mobile drawer ── */}
-      {menuOpen && (
-        <div
-          className="xl:hidden border-t flex flex-col overflow-y-auto"
-          style={{
-            position: 'fixed',
-            top: '76px',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(10,10,10,0.98)',
-            borderColor: 'rgba(255,255,255,0.1)',
-            zIndex: 1099,
-            WebkitOverflowScrolling: 'touch',
-          }}
-        >
+    {/* ── Mobile drawer — sibling of nav to avoid iOS fixed-inside-fixed touch bug ── */}
+    {menuOpen && (
+      <div
+        className="xl:hidden flex flex-col overflow-y-auto"
+        style={{
+          position: 'fixed',
+          top: '76px',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(10,10,10,0.98)',
+          borderTop: '0.5px solid rgba(255,255,255,0.1)',
+          zIndex: 1099,
+          WebkitOverflowScrolling: 'touch',
+        }}
+      >
           {/* Static links */}
           {[
             { to: '/', label: 'Home' },
@@ -364,7 +366,7 @@ export function Nav() {
             </Link>
           </div>
         </div>
-      )}
-    </nav>
+    )}
+    </>
   )
 }
