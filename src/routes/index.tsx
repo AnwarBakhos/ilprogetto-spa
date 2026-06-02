@@ -80,7 +80,7 @@ const GRID_ITEMS = [
 
 // ─── ProductCard — hover-to-play on desktop, IntersectionObserver on mobile ───
 function ProductCard({
-  num, id, name, desc, video, index,
+  num, id, name, desc, video, index, hash,
 }: {
   num: string
   id: string
@@ -88,6 +88,7 @@ function ProductCard({
   desc: string
   video: string | null
   index: number
+  hash?: string
 }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const cardRef  = useRef<HTMLDivElement>(null)
@@ -148,7 +149,8 @@ function ProductCard({
     <div ref={cardRef} style={{ transitionDelay: `${index * 0.05}s` }}>
       <Link
         to="/catalog"
-        search={{ product: id }}
+        search={hash ? undefined : { product: id }}
+        hash={hash}
         className="group block bg-[var(--cream)] fade-up relative overflow-hidden transition-colors hover:bg-[var(--sand-pale)]"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -450,7 +452,12 @@ function HomePage() {
         {/* 8-card grid — 2 col mobile → 4 col desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-[var(--hairline)]">
           {GRID_ITEMS.map((item, i) => (
-            <ProductCard key={item.id} {...item} index={i} />
+            <ProductCard
+              key={item.id}
+              {...item}
+              index={i}
+              hash={item.id === 'blackout-curtains' ? 'drape-styles' : undefined}
+            />
           ))}
         </div>
 

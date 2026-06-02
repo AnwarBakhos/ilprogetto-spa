@@ -201,6 +201,7 @@ function FaqPage() {
 
       {/* ── Accordion ─────────────────────────────────────────────────── */}
       <section
+        key={activeCategory}
         aria-label="FAQ questions"
         className="px-4 md:px-10 lg:px-20 py-16 max-w-[860px]"
       >
@@ -236,10 +237,7 @@ function FaqPage() {
               </em>
             </h2>
             <p className="text-[15px] leading-[1.85]" style={{ color: 'var(--mid)' }}>
-              Our designers are available for complex
-e for complex
-              projects — commercial installations, HOA coordination, or smart home integration —
-              a conversation with our team will answer questions this page can't.
+              Our designers are available for complex projects — commercial installations, HOA coordination, or smart home integration — a conversation with our team will answer questions this page can't.
             </p>
           </div>
           <div className="flex flex-col gap-4">

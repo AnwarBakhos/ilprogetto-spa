@@ -7,6 +7,22 @@ import { getAvailableDates } from '@/data/availability'
 import type { CatalogProduct } from '@/types/catalog'
 import type { BookingApiResponse } from '@/types/booking'
 
+// ─── Drape header styles ───────────────────────────────────────────────────────
+const DRAPE_STYLES = [
+  { name: 'Ripple Fold',            image: '/images/drape-styles/01-ripple-fold.jpg',            description: 'Evenly spaced fabric waves glide along a wave track, creating a continuous architectural ripple. The most contemporary of all header styles.' },
+  { name: 'Triple Pinch Pleat',     image: '/images/drape-styles/02-triple-pinch-pleat.jpg',     description: 'Three precisely folded pleats gathered at each hook point produce a full, structured drape. The gold standard of formal, traditional drapery.' },
+  { name: 'Goblet Pleat',           image: '/images/drape-styles/03-goblet-pleat.jpg',           description: 'A cylindrical cup formed at each pleat point and stuffed to hold its shape. Sculptural and dramatic — ideal for dining rooms and grand spaces.' },
+  { name: 'Double Pinch Pleat',     image: '/images/drape-styles/04-double-pinch-pleat.jpg',     description: 'Two pleats pinched at each interval — a cleaner silhouette than triple pinch while preserving the refined character of a classic pleated header.' },
+  { name: 'Euro Double Pinch',      image: '/images/drape-styles/05-euro-double-pinch-pleat.jpg',description: 'A wider-spaced double pinch for a relaxed, open feel. Works beautifully in both modern and transitional interiors.' },
+  { name: 'Tab Top',                image: '/images/drape-styles/06-tab-top.jpg',                description: 'Fabric loops sewn directly to the panel thread onto the rod. Casual and relaxed, with a handcrafted character that suits informal spaces.' },
+  { name: 'Back Tab',               image: '/images/drape-styles/07-back-tab.jpg',               description: 'Hidden loops behind the fabric deliver a clean, streamlined appearance — the visual simplicity of rod-pocket with structured, even folds.' },
+  { name: 'Inverted Pleat',         image: '/images/drape-styles/08-inverted-pleat.jpg',         description: 'The fold faces backward, leaving a flat tailored front with crisp, architectural lines. A go-to for contemporary and transitional interiors.' },
+  { name: 'Euro Triple Pinch',      image: '/images/drape-styles/09-euro-triple-pinch-pleat.jpg',description: 'A lighter, more open triple pinch — wider spacing between pleat groups creates an airy European sensibility with relaxed formality.' },
+  { name: 'Eyelet Top',             image: '/images/drape-styles/10-eyelet-top.jpg',             description: 'Large metal rings punched through the header allow the rod to pass directly through, producing bold uniform folds with an industrial-chic appeal.' },
+]
+
+
+
 // ─── Route ────────────────────────────────────────────────────────────────────
 export const Route = createFileRoute('/catalog')({
   validateSearch: z.object({ product: z.string().optional() }),
@@ -422,6 +438,72 @@ function CatalogPage() {
                   <DetailDrawer product={activeProduct} onClose={() => handleCardClick(product.id)} />
                 </div>
               )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+      {/* ── Drapery Header Styles ────────────────────────────────────────── */}
+      <section id="drape-styles" aria-labelledby="drape-heading"
+               className="px-4 md:px-10 lg:px-20 pt-20 pb-24 border-t border-[var(--hairline)]"
+               style={{ background: 'var(--ink)' }}>
+
+        {/* Section header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div>
+            <p className="inline-flex items-center gap-3 text-[11px] tracking-[0.22em] uppercase mb-4"
+               style={{ color: 'var(--sand-light)' }}>
+              <span className="inline-block w-8 h-px bg-current" aria-hidden="true" />
+              Curtains & Drapery
+            </p>
+            <h2 id="drape-heading" className="font-[300] leading-[1.06] tracking-[-0.015em]"
+                style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(28px, 3.2vw, 44px)', color: 'var(--cream)' }}>
+              Drape Header{' '}
+              <em className="italic" style={{ color: 'var(--sand-light)' }}>Styles</em>
+            </h2>
+            <p className="text-[14px] leading-[1.85] mt-4 max-w-[480px]" style={{ color: 'rgba(251,251,249,0.6)' }}>
+              The header style defines the entire character of a drape — how it folds, how it hangs,
+              and how it feels in a room. Every style is available custom-made for your windows.
+            </p>
+          </div>
+          <Link to="/booking"
+                className="flex-shrink-0 inline-flex items-center gap-2.5 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase self-start md:self-auto"
+                style={{ background: 'var(--sand)', color: '#fff' }}>
+            Discuss Your Style
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Link>
+        </div>
+
+        {/* Style grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-px" style={{ background: 'rgba(255,255,255,0.08)' }}>
+          {DRAPE_STYLES.map((style) => (
+            <div key={style.name}
+                 className="flex flex-col group"
+                 style={{ background: 'var(--ink)' }}>
+              {/* Image — full illustration visible */}
+              <div className="flex items-center justify-center p-4"
+                   style={{ background: 'rgba(251,251,249,0.04)', minHeight: '200px' }}>
+                <img
+                  src={style.image}
+                  alt={style.name}
+                  className="w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-90"
+                  style={{ maxHeight: '220px' }}
+                  loading="lazy"
+                />
+              </div>
+              {/* Text */}
+              <div className="p-5 border-t" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+                <h3 className="font-[400] leading-[1.2] mb-2"
+                    style={{ fontFamily: 'var(--serif)', fontSize: '15px', color: 'var(--cream)' }}>
+                  {style.name}
+                </h3>
+                <p className="text-[12px] leading-[1.7]" style={{ color: 'rgba(251,251,249,0.5)' }}>
+                  {style.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

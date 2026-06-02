@@ -9,13 +9,13 @@ export const Route = (createFileRoute as any)('/warranty')({
       {
         name: 'description',
         content:
-          'iL Progetto LLC warranty information — lifetime hardware warranty, 5-year fabric and motor coverage, and 1-year professional installation guarantee.',
+          'iL Progetto LLC warranty information — 1-year full parts and labor coverage, lifetime manufacturer warranty on internal mechanisms, and 3-year manufacturer warranty on motorization components.',
       },
       { name: 'robots', content: 'index, follow' },
       { property: 'og:title', content: 'Warranty | iL Progetto LLC' },
       {
         property: 'og:description',
-        content: 'Lifetime hardware warranty, 5-year fabric and motor coverage, 1-year installation guarantee.',
+        content: '1-year full parts and labor coverage, lifetime manufacturer warranty on mechanisms and brackets, 3-year manufacturer warranty on motorization.',
       },
       {
         property: 'og:image',
@@ -33,90 +33,58 @@ export const Route = (createFileRoute as any)('/warranty')({
 // ─── Warranty tiers ───────────────────────────────────────────────────────────
 const TIERS = [
   {
-    duration: 'Lifetime',
-    category: 'Operating Mechanisms',
-    tagline: 'The structural parts of every treatment are built to last — and we back that with a lifetime commitment.',
-    covered: 'All operating hardware, components, tracks, and mechanisms',
+    category: 'Operational Cords, Chains & Motorization',
+    description: 'All operational cords, chains, and motorization components — including motors, remotes, and rechargeable systems.',
+    tagline: 'From manual lift cords to precision-engineered motors, every operational component is fully backed.',
+    ilProgetto: '1 Year — Parts & Labor',
+    manufacturer: '3 Years — Parts Only',
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="3" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+      </svg>
+    ),
+  },
+  {
+    category: 'Internal Mechanisms & Brackets',
+    description: 'All internal hardware, operating mechanisms, mounting brackets, and structural components — for the life of the product.',
+    tagline: 'The foundation of every installation. Our manufacturer stands behind the hardware indefinitely.',
+    ilProgetto: '1 Year — Parts & Labor',
+    manufacturer: 'Lifetime — Parts Only',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
   },
   {
-    duration: '5-Year',
-    category: 'Fabrics & Motorized Components',
-    tagline:
-      'Premium fabrics and precision motors are covered for five years against manufacturing defects.',
-    covered: 'All fabric panels, motorized lift systems, remote controls, and rechargeable motors',
+    category: 'Fabric',
+    description: 'All fabric panels and material components against manufacturing defects.',
+    tagline: 'Every panel is quality-inspected before installation — and covered if a defect ever surfaces.',
+    ilProgetto: '1 Year — Parts & Labor',
+    manufacturer: '1 Year — Parts Only',
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
-  },
-  {
-    duration: '1-Year',
-    category: 'Professional Installation',
-    tagline:
-      'If anything related to our installation needs attention in the first year, we return and fix it at no charge.',
-    covered: 'All installation workmanship by our licensed team',
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M3 15h18M9 3v18M15 3v18" />
       </svg>
     ),
   },
 ]
 
 const COVERED = [
-  'Manufacturing defects in materials or components',
-  'Hardware failure under normal operating conditions',
-  'Motor malfunction within the covered period',
-  'Errors in professional installation workmanship',
+  'Manufacturing defects in materials, components, or workmanship',
+  'Mechanism and hardware failure under normal operating conditions',
+  'Motorization component malfunction within the covered period',
+  'All parts and labor for iL Progetto warranty service within the first year from installation',
 ]
 
 const NOT_COVERED = [
-  'Normal wear and tear over time',
-  'Pet damage or accidental physical damage',
-  'Water damage or exposure to extreme conditions',
-  'Misuse or improper operation',
-  'Alterations made by third parties',
-  'Color change or fading from prolonged sun exposure',
+  'Normal wear and tear over time, including fraying and stretching',
+  'Damage resulting from abuse, misuse, accidents, or relocation of the product',
+  'Exposure to the elements — sun, wind, water, or moisture — and any discoloration or fading that results',
+  'Natural variation in material color, dye lots, grain, or texture, and imperfections inherent to natural materials (such as slight bowing of wood products)',
+  'Failure to follow our care, cleaning, or maintenance instructions',
+  'Routine maintenance for motorized systems and accessories, including recharging and replacement of batteries',
+  'Alterations or modifications made by third parties',
 ]
 
 const CLAIM_STEPS = [
@@ -178,8 +146,7 @@ function WarrantyPage() {
           className="fade-up delay-2 text-[15px] leading-[1.85] max-w-[520px]"
           style={{ color: 'rgba(251,251,249,0.65)' }}
         >
-          Every iL Progetto installation is backed by our commitment to quality — from the hardware
-          to the installation itself.
+          Every iL Progetto installation is backed by a full first-year parts and labor warranty, with extended manufacturer coverage on mechanisms, motorization, and fabric beyond that.
         </p>
       </section>
 
@@ -195,7 +162,7 @@ function WarrantyPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {TIERS.map((tier, i) => (
             <article
-              key={tier.duration}
+              key={tier.category}
               className={`flex flex-col p-10 border border-[var(--hairline)] fade-up${i > 0 ? ` delay-${i}` : ''}`}
               style={{ background: 'var(--cream)' }}
             >
@@ -207,48 +174,46 @@ function WarrantyPage() {
                 {tier.icon}
               </div>
 
-              {/* Duration badge */}
-              <p
-                className="text-[10px] tracking-[0.22em] uppercase mb-2"
-                style={{ color: 'var(--sand)' }}
-              >
-                {tier.duration}
-              </p>
-
               {/* Category */}
               <h3
-                className="font-[300] leading-[1.1] mb-5"
-                style={{
-                  fontFamily: 'var(--serif)',
-                  fontSize: 'clamp(22px, 2vw, 28px)',
-                  color: 'var(--ink)',
-                }}
+                className="font-[300] leading-[1.1] mb-3"
+                style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(18px, 1.8vw, 24px)', color: 'var(--ink)' }}
               >
                 {tier.category}
               </h3>
 
-              {/* What's covered */}
-              <p
-                className="text-[12px] tracking-[0.14em] uppercase mb-2"
-                style={{ color: 'var(--mid)' }}
-              >
-                Covered
-              </p>
-              <p className="text-[14px] leading-[1.7] mb-6" style={{ color: 'var(--mid)' }}>
-                {tier.covered}
+              {/* Description */}
+              <p className="text-[13px] leading-[1.7] mb-6" style={{ color: 'var(--mid)' }}>
+                {tier.description}
               </p>
 
+              {/* iL Progetto warranty */}
+              <div className="mb-4">
+                <p className="text-[10px] tracking-[0.18em] uppercase mb-1" style={{ color: 'var(--sand)' }}>
+                  iL Progetto Warranty
+                </p>
+                <p className="text-[14px] font-[500] leading-[1.5]" style={{ color: 'var(--ink)' }}>
+                  {tier.ilProgetto}
+                </p>
+              </div>
+
               {/* Divider */}
-              <div
-                className="h-px mb-6"
-                style={{ background: 'var(--hairline)' }}
-                aria-hidden="true"
-              />
+              <div className="h-px mb-4" style={{ background: 'var(--hairline)' }} aria-hidden="true" />
+
+              {/* Manufacturer warranty */}
+              <div className="mb-6">
+                <p className="text-[10px] tracking-[0.18em] uppercase mb-1" style={{ color: 'var(--mid)' }}>
+                  Manufacturer Warranty
+                </p>
+                <p className="text-[14px] leading-[1.5]" style={{ color: 'var(--mid)' }}>
+                  {tier.manufacturer}
+                </p>
+              </div>
 
               {/* Tagline */}
               <p
                 className="text-[14px] leading-[1.75] font-[300] mt-auto"
-                style={{ color: 'var(--ink)', fontStyle: 'italic', fontFamily: 'var(--serif)', fontSize: '16px' }}
+                style={{ color: 'var(--ink)', fontStyle: 'italic', fontFamily: 'var(--serif)', fontSize: '15px' }}
               >
                 "{tier.tagline}"
               </p>
@@ -372,6 +337,70 @@ function WarrantyPage() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* ── Matching & Repaired Items ─────────────────────────────────────── */}
+      <section
+        aria-labelledby="matching-heading"
+        className="px-4 md:px-10 lg:px-20 py-20"
+        style={{ background: 'var(--warm)' }}
+      >
+        <div className="max-w-[760px]">
+          <p
+            className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-5 fade-up"
+            style={{ color: 'var(--sand)' }}
+          >
+            <span className="inline-block w-8 h-px bg-[var(--sand)]" aria-hidden="true" />
+            Repairs & Replacements
+          </p>
+          <h2
+            id="matching-heading"
+            className="font-[300] leading-[1.04] tracking-[-0.015em] mb-8 fade-up delay-1"
+            style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(26px, 3vw, 38px)',
+              color: 'var(--ink)',
+            }}
+          >
+            Matching &{' '}
+            <em className="italic" style={{ color: 'var(--sand)' }}>
+              Repaired Items
+            </em>
+          </h2>
+          <div className="space-y-5 fade-up delay-2">
+            {[
+              'Because every product is custom-made to your specification, we will do our best to match the original as closely as possible when a replacement is needed — however, an exact match cannot be guaranteed due to the nature of custom manufacturing.',
+              'All repairs and replacements are completed using like or similar components and materials.',
+              'When multiple products are installed in the same room, only the defective item will be repaired or replaced under this warranty.',
+              'Replaced or repaired products carry warranty coverage for the remainder of the original Limited Warranty period, or 30 days from the date of repair — whichever is longer.',
+            ].map((text, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 text-[14px] leading-[1.8]"
+                style={{ color: 'var(--mid)' }}
+              >
+                <span
+                  className="mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{ background: 'var(--sand)' }}
+                  aria-hidden="true"
+                />
+                {text}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── General policy note ──────────────────────────────────────────── */}
+      <section className="px-4 md:px-10 lg:px-20 pb-16" style={{ background: 'var(--warm)' }}>
+        <div
+          className="px-8 py-6 fade-up"
+          style={{ background: 'var(--ink)', borderLeft: '3px solid var(--sand)' }}
+        >
+          <p className="text-[14px] leading-[1.85]" style={{ color: 'rgba(251,251,249,0.8)' }}>
+            iL Progetto LLC will repair or replace, at no charge, any part of your window coverings found to have a manufacturer's defect in labor, materials, or workmanship within <strong style={{ color: 'var(--sand-light)', fontWeight: 500 }}>1 year from your original installation date</strong>. After the first year, a minimum service charge of $400 applies for any in-home visit.
+          </p>
         </div>
       </section>
 
