@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/san-diego')({
   head: () => ({
@@ -17,10 +19,10 @@ export const Route = (createFileRoute as any)('/locations/san-diego')({
         content:
           "San Diego's premier mobile window treatment showroom. Custom roller shades, cellular shades, plantation shutters & motorized blinds. Free in-home consultation across all San Diego neighborhoods.",
       },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/san-diego' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/san-diego` }],
   }),
   component: SanDiegoPage,
 })

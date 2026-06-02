@@ -3,6 +3,8 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
 import { ReviewsScrollPanel } from '@/components/ReviewsScrollPanel'
 import { InteractiveServiceMap } from '@/components/InteractiveServiceMap'
+import { SITE_URL } from '@/lib/config'
+
 // ─── SEO ──────────────────────────────────────────────────────────────────────
 export const Route = createFileRoute('/')({
   // TanStack Router v1 head API — sets <title> and <meta> for this route
@@ -14,7 +16,7 @@ export const Route = createFileRoute('/')({
       { property: 'og:title', content: 'iL Progetto LLC | Custom Window Treatments San Diego' },
       { property: 'og:description', content: "Where luxury meets precision. Free in-home consultation — our designer visits your home so you can see every sample in your own light." },
       { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/' },
+      { property: 'og:url', content: `${SITE_URL}/` },
       { name: 'keywords', content: 'custom window treatments San Diego, roller shades San Diego, zebra shades San Diego, motorized blinds San Diego, plantation shutters San Diego, honeycomb cellular shades, Roman shades, free window treatment consultation San Diego, iL Progetto LLC' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'iL Progetto LLC | Custom Window Treatments San Diego' },
@@ -27,7 +29,7 @@ export const Route = createFileRoute('/')({
         description: 'Custom window treatments for San Diego homes and offices.',
         telephone: '+18583381678',
         email: 'info@ilprogettollc.com',
-        url: 'https://www.ilprogettollc.com',
+        url: `${SITE_URL}`,
         priceRange: '$$',
         image: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200',
         address: { '@type': 'PostalAddress', addressLocality: 'San Diego', addressRegion: 'CA', postalCode: '92127', addressCountry: 'US' },
@@ -42,7 +44,7 @@ export const Route = createFileRoute('/')({
         geo: { '@type': 'GeoCoordinates', latitude: '32.9595', longitude: '-117.0865' },
         contactPoint: { '@type': 'ContactPoint', telephone: '+1-858-338-1678', contactType: 'customer service', areaServed: 'San Diego County', availableLanguage: 'English' },
         sameAs: ['https://www.instagram.com/ilprogetto.design', 'https://www.facebook.com/61561253288372', 'https://yelp.to/fuCV4NqXEu'],
-        aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '3', bestRating: '5', worstRating: '1' },
+        aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '32', bestRating: '5', worstRating: '1' },
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Window Treatments',
@@ -56,7 +58,7 @@ export const Route = createFileRoute('/')({
       } },
     ],
     links: [
-      { rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/' },
+      { rel: 'canonical', href: `${SITE_URL}/` },
     ],
   }),
   component: HomePage,

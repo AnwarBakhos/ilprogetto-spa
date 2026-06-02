@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { CITY_SLUGS, POSITION_SLUGS, cityName } from '@/data/seo'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = createFileRoute('/careers/')({
   head: () => ({
@@ -11,14 +13,14 @@ export const Route = createFileRoute('/careers/')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Careers | Window Treatment Jobs San Diego — iL Progetto LLC' },
       { property: 'og:description', content: "Join iL Progetto LLC — San Diego's premier custom window treatment company. Hiring installation technicians and design & sales consultants across San Diego, Poway, Carlsbad, La Jolla, and surrounding communities." },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/careers/' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/careers/` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Careers | Window Treatment Jobs San Diego — iL Progetto LLC' },
       { name: 'twitter:description', content: "Join iL Progetto LLC — San Diego's premier custom window treatment company. Hiring installation technicians and design & sales consultants across San Diego, Poway, Carlsbad, La Jolla, and surrounding communities." },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/careers/' },
+      { rel: 'canonical', href: `${SITE_URL}/careers/` },
     ],
   }),
   component: CareersIndexPage,

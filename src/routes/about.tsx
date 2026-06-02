@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = createFileRoute('/about')({
   head: () => ({
@@ -15,14 +17,14 @@ export const Route = createFileRoute('/about')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: "About iL Progetto LLC | San Diego's Mobile Window Treatment Showroom" },
       { property: 'og:description', content: "iL Progetto LLC is San Diego's premier window treatment company. Our designers visit your home with hundreds of fabric samples — so you can see every option in your actual light, against your real walls. Custom-measured and professionally installed." },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/about' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/about` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "About iL Progetto LLC | San Diego's Mobile Window Treatment Showroom" },
       { name: 'twitter:description', content: "iL Progetto LLC is San Diego's premier window treatment company. Our designers visit your home with hundreds of fabric samples — so you can see every option in your actual light, against your real walls. Custom-measured and professionally installed." },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/about' },
+      { rel: 'canonical', href: `${SITE_URL}/about` },
     ],
   }),
   component: AboutPage,

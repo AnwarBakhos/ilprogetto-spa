@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/poway')({
   head: () => ({
@@ -13,10 +15,10 @@ export const Route = (createFileRoute as any)('/locations/poway')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Custom Window Treatments Poway CA — Heat Control | iL Progetto LLC' },
       { property: 'og:description', content: "Energy-efficient window treatments for Poway's hot inland climate. Cellular shades, solar screens & motorized exterior shades — free in-home consultation." },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/poway' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/poway` }],
   }),
   component: PowayPage,
 })

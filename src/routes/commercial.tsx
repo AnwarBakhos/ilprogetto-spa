@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/commercial')({
   head: () => ({
@@ -19,8 +21,8 @@ export const Route = (createFileRoute as any)('/commercial')({
         content:
           'iL Progetto LLC offers custom window treatments for commercial spaces, builders, interior designers, and property managers across San Diego. Volume pricing, fast turnaround, professional installation.',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/commercial' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/commercial` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Commercial Window Treatments San Diego | Builder & Trade Program — iL Progetto LLC' },
       {
@@ -30,7 +32,7 @@ export const Route = (createFileRoute as any)('/commercial')({
       },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/commercial' },
+      { rel: 'canonical', href: `${SITE_URL}/commercial` },
     ],
   }),
   component: CommercialPage,

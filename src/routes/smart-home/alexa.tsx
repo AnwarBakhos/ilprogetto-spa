@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/smart-home/alexa')({
   head: () => ({
@@ -19,8 +21,8 @@ export const Route = (createFileRoute as any)('/smart-home/alexa')({
         content:
           'Control your motorized blinds and shades with Amazon Alexa in San Diego. iL Progetto LLC installs and programs Alexa-compatible window treatments. Say "Alexa, close the blinds" and it happens.',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/smart-home/alexa' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/smart-home/alexa` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Alexa Motorized Blinds San Diego | Voice-Controlled Window Treatments — iL Progetto LLC' },
       {
@@ -35,7 +37,7 @@ export const Route = (createFileRoute as any)('/smart-home/alexa')({
           name: 'iL Progetto LLC',
           telephone: '+18583381678',
           description: 'Alexa-compatible motorized window treatment installation in San Diego',
-          url: 'https://www.ilprogettollc.com/smart-home/alexa',
+          url: `${SITE_URL}/smart-home/alexa`,
           areaServed: 'San Diego',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -44,7 +46,7 @@ export const Route = (createFileRoute as any)('/smart-home/alexa')({
         }),
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/smart-home/alexa' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/smart-home/alexa` }],
   }),
   component: AlexaPage,
 })

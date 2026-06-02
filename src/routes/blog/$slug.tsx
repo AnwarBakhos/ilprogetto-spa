@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { getPost, getLatestPosts } from '@/data/blog'
 import type { BlogPost } from '@/types/blog'
+import { SITE_URL } from '@/lib/config'
+
 
 // SEO: Full article body in raw HTML paragraphs. Article JSON-LD with
 // datePublished, keywords, and author. Internal links to /catalog for each
@@ -23,15 +25,15 @@ export const Route = createFileRoute('/blog/$slug')({
         { property: 'og:type', content: 'article' },
         { property: 'og:title', content: loaderData.title },
         { property: 'og:description', content: loaderData.description },
-        { property: 'og:image', content: '/images/og-image.jpg' },
-        { property: 'og:url', content: `https://www.ilprogettollc.com/blog/${loaderData.slug}` },
+        { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+        { property: 'og:url', content: `${SITE_URL}/blog/${loaderData.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: loaderData.title },
         { name: 'twitter:description', content: loaderData.description },
         { name: 'robots', content: 'index, follow' },
       ],
       links: [
-        { rel: 'canonical', href: `https://www.ilprogettollc.com/blog/${loaderData.slug}` },
+        { rel: 'canonical', href: `${SITE_URL}/blog/${loaderData.slug}` },
       ],
     }
   },
@@ -51,7 +53,7 @@ function ArticleSchema({ post }: { post: BlogPost }) {
     author: {
       '@type': 'Organization',
       name: 'iL Progetto LLC',
-      url: 'https://www.ilprogettollc.com',
+      url: `${SITE_URL}`,
     },
     publisher: {
       '@type': 'Organization',
@@ -63,7 +65,7 @@ function ArticleSchema({ post }: { post: BlogPost }) {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://www.ilprogettollc.com/blog/${post.slug}`,
+      '@id': `${SITE_URL}/blog/${post.slug}`,
     },
     image: '/images/og-image.jpg',
     wordCount: 1500,
@@ -71,7 +73,7 @@ function ArticleSchema({ post }: { post: BlogPost }) {
     isPartOf: {
       '@type': 'Blog',
       name: 'iL Progetto Journal',
-      url: 'https://www.ilprogettollc.com/blog/',
+      url: `${SITE_URL}/blog/`,
     },
   }
   return (

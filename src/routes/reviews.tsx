@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ReviewsScrollPanel } from '@/components/ReviewsScrollPanel'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = createFileRoute('/reviews')({
   head: () => ({
@@ -14,14 +16,14 @@ export const Route = createFileRoute('/reviews')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Leave a Review | iL Progetto LLC — San Diego Window Treatments' },
       { property: 'og:description', content: 'Happy with your new window treatments from iL Progetto LLC? Share your experience on Google or Yelp. Your review helps other San Diego homeowners find quality, affordable window coverings — it only takes 60 seconds.' },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/reviews' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/reviews` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Leave a Review | iL Progetto LLC — San Diego Window Treatments' },
       { name: 'twitter:description', content: 'Happy with your new window treatments from iL Progetto LLC? Share your experience on Google or Yelp. Your review helps other San Diego homeowners find quality, affordable window coverings — it only takes 60 seconds.' },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/reviews' },
+      { rel: 'canonical', href: `${SITE_URL}/reviews` },
     ],
   }),
   component: ReviewsPage,

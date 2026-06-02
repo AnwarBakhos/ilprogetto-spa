@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/temecula')({
   head: () => ({
@@ -13,10 +15,10 @@ export const Route = (createFileRoute as any)('/locations/temecula')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Custom Window Treatments Temecula CA — Motorized & Smart Shading | iL Progetto LLC' },
       { property: 'og:description', content: "Temecula's 40°F daily temperature swings demand automated window treatments. Motorized shading, cellular shades & smart home integration. Free in-home consultation." },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/temecula' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/temecula` }],
   }),
   component: TemeculaPage,
 })

@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
 export const Route = (createFileRoute as any)('/locations/rancho-santa-fe')({
@@ -23,7 +25,7 @@ export const Route = (createFileRoute as any)('/locations/rancho-santa-fe')({
       },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/rancho-santa-fe' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/rancho-santa-fe` }],
   }),
   component: RanchoSantaFePage,
 })

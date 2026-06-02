@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/coronado')({
   head: () => ({
@@ -17,10 +19,10 @@ export const Route = (createFileRoute as any)('/locations/coronado')({
         content:
           "Marine-grade window treatments for Coronado's island climate. Salt-air resistant hardware, architecturally-appropriate plantation shutters & motorized shading. Free in-home consultation.",
       },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/coronado' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/coronado` }],
   }),
   component: CoronadoPage,
 })

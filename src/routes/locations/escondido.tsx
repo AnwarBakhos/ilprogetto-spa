@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/escondido')({
   head: () => ({
@@ -13,10 +15,10 @@ export const Route = (createFileRoute as any)('/locations/escondido')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Window Treatments Escondido CA — Natural Materials | iL Progetto LLC' },
       { property: 'og:description', content: "Custom natural window treatments for Escondido's wine country homes — woven wood shades, Roman shades, plantation shutters. Free in-home consultation." },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/escondido' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/escondido` }],
   }),
   component: EscondidoPage,
 })

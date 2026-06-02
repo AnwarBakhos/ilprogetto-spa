@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/san-marcos')({
   head: () => ({
@@ -12,10 +14,10 @@ export const Route = (createFileRoute as any)('/locations/san-marcos')({
       { name: 'robots', content: 'index, follow' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Window Treatments San Marcos CA — Child-Safe Options | iL Progetto LLC' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/san-marcos' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/san-marcos` }],
   }),
   component: SanMarcosPage,
 })

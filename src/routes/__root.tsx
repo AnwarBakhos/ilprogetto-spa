@@ -6,6 +6,8 @@ import { ServiceDrawer } from '@/components/ServiceDrawer'
 import { ExitIntentPopup } from '@/components/ExitIntentPopup'
 import { CookieConsent } from '@/components/CookieConsent'
 import { AccessibilityToolbar } from '@/components/AccessibilityToolbar'
+import { SITE_URL } from '@/lib/config'
+
 
 interface RouterContext {
   queryClient: QueryClient
@@ -15,7 +17,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   component: RootLayout,
 })
 
-const BASE_URL = 'https://www.ilprogettollc.com'
+const BASE_URL = `${SITE_URL}`
 
 const SEGMENT_LABELS: Record<string, string> = {
   blog: 'Journal',
@@ -73,7 +75,7 @@ function LocalBusinessSchema() {
     "description": "Custom window treatments for San Diego homes and offices. Roller shades, zebra shades, motorized blinds, plantation shutters — measured and installed by our licensed team.",
     "telephone": "+18583381678",
     "email": "info@ilprogettollc.com",
-    "url": "https://www.ilprogettollc.com",
+    "url": `${SITE_URL}`,
     "logo": "/images/logo-300.png",
     "image": "/images/og-image.jpg",
     "priceRange": "$$",

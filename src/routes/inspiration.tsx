@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/inspiration')({
   head: () => ({
@@ -19,8 +21,8 @@ export const Route = (createFileRoute as any)('/inspiration')({
         content:
           'Browse window treatment ideas by room and style. Roller shades, plantation shutters, motorized blinds, and drapery for San Diego homes — inspiration for every space.',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/inspiration' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/inspiration` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Window Treatment Ideas & Style Inspiration | iL Progetto LLC San Diego' },
       {
@@ -30,7 +32,7 @@ export const Route = (createFileRoute as any)('/inspiration')({
       },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/inspiration' },
+      { rel: 'canonical', href: `${SITE_URL}/inspiration` },
     ],
   }),
   component: InspirationPage,

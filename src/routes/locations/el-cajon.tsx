@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/el-cajon')({
   head: () => ({
@@ -13,10 +15,10 @@ export const Route = (createFileRoute as any)('/locations/el-cajon')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Custom Window Treatments El Cajon CA — Heat Solutions | iL Progetto LLC' },
       { property: 'og:description', content: "El Cajon's heat demands more. Cellular shades, solar screens & motorized exterior shading for 100°F+ summers. Free in-home consultation by iL Progetto LLC." },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/el-cajon' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/el-cajon` }],
   }),
   component: ElCajonPage,
 })

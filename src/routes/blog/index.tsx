@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { BLOG_POSTS } from '@/data/blog'
+import { SITE_URL } from '@/lib/config'
+
 
 // SEO: Article titles render as <h2> tags. Dates render in <time datetime="">.
 // All post descriptions are raw text. This page is fully crawlable.
@@ -17,14 +19,14 @@ export const Route = createFileRoute('/blog/')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Window Treatment Tips, Guides & Local Advice | iL Progetto LLC San Diego' },
       { property: 'og:description', content: "Expert window treatment advice for San Diego homeowners — blackout shade guides, motorized blind integration, cellular shade energy savings, and local neighborhood buying guides. Written by iL Progetto LLC, San Diego's mobile window treatment specialists." },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/blog/' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/blog/` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Window Treatment Tips, Guides & Local Advice | iL Progetto LLC San Diego' },
       { name: 'twitter:description', content: "Expert window treatment advice for San Diego homeowners — blackout shade guides, motorized blind integration, cellular shade energy savings, and local neighborhood buying guides. Written by iL Progetto LLC, San Diego's mobile window treatment specialists." },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/blog/' },
+      { rel: 'canonical', href: `${SITE_URL}/blog/` },
     ],
   }),
   component: BlogIndexPage,

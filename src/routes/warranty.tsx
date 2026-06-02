@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/warranty')({
   head: () => ({
@@ -21,11 +23,11 @@ export const Route = (createFileRoute as any)('/warranty')({
         property: 'og:image',
         content: '/images/og-image.jpg',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/warranty' },
+      { property: 'og:url', content: `${SITE_URL}/warranty` },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/warranty' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/warranty` }],
   }),
   component: WarrantyPage,
 })

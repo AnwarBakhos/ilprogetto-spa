@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/del-mar')({
   head: () => ({
@@ -17,10 +19,10 @@ export const Route = (createFileRoute as any)('/locations/del-mar')({
         content:
           "Window treatments designed around Del Mar's coastal views. Low-profile, view-preserving roller shades, sheer drapes & motorized options. Free in-home consultation.",
       },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/del-mar' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/del-mar` }],
   }),
   component: DelMarPage,
 })

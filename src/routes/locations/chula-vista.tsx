@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/chula-vista')({
   head: () => ({
@@ -7,7 +9,7 @@ export const Route = (createFileRoute as any)('/locations/chula-vista')({
       { name: 'description', content: 'Custom window treatments for Chula Vista — Otay Ranch, Eastlake, Sunbow. Roller shades, plantation shutters, motorized blinds. Free in-home consultation.' },
       { name: 'robots', content: 'index, follow' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/chula-vista' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/chula-vista` }],
   }),
   component: ChulaVistaPage,
 })

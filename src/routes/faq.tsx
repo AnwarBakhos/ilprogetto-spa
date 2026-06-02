@@ -2,6 +2,8 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
 import { FAQ_ITEMS, FAQ_CATEGORIES } from '@/data/faq'
 import type { FaqItem } from '@/data/faq'
+import { SITE_URL } from '@/lib/config'
+
 
 // SEO: Full question and answer text is in raw HTML. FAQPage JSON-LD schema is
 // injected via a script tag — Googlebot reads both the visible text and the schema.
@@ -19,14 +21,14 @@ export const Route = createFileRoute('/faq')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'FAQ — Window Treatment Questions Answered | iL Progetto LLC San Diego' },
       { property: 'og:description', content: 'Answers to every question about custom window treatments in San Diego — how consultations work, the difference between roller and zebra shades, motorized blind options, installation timelines, pricing, and financing. From iL Progetto LLC.' },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/faq' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/faq` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'FAQ — Window Treatment Questions Answered | iL Progetto LLC San Diego' },
       { name: 'twitter:description', content: 'Answers to every question about custom window treatments in San Diego — how consultations work, the difference between roller and zebra shades, motorized blind options, installation timelines, pricing, and financing. From iL Progetto LLC.' },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/faq' },
+      { rel: 'canonical', href: `${SITE_URL}/faq` },
     ],
   }),
   component: FaqPage,

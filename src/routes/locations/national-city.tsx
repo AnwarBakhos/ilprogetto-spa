@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/national-city')({
   head: () => ({
@@ -7,7 +9,7 @@ export const Route = (createFileRoute as any)('/locations/national-city')({
       { name: 'description', content: 'Affordable custom window treatments for National City. Roller shades, aluminum blinds, zebra shades. Licensed installer, free in-home consultation.' },
       { name: 'robots', content: 'index, follow' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/national-city' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/national-city` }],
   }),
   component: NationalCityPage,
 })

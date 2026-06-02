@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { z } from 'zod'
 import { setupScrollReveal } from '@/lib/utils'
 import { getProduct } from '@/data/catalog'
+import { SITE_URL } from '@/lib/config'
+
 
 // ─── Search params ────────────────────────────────────────────────────────────
 // ?service=roller pre-fills the form when coming from a product card CTA
@@ -21,8 +23,8 @@ export const Route = createFileRoute('/contact')({
         content:
           "Contact iL Progetto LLC for a free in-home window treatment consultation in San Diego. Call or text (858) 338-1678, email info@ilprogettollc.com, or fill out the form. We serve San Diego, Poway, Carlsbad, La Jolla, Del Mar, Chula Vista and all of Southern California.",
       },
-      { property: 'og:image', content: '/images/og-image.jpg' },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/contact' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+      { property: 'og:url', content: `${SITE_URL}/contact` },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Contact iL Progetto LLC | Free Window Treatment Consultation San Diego' },
       { property: 'og:description', content: 'Contact iL Progetto LLC for a free in-home window treatment consultation in San Diego.' },
@@ -31,7 +33,7 @@ export const Route = createFileRoute('/contact')({
       { name: 'twitter:description', content: 'Book a free in-home window treatment consultation. We come to you anywhere in San Diego.' },
       { name: 'robots', content: 'index, follow' },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/contact' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/contact` }],
   }),
   component: ContactPage,
 })
