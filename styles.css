@@ -59,8 +59,8 @@ body {
 /* Font size — only applied when user activates A+ or A++.
    Sets root font-size so all rem/em units scale naturally.
    No rule in default state = zero impact on existing styles. */
-html[data-fontsize='large']  { font-size: 108%; }
-html[data-fontsize='larger'] { font-size: 116%; }
+html[data-fontsize='large']  body { zoom: 1.08; }
+html[data-fontsize='larger'] body { zoom: 1.16; }
 
 /* High contrast mode */
 html[data-contrast='high'] {
