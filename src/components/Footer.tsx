@@ -285,7 +285,6 @@ export function Footer() {
             ).map(({ href, label, Icon, hoverColor }) => {
               const isInternal = href.startsWith('/')
               const sharedProps = {
-                key: label,
                 'aria-label': label,
                 className:
                   'group inline-flex items-center gap-2 px-4 py-2 border rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-200 hover:scale-[1.03]',
@@ -305,12 +304,12 @@ export function Footer() {
                 },
               }
               return isInternal ? (
-                <Link to="/reviews" {...sharedProps}>
+                <Link key={label} to="/reviews" {...sharedProps}>
                   <Icon />
                   {label}
                 </Link>
               ) : (
-                <a href={href} target="_blank" rel="noopener noreferrer" {...sharedProps}>
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" {...sharedProps}>
                   <Icon />
                   {label}
                 </a>

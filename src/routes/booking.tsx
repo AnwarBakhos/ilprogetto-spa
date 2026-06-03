@@ -75,6 +75,30 @@ function BookingPage() {
         </div>
       </header>
 
+      {/* ── Mobile trust strip ───────────────────────────────────────────── */}
+      <div
+        className="lg:hidden flex overflow-x-auto gap-0 border-b"
+        style={{ background: 'var(--warm)', borderColor: 'var(--hairline)' }}
+        aria-label="What to expect"
+      >
+        {[
+          { icon: '✓', label: 'Free', sub: 'No obligation' },
+          { icon: '🏠', label: 'At Your Home', sub: 'We come to you' },
+          { icon: '📐', label: 'Same-Day Quote', sub: 'Priced on the spot' },
+          { icon: '⏱', label: '60–90 Min', sub: 'Full consultation' },
+        ].map(({ icon, label, sub }) => (
+          <div
+            key={label}
+            className="flex-shrink-0 flex flex-col items-center justify-center px-5 py-4 border-r text-center"
+            style={{ borderColor: 'var(--hairline)', minWidth: '100px' }}
+          >
+            <span className="text-[18px] mb-1" aria-hidden="true">{icon}</span>
+            <p className="text-[11px] font-[500] tracking-[0.05em]" style={{ color: 'var(--ink)' }}>{label}</p>
+            <p className="text-[10px]" style={{ color: 'var(--mid)' }}>{sub}</p>
+          </div>
+        ))}
+      </div>
+
       {/* ── Two-column layout ────────────────────────────────────────────── */}
       <section
         className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-0"

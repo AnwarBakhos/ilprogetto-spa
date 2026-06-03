@@ -1,16 +1,18 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from '@tanstack/react-router'
+import { Link, useRouterState } from '@tanstack/react-router'
 
 const STORAGE_KEY = 'ilp_popup_dismissed'
 const SCROLL_THRESHOLD = 0.5   // 50% scroll depth
 const TIME_THRESHOLD   = 30000 // 30 seconds
 
 export function ExitIntentPopup() {
+  const pathname = useRouterState({ select: s => s.location.pathname })
   const [visible, setVisible] = useState(false)
   const [email,   setEmail]   = useState('')
   const [status,  setStatus]  = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
   const [errMsg,  setErrMsg]  = useState('')
   const triggered = useRef(false)
+  const onBooking = pathname.startsWith('/booking')
 
   function dismiss() {
     setVisible(false)
@@ -19,6 +21,8 @@ export function ExitIntentPopup() {
   }
 
   useEffect(() => {
+    // Never trigger on booking pages
+    if (onBooking) return
     // Already dismissed — never show again
     try {
       if (localStorage.getItem(STORAGE_KEY)) return
@@ -81,7 +85,7 @@ export function ExitIntentPopup() {
     }
   }
 
-  if (!visible) return null
+  if (onBooking || !visible) return null
 
   return (
     <>

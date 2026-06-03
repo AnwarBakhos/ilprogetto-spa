@@ -280,13 +280,13 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
       {step === 1 && (
         <form onSubmit={handleFormStep} aria-label="Booking details form">
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="First Name" id="firstName" required placeholder="Jane"
                 value={state.form.firstName ?? ''} onChange={(v) => updateForm('firstName', v)} />
               <Field label="Last Name" id="lastName" required placeholder="Smith"
                 value={state.form.lastName ?? ''} onChange={(v) => updateForm('lastName', v)} />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="Email" id="email" type="email" required placeholder="jane@email.com"
                 value={state.form.email ?? ''} onChange={(v) => updateForm('email', v)} />
               <Field label="Phone" id="phone" type="tel" placeholder="(619) 555-0100"
@@ -295,27 +295,45 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
             <Field label="Property Address" id="address" required placeholder="1234 Coastal Drive, San Diego CA"
               value={state.form.address ?? ''} onChange={(v) => updateForm('address', v)} />
 
-            {/* Service selector */}
+            {/* Service multi-select */}
             <div>
-              <label
-                htmlFor="service"
-                className="block text-[10px] tracking-[0.18em] uppercase mb-2"
-                style={{ color: 'var(--mid)' }}
-              >
-                I'm Interested In
-              </label>
-              <select
-                id="service"
-                value={state.form.service ?? 'general'}
-                onChange={(e) => updateForm('service', e.target.value)}
-                className="w-full border px-4 py-3 text-[14px] font-[300] outline-none"
-                style={{ borderColor: 'var(--hairline)', background: 'var(--cream)', color: 'var(--ink)' }}
-              >
-                <option value="general">General / Not sure yet</option>
-                {PRODUCTS.map((p) => (
-                  <option key={p.id} value={p.id}>{p.name}</option>
-                ))}
-              </select>
+              <p className="block text-[10px] tracking-[0.18em] uppercase mb-2" style={{ color: 'var(--mid)' }}>
+                I'm Interested In <span style={{ color: 'var(--sand)' }}>— select all that apply</span>
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {[{ id: 'general', name: 'Not Sure Yet / Other' }, ...PRODUCTS].map((p) => {
+                  const selected = (state.form.service ?? 'general').split(',').includes(p.id)
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={() => {
+                        const current = (state.form.service ?? 'general').split(',').filter(Boolean)
+                        const isGeneral = p.id === 'general'
+                        let next: string[]
+                        if (isGeneral) {
+                          next = selected ? [] : ['general']
+                        } else {
+                          const without = current.filter(x => x !== 'general')
+                          next = without.includes(p.id)
+                            ? without.filter(x => x !== p.id)
+                            : [...without, p.id]
+                          if (next.length === 0) next = ['general']
+                        }
+                        updateForm('service', next.join(','))
+                      }}
+                      className="px-3 py-2 text-[11px] tracking-[0.1em] uppercase border transition-all"
+                      style={{
+                        background: selected ? 'var(--sand)' : 'var(--cream)',
+                        borderColor: selected ? 'var(--sand)' : 'var(--hairline)',
+                        color: selected ? '#fff' : 'var(--ink)',
+                      }}
+                    >
+                      {p.name}
+                    </button>
+                  )
+                })}
+              </div>
             </div>
 
             {/* Notes */}

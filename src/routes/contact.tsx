@@ -262,11 +262,11 @@ function ContactPage() {
                 </div>
               )}
 
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <FormField label="First Name" id="fname" type="text" required placeholder="Jane" />
                 <FormField label="Last Name" id="lname" type="text" required placeholder="Smith" />
               </div>
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <FormField label="Email" id="email" type="email" required placeholder="jane@email.com" />
                 <FormField label="Phone" id="phone" type="tel" placeholder="(619) 555-0100" />
               </div>
