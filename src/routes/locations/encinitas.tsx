@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
 export const Route = (createFileRoute as any)('/locations/encinitas')({
@@ -21,9 +23,11 @@ export const Route = (createFileRoute as any)('/locations/encinitas')({
         content:
           'Custom natural window treatments for Encinitas homes — woven wood shades, linen drapery, organic Roman shades. Biophilic design specialists. Free in-home consultation.',
       },
+      { property: 'og:url', content: `${SITE_URL}/locations/encinitas` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/encinitas' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/encinitas` }],
   }),
   component: EncinitasPage,
 })
@@ -70,8 +74,58 @@ const NATURAL_PRODUCTS = [
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 function EncinitasPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shade fabric fits the natural, organic look in my Leucadia craftsman without blocking morning light?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Encinitas's biophilic interior direction \u2014 natural textures, warm tones, living plants \u2014 calls for light-filtering solar fabrics in linen-weave and oatmeal tones rather than bright whites or stark grays. iL Progetto carries open-weave solar fabrics in natural fiber colorways that admit Leucadia's gentle morning light as a warm glow rather than blocking it, while still controlling the high-UV midda" } },
+    { '@type': 'Question', 'name': "Are zebra shades too contemporary for the relaxed beach-house look in Cardiff-by-the-Sea?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Zebra shades in natural-toned fabrics \u2014 warm taupes, sandy linens, sage textures \u2014 actually integrate well with Cardiff's relaxed coastal aesthetic because the banding reads as casual texture rather than hard geometric pattern. iL Progetto carries zebra fabrics in organic colorways that coordinate with the natural wood, jute, and woven furnishings common in Cardiff beach-lifestyle interiors. The f" } },
+    { '@type': 'Question', 'name': "Do I need energy-efficient window treatments in Encinitas if I'm close to the ocean?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Encinitas's coastal location moderates temperature but not UV \u2014 the county consistently measures some of its highest annual UV index readings along the Encinitas coastline from Leucadia to Cardiff, and that UV fades furnishings and drives heat gain through unprotected glass on south and west exposures. Cellular shades reduce that solar heat transfer meaningfully, and the top-down/bottom-up option " } },
+    { '@type': 'Question', 'name': "What window treatment works with the natural materials and wabi-sabi aesthetic I'm going for in my Encinitas home?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Roman shades in natural linen, raw cotton, and textured-weave fabrics are the most architecturally consistent choice for Encinitas's biophilic interior direction. The horizontal folds read as quiet, organic structure rather than hard geometry, and the fabric face can carry the slight irregular texture that wabi-sabi interiors value. iL Progetto sources fabrics from mills that offer genuine natural" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/encinitas#localbusiness`,
+    'name': 'iL Progetto LLC — Encinitas Window Treatments',
+    'description': `Custom window treatments in Encinitas, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/encinitas`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Encinitas',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '33.0369',
+      'longitude': '-117.2920',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Encinitas',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div style={{ background: 'var(--warm)' }}>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div style={{ background: 'var(--warm)' }}>
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header
@@ -326,5 +380,33 @@ function EncinitasPage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in Encinitas
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in Encinitas
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="woven-wood" to="/catalog" search={{ product: "woven-wood" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Woven Wood Shades</Link>
+          <Link key="roller" to="/catalog" search={{ product: "roller" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roller Shades</Link>
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+          <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
+          <Link key="cellular" to="/catalog" search={{ product: "cellular" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Cellular Shades</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

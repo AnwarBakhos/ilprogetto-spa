@@ -6,6 +6,8 @@ import { PRODUCTS, getProduct } from '@/data/catalog'
 import { getAvailableDates } from '@/data/availability'
 import type { CatalogProduct } from '@/types/catalog'
 import type { BookingApiResponse } from '@/types/booking'
+import { SITE_URL } from '@/lib/config'
+
 
 // ─── Drape header styles ───────────────────────────────────────────────────────
 const DRAPE_STYLES = [
@@ -42,14 +44,14 @@ export const Route = createFileRoute('/catalog')({
         { property: 'og:site_name',   content: 'iL Progetto LLC' },
         { property: 'og:title',       content: p ? `${p.name} | iL Progetto LLC San Diego` : 'Window Treatment Catalog | iL Progetto LLC San Diego' },
         { property: 'og:description', content: p ? `${p.description} Free in-home consultation.` : 'Custom shades, blinds, shutters, and drapery for San Diego homes. In-home consultations — our designer visits your space with the complete collection.' },
-        { property: 'og:image',       content: p?.coverImage ?? '/images/og-image.jpg' },
-        { property: 'og:url',         content: p ? `https://www.ilprogettollc.com/catalog?product=${p.id}` : 'https://www.ilprogettollc.com/catalog' },
+        { property: 'og:image',       content: p?.coverImage ? `${SITE_URL}${p.coverImage}` : `${SITE_URL}/images/og-image.jpg` },
+        { property: 'og:url',         content: p ? `${SITE_URL}/catalog?product=${p.id}` : `${SITE_URL}/catalog` },
         { name: 'twitter:card',        content: 'summary_large_image' },
         { name: 'twitter:title',       content: p ? `${p.name} | iL Progetto` : 'Window Treatment Catalog | iL Progetto' },
         { name: 'twitter:description', content: p?.description ?? 'Custom window treatments for San Diego homes. Free in-home consultation.' },
       ],
       links: [
-        { rel: 'canonical', href: 'https://www.ilprogettollc.com/catalog' },
+        { rel: 'canonical', href: `${SITE_URL}/catalog` },
       ],
     }
   },
@@ -326,12 +328,12 @@ function CatalogPage() {
         '@context': 'https://schema.org', '@type': 'ItemList',
         name: 'iL Progetto LLC — Custom Window Treatment Catalog',
         description: "San Diego's complete custom window treatment catalog.",
-        url: 'https://www.ilprogettollc.com/catalog',
+        url: `${SITE_URL}/catalog`,
         numberOfItems: PRODUCTS.length,
         itemListElement: PRODUCTS.map((p, i) => ({
           '@type': 'ListItem', position: i + 1, name: p.name,
           description: p.description,
-          url: `https://www.ilprogettollc.com/catalog?product=${p.id}`,
+          url: `${SITE_URL}/catalog?product=${p.id}`,
           image: p.coverImage,
         })),
       }) }} />

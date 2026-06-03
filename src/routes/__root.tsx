@@ -1,3 +1,4 @@
+import { SITE_URL } from '@/lib/config'
 import { createRootRouteWithContext, Outlet, HeadContent, useLocation } from '@tanstack/react-router'
 import type { QueryClient } from '@tanstack/react-query'
 import { Nav } from '@/components/Nav'
@@ -15,20 +16,31 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   component: RootLayout,
 })
 
-const BASE_URL = 'https://www.ilprogettollc.com'
+const BASE_URL = SITE_URL
 
 const SEGMENT_LABELS: Record<string, string> = {
-  blog: 'Journal',
-  'smart-home': 'Smart Home',
-  locations: 'Locations',
-  'san-diego': 'San Diego',
-  poway: 'Poway',
-  carlsbad: 'Carlsbad',
-  'la-jolla': 'La Jolla',
-  alexa: 'Alexa',
-  'google-home': 'Google Home',
-  'apple-homekit': 'Apple HomeKit',
-  lutron: 'Lutron',
+  blog: 'Journal', catalog: 'Catalog', booking: 'Book Consultation',
+  about: 'About', faq: 'FAQ', reviews: 'Reviews', contact: 'Contact',
+  warranty: 'Warranty', commercial: 'Commercial', inspiration: 'Inspiration',
+  legal: 'Legal', 'child-safety': 'Child Safety', careers: 'Careers',
+  'smart-home': 'Smart Home', alexa: 'Alexa', 'google-home': 'Google Home',
+  'apple-homekit': 'Apple HomeKit', control4: 'Control4', lutron: 'Lutron',
+  locations: 'Locations', 'san-diego': 'San Diego', poway: 'Poway',
+  carlsbad: 'Carlsbad', 'la-jolla': 'La Jolla', 'del-mar': 'Del Mar',
+  encinitas: 'Encinitas', 'solana-beach': 'Solana Beach',
+  'rancho-santa-fe': 'Rancho Santa Fe', 'chula-vista': 'Chula Vista',
+  'national-city': 'National City', coronado: 'Coronado', 'el-cajon': 'El Cajon',
+  escondido: 'Escondido', 'san-marcos': 'San Marcos', vista: 'Vista', temecula: 'Temecula',
+  'roller-shades': 'Roller Shades', 'zebra-shades': 'Zebra Shades',
+  'cellular-shades': 'Cellular Shades', 'roman-shades': 'Roman Shades',
+  'motorized-shading': 'Motorized Shading', 'plantation-shutters': 'Plantation Shutters',
+  'curtains-drapery': 'Curtains & Drapery', 'wood-aluminum-blinds': 'Wood & Aluminum Blinds',
+  'shangri-la-shades': 'Shangri-La Shades', 'faux-wood-blinds': 'Faux Wood Blinds',
+  'woven-wood-shades': 'Woven Wood Shades', 'sheer-shades': 'Sheer Shades',
+  'blackout-curtains': 'Blackout Curtains', 'sheer-drapes': 'Sheer Drapes',
+  'panel-track-blinds': 'Panel Track Blinds', 'vertical-blinds': 'Vertical Blinds',
+  'aluminum-blinds': 'Aluminum Blinds', 'motorized-exterior': 'Motorized Exterior',
+  'sun-screens': 'Sun Screens', awnings: 'Awnings',
 }
 
 function toLabel(segment: string): string {
@@ -68,20 +80,22 @@ function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "HomeGoodsStore"],
+    "@id": `${SITE_URL}/#organization`,
     "name": "iL Progetto LLC",
     "alternateName": "iL Progetto Window Treatments",
     "description": "Custom window treatments for San Diego homes and offices. Roller shades, zebra shades, motorized blinds, plantation shutters — measured and installed by our licensed team.",
     "telephone": "+18583381678",
     "email": "info@ilprogettollc.com",
     "url": "https://www.ilprogettollc.com",
-    "logo": "/images/logo-300.png",
-    "image": "/images/og-image.jpg",
+    "logo": "https://drive.google.com/thumbnail?id=12-BstvEgekN4HhaUGclChCXWUp5JdJaA&sz=w300",
+    "image": "https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200",
     "priceRange": "$$",
     "currenciesAccepted": "USD",
     "paymentAccepted": "Cash, Credit Card, Financing",
     "openingHours": "Mo-Sa 08:00-18:00",
     "foundingYear": "2022",
-    "slogan": "Where Luxury Meets Affordability",
+    "slogan": "Where Luxury Meets Precision",
+    "identifier": "California Contractors License #1127055",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "San Diego",

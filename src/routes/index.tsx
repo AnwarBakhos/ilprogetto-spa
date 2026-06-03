@@ -1,3 +1,4 @@
+import { SITE_URL } from '@/lib/config'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
@@ -14,53 +15,38 @@ export const Route = createFileRoute('/')({
       { property: 'og:title', content: 'iL Progetto LLC | Custom Window Treatments San Diego' },
       { property: 'og:description', content: "Where luxury meets precision. Free in-home consultation — our designer visits your home so you can see every sample in your own light." },
       { property: 'og:image', content: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200' },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/' },
+      { property: 'og:url', content: `${SITE_URL}/` },
       { name: 'keywords', content: 'custom window treatments San Diego, roller shades San Diego, zebra shades San Diego, motorized blinds San Diego, plantation shutters San Diego, honeycomb cellular shades, Roman shades, free window treatment consultation San Diego, iL Progetto LLC' },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:title', content: 'iL Progetto LLC | Custom Window Treatments San Diego' },
       { name: 'twitter:description', content: "Where luxury meets precision. Free in-home consultation — our designer visits your home so you can see every sample in your own light." },
       { name: 'robots', content: 'index, follow' },
-      { 'script:ld+json': {
-        '@context': 'https://schema.org',
-        '@type': ['LocalBusiness', 'HomeGoodsStore'],
-        name: 'iL Progetto LLC',
-        description: 'Custom window treatments for San Diego homes and offices.',
-        telephone: '+18583381678',
-        email: 'info@ilprogettollc.com',
-        url: 'https://www.ilprogettollc.com',
-        priceRange: '$$',
-        image: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200',
-        address: { '@type': 'PostalAddress', addressLocality: 'San Diego', addressRegion: 'CA', postalCode: '92127', addressCountry: 'US' },
-        areaServed: ['San Diego County', 'Orange County', 'Riverside County', 'San Bernardino County'],
-        openingHours: 'Mo-Sa 08:00-18:00',
-        logo: { '@type': 'ImageObject', url: 'https://drive.google.com/thumbnail?id=12-BstvEgekN4HhaUGclChCXWUp5JdJaA&sz=w300' },
-        foundingYear: '2022',
-        slogan: 'Where Luxury Meets Precision',
-        currenciesAccepted: 'USD',
-        paymentAccepted: 'Cash, Credit Card, Financing',
-        hasMap: 'https://maps.google.com/?q=iL+Progetto+LLC+San+Diego+CA',
-        geo: { '@type': 'GeoCoordinates', latitude: '32.9595', longitude: '-117.0865' },
-        contactPoint: { '@type': 'ContactPoint', telephone: '+1-858-338-1678', contactType: 'customer service', areaServed: 'San Diego County', availableLanguage: 'English' },
-        sameAs: ['https://www.instagram.com/ilprogetto.design', 'https://www.facebook.com/61561253288372', 'https://yelp.to/fuCV4NqXEu'],
-        aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '3', bestRating: '5', worstRating: '1' },
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Window Treatments',
-          itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Roller Shades' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Motorized Blinds' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Plantation Shutters' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Zebra Shades' } },
-          ],
-        },
-      } },
-    ],
+],
     links: [
-      { rel: 'canonical', href: 'https://ilprogetto-spa.vercel.app/' },
+      { rel: 'canonical', href: `${SITE_URL}/` },
     ],
   }),
   component: HomePage,
 })
+
+
+// ─── VideoObject schema ────────────────────────────────────────────────────────
+const VIDEO_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  'name': 'Window Treatment Product Videos — iL Progetto LLC',
+  'itemListElement': [
+    { '@type': 'ListItem', 'position': 1, 'item': { '@type': 'VideoObject', 'name': 'Roller Shades', 'description': 'Clean cassette tube mechanism. Modern panels in blackout, light-filtering, or sheer.', 'thumbnailUrl': `${SITE_URL}/images/products/Roller Shades.png`, 'contentUrl': `${SITE_URL}/videos/products/Roller S.mp4`, 'uploadDate': '2024-01-01' } },
+    { '@type': 'ListItem', 'position': 2, 'item': { '@type': 'VideoObject', 'name': 'Zebra Shades', 'description': 'Alternating sheer and solid bands. Tune privacy and daylight with a single pull.', 'thumbnailUrl': `${SITE_URL}/images/products/Zebra Shades.png`, 'contentUrl': `${SITE_URL}/videos/products/Zebra S.mp4`, 'uploadDate': '2024-01-01' } },
+    { '@type': 'ListItem', 'position': 3, 'item': { '@type': 'VideoObject', 'name': 'Cellular Shades', 'description': 'Hexagonal air chambers for thermal insulation and quiet diffused light.', 'thumbnailUrl': `${SITE_URL}/images/products/Cellular Shades.png`, 'contentUrl': `${SITE_URL}/videos/products/Cellular S.mp4`, 'uploadDate': '2024-01-01' } },
+    { '@type': 'ListItem', 'position': 4, 'item': { '@type': 'VideoObject', 'name': 'Roman Shades', 'description': 'Tailored horizontal folds. Soft architectural drape with structured lift.', 'thumbnailUrl': `${SITE_URL}/images/products/Roman Shades.jpg`, 'contentUrl': `${SITE_URL}/videos/products/Roman S.mp4`, 'uploadDate': '2024-01-01' } },
+    { '@type': 'ListItem', 'position': 5, 'item': { '@type': 'VideoObject', 'name': 'Wood & Aluminum Blinds', 'description': 'Ladder-cord slats with precise tilt. Natural wood or matte aluminum.', 'thumbnailUrl': `${SITE_URL}/images/products/Faux Wood.jpg`, 'contentUrl': `${SITE_URL}/videos/products/Wood & Aluminum Blinds.mp4`, 'uploadDate': '2024-01-01' } },
+    { '@type': 'ListItem', 'position': 6, 'item': { '@type': 'VideoObject', 'name': 'Shangri-La Shades', 'description': 'Floating fabric vanes between sheer facings. Filtered light, sculpted depth.', 'thumbnailUrl': `${SITE_URL}/images/products/Sheer Shades.jpg`, 'contentUrl': `${SITE_URL}/videos/products/Shangri-La S.mp4`, 'uploadDate': '2024-01-01' } },
+    { '@type': 'ListItem', 'position': 7, 'item': { '@type': 'VideoObject', 'name': 'Curtains & Drapery', 'description': 'Continuous ripple folds on hand-finished metal track. Floor-grazing fall.', 'thumbnailUrl': `${SITE_URL}/images/products/Blackout Curtains.png`, 'contentUrl': `${SITE_URL}/videos/products/Curtain.mp4`, 'uploadDate': '2024-01-01' } },
+    { '@type': 'ListItem', 'position': 8, 'item': { '@type': 'VideoObject', 'name': 'Motorized Shading', 'description': 'Whisper-quiet motors recessed in fascia. App, voice, and scheduled scenes.', 'thumbnailUrl': `${SITE_URL}/images/products/Motorized Shades.png`, 'contentUrl': `${SITE_URL}/videos/products/Moter.mp4`, 'uploadDate': '2024-01-01' } },
+  ],
+}
 
 // ─── Video product card data ───────────────────────────────────────────────────
 // Video files live in /public/videos/products/
@@ -290,7 +276,9 @@ function HomePage() {
   }, [])
 
   return (
-    <div ref={ref}>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(VIDEO_SCHEMA) }} />
+      <div ref={ref}>
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <header
         className="hero relative min-h-screen flex flex-col justify-end overflow-hidden"
@@ -626,6 +614,7 @@ function HomePage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
 

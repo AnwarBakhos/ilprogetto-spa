@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/smart-home/apple-homekit')({
   head: () => ({
@@ -19,9 +21,10 @@ export const Route = (createFileRoute as any)('/smart-home/apple-homekit')({
         content:
           'Control motorized blinds and shades with Apple HomeKit and Siri in San Diego. iL Progetto LLC installs HomeKit-compatible window treatments. Automate with the Home app, Siri, and Apple Watch.',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/smart-home/apple-homekit' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/smart-home/apple-homekit` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:title', content: 'Apple HomeKit Motorized Blinds San Diego | Siri Window Shades — iL Progetto LLC' },
       {
         name: 'twitter:description',
@@ -35,7 +38,7 @@ export const Route = (createFileRoute as any)('/smart-home/apple-homekit')({
           name: 'iL Progetto LLC',
           telephone: '+18583381678',
           description: 'Apple HomeKit motorized window treatment installation in San Diego',
-          url: 'https://www.ilprogettollc.com/smart-home/apple-homekit',
+          url: `${SITE_URL}/smart-home/apple-homekit`,
           areaServed: 'San Diego',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -44,7 +47,7 @@ export const Route = (createFileRoute as any)('/smart-home/apple-homekit')({
         }),
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/smart-home/apple-homekit' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/smart-home/apple-homekit` }],
   }),
   component: AppleHomekitPage,
 })

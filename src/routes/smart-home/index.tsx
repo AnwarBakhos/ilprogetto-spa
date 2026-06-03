@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/smart-home')({
   head: () => ({
@@ -19,9 +21,10 @@ export const Route = (createFileRoute as any)('/smart-home')({
         content:
           'Control your window treatments with Alexa, Google Home, Apple HomeKit, or Control4. iL Progetto LLC installs motorized blinds and shades with full smart home integration in San Diego.',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/smart-home' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/smart-home` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:title', content: 'Smart Home Window Treatments San Diego | Motorized Blinds & Shades — iL Progetto LLC' },
       {
         name: 'twitter:description',
@@ -35,7 +38,7 @@ export const Route = (createFileRoute as any)('/smart-home')({
           name: 'iL Progetto LLC',
           telephone: '+18583381678',
           description: 'Smart home motorized window treatment installation in San Diego',
-          url: 'https://www.ilprogettollc.com/smart-home',
+          url: `${SITE_URL}/smart-home`,
           areaServed: 'San Diego',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -44,7 +47,7 @@ export const Route = (createFileRoute as any)('/smart-home')({
         }),
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/smart-home' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/smart-home` }],
   }),
   component: SmartHomePage,
 })

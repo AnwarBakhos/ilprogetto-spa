@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/commercial')({
   head: () => ({
@@ -19,9 +21,10 @@ export const Route = (createFileRoute as any)('/commercial')({
         content:
           'iL Progetto LLC offers custom window treatments for commercial spaces, builders, interior designers, and property managers across San Diego. Volume pricing, fast turnaround, professional installation.',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/commercial' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/commercial` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:title', content: 'Commercial Window Treatments San Diego | Builder & Trade Program — iL Progetto LLC' },
       {
         name: 'twitter:description',
@@ -30,7 +33,7 @@ export const Route = (createFileRoute as any)('/commercial')({
       },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/commercial' },
+      { rel: 'canonical', href: `${SITE_URL}/commercial` },
     ],
   }),
   component: CommercialPage,
@@ -117,8 +120,22 @@ function CommercialPage() {
     return setupScrollReveal(ref.current)
   }, [])
 
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': 'Commercial Window Treatments San Diego',
+    'provider': { '@id': `${SITE_URL}/#organization` },
+    'serviceType': 'Commercial Window Treatment Installation',
+    'areaServed': { '@type': 'AdministrativeArea', 'name': 'San Diego County' },
+    'description': 'Custom window treatments for commercial spaces, builders, interior designers, and property managers across San Diego County.',
+    'url': `${SITE_URL}/commercial`,
+    'offers': { '@type': 'Offer', 'priceSpecification': { '@type': 'PriceSpecification', 'priceCurrency': 'USD', 'description': 'Volume pricing available for builders and trade professionals' } },
+  }
   return (
-    <div ref={ref}>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <div ref={ref}>
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header
@@ -463,5 +480,6 @@ function CommercialPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

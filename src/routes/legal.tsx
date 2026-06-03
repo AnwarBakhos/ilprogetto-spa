@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { z } from 'zod'
+import { SITE_URL } from '@/lib/config'
+
 
 const legalSearch = z.object({
   tab: z.enum(['privacy', 'terms', 'accessibility']).optional().default('privacy'),
@@ -20,7 +22,7 @@ export const Route = createFileRoute('/legal')({
         { name: 'description', content: 'Legal information for iL Progetto LLC — a custom window treatment company based in San Diego, CA.' },
         { name: 'robots', content: 'noindex, follow' },
       ],
-      links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/legal' }],
+      links: [{ rel: 'canonical', href: `${SITE_URL}/legal` }],
     }
   },
   component: LegalPage,

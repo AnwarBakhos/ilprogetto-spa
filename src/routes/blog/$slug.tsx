@@ -1,6 +1,13 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { getPost, getLatestPosts } from '@/data/blog'
 import type { BlogPost } from '@/types/blog'
+import { SITE_URL } from '@/lib/config'
+
+/** Strip HTML tags — used for meta content, aria-labels, and TOC plain text. */
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '')
+}
+
 
 // SEO: Full article body in raw HTML paragraphs. Article JSON-LD with
 // datePublished, keywords, and author. Internal links to /catalog for each
@@ -16,22 +23,22 @@ export const Route = createFileRoute('/blog/$slug')({
     if (!loaderData) return {}
     return {
       meta: [
-        { title: `${loaderData.title} | iL Progetto LLC` },
-        { name: 'description', content: loaderData.description },
+        { title: `${stripHtml(loaderData.title)} | iL Progetto LLC` },
+        { name: 'description', content: stripHtml(loaderData.description) },
         { name: 'keywords', content: loaderData.keywords.join(', ') },
         { property: 'article:published_time', content: loaderData.publishedAt },
         { property: 'og:type', content: 'article' },
-        { property: 'og:title', content: loaderData.title },
-        { property: 'og:description', content: loaderData.description },
-        { property: 'og:image', content: '/images/og-image.jpg' },
-        { property: 'og:url', content: `https://www.ilprogettollc.com/blog/${loaderData.slug}` },
+        { property: 'og:title', content: stripHtml(loaderData.title) },
+        { property: 'og:description', content: stripHtml(loaderData.description) },
+        { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+        { property: 'og:url', content: `${SITE_URL}/blog/${loaderData.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: loaderData.title },
-        { name: 'twitter:description', content: loaderData.description },
+        { name: 'twitter:title', content: stripHtml(loaderData.title) },
+        { name: 'twitter:description', content: stripHtml(loaderData.description) },
         { name: 'robots', content: 'index, follow' },
       ],
       links: [
-        { rel: 'canonical', href: `https://www.ilprogettollc.com/blog/${loaderData.slug}` },
+        { rel: 'canonical', href: `${SITE_URL}/blog/${loaderData.slug}` },
       ],
     }
   },
@@ -48,30 +55,28 @@ function ArticleSchema({ post }: { post: BlogPost }) {
     keywords: post.keywords.join(', '),
     datePublished: post.publishedAt,
     dateModified: post.updatedAt ?? post.publishedAt,
-    author: {
-      '@type': 'Organization',
-      name: 'iL Progetto LLC',
-      url: 'https://www.ilprogettollc.com',
-    },
+    author: post.author
+      ? { '@type': 'Person', name: post.author, worksFor: { '@id': `${SITE_URL}/#organization` } }
+      : { '@type': 'Organization', '@id': `${SITE_URL}/#organization`, name: 'iL Progetto LLC', url: `${SITE_URL}` },
     publisher: {
       '@type': 'Organization',
       name: 'iL Progetto LLC',
       logo: {
         '@type': 'ImageObject',
-        url: '/images/logo-300.png',
+        url: `${SITE_URL}/images/logo-300.png`,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://www.ilprogettollc.com/blog/${post.slug}`,
+      '@id': `${SITE_URL}/blog/${post.slug}`,
     },
-    image: '/images/og-image.jpg',
-    wordCount: 1500,
+    image: post.image ? (post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image}`) : `${SITE_URL}/images/og-image.jpg`,
+    wordCount: post.sections.reduce((acc, s) => acc + s.paragraphs.join(' ').split(/\s+/).length, 0),
     inLanguage: 'en-US',
     isPartOf: {
       '@type': 'Blog',
       name: 'iL Progetto Journal',
-      url: 'https://www.ilprogettollc.com/blog/',
+      url: `${SITE_URL}/blog/`,
     },
   }
   return (
@@ -133,16 +138,14 @@ function BlogPostPage() {
           <h1
             className="font-[300] leading-[1.06] tracking-[-0.015em] mb-6"
             style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px, 4.5vw, 58px)', color: 'var(--ink)' }}
-          >
-            {post.title}
-          </h1>
+            dangerouslySetInnerHTML={{ __html: post.title }}
+          />
 
           <p
             className="text-[17px] leading-[1.8] mb-8"
             style={{ color: 'var(--mid)' }}
-          >
-            {post.description}
-          </p>
+            dangerouslySetInnerHTML={{ __html: post.description }}
+          />
 
           <div className="flex flex-wrap items-center gap-6">
             <div className="flex items-center gap-2">
@@ -197,9 +200,8 @@ function BlogPostPage() {
                     fontSize: 'clamp(20px, 2.2vw, 26px)',
                     color: 'var(--ink)',
                   }}
-                >
-                  {section.heading}
-                </h2>
+                  dangerouslySetInnerHTML={{ __html: section.heading }}
+                />
               )}
               {section.paragraphs.map((para: string, j: number) => (
                 <p
@@ -207,9 +209,8 @@ function BlogPostPage() {
                   itemProp="articleBody"
                   className="text-[16px] leading-[1.9] mb-5 last:mb-0"
                   style={{ color: para.startsWith('[CONTENT') ? 'var(--mid)' : 'var(--ink)' }}
-                >
-                  {para}
-                </p>
+                  dangerouslySetInnerHTML={{ __html: para }}
+                />
               ))}
             </section>
           ))}
@@ -273,7 +274,7 @@ function BlogPostPage() {
               {post.sections.filter((s: any) => s.heading).map((s: any, i: number) => (
                 <li key={i}>
                   <span className="text-[13px] leading-[1.5]" style={{ color: 'var(--mid)' }}>
-                    {i + 1}. {s.heading}
+                    {i + 1}. {stripHtml(s.heading)}
                   </span>
                 </li>
               ))}
@@ -312,9 +313,9 @@ function BlogPostPage() {
               <div className="space-y-4">
                 {related.map((p) => (
                   <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="block group">
-                    <p className="text-[13px] leading-[1.5] group-hover:text-[var(--sand)] transition-colors" style={{ color: 'var(--ink)' }}>
-                      {p.title}
-                    </p>
+                    <p className="text-[13px] leading-[1.5] group-hover:text-[var(--sand)] transition-colors" style={{ color: 'var(--ink)' }}
+                      dangerouslySetInnerHTML={{ __html: p.title }}
+                    />
                     <p className="text-[12px] mt-1" style={{ color: 'var(--mid)' }}>
                       {p.readingMinutes} min read
                     </p>

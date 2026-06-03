@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/san-diego')({
   head: () => ({
@@ -17,10 +19,12 @@ export const Route = (createFileRoute as any)('/locations/san-diego')({
         content:
           "San Diego's premier mobile window treatment showroom. Custom roller shades, cellular shades, plantation shutters & motorized blinds. Free in-home consultation across all San Diego neighborhoods.",
       },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+      { property: 'og:url', content: `${SITE_URL}/locations/san-diego` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/san-diego' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/san-diego` }],
   }),
   component: SanDiegoPage,
 })
@@ -66,8 +70,58 @@ const stats = [
 ]
 
 function SanDiegoPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shade fabric is best for protecting hardwood floors from UV damage in a Mission Hills craftsman?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Mission Hills craftsman homes often have original or restored hardwood floors and period art that UV light bleaches within a few years of unprotected south or west exposure. Solar-fabric roller shades in a tight 3\u20135% openness factor block 95%+ of UV rays while keeping the room bright \u2014 iL Progetto specifies fabrics with a minimum UV blocking rating of 95% for all San Diego installations near histo" } },
+    { '@type': 'Question', 'name': "Can zebra shades handle the intense afternoon sun that hits my North Park bungalow from the west?", 'acceptedAnswer': { '@type': 'Answer', 'text': "North Park's west-facing bungalow windows receive direct afternoon sun that tracks across the living room between roughly 2 p.m. and sunset \u2014 long enough to cause significant glare and heat gain. Zebra shades let you rotate between sheer bands for a softened view and solid bands for full glare control, giving North Park homeowners a single product that handles both the bright midday and brutal lat" } },
+    { '@type': 'Question', 'name': "Do cellular shades actually help with energy bills in a Pacific Beach condo that faces the ocean?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Ocean-facing Pacific Beach condos deal with a unique combination: intense UV and solar heat gain through west glass during the afternoon, and cool marine air drawing warmth out through the same glass overnight. Double-cell honeycomb shades create a trapped-air buffer that reduces both heat gain in summer and heat loss at night \u2014 measurable on a monthly SDG&E bill for a unit with significant west g" } },
+    { '@type': 'Question', 'name': "What window treatment handles the glare off the freeway-side glass in my Mission Valley condo?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Mission Valley condos on the freeway-adjacent sides face a double glare problem: direct southern sun and reflected light off adjacent building glass, particularly in the mid-morning hours. Roman shades in a light-filtering linen weave soften that aggressive glare into diffused ambient light without making the room feel cave-like during San Diego's 266 sunny days. iL Progetto fabricates Roman shade" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/san-diego#localbusiness`,
+    'name': 'iL Progetto LLC — San Diego Window Treatments',
+    'description': `Custom window treatments in San Diego, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/san-diego`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'San Diego',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '32.7157',
+      'longitude': '-117.1611',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'San Diego',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div>
 
       {/* HERO */}
       <header
@@ -304,5 +358,33 @@ function SanDiegoPage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in San Diego
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in San Diego
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="roller" to="/catalog" search={{ product: "roller" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roller Shades</Link>
+          <Link key="zebra" to="/catalog" search={{ product: "zebra" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Zebra Shades</Link>
+          <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+          <Link key="cellular" to="/catalog" search={{ product: "cellular" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Cellular Shades</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

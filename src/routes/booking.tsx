@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { BookingCalendar } from '@/components/BookingCalendar'
+import { SITE_URL } from '@/lib/config'
+
 
 // SEO: Static HTML form — Googlebot sees all field labels and CTA text.
 // The scheduling logic is client-side; the form itself is fully crawlable.
@@ -23,14 +25,15 @@ export const Route = createFileRoute('/booking')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Book a Free Window Treatment Consultation San Diego | iL Progetto LLC' },
       { property: 'og:description', content: 'Book a free in-home window treatment consultation in San Diego. iL Progetto LLC brings fabric samples, measuring tools, and pricing to your door — Poway, La Jolla, Carlsbad, Del Mar, Chula Vista, and all of San Diego County. No obligation.' },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/booking' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/booking` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:title', content: 'Book a Free Window Treatment Consultation San Diego | iL Progetto LLC' },
       { name: 'twitter:description', content: 'Book a free in-home window treatment consultation in San Diego. iL Progetto LLC brings fabric samples, measuring tools, and pricing to your door — Poway, La Jolla, Carlsbad, Del Mar, Chula Vista, and all of San Diego County. No obligation.' },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/booking' },
+      { rel: 'canonical', href: `${SITE_URL}/booking` },
     ],
   }),
   component: BookingPage,

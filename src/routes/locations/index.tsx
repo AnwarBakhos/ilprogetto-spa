@@ -2,6 +2,8 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
 import { CITY_SLUGS, PRODUCT_SLUGS, cityName } from '@/data/seo'
+import { SITE_URL } from '@/lib/config'
+
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
 export const Route = (createFileRoute as any)('/locations')({
@@ -15,13 +17,15 @@ export const Route = (createFileRoute as any)('/locations')({
       },
       { name: 'robots', content: 'index, follow' },
       { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: `${SITE_URL}/locations` },
       { property: 'og:title', content: 'Window Treatment Service Areas San Diego County | iL Progetto LLC' },
       { property: 'og:description', content: 'iL Progetto LLC provides custom window treatment installation across San Diego County and Southern California — roller shades, plantation shutters, motorized blinds, and more in every neighborhood we serve.' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/locations' },
+      { rel: 'canonical', href: `${SITE_URL}/locations` },
     ],
     scripts: [
       {
@@ -30,7 +34,7 @@ export const Route = (createFileRoute as any)('/locations')({
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
           name: 'iL Progetto LLC',
-          url: 'https://www.ilprogettollc.com',
+          url: `${SITE_URL}`,
           telephone: '+18583381678',
           email: 'info@ilprogettollc.com',
           address: {

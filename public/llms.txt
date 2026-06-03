@@ -1,0 +1,79 @@
+# iL Progetto LLC — Custom Window Treatments San Diego
+
+## Business Overview
+iL Progetto LLC is a licensed mobile window treatment company serving San Diego County and Southern California. We bring the showroom to the customer — our designer visits the client's home with the full catalog of fabric samples, hardware, and motorization options, provides accurate measurements, and delivers a same-visit quote. No showroom trip required.
+
+- **Founded:** 2022
+- **License:** California Contractors License #1127055
+- **Phone:** (858) 338-1678
+- **Email:** info@ilprogettollc.com
+- **Service Model:** Mobile in-home consultation — free, no obligation
+- **Hours:** Monday–Saturday, 8 AM–6 PM
+
+## What We Do
+We design, custom-manufacture, and professionally install window treatments for residential and commercial properties across San Diego County.
+
+### Products
+- Roller Shades (blackout, light-filtering, sheer)
+- Zebra Shades (alternating sheer/solid bands)
+- Honeycomb / Cellular Shades (energy-efficient)
+- Roman Shades (soft fold, structured lift)
+- Shangri-La / Silhouette Shades
+- Wood & Aluminum Blinds
+- Plantation Shutters (full-height, café style, arched, door)
+- Motorized Shading (app, voice, schedule control — Alexa, Google Home, Apple HomeKit, Lutron, Control4)
+- Curtains & Drapery (10 header styles: Ripple Fold, Pinch Pleat, Goblet, Tab Top, Eyelet, etc.)
+- Exterior Shades & Awnings
+- Commercial & Medical Curtains
+
+### Services
+- Free in-home consultation and measurement
+- Custom fabrication to exact window dimensions
+- Professional licensed installation
+- Smart home integration (Alexa, Google Home, Apple HomeKit, Control4, Lutron)
+- Commercial installations (offices, hotels, medical facilities, HOA coordination)
+- Builder and trade program with volume pricing
+
+## Service Areas
+We serve all of San Diego County and parts of Southern California:
+San Diego, Poway, Carlsbad, La Jolla, Del Mar, Encinitas, Solana Beach, Rancho Santa Fe, Chula Vista, National City, Coronado, El Cajon, Escondido, San Marcos, Vista, Temecula, Oceanside, Santee, Lakeside, Lemon Grove, Bonita, Spring Valley, Alpine, Ramona, and surrounding communities.
+
+## Pricing
+- Custom window treatments: starting around $150–$300 per window depending on product
+- Motorized systems: premium pricing, starting ~$400+ per window
+- Free in-home consultation and measurement included with all orders
+- Financing available
+- Price range: $$
+
+## Why Choose iL Progetto LLC
+- Mobile showroom model — see every sample in your actual light, against your real walls
+- Licensed and insured (California Contractors License #1127055)
+- Every installer is directly employed — never subcontracted
+- 1-year full parts and labor warranty; lifetime manufacturer warranty on mechanisms
+- 5-star rated across Google and Yelp (32 reviews, 5.0 average)
+- Same-visit measurements and quotes
+- Spanish-speaking staff available
+
+## Warranty
+- Operational cords, chains & motorization: 1-year iL Progetto (parts & labor), 3-year manufacturer (parts only)
+- Internal mechanisms & brackets: 1-year iL Progetto (parts & labor), lifetime manufacturer (parts only)
+- Fabric: 1-year iL Progetto and manufacturer warranty
+
+## Social & Reviews
+- Google Business: search "iL Progetto LLC San Diego"
+- Instagram: https://www.instagram.com/ilprogetto.design
+- Facebook: https://www.facebook.com/61561253288372
+- Yelp: https://yelp.to/fuCV4NqXEu
+
+## Website Structure
+- Homepage: /
+- Product Catalog: /catalog
+- Book Free Consultation: /booking
+- Service Areas: /locations
+- Smart Home Integration: /smart-home
+- About Us: /about
+- FAQ: /faq
+- Blog / Journal: /blog
+- Commercial: /commercial
+- Warranty: /warranty
+- Contact: /contact

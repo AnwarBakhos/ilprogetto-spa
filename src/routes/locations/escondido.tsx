@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/escondido')({
   head: () => ({
@@ -13,10 +15,12 @@ export const Route = (createFileRoute as any)('/locations/escondido')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Window Treatments Escondido CA — Natural Materials | iL Progetto LLC' },
       { property: 'og:description', content: "Custom natural window treatments for Escondido's wine country homes — woven wood shades, Roman shades, plantation shutters. Free in-home consultation." },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+      { property: 'og:url', content: `${SITE_URL}/locations/escondido` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/escondido' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/escondido` }],
   }),
   component: EscondidoPage,
 })
@@ -50,8 +54,58 @@ const naturalProducts = [
 ]
 
 function EscondidoPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shade fabric works best for Escondido's hot summers without blocking my hillside view?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Escondido's inland heat \u2014 regularly topping 95\u00b0F in summer \u2014 demands a solar-mesh roller fabric with a 5% or lower openness factor on south and west exposures. That tighter weave rejects the majority of radiant heat before it enters the room while still letting you see across the Hidden Valley ridgeline or your Harmony Grove property's natural landscape. iL Progetto selects fabrics with a dual coa" } },
+    { '@type': 'Question', 'name': "Are zebra shades a good fit for a ranch-style Escondido home with warm wood tones throughout?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Zebra shades are an excellent fit for Escondido's ranch and hillside homes precisely because they come in earthy linen weaves, warm taupes, and natural sand tones that coordinate with the exposed beam ceilings and warm-wood cabinetry common in the Hidden Valley and Felicita neighborhoods. The alternating sheer and solid bands give you view-through in the morning hours and privacy as the afternoon " } },
+    { '@type': 'Question', 'name': "Will cellular shades actually help with the temperature swings between Escondido's hot summer days and cool winter nights?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Yes \u2014 cellular shades are one of the few window treatments that provide measurable benefit in both directions. Escondido's thermal swing is significant: summer afternoons can be 30\u201340\u00b0F warmer than winter nights, and a dual-cell honeycomb construction maintains an insulating air pocket that resists heat entry in July and slows heat loss in December. Homes in the Harmony Grove and Felicita areas, w" } },
+    { '@type': 'Question', 'name': "What roman shade fabric complements the wine country aesthetic in my Escondido home?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Escondido's growing wine country identity \u2014 anchored by estates along the Escondido Creek corridor and the hillside ranches above Hidden Valley \u2014 has shifted interior design preferences toward linen-cotton blends in warm stone, sage, and terracotta tones. Roman shades in these fabrics fold into structured horizontal pleats that add artisanal texture without fussiness, complementing the natural sto" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/escondido#localbusiness`,
+    'name': 'iL Progetto LLC — Escondido Window Treatments',
+    'description': `Custom window treatments in Escondido, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/escondido`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Escondido',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '33.1192',
+      'longitude': '-117.0864',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Escondido',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div>
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header
@@ -274,5 +328,33 @@ function EscondidoPage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in Escondido
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in Escondido
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="cellular" to="/catalog" search={{ product: "cellular" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Cellular Shades</Link>
+          <Link key="sun-screens" to="/catalog" search={{ product: "sun-screens" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Solar Screens</Link>
+          <Link key="motorized-exterior" to="/catalog" search={{ product: "motorized-exterior" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Exterior</Link>
+          <Link key="roller" to="/catalog" search={{ product: "roller" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roller Shades</Link>
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

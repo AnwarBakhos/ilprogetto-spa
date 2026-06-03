@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/warranty')({
   head: () => ({
@@ -21,11 +23,12 @@ export const Route = (createFileRoute as any)('/warranty')({
         property: 'og:image',
         content: '/images/og-image.jpg',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/warranty' },
+      { property: 'og:url', content: `${SITE_URL}/warranty` },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/warranty' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/warranty` }],
   }),
   component: WarrantyPage,
 })
@@ -114,8 +117,24 @@ function WarrantyPage() {
     return setupScrollReveal(ref.current)
   }, [])
 
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    'name': 'Warranty — iL Progetto LLC',
+    'url': `${SITE_URL}/warranty`,
+    'description': '1-year full parts and labor warranty. Lifetime manufacturer warranty on mechanisms. 3-year manufacturer warranty on motorization.',
+    'provider': { '@id': `${SITE_URL}/#organization` },
+    'mainContentOfPage': {
+      '@type': 'WarrantyPromise',
+      'durationOfWarranty': { '@type': 'QuantitativeValue', 'value': '1', 'unitCode': 'ANN' },
+      'warrantyScope': 'https://schema.org/FullWarranty',
+    },
+  }
   return (
-    <div ref={ref}>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <div ref={ref}>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section
         className="px-4 md:px-10 lg:px-20 py-28 md:py-36"
@@ -536,8 +555,14 @@ function WarrantyPage() {
           >
             Book a Free Consultation
           </Link>
+          <div className="flex flex-wrap gap-x-8 gap-y-2 mt-8 text-[13px]">
+            <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse our products</Link>
+            <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read the full FAQ</Link>
+            <Link to="/child-safety" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Child safety information</Link>
+          </div>
         </div>
       </section>
     </div>
+    </>
   )
 }

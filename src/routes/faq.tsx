@@ -1,3 +1,4 @@
+import { SITE_URL } from '@/lib/config'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
 import { FAQ_ITEMS, FAQ_CATEGORIES } from '@/data/faq'
@@ -17,16 +18,17 @@ export const Route = createFileRoute('/faq')({
       },
       { name: 'robots', content: 'index, follow' },
       { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: `${SITE_URL}/faq` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { property: 'og:title', content: 'FAQ — Window Treatment Questions Answered | iL Progetto LLC San Diego' },
       { property: 'og:description', content: 'Answers to every question about custom window treatments in San Diego — how consultations work, the difference between roller and zebra shades, motorized blind options, installation timelines, pricing, and financing. From iL Progetto LLC.' },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/faq' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:title', content: 'FAQ — Window Treatment Questions Answered | iL Progetto LLC San Diego' },
       { name: 'twitter:description', content: 'Answers to every question about custom window treatments in San Diego — how consultations work, the difference between roller and zebra shades, motorized blind options, installation timelines, pricing, and financing. From iL Progetto LLC.' },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/faq' },
+      { rel: 'canonical', href: `${SITE_URL}/faq` },
     ],
   }),
   component: FaqPage,
@@ -103,9 +105,8 @@ function AccordionItem({ item }: { item: FaqItem }) {
           itemProp="text"
           className="pb-7 text-[15px] leading-[1.9] max-w-[68ch]"
           style={{ color: 'var(--mid)' }}
-        >
-          {item.answer}
-        </p>
+          dangerouslySetInnerHTML={{ __html: item.answer }}
+        />
       </div>
     </div>
   )
@@ -158,15 +159,20 @@ function FaqPage() {
           process. Can't find your answer?{' '}
           <a href="tel:+18583381678" style={{ color: 'var(--sand)' }}>
             Call (858) 338-1678
-          </a>
-          .
+          </a>.
         </p>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mt-6 text-[12px]">
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse our catalog</Link>
+          <Link to="/locations" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Find your service area</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Smart home & motorized</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Warranty information</Link>
+        </div>
       </header>
 
       {/* ── Category filter ───────────────────────────────────────────── */}
       <nav
         aria-label="Filter FAQ by category"
-        className="px-4 md:px-10 lg:px-20 py-8 border-b flex flex-wrap gap-2"
+        className="px-10 md:px-20 py-8 border-b flex flex-wrap gap-2"
         style={{ borderColor: 'var(--hairline)', background: '#fff' }}
       >
         <button
@@ -201,9 +207,8 @@ function FaqPage() {
 
       {/* ── Accordion ─────────────────────────────────────────────────── */}
       <section
-        key={activeCategory}
         aria-label="FAQ questions"
-        className="px-4 md:px-10 lg:px-20 py-16 max-w-[860px]"
+        className="px-10 md:px-20 py-16 max-w-[860px]"
       >
         {filtered.map((item) => (
           <AccordionItem key={item.id} item={item} />
@@ -214,7 +219,7 @@ function FaqPage() {
 
       {/* ── Bottom CTA ────────────────────────────────────────────────── */}
       <section
-        className="px-4 md:px-10 lg:px-20 py-20 border-t"
+        className="px-10 md:px-20 py-20 border-t"
         style={{ borderColor: 'var(--hairline)', background: 'var(--warm)' }}
         aria-label="Still have questions"
       >
@@ -237,7 +242,8 @@ function FaqPage() {
               </em>
             </h2>
             <p className="text-[15px] leading-[1.85]" style={{ color: 'var(--mid)' }}>
-              Our designers are available for complex projects — commercial installations, HOA coordination, or smart home integration — a conversation with our team will answer questions this page can't.
+              Our designers are available for complex projects — commercial installations, HOA coordination, or smart home integration —
+              a conversation with our team will answer questions this page can't.
             </p>
           </div>
           <div className="flex flex-col gap-4">

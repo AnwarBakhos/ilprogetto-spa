@@ -1,5 +1,5 @@
 @echo off
-cd /d C:\Users\bakho\Downloads\ilprogetto-spa-v2\ilprogetto-spa
+cd /d C:\dev\ilprogetto-spa
 
 echo.
 set /p msg="Commit message (press Enter for 'Update site'): "

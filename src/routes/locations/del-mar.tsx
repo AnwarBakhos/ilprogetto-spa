@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/del-mar')({
   head: () => ({
@@ -17,10 +19,12 @@ export const Route = (createFileRoute as any)('/locations/del-mar')({
         content:
           "Window treatments designed around Del Mar's coastal views. Low-profile, view-preserving roller shades, sheer drapes & motorized options. Free in-home consultation.",
       },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+      { property: 'og:url', content: `${SITE_URL}/locations/del-mar` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/del-mar' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/del-mar` }],
   }),
   component: DelMarPage,
 })
@@ -54,8 +58,58 @@ const stats = [
 ]
 
 function DelMarPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shade fabric works best for Del Mar west-facing windows with ocean views?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Del Mar's intense afternoon southwest sun combined with the desire to preserve canyon and ocean sightlines makes openness factor critical. iL Progetto recommends 3\u20135% solar mesh fabrics that block 70\u201380% of solar heat gain while keeping the Torrey Hills landscape visible from inside. Marine-layer humidity cycles mean all hardware we specify is stainless-steel or anodized aluminum to prevent corros" } },
+    { '@type': 'Question', 'name': "Can zebra shades handle the morning marine layer glare in Olde Del Mar?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Yes \u2014 zebra shades are particularly well-suited to Olde Del Mar because the alternating sheer and solid bands let you dial between diffused marine-layer brightness and direct-sun privacy without swapping products. When the layer burns off by midday, rotating to the solid bands controls the hard southwest glare that characterizes Del Mar Heights afternoons. iL Progetto fabricates each shade to the " } },
+    { '@type': 'Question', 'name': "Do cellular shades really help with energy costs in Del Mar if the climate is already mild?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Even Del Mar's mild climate produces meaningful heat gain on west and southwest exposures in Torrey Hills and Del Mar Heights, where afternoon sun is unimpeded. Dual-cell honeycomb shades create an insulating air pocket that reduces that thermal swing measurably \u2014 and the uniform fabric face maintains the subtle street-facing visual consistency that Del Mar's design-conscious neighborhoods quietly" } },
+    { '@type': 'Question', 'name': "What window treatment fits the restrained coastal aesthetic of a Del Mar canyon-rim home?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Roman shades in performance linen blends are the most architecturally honest answer for Del Mar Heights and Olde Del Mar interiors \u2014 the structured horizontal folds add textile warmth without visual clutter that competes with canyon or ocean views. iL Progetto sources marine-layer-resistant fabrics that resist the subtle mildew risk the coast introduces and specifies stainless mounting hardware th" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/del-mar#localbusiness`,
+    'name': 'iL Progetto LLC — Del Mar Window Treatments',
+    'description': `Custom window treatments in Del Mar, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/del-mar`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Del Mar',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '32.9595',
+      'longitude': '-117.2653',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Del Mar',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div>
 
       {/* HERO — two-column dark with vertical VIEW accent */}
       <header
@@ -340,5 +394,33 @@ function DelMarPage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in Del Mar
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in Del Mar
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="roller" to="/catalog" search={{ product: "roller" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roller Shades</Link>
+          <Link key="sheer" to="/catalog" search={{ product: "sheer" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Shangri-La Shades</Link>
+          <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+          <Link key="sheer-drapes" to="/catalog" search={{ product: "sheer-drapes" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Sheer Drapes</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

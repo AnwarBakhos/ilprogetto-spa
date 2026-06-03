@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/san-marcos')({
   head: () => ({
@@ -12,10 +14,12 @@ export const Route = (createFileRoute as any)('/locations/san-marcos')({
       { name: 'robots', content: 'index, follow' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Window Treatments San Marcos CA — Child-Safe Options | iL Progetto LLC' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+      { property: 'og:url', content: `${SITE_URL}/locations/san-marcos` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/san-marcos' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/san-marcos` }],
   }),
   component: SanMarcosPage,
 })
@@ -69,8 +73,58 @@ const reasons = [
 ]
 
 function SanMarcosPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shades are best for the standard windows in a San Elijo Hills new construction home?", 'acceptedAnswer': { '@type': 'Answer', 'text': "San Elijo Hills and Discovery Hills homes are built to relatively consistent window specifications, which actually works in the homeowner's favor \u2014 iL Progetto has installed hundreds of roller shades in these communities and knows exactly which fabric weights and openness factors suit the east, south, and west exposures in the standard floor plans. Light-filtering fabrics in warm whites and soft n" } },
+    { '@type': 'Question', 'name': "Are zebra shades child-safe for our San Marcos home where our kids play right next to the windows?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Child safety is the first specification iL Progetto addresses in San Marcos consultations, and zebra shades are available in fully cordless and motorized configurations that eliminate any dangling cord hazard entirely. The motorized option \u2014 increasingly popular in San Elijo Hills and Discovery Hills \u2014 uses a simple remote or smart-phone app for up/down/stop and is the choice most San Marcos famil" } },
+    { '@type': 'Question', 'name': "Do cellular shades reduce energy bills in a two-story San Marcos home where upstairs bedrooms overheat?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Two-story homes in San Marcos's master-planned communities \u2014 San Elijo Hills in particular \u2014 have upper-floor bedrooms that absorb significantly more heat than the ground floor because roof and wall surface area amplifies thermal gain at the top level. Dual-cell cellular shades on those upper bedroom windows create an insulating air buffer that meaningfully reduces the rate at which solar heat ent" } },
+    { '@type': 'Question', 'name': "What roman shade styles work in a transitional San Marcos home with white cabinets and neutral finishes?", 'acceptedAnswer': { '@type': 'Answer', 'text': "The transitional interiors dominant in San Marcos's newer construction \u2014 white shaker cabinetry, quartz counters, light wood floors \u2014 respond best to roman shades in flat-fold construction with minimal embellishment, allowing the fabric texture to carry the interest rather than the pleating style. iL Progetto carries a dedicated collection of performance linen weaves, cotton texturals, and subtle " } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/san-marcos#localbusiness`,
+    'name': 'iL Progetto LLC — San Marcos Window Treatments',
+    'description': `Custom window treatments in San Marcos, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/san-marcos`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'San Marcos',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '33.1434',
+      'longitude': '-117.1661',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'San Marcos',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div>
 
       {/* HERO */}
       <header
@@ -227,5 +281,33 @@ function SanMarcosPage() {
         </Link>
       </section>
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in San Marcos
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in San Marcos
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="roller" to="/catalog" search={{ product: "roller" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roller Shades</Link>
+          <Link key="zebra" to="/catalog" search={{ product: "zebra" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Zebra Shades</Link>
+          <Link key="cellular" to="/catalog" search={{ product: "cellular" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Cellular Shades</Link>
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+          <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

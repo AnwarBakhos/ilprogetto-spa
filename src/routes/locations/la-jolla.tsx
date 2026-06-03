@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/la-jolla')({
   head: () => ({
@@ -17,10 +19,12 @@ export const Route = (createFileRoute as any)('/locations/la-jolla')({
         content:
           'Luxury custom window treatments for La Jolla homes — HOA-compliant, Coastal Commission-approved. Plantation shutters, motorized shading, and more. Free in-home consultation.',
       },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+      { property: 'og:url', content: `${SITE_URL}/locations/la-jolla` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/la-jolla' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/la-jolla` }],
   }),
   component: LaJollaPage,
 })
@@ -47,8 +51,58 @@ const complianceCards = [
 ]
 
 function LaJollaPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shade works on floor-to-ceiling glass in a La Jolla bluff home without blocking the ocean view?", 'acceptedAnswer': { '@type': 'Answer', 'text': "La Jolla's bluff-top homes along Coast Boulevard and La Jolla Shores Drive are defined by their floor-to-ceiling glass \u2014 and the roller shade fabric selection for these installations must preserve the outward view while managing the intense ocean-reflected UV and glare. iL Progetto specifies 3% or 5% openness solar roller fabrics for La Jolla ocean-facing glass, which provide clear outward views f" } },
+    { '@type': 'Question', 'name': "Can zebra shades handle the intense ocean glare in a La Jolla Shores living room that faces the water all day?", 'acceptedAnswer': { '@type': 'Answer', 'text': "La Jolla Shores living rooms with full ocean exposure face a glare cycle that runs nearly all day \u2014 morning light off the water, midday overhead sun, and afternoon southwest glare that tracks across the Pacific. Zebra shades allow precise, on-demand transitions between the sheer-band open position for cooler morning hours and the solid-band closed position for the peak afternoon glare, without hav" } },
+    { '@type': 'Question', 'name': "Do cellular shades make sense in a La Jolla Cove home where the windows are original single-pane construction?", 'acceptedAnswer': { '@type': 'Answer', 'text': "La Jolla Cove's older homes near the coastal bluff often retain their original single-pane windows \u2014 protected in some cases by historic character guidelines from the California Coastal Commission \u2014 and cellular shades are the highest-impact energy improvement available without touching the windows themselves. A double-cell honeycomb shade over single-pane glass can reduce heat transmission throug" } },
+    { '@type': 'Question', 'name': "What's the best Roman shade fabric for a La Jolla Bird Rock dining room that gets intense morning sun off the ocean?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Bird Rock dining rooms facing the ocean receive a particularly intense morning sun because the Pacific's surface acts as a giant reflector at low sun angles \u2014 amplifying the light that enters east and southeast windows well beyond what an equivalent inland exposure would experience. iL Progetto recommends lined Roman shades in performance-weave linen with a UV-blocking back lining for Bird Rock di" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/la-jolla#localbusiness`,
+    'name': 'iL Progetto LLC — La Jolla Window Treatments',
+    'description': `Custom window treatments in La Jolla, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/la-jolla`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'La Jolla',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '32.8328',
+      'longitude': '-117.2713',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'La Jolla',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div style={{ background: 'var(--cream)' }}>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div style={{ background: 'var(--cream)' }}>
 
       {/* HERO — split layout */}
       <header
@@ -393,5 +447,33 @@ function LaJollaPage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in La Jolla
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in La Jolla
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+          <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
+          <Link key="sheer" to="/catalog" search={{ product: "sheer" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Shangri-La Shades</Link>
+          <Link key="roman" to="/catalog" search={{ product: "roman" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roman Shades</Link>
+          <Link key="blackout-curtains" to="/catalog" search={{ product: "blackout-curtains" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Curtains & Drapery</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

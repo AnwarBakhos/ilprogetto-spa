@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/smart-home/control4')({
   head: () => ({
@@ -19,9 +21,10 @@ export const Route = (createFileRoute as any)('/smart-home/control4')({
         content:
           'Integrate motorized window treatments with Control4 in San Diego. iL Progetto LLC programs blinds and shades into your Control4 system for whole-home automation. Licensed installers. Free consultation.',
       },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/smart-home/control4' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/smart-home/control4` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:title', content: 'Control4 Motorized Blinds San Diego | Luxury Smart Home Window Treatments — iL Progetto LLC' },
       {
         name: 'twitter:description',
@@ -35,7 +38,7 @@ export const Route = (createFileRoute as any)('/smart-home/control4')({
           name: 'iL Progetto LLC',
           telephone: '+18583381678',
           description: 'Control4 integrated motorized window treatment installation in San Diego',
-          url: 'https://www.ilprogettollc.com/smart-home/control4',
+          url: `${SITE_URL}/smart-home/control4`,
           areaServed: 'San Diego',
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
@@ -44,7 +47,7 @@ export const Route = (createFileRoute as any)('/smart-home/control4')({
         }),
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/smart-home/control4' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/smart-home/control4` }],
   }),
   component: Control4Page,
 })

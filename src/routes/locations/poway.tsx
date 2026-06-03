@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/poway')({
   head: () => ({
@@ -13,10 +15,12 @@ export const Route = (createFileRoute as any)('/locations/poway')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Custom Window Treatments Poway CA — Heat Control | iL Progetto LLC' },
       { property: 'og:description', content: "Energy-efficient window treatments for Poway's hot inland climate. Cellular shades, solar screens & motorized exterior shades — free in-home consultation." },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+      { property: 'og:url', content: `${SITE_URL}/locations/poway` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/poway' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/poway` }],
   }),
   component: PowayPage,
 })
@@ -64,8 +68,58 @@ const moreProducts = [
 ]
 
 function PowayPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shade fabric handles the 100-degree summers in Poway without fading or sagging?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Poway's inland valley summers push temperatures to 95\u2013105 degrees regularly, and that thermal load causes significant dimensional instability in lower-grade roller shade fabrics \u2014 hem bars drop out of level, the roll develops memory distortion, and the fabric color fades visibly within a season or two. iL Progetto specifies PVC-coated fiberglass solar fabrics for Poway installations \u2014 these fabric" } },
+    { '@type': 'Question', 'name': "Do zebra shades hold up in a Poway home that swings from 60-degree nights to 100-degree afternoons in summer?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Poway's extreme daily thermal cycling \u2014 cold clear nights followed by midday peaks above 100 degrees \u2014 puts real stress on window treatment fabrics that expand and contract with temperature. Zebra shades in polyester-woven construction are among the more thermally stable options: the tight weave resists expansion, and the alternating band structure doesn't buckle or develop wavy edges the way wide" } },
+    { '@type': 'Question', 'name': "Are cellular shades worth it in Poway where the summers are brutal and my AC runs constantly?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Poway's summers are precisely the climate where cellular shades deliver their most measurable return \u2014 a double-cell honeycomb construction reduces solar heat gain through glass by up to 40% compared to an uncovered window, directly reducing the load on an air conditioning system that would otherwise run all afternoon. The Silverset and Garden Road neighborhoods are full of 1970s and 1980s ranch h" } },
+    { '@type': 'Question', 'name': "What's a tailored-looking window treatment for a Poway ranch home with 1970s aluminum windows I don't want to replace?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Poway's Garden Road and Twin Peaks neighborhoods are full of well-maintained 1970s ranch homes where the original aluminum-frame windows are perfectly functional but architecturally unremarkable \u2014 and custom Roman shades are the most effective way to add visual warmth and tailored character without touching the window itself. A flat Roman shade in a woven linen-cotton blend transforms a utilitaria" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/poway#localbusiness`,
+    'name': 'iL Progetto LLC — Poway Window Treatments',
+    'description': `Custom window treatments in Poway, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/poway`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Poway',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '32.9628',
+      'longitude': '-117.0359',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Poway',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div>
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header
@@ -322,5 +376,33 @@ function PowayPage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in Poway
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in Poway
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="cellular" to="/catalog" search={{ product: "cellular" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Cellular Shades</Link>
+          <Link key="sun-screens" to="/catalog" search={{ product: "sun-screens" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Solar Screens</Link>
+          <Link key="motorized-exterior" to="/catalog" search={{ product: "motorized-exterior" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Exterior</Link>
+          <Link key="roller" to="/catalog" search={{ product: "roller" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roller Shades</Link>
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

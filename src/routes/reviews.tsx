@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ReviewsScrollPanel } from '@/components/ReviewsScrollPanel'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = createFileRoute('/reviews')({
   head: () => ({
@@ -14,14 +16,15 @@ export const Route = createFileRoute('/reviews')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Leave a Review | iL Progetto LLC — San Diego Window Treatments' },
       { property: 'og:description', content: 'Happy with your new window treatments from iL Progetto LLC? Share your experience on Google or Yelp. Your review helps other San Diego homeowners find quality, affordable window coverings — it only takes 60 seconds.' },
-      { property: 'og:url', content: 'https://www.ilprogettollc.com/reviews' },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:url', content: `${SITE_URL}/reviews` },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
       { name: 'twitter:title', content: 'Leave a Review | iL Progetto LLC — San Diego Window Treatments' },
       { name: 'twitter:description', content: 'Happy with your new window treatments from iL Progetto LLC? Share your experience on Google or Yelp. Your review helps other San Diego homeowners find quality, affordable window coverings — it only takes 60 seconds.' },
     ],
     links: [
-      { rel: 'canonical', href: 'https://www.ilprogettollc.com/reviews' },
+      { rel: 'canonical', href: `${SITE_URL}/reviews` },
     ],
   }),
   component: ReviewsPage,
@@ -147,8 +150,24 @@ function YelpIcon() {
 
 // ─── ReviewsPage ─────────────────────────────────────────────────────────────
 function ReviewsPage() {
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/#organization`,
+    'name': 'iL Progetto LLC',
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+      'worstRating': '1',
+    },
+  }
   return (
-    <div style={{ background: 'var(--warm)', minHeight: '100vh' }}>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <div style={{ background: 'var(--warm)', minHeight: '100vh' }}>
 
       {/* ── Hero ── */}
       <header className="px-4 md:px-10 lg:px-20 pt-32 pb-20 text-center max-w-[680px] mx-auto">
@@ -226,5 +245,6 @@ function ReviewsPage() {
         </p>
       </section>
     </div>
+    </>
   )
 }

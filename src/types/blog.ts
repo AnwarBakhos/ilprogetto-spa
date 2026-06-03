@@ -13,6 +13,10 @@ export interface BlogPost {
   readingMinutes: number
   sections: BlogSection[]
   relatedProducts: string[]
+  /** Absolute URL or path to the hero/og image for this post */
+  image?: string
+  /** Author display name - defaults to 'iL Progetto LLC' if omitted */
+  author?: string
 }
 
 export interface BlogSection {

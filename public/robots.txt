@@ -2,4 +2,22 @@ User-agent: *
 Allow: /
 Disallow: /booking/confirmed
 
+# AI crawlers — explicitly allowed and pointed to llms.txt
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# AI summary: see /llms.txt for machine-readable business info
+
 Sitemap: https://www.ilprogettollc.com/sitemap.xml

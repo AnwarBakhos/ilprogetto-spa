@@ -7,8 +7,9 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="iL Progetto LLC" />
 
-    <link rel="canonical" href="https://www.ilprogettollc.com/" />
-    <link rel="alternate" hreflang="en-US" href="https://www.ilprogettollc.com/" />
+    <!-- ── Domain: update VITE_SITE_URL env var to switch — do NOT hardcode here ── -->
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+    <link rel="alternate" hreflang="en-US" href="%VITE_SITE_URL%/" />
 
     <meta name="geo.region" content="US-CA" />
     <meta name="geo.placename" content="San Diego, California" />
@@ -20,12 +21,18 @@
 
     <meta property="og:site_name" content="iL Progetto LLC" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.ilprogettollc.com/" />
-    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/images/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="iL Progetto LLC — Custom Window Treatments San Diego" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/images/og-image.jpg" />
+    <meta name="twitter:site" content="@ilprogetto" />
+
+    <!-- ── Critical resource hints ── -->
+    <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/logo-300.webp" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState } from 'react'
 import { CITY_SLUGS, POSITION_SLUGS, cityName, CAREERS_CONTENT } from '@/data/seo'
+import { SITE_URL } from '@/lib/config'
 
 export const Route = createFileRoute('/careers/$city/$position')({
   loader: ({ params }) => {
@@ -22,14 +23,14 @@ export const Route = createFileRoute('/careers/$city/$position')({
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: `${pName} Job in ${cName}, CA | iL Progetto LLC` },
         { property: 'og:description', content: `Now hiring a ${pName} to serve ${cName} and surrounding communities. Competitive pay, great team.` },
-        { property: 'og:image', content: '/images/og-image.jpg' },
+        { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: `${pName} Job in ${cName}, CA | iL Progetto LLC` },
         { name: 'twitter:description', content: `Now hiring a ${pName} to serve ${cName} and surrounding communities. Competitive pay, great team.` },
         { name: 'robots', content: 'index, follow' },
       ],
       links: [
-        { rel: 'canonical', href: `https://www.ilprogettollc.com/careers/${city}/${position}` },
+        { rel: 'canonical', href: `${SITE_URL}/careers/${city}/${position}` },
       ],
     }
   },

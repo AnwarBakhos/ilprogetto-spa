@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
 export const Route = (createFileRoute as any)('/locations/carlsbad')({
@@ -21,9 +23,11 @@ export const Route = (createFileRoute as any)('/locations/carlsbad')({
         content:
           'HOA-compliant custom window treatments for Carlsbad — Bressi Ranch, La Costa, Aviara. Salt-air resistant hardware. Free in-home consultation.',
       },
+      { property: 'og:url', content: `${SITE_URL}/locations/carlsbad` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/carlsbad' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/carlsbad` }],
   }),
   component: CarlsbadPage,
 })
@@ -58,8 +62,58 @@ const PRODUCTS = [
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 function CarlsbadPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shade color is approved by Bressi Ranch HOA for west-facing windows?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Bressi Ranch's architectural review board specifies that exterior-visible roller shade cassettes and fabric facings must fall within an approved neutral palette \u2014 typically warm whites, warm grays, and light tans \u2014 that coordinates with the community's Spanish-Mediterranean architectural theme. iL Progetto has completed dozens of Bressi Ranch roller shade installations and maintains a current list" } },
+    { '@type': 'Question', 'name': "Does Aviara HOA restrict the type of zebra shades I can install on my street-facing windows in Carlsbad?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Aviara's CC&Rs regulate the exterior appearance of window treatments, which means the exterior-facing fabric side of zebra shades \u2014 and the cassette color \u2014 are subject to architectural review before installation. iL Progetto works within Aviara's approved exterior palette on every zebra shade order, selecting cassette colors and specifying an exterior-facing fabric layer in the neutral tones the " } },
+    { '@type': 'Question', 'name': "Will salt air corrode the hardware on cellular shades in my Carlsbad home near the water?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Carlsbad Village and the residential streets near Carlsbad State Beach sit within the salt-air influence zone where standard steel and zinc hardware components corrode noticeably within 3\u20135 years \u2014 a failure mode that most cellular shade warranties don't cover. iL Progetto specifies stainless-steel mounting brackets, marine-grade headrail clips, and anodized aluminum cassettes on every Carlsbad co" } },
+    { '@type': 'Question', 'name': "What Roman shade fabric won't get damaged by salt air humidity in my Carlsbad home near the ocean?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Carlsbad's marine environment creates a persistent humidity that is constant enough to affect natural fiber fabrics over time through slow mildew and fiber-degradation. iL Progetto recommends performance-weave fabrics with inherent moisture resistance for Carlsbad Roman shades near the ocean \u2014 specifically solution-dyed acrylic blends and high-twist polyester-linen constructions that resist mildew" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/carlsbad#localbusiness`,
+    'name': 'iL Progetto LLC — Carlsbad Window Treatments',
+    'description': `Custom window treatments in Carlsbad, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/carlsbad`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Carlsbad',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '33.1581',
+      'longitude': '-117.3506',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Carlsbad',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div>
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header
@@ -320,5 +374,33 @@ function CarlsbadPage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in Carlsbad
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in Carlsbad
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="roller" to="/catalog" search={{ product: "roller" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roller Shades</Link>
+          <Link key="zebra" to="/catalog" search={{ product: "zebra" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Zebra Shades</Link>
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+          <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
+          <Link key="sheer-drapes" to="/catalog" search={{ product: "sheer-drapes" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Sheer Drapes</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

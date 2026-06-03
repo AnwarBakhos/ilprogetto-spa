@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 export const Route = (createFileRoute as any)('/locations/temecula')({
   head: () => ({
@@ -13,10 +15,12 @@ export const Route = (createFileRoute as any)('/locations/temecula')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Custom Window Treatments Temecula CA — Motorized & Smart Shading | iL Progetto LLC' },
       { property: 'og:description', content: "Temecula's 40°F daily temperature swings demand automated window treatments. Motorized shading, cellular shades & smart home integration. Free in-home consultation." },
-      { property: 'og:image', content: '/images/og-image.jpg' },
+      { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+      { property: 'og:url', content: `${SITE_URL}/locations/temecula` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/temecula' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/temecula` }],
   }),
   component: TemeculaPage,
 })
@@ -49,8 +53,58 @@ const automationProducts = [
 ]
 
 function TemeculaPage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shades handle Temecula's 40-degree temperature swings without warping or losing tension?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Temecula's summer temperature swings \u2014 from 65\u00b0F at sunrise to over 100\u00b0F by mid-afternoon \u2014 put extraordinary stress on roller shade fabric and tube mechanisms through repeated thermal expansion and contraction. iL Progetto selects dimensionally stable fabrics with tight weave construction specifically rated for high-thermal environments, and specifies aluminum tube cores rather than PVC for Teme" } },
+    { '@type': 'Question', 'name': "Do zebra shades work well in Temecula's Spanish-style homes in communities like Wolf Creek and Redhawk?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Temecula's Spanish and Mediterranean-style homes in Wolf Creek, Redhawk, and Paloma del Sol have interior design vocabularies built on warm terracottas, aged woods, and textured plasters \u2014 an aesthetic that zebra shades complement well when specified in the right fabric tones. iL Progetto carries zebra fabrics in warm sand, aged linen, and soft terracotta-adjacent weaves that tie into the Spanish " } },
+    { '@type': 'Question', 'name': "With Temecula's huge daily temperature swings, will cellular shades help keep the house comfortable without running the AC all day?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Temecula's 40\u00b0F daily temperature swing in summer is precisely the condition dual-cell cellular shades were designed to address. The double honeycomb construction maintains its insulating air buffer even when the glass surface temperature reaches 130\u00b0F on a south-facing Temecula window, slowing the rate at which that heat enters the living space and giving the HVAC system time to manage rather tha" } },
+    { '@type': 'Question', 'name': "What roman shade fabric holds up in Temecula where the UV is extreme and the temperature cycles are severe?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Temecula's inland UV intensity \u2014 unfiltered by any coastal marine layer \u2014 and the severe daily thermal cycling together create one of the most demanding window treatment environments in Southern California. iL Progetto specifies solution-dyed performance fabrics for Temecula roman shade installations: the dye is part of the fiber structure rather than a surface coating, so UV exposure doesn't fade" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/temecula#localbusiness`,
+    'name': 'iL Progetto LLC — Temecula Window Treatments',
+    'description': `Custom window treatments in Temecula, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/temecula`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Temecula',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '33.4936',
+      'longitude': '-117.1484',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Temecula',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div>
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header
@@ -383,5 +437,33 @@ function TemeculaPage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in Temecula
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in Temecula
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="cellular" to="/catalog" search={{ product: "cellular" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Cellular Shades</Link>
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+          <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
+          <Link key="roller" to="/catalog" search={{ product: "roller" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roller Shades</Link>
+          <Link key="sun-screens" to="/catalog" search={{ product: "sun-screens" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Solar Screens</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }

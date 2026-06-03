@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { SITE_URL } from '@/lib/config'
+
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
 export const Route = (createFileRoute as any)('/locations/rancho-santa-fe')({
@@ -21,9 +23,11 @@ export const Route = (createFileRoute as any)('/locations/rancho-santa-fe')({
         content:
           'Architectural Review Board-compliant custom window treatments for Rancho Santa Fe estates. Plantation shutters, custom drapery for Mediterranean and Spanish Colonial homes. Free consultation.',
       },
+      { property: 'og:url', content: `${SITE_URL}/locations/rancho-santa-fe` },
       { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
-    links: [{ rel: 'canonical', href: 'https://www.ilprogettollc.com/locations/rancho-santa-fe' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/locations/rancho-santa-fe` }],
   }),
   component: RanchoSantaFePage,
 })
@@ -70,8 +74,58 @@ const ESTATE_PRODUCTS = [
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 function RanchoSantaFePage() {
+
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+    { '@type': 'Question', 'name': "What roller shade hardware finish will pass the Rancho Santa Fe ARB review for an exterior-visible application?", 'acceptedAnswer': { '@type': 'Answer', 'text': "The Rancho Santa Fe Architectural Review Board evaluates exterior-visible treatments for color, material finish, and visual consistency with the Covenant's Spanish Colonial and Mediterranean architectural character. iL Progetto works within RSF's ARB-approved cassette finish palette \u2014 typically warm bronze, aged brass, and earthy neutrals \u2014 and prepares full submittal documentation including fabri" } },
+    { '@type': 'Question', 'name': "Can zebra shades work in a Spanish Colonial estate in Rancho Santa Fe without looking out of place?", 'acceptedAnswer': { '@type': 'Answer', 'text': "The key for RSF's Spanish Colonial and Mediterranean homes is fabric tone selection \u2014 zebra shades in warm ivory, linen-white, and warm taupe horizontal bands integrate with the arched windows and terracotta surfaces of Covenant architecture far better than the cool grays and bright whites that read as contemporary. iL Progetto selects zebra shade fabrics in the warm neutral colorways that harmoni" } },
+    { '@type': 'Question', 'name': "Do cellular shades meet the quality standard expected in a Rancho Santa Fe estate home?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Cellular shades in estate-tier construction \u2014 wider cells, heavier fabric weights, precision-fit cassette housings \u2014 are entirely appropriate for RSF's standard, and iL Progetto selects only the top-tier cellular shade product lines for Covenant and Cielo installations. For RSF's large estate windows, the dual-cell construction provides meaningful insulating performance on the south and west expos" } },
+    { '@type': 'Question', 'name': "What fabric is appropriate for roman shades in a formal RSF interior with antique furnishings?", 'acceptedAnswer': { '@type': 'Answer', 'text': "Rancho Santa Fe's formal estate interiors \u2014 particularly the older Covenant homes with antique European furnishings and hand-painted tile floors \u2014 call for roman shade fabrics in natural silk, raw linen, and woven wool-blend constructions rather than the polyester-dominant fabrics that populate most residential shade lines. iL Progetto sources from trade mills that carry the quality and variety ap" } }
+    ],
+  }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/locations/rancho-santa-fe#localbusiness`,
+    'name': 'iL Progetto LLC — Rancho Santa Fe Window Treatments',
+    'description': `Custom window treatments in Rancho Santa Fe, CA. Free in-home consultation — we bring the full catalog to your home.`,
+    'url': `${SITE_URL}/locations/rancho-santa-fe`,
+    'telephone': '+18583381678',
+    'email': 'info@ilprogettollc.com',
+    'priceRange': '$$',
+    'image': `${SITE_URL}/images/og-image.jpg`,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Rancho Santa Fe',
+      'addressRegion': 'CA',
+      'addressCountry': 'US',
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': '33.0231',
+      'longitude': '-117.1961',
+    },
+    'areaServed': {
+      '@type': 'City',
+      'name': 'Rancho Santa Fe',
+      'containedInPlace': { '@type': 'State', 'name': 'California' },
+    },
+    'parentOrganization': { '@id': `${SITE_URL}/#organization` },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '5.0',
+      'reviewCount': '32',
+      'bestRating': '5',
+    },
+  }
   return (
-    <div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div>
 
       {/* ══ HERO ══════════════════════════════════════════════════════════════ */}
       <header
@@ -383,5 +437,33 @@ function RanchoSantaFePage() {
       </section>
 
     </div>
+      {/* ── Related Products ──────────────────────────────────────── */}
+      <section
+        className="px-4 md:px-10 lg:px-20 py-16 border-t"
+        style={{ background: 'var(--cream)', borderColor: 'var(--hairline)' }}
+        aria-label="Related window treatment products"
+      >
+        <p className="text-[11px] tracking-[0.22em] uppercase mb-4" style={{ color: 'var(--sand)' }}>
+          Popular in Rancho Santa Fe
+        </p>
+        <h2 className="font-[300] leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px,2.5vw,32px)', color: 'var(--ink)' }}>
+          Window Treatments We Install in Rancho Santa Fe
+        </h2>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link key="plantation" to="/catalog" search={{ product: "plantation" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Plantation Shutters</Link>
+          <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
+          <Link key="blackout-curtains" to="/catalog" search={{ product: "blackout-curtains" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Curtains & Drapery</Link>
+          <Link key="roman" to="/catalog" search={{ product: "roman" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roman Shades</Link>
+          <Link key="sheer" to="/catalog" search={{ product: "sheer" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Shangri-La Shades</Link>
+        </div>
+        <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
+          <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>
+          <Link to="/faq" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Read our FAQ →</Link>
+          <Link to="/smart-home" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Motorized &amp; smart home options →</Link>
+          <Link to="/warranty" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Our warranty →</Link>
+        </div>
+      </section>
+
+    </>
   )
 }
