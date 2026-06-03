@@ -5,6 +5,7 @@ echo.
 set /p msg="Commit message (press Enter for 'Update site'): "
 if "%msg%"=="" set msg=Update site
 
+git pull --rebase
 git add -A
 git commit -m "%msg%"
 git push
