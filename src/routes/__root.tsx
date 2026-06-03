@@ -7,7 +7,6 @@ import { ServiceDrawer } from '@/components/ServiceDrawer'
 import { ExitIntentPopup } from '@/components/ExitIntentPopup'
 import { CookieConsent } from '@/components/CookieConsent'
 import { AccessibilityToolbar } from '@/components/AccessibilityToolbar'
-import { SITE_URL } from '@/lib/config'
 
 
 interface RouterContext {
@@ -18,11 +17,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   component: RootLayout,
 })
 
-<<<<<<< HEAD
-const BASE_URL = SITE_URL
-=======
 const BASE_URL = `${SITE_URL}`
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
 
 const SEGMENT_LABELS: Record<string, string> = {
   blog: 'Journal', catalog: 'Catalog', booking: 'Book Consultation',
@@ -92,15 +87,9 @@ function LocalBusinessSchema() {
     "description": "Custom window treatments for San Diego homes and offices. Roller shades, zebra shades, motorized blinds, plantation shutters — measured and installed by our licensed team.",
     "telephone": "+18583381678",
     "email": "info@ilprogettollc.com",
-<<<<<<< HEAD
-    "url": "https://www.ilprogettollc.com",
-    "logo": "https://drive.google.com/thumbnail?id=12-BstvEgekN4HhaUGclChCXWUp5JdJaA&sz=w300",
-    "image": "https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200",
-=======
     "url": `${SITE_URL}`,
     "logo": "/images/logo-300.png",
     "image": "/images/og-image.jpg",
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
     "priceRange": "$$",
     "currenciesAccepted": "USD",
     "paymentAccepted": "Cash, Credit Card, Financing",

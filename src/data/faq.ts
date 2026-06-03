@@ -129,7 +129,7 @@ export const FAQ_ITEMS: FaqItem[] = [
 
   // ─── Pricing ─────────────────────────────────────────────────────────────
   {
-    id: 'faq-pricing-1',
+    id: 'faq-pricing-4',
     category: 'pricing',
     question: 'How much do custom window treatments cost in San Diego?',
     answer:
@@ -141,7 +141,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer: 'No minimum. We handle single-window orders and full-home projects with equal care.',
   },
   {
-    id: 'faq-products-4', category: 'products',
+    id: 'faq-products-8', category: 'products',
     question: 'What are the best window treatments for privacy without blocking light?',
     answer: 'Zebra shades, Shangri-La shades, and solar shades all provide daytime privacy while maintaining natural light. Solar shades with 3-5% openness are ideal for rooms where you want to reduce glare and maintain the view.',
   },
@@ -161,12 +161,12 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer: 'Plantation shutters have wide louvers — typically 2.5 to 4.5 inches — providing excellent light control and airflow. They are the dominant style in San Diego residential construction.',
   },
   {
-    id: 'faq-installation-2', category: 'installation',
+    id: 'faq-installation-5', category: 'installation',
     question: 'How long does installation take?',
     answer: 'Most single-room installations take one to two hours. A full home of eight to twelve windows typically takes four to six hours in a single visit. Lead time from consultation to installation is typically four to six weeks.',
   },
   {
-    id: 'faq-installation-3', category: 'installation',
+    id: 'faq-installation-6', category: 'installation',
     question: 'Do I need to do anything to prepare for installation?',
     answer: 'Clear the windowsill and a few feet of floor space beneath each window. We clean up all packaging and debris before leaving.',
   },

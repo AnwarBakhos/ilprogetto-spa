@@ -3,14 +3,11 @@ import { getPost, getLatestPosts } from '@/data/blog'
 import type { BlogPost } from '@/types/blog'
 import { SITE_URL } from '@/lib/config'
 
-<<<<<<< HEAD
 /** Strip HTML tags — used for meta content, aria-labels, and TOC plain text. */
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '')
 }
 
-=======
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
 
 // SEO: Full article body in raw HTML paragraphs. Article JSON-LD with
 // datePublished, keywords, and author. Internal links to /catalog for each
@@ -31,13 +28,8 @@ export const Route = createFileRoute('/blog/$slug')({
         { name: 'keywords', content: loaderData.keywords.join(', ') },
         { property: 'article:published_time', content: loaderData.publishedAt },
         { property: 'og:type', content: 'article' },
-<<<<<<< HEAD
         { property: 'og:title', content: stripHtml(loaderData.title) },
         { property: 'og:description', content: stripHtml(loaderData.description) },
-=======
-        { property: 'og:title', content: loaderData.title },
-        { property: 'og:description', content: loaderData.description },
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
         { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
         { property: 'og:url', content: `${SITE_URL}/blog/${loaderData.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -63,17 +55,11 @@ function ArticleSchema({ post }: { post: BlogPost }) {
     keywords: post.keywords.join(', '),
     datePublished: post.publishedAt,
     dateModified: post.updatedAt ?? post.publishedAt,
-<<<<<<< HEAD
-    author: post.author
-      ? { '@type': 'Person', name: post.author, worksFor: { '@id': `${SITE_URL}/#organization` } }
-      : { '@type': 'Organization', '@id': `${SITE_URL}/#organization`, name: 'iL Progetto LLC', url: `${SITE_URL}` },
-=======
     author: {
       '@type': 'Organization',
       name: 'iL Progetto LLC',
       url: `${SITE_URL}`,
     },
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
     publisher: {
       '@type': 'Organization',
       name: 'iL Progetto LLC',

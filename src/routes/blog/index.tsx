@@ -2,14 +2,11 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { BLOG_POSTS } from '@/data/blog'
 import { SITE_URL } from '@/lib/config'
 
-<<<<<<< HEAD
 /** Strip HTML tags — used for plain-text contexts. */
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '')
 }
 
-=======
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
 
 // SEO: Article titles render as <h2> tags. Dates render in <time datetime="">.
 // All post descriptions are raw text. This page is fully crawlable.

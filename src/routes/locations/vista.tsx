@@ -15,10 +15,6 @@ export const Route = (createFileRoute as any)('/locations/vista')({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Window Treatments Vista CA — Hillside Home Specialists | iL Progetto LLC' },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
-<<<<<<< HEAD
-      { property: 'og:url', content: `${SITE_URL}/locations/vista` },
-=======
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],

@@ -16,10 +16,6 @@ export const Route = (createFileRoute as any)('/locations/el-cajon')({
       { property: 'og:title', content: 'Custom Window Treatments El Cajon CA — Heat Solutions | iL Progetto LLC' },
       { property: 'og:description', content: "El Cajon's heat demands more. Cellular shades, solar screens & motorized exterior shading for 100°F+ summers. Free in-home consultation by iL Progetto LLC." },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
-<<<<<<< HEAD
-      { property: 'og:url', content: `${SITE_URL}/locations/el-cajon` },
-=======
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],

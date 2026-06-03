@@ -16,10 +16,6 @@ export const Route = (createFileRoute as any)('/locations/poway')({
       { property: 'og:title', content: 'Custom Window Treatments Poway CA — Heat Control | iL Progetto LLC' },
       { property: 'og:description', content: "Energy-efficient window treatments for Poway's hot inland climate. Cellular shades, solar screens & motorized exterior shades — free in-home consultation." },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
-<<<<<<< HEAD
-      { property: 'og:url', content: `${SITE_URL}/locations/poway` },
-=======
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],

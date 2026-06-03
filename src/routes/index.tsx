@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
 import { ReviewsScrollPanel } from '@/components/ReviewsScrollPanel'
 import { InteractiveServiceMap } from '@/components/InteractiveServiceMap'
-import { SITE_URL } from '@/lib/config'
 
 // ─── SEO ──────────────────────────────────────────────────────────────────────
 export const Route = createFileRoute('/')({
@@ -24,9 +23,6 @@ export const Route = createFileRoute('/')({
       { name: 'twitter:title', content: 'iL Progetto LLC | Custom Window Treatments San Diego' },
       { name: 'twitter:description', content: "Where luxury meets precision. Free in-home consultation — our designer visits your home so you can see every sample in your own light." },
       { name: 'robots', content: 'index, follow' },
-<<<<<<< HEAD
-],
-=======
       { 'script:ld+json': {
         '@context': 'https://schema.org',
         '@type': ['LocalBusiness', 'HomeGoodsStore'],
@@ -62,7 +58,6 @@ export const Route = createFileRoute('/')({
         },
       } },
     ],
->>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
     links: [
       { rel: 'canonical', href: `${SITE_URL}/` },
     ],
