@@ -20,7 +20,10 @@ export const Route = (createFileRoute as any)('/locations/la-jolla')({
           'Luxury custom window treatments for La Jolla homes — HOA-compliant, Coastal Commission-approved. Plantation shutters, motorized shading, and more. Free in-home consultation.',
       },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+<<<<<<< HEAD
       { property: 'og:url', content: `${SITE_URL}/locations/la-jolla` },
+=======
+>>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],

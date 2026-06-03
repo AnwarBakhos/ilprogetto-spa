@@ -20,7 +20,10 @@ export const Route = (createFileRoute as any)('/locations/coronado')({
           "Marine-grade window treatments for Coronado's island climate. Salt-air resistant hardware, architecturally-appropriate plantation shutters & motorized shading. Free in-home consultation.",
       },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+<<<<<<< HEAD
       { property: 'og:url', content: `${SITE_URL}/locations/coronado` },
+=======
+>>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],

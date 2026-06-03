@@ -4,6 +4,8 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
 import { ReviewsScrollPanel } from '@/components/ReviewsScrollPanel'
 import { InteractiveServiceMap } from '@/components/InteractiveServiceMap'
+import { SITE_URL } from '@/lib/config'
+
 // ─── SEO ──────────────────────────────────────────────────────────────────────
 export const Route = createFileRoute('/')({
   // TanStack Router v1 head API — sets <title> and <meta> for this route
@@ -22,7 +24,45 @@ export const Route = createFileRoute('/')({
       { name: 'twitter:title', content: 'iL Progetto LLC | Custom Window Treatments San Diego' },
       { name: 'twitter:description', content: "Where luxury meets precision. Free in-home consultation — our designer visits your home so you can see every sample in your own light." },
       { name: 'robots', content: 'index, follow' },
+<<<<<<< HEAD
 ],
+=======
+      { 'script:ld+json': {
+        '@context': 'https://schema.org',
+        '@type': ['LocalBusiness', 'HomeGoodsStore'],
+        name: 'iL Progetto LLC',
+        description: 'Custom window treatments for San Diego homes and offices.',
+        telephone: '+18583381678',
+        email: 'info@ilprogettollc.com',
+        url: `${SITE_URL}`,
+        priceRange: '$$',
+        image: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200',
+        address: { '@type': 'PostalAddress', addressLocality: 'San Diego', addressRegion: 'CA', postalCode: '92127', addressCountry: 'US' },
+        areaServed: ['San Diego County', 'Orange County', 'Riverside County', 'San Bernardino County'],
+        openingHours: 'Mo-Sa 08:00-18:00',
+        logo: { '@type': 'ImageObject', url: 'https://drive.google.com/thumbnail?id=12-BstvEgekN4HhaUGclChCXWUp5JdJaA&sz=w300' },
+        foundingYear: '2022',
+        slogan: 'Where Luxury Meets Precision',
+        currenciesAccepted: 'USD',
+        paymentAccepted: 'Cash, Credit Card, Financing',
+        hasMap: 'https://maps.google.com/?q=iL+Progetto+LLC+San+Diego+CA',
+        geo: { '@type': 'GeoCoordinates', latitude: '32.9595', longitude: '-117.0865' },
+        contactPoint: { '@type': 'ContactPoint', telephone: '+1-858-338-1678', contactType: 'customer service', areaServed: 'San Diego County', availableLanguage: 'English' },
+        sameAs: ['https://www.instagram.com/ilprogetto.design', 'https://www.facebook.com/61561253288372', 'https://yelp.to/fuCV4NqXEu'],
+        aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '32', bestRating: '5', worstRating: '1' },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Window Treatments',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Roller Shades' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Motorized Blinds' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Plantation Shutters' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Zebra Shades' } },
+          ],
+        },
+      } },
+    ],
+>>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
     links: [
       { rel: 'canonical', href: `${SITE_URL}/` },
     ],

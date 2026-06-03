@@ -16,7 +16,10 @@ export const Route = (createFileRoute as any)('/locations/temecula')({
       { property: 'og:title', content: 'Custom Window Treatments Temecula CA — Motorized & Smart Shading | iL Progetto LLC' },
       { property: 'og:description', content: "Temecula's 40°F daily temperature swings demand automated window treatments. Motorized shading, cellular shades & smart home integration. Free in-home consultation." },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+<<<<<<< HEAD
       { property: 'og:url', content: `${SITE_URL}/locations/temecula` },
+=======
+>>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],

@@ -16,7 +16,10 @@ export const Route = (createFileRoute as any)('/locations/escondido')({
       { property: 'og:title', content: 'Window Treatments Escondido CA — Natural Materials | iL Progetto LLC' },
       { property: 'og:description', content: "Custom natural window treatments for Escondido's wine country homes — woven wood shades, Roman shades, plantation shutters. Free in-home consultation." },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+<<<<<<< HEAD
       { property: 'og:url', content: `${SITE_URL}/locations/escondido` },
+=======
+>>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],

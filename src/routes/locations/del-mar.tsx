@@ -20,7 +20,10 @@ export const Route = (createFileRoute as any)('/locations/del-mar')({
           "Window treatments designed around Del Mar's coastal views. Low-profile, view-preserving roller shades, sheer drapes & motorized options. Free in-home consultation.",
       },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
+<<<<<<< HEAD
       { property: 'og:url', content: `${SITE_URL}/locations/del-mar` },
+=======
+>>>>>>> 3f5ea77fc33d926396c7918191605622bee1c530
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
