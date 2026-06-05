@@ -40,7 +40,7 @@ export const Route = (createFileRoute as any)('/inspiration')({
 })
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
-const ROOMS = ['All', 'Living Room', 'Bedroom', 'Kitchen', 'Home Office', 'Outdoor'] as const
+const ROOMS = ['All', 'Living Room', 'Bedroom', 'Kitchen', 'Home Office', 'Bathroom', 'Outdoor'] as const
 const STYLES = ['Modern', 'Coastal', 'Traditional', 'Farmhouse', 'Minimalist'] as const
 
 type Room = (typeof ROOMS)[number]
@@ -53,19 +53,77 @@ const INSPIRATION_ITEMS: {
   room: Exclude<Room, 'All'>
   style: Style
   img: string
+  alt: string
 }[] = [
-  { id: 1, product: 'Roller Shades', productId: 'roller', room: 'Living Room', style: 'Modern', img: '/images/hero.jpg' },
-  { id: 2, product: 'Plantation Shutters', productId: 'plantation', room: 'Bedroom', style: 'Traditional', img: '/images/hero.jpg' },
-  { id: 3, product: 'Zebra Shades', productId: 'zebra', room: 'Living Room', style: 'Modern', img: '/images/hero.jpg' },
-  { id: 4, product: 'Motorized Shading', productId: 'motorized', room: 'Home Office', style: 'Minimalist', img: '/images/hero.jpg' },
-  { id: 5, product: 'Woven Wood Shades', productId: 'woven-wood', room: 'Bedroom', style: 'Farmhouse', img: '/images/hero.jpg' },
-  { id: 6, product: 'Curtains & Drapery', productId: 'blackout-curtains', room: 'Bedroom', style: 'Traditional', img: '/images/hero.jpg' },
-  { id: 7, product: 'Cellular Shades', productId: 'cellular', room: 'Kitchen', style: 'Minimalist', img: '/images/hero.jpg' },
-  { id: 8, product: 'Roman Shades', productId: 'roman', room: 'Kitchen', style: 'Farmhouse', img: '/images/hero.jpg' },
-  { id: 9, product: 'Shangri-La Shades', productId: 'sheer', room: 'Living Room', style: 'Coastal', img: '/images/hero.jpg' },
-  { id: 10, product: 'Motorized Exterior', productId: 'motorized-exterior', room: 'Outdoor', style: 'Modern', img: '/images/hero.jpg' },
-  { id: 11, product: 'Plantation Shutters', productId: 'plantation', room: 'Home Office', style: 'Coastal', img: '/images/hero.jpg' },
-  { id: 12, product: 'Faux Wood Blinds', productId: 'faux-wood', room: 'Bedroom', style: 'Coastal', img: '/images/hero.jpg' },
+  // Living Room
+  { id: 1, room: 'Living Room', style: 'Modern', product: 'Shangri-La Shades', productId: 'sheer',
+    img: '/images/inspiration/lr-vertical-sheer-highrise.webp',
+    alt: 'Sheer vertical shades in a modern high-rise San Diego living room with city views' },
+  { id: 2, room: 'Living Room', style: 'Minimalist', product: 'Cellular Shades', productId: 'cellular',
+    img: '/images/inspiration/lr-cellular-topdown-family.webp',
+    alt: 'Top-down bottom-up cellular shades in an open-plan San Diego living and dining room' },
+  { id: 3, room: 'Living Room', style: 'Farmhouse', product: 'Zebra Shades', productId: 'zebra',
+    img: '/images/inspiration/lr-zebra-natural-modern.webp',
+    alt: 'Natural-tone zebra shades in a contemporary San Diego living room' },
+  { id: 4, room: 'Living Room', style: 'Minimalist', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/lr-roller-light-filter-multi.webp',
+    alt: 'Light-filtering roller shades across multiple windows in a San Diego living room' },
+  { id: 5, room: 'Living Room', style: 'Coastal', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/lr-solar-roller-warm.webp',
+    alt: 'Solar roller shades in a bright San Diego living room with warm neutral tones' },
+  // Bedroom
+  { id: 6, room: 'Bedroom', style: 'Traditional', product: 'Plantation Shutters', productId: 'plantation',
+    img: '/images/inspiration/bd-shutters-garden-view.webp',
+    alt: 'Plantation shutters with garden view in a San Diego bedroom' },
+  { id: 7, room: 'Bedroom', style: 'Modern', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/bd-blackout-roller-accent.webp',
+    alt: 'Blackout roller shades in a modern bedroom with dark accent wall — San Diego' },
+  { id: 8, room: 'Bedroom', style: 'Farmhouse', product: 'Curtains & Drapery', productId: 'blackout-curtains',
+    img: '/images/inspiration/bd-drapery-ripple-detail.webp',
+    alt: 'Ripple-fold drapery on sliding glass door in a rustic San Diego bedroom' },
+  { id: 9, room: 'Bedroom', style: 'Traditional', product: 'Curtains & Drapery', productId: 'blackout-curtains',
+    img: '/images/inspiration/bd-drapery-midcentury.webp',
+    alt: 'Floor-to-ceiling drapes in a mid-century modern San Diego bedroom' },
+  // Kitchen
+  { id: 10, room: 'Kitchen', style: 'Minimalist', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/kt-roller-sink-window.webp',
+    alt: 'Light-filtering roller shade over kitchen sink window — San Diego home' },
+  { id: 11, room: 'Kitchen', style: 'Farmhouse', product: 'Zebra Shades', productId: 'zebra',
+    img: '/images/inspiration/kt-zebra-farmhouse-sink.webp',
+    alt: 'Zebra shades in a modern farmhouse kitchen with apron sink — San Diego' },
+  // Home Office
+  { id: 12, room: 'Home Office', style: 'Modern', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/of-roller-home-office.webp',
+    alt: 'Roller shades providing glare control in a San Diego home office' },
+  { id: 13, room: 'Home Office', style: 'Coastal', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/of-roller-green-office.webp',
+    alt: 'White roller shades in a vibrant green home office — San Diego' },
+  { id: 14, room: 'Home Office', style: 'Minimalist', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/of-roller-study-nook.webp',
+    alt: 'Roller shade in a compact mid-century study nook — San Diego' },
+  { id: 15, room: 'Home Office', style: 'Minimalist', product: 'Solar Shades', productId: 'solar',
+    img: '/images/inspiration/of-solar-commercial-1.webp',
+    alt: 'Solar shades in a commercial office — glare-free San Diego workspace' },
+  // Bathroom
+  { id: 16, room: 'Bathroom', style: 'Traditional', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/ba-roller-spa-full.webp',
+    alt: 'Light-filtering roller shade in a spa-style San Diego bathroom' },
+  { id: 17, room: 'Bathroom', style: 'Traditional', product: 'Roller Shades', productId: 'roller',
+    img: '/images/inspiration/ba-roller-spa-vanity.webp',
+    alt: 'Roller shade above vanity window in a luxury San Diego bathroom' },
+  // Outdoor
+  { id: 18, room: 'Outdoor', style: 'Farmhouse', product: 'Motorized Exterior', productId: 'motorized-exterior',
+    img: '/images/inspiration/out-bamboo-patio-cover.webp',
+    alt: 'Bamboo exterior shade on patio cover — San Diego outdoor living space' },
+  { id: 19, room: 'Outdoor', style: 'Modern', product: 'Motorized Exterior', productId: 'motorized-exterior',
+    img: '/images/inspiration/out-motorized-estate.webp',
+    alt: 'Motorized exterior roller shades on a San Diego estate patio at sunset' },
+  { id: 20, room: 'Outdoor', style: 'Coastal', product: 'Motorized Exterior', productId: 'motorized-exterior',
+    img: '/images/inspiration/out-motorized-spanish.webp',
+    alt: 'Motorized exterior shade on a Spanish-style San Diego home with palm trees' },
+  { id: 21, room: 'Outdoor', style: 'Coastal', product: 'Motorized Exterior', productId: 'motorized-exterior',
+    img: '/images/inspiration/out-motorized-ocean-view.webp',
+    alt: 'Motorized exterior shade framing ocean view from San Diego patio' },
 ]
 
 // ─── InspirationPage ──────────────────────────────────────────────────────────
@@ -74,10 +132,19 @@ function InspirationPage() {
   const [activeRoom, setActiveRoom] = useState<Room>('All')
   const [activeStyle, setActiveStyle] = useState<Style | 'All'>('All')
 
+  // Re-run scroll reveal on mount AND whenever filters change so newly
+  // rendered items (which start with fade-up hidden) get observed correctly.
   useEffect(() => {
     if (!ref.current) return
-    return setupScrollReveal(ref.current)
-  }, [])
+    let cleanup: (() => void) | undefined
+    const id = setTimeout(() => {
+      if (ref.current) cleanup = setupScrollReveal(ref.current)
+    }, 30)
+    return () => {
+      clearTimeout(id)
+      cleanup?.()
+    }
+  }, [activeRoom, activeStyle])
 
   const filtered = INSPIRATION_ITEMS.filter((item) => {
     const roomMatch = activeRoom === 'All' || item.room === activeRoom
