@@ -169,3 +169,67 @@ export function buildOwnerEmail(booking: BookingFormData, bookingId: string): st
     </a>
   `)
 }
+
+// ─── Flexible booking emails ──────────────────────────────────────────────────
+
+export function buildFlexibleClientEmail(booking: BookingFormData, bookingId: string): string {
+  return wrap(
+    booking.firstName,
+    `We've received your consultation request and will contact you within 24 hours to schedule a time that works for you.`,
+    `
+    <p style="margin:0 0 24px;font-size:15px;color:${MID};line-height:1.75;">
+      Hi ${booking.firstName},
+    </p>
+    <p style="margin:0 0 24px;font-size:15px;color:${MID};line-height:1.75;">
+      Thank you for reaching out to iL Progetto LLC. We've received your details and a member of our team will be in touch within <strong style="color:${INK};">24 hours</strong> to find a consultation time that works for you.
+    </p>
+    <p style="margin:0 0 32px;font-size:15px;color:${MID};line-height:1.75;">
+      Our designer will come to your home with the full product collection — fabric samples, hardware options, and pricing — so every decision is made in your own light and space.
+    </p>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;margin-bottom:32px;">
+      ${detailRow('Name', `${booking.firstName} ${booking.lastName}`)}
+      ${detailRow('Email', booking.email)}
+      ${detailRow('Phone', booking.phone || 'Not provided')}
+      ${detailRow('Address', booking.address || 'Not provided')}
+      ${detailRow('Service Interest', booking.service === 'general' ? 'General / Not specified' : booking.service)}
+      ${detailRow('Request ID', bookingId)}
+    </table>
+
+    <p style="margin:0 0 8px;font-size:13px;color:${MID};line-height:1.75;">
+      Need to reach us sooner?
+    </p>
+    <a href="tel:+18583381678" style="display:inline-block;background-color:${SAND};color:#fff;text-decoration:none;padding:14px 28px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">
+      Call (858) 338-1678
+    </a>
+  `)
+}
+
+export function buildFlexibleOwnerEmail(booking: BookingFormData, bookingId: string): string {
+  return wrap(
+    'New Consultation Request',
+    `${booking.firstName} ${booking.lastName} submitted a request without selecting a date — contact them to schedule.`,
+    `
+    <p style="margin:0 0 12px;font-size:15px;color:${MID};line-height:1.75;">
+      A new consultation request was submitted. <strong style="color:${INK};">No date was selected</strong> — the customer chose to be contacted. Reach out within 24 hours to schedule.
+    </p>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;margin-bottom:32px;">
+      ${detailRow('Name', `${booking.firstName} ${booking.lastName}`)}
+      ${detailRow('Email', booking.email)}
+      ${detailRow('Phone', booking.phone || 'Not provided')}
+      ${detailRow('Address', booking.address || 'Not provided')}
+      ${detailRow('Service Interest', booking.service === 'general' ? 'General / Not specified' : booking.service)}
+      ${detailRow('Notes', booking.notes || 'None')}
+      ${detailRow('Request ID', bookingId)}
+      ${detailRow('Submitted', new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }) + ' PT')}
+    </table>
+
+    <a href="mailto:${booking.email}" style="display:inline-block;background-color:${SAND};color:#fff;text-decoration:none;padding:14px 28px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;margin-right:12px;">
+      Email ${booking.firstName}
+    </a>
+    <a href="tel:${booking.phone}" style="display:inline-block;background-color:${INK};color:#fff;text-decoration:none;padding:14px 28px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">
+      Call ${booking.firstName}
+    </a>
+  `)
+}

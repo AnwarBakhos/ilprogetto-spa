@@ -153,6 +153,41 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
     setState((s) => ({ ...s, status: 'selecting-date' }))
   }
 
+  async function handleFlexibleSubmit() {
+    const { firstName, lastName, email, address } = state.form
+    if (!firstName?.trim() || !lastName?.trim() || !email?.trim() || !address?.trim()) return
+
+    setState((s) => ({ ...s, status: 'submitting', errorMessage: null }))
+
+    const booking: BookingFormData = {
+      firstName: state.form.firstName ?? '',
+      lastName: state.form.lastName ?? '',
+      email: state.form.email ?? '',
+      phone: state.form.phone ?? '',
+      address: state.form.address ?? '',
+      service: state.form.service ?? 'general',
+      notes: state.form.notes ?? '',
+      date: 'flexible',
+      time: 'flexible',
+    }
+
+    try {
+      const res = await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ booking }),
+      })
+      const data = await res.json() as BookingApiResponse
+      if (data.ok) {
+        setState((s) => ({ ...s, status: 'flexible-confirmed' }))
+      } else {
+        setState((s) => ({ ...s, status: 'error', errorMessage: data.error ?? 'Something went wrong. Please call (858) 338-1678.' }))
+      }
+    } catch {
+      setState((s) => ({ ...s, status: 'error', errorMessage: 'Network error. Please call (858) 338-1678.' }))
+    }
+  }
+
   async function submitBookingWith(time: string) {
     if (!state.selectedDate) return
 
@@ -211,6 +246,50 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
   }
 
   // ─── Confirmed state ───────────────────────────────────────────────────────
+  if (state.status === 'flexible-confirmed') {
+    return (
+      <div
+        className="text-center py-16 px-8 border"
+        style={{ borderColor: 'var(--hairline)', background: 'var(--cream)' }}
+        role="alert"
+        aria-live="polite"
+      >
+        <div
+          className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6"
+          style={{ background: 'var(--sand)' }}
+          aria-hidden="true"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.18 2 2 0 012.1.02h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <h2
+          className="font-[300] leading-[1.1] mb-3"
+          style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(26px, 3vw, 36px)', color: 'var(--ink)' }}
+        >
+          We'll Be in Touch
+        </h2>
+        <p className="text-[16px] mb-5 max-w-[400px] mx-auto leading-[1.7]" style={{ color: 'var(--mid)' }}>
+          Your request has been received. A member of our team will contact{' '}
+          <strong style={{ color: 'var(--ink)' }}>{state.form.email}</strong>{' '}
+          within 24 hours to find a time that works for you.
+        </p>
+        <div
+          className="inline-block px-5 py-3 border text-[11px] tracking-[0.14em] uppercase mb-6"
+          style={{ borderColor: 'var(--sand-light)', color: 'var(--sand)', background: 'var(--sand-pale)' }}
+        >
+          No scheduling required — we've got your details
+        </div>
+        <p className="text-[13px]" style={{ color: 'var(--mid)' }}>
+          Prefer to call now?{' '}
+          <a href="tel:+18583381678" className="hover:text-[var(--ink)] transition-colors" style={{ color: 'var(--sand)' }}>
+            (858) 338-1678
+          </a>
+        </p>
+      </div>
+    )
+  }
+
   if (state.status === 'confirmed') {
     return (
       <div
@@ -364,8 +443,24 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
               Continue — Choose a Date →
             </button>
 
-            <p className="text-[12px] text-center" style={{ color: 'var(--mid)' }}>
-              A confirmation email with a calendar invitation will be sent to your address.
+            {/* ── Flexible scheduling option ─────────────────────────── */}
+            <div className="relative flex items-center gap-3 py-1">
+              <div className="flex-1 h-px" style={{ background: 'var(--hairline)' }} />
+              <span className="text-[10px] tracking-[0.14em] uppercase flex-shrink-0" style={{ color: 'var(--mid)' }}>or</span>
+              <div className="flex-1 h-px" style={{ background: 'var(--hairline)' }} />
+            </div>
+
+            <button
+              type="button"
+              onClick={handleFlexibleSubmit}
+              className="w-full py-3.5 text-[11px] tracking-[0.16em] uppercase border transition-colors hover:border-[var(--sand)] hover:text-[var(--sand)]"
+              style={{ borderColor: 'var(--hairline)', color: 'var(--mid)', background: 'transparent' }}
+            >
+              Skip Scheduling — We'll Reach Out to You
+            </button>
+
+            <p className="text-[12px] text-center leading-[1.6]" style={{ color: 'var(--mid)' }}>
+              We'll contact you within 24 hours to find a time that works — no scheduling required.
             </p>
           </div>
         </form>

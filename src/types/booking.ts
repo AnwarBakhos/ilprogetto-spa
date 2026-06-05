@@ -32,6 +32,7 @@ export type BookingStatus =
   | 'filling-form'
   | 'submitting'
   | 'confirmed'
+  | 'flexible-confirmed'   // submitted without a specific date — we'll reach out
   | 'conflict'
   | 'error'
 

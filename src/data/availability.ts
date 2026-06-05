@@ -46,32 +46,23 @@ function dateString(offset: number): string {
   return d.toISOString().split('T')[0]!
 }
 
-export const AVAILABILITY: DayAvailability[] = [
-  // Weekdays available — weekends intentionally excluded
-  openDay(dateString(1)),
-  openDay(dateString(2)),
-  partialDay(dateString(3), ['09:00'], ['13:30']),  // morning blocked, 1:30pm booked
-  openDay(dateString(4)),
-  openDay(dateString(5)),
-  // Skip weekend (6, 7)
-  openDay(dateString(8)),
-  partialDay(dateString(9), [], ['09:00', '10:30']),  // two booked
-  openDay(dateString(10)),
-  openDay(dateString(11)),
-  openDay(dateString(12)),
-  // Skip weekend (13, 14)
-  openDay(dateString(15)),
-  openDay(dateString(16)),
-  openDay(dateString(17)),
-  openDay(dateString(18)),
-  partialDay(dateString(19), ['15:00', '16:30']),   // late afternoon blocked
-  // Skip weekend (20, 21)
-  openDay(dateString(22)),
-  openDay(dateString(23)),
-  openDay(dateString(24)),
-  openDay(dateString(25)),
-  openDay(dateString(26)),
-]
+// Generate a rolling 30-day window — all 7 days included.
+// A few days are partially booked/blocked as realistic demo data.
+// In production, replace this array with a live database/API query.
+function buildCalendar(): DayAvailability[] {
+  const days: DayAvailability[] = []
+  for (let offset = 1; offset <= 30; offset++) {
+    const date = dateString(offset)
+    // Sprinkle in a few realistic partial bookings for demo purposes
+    if (offset === 3)  { days.push(partialDay(date, ['09:00'], ['13:30'])); continue }
+    if (offset === 9)  { days.push(partialDay(date, [], ['09:00', '10:30'])); continue }
+    if (offset === 19) { days.push(partialDay(date, ['15:00', '16:30'])); continue }
+    days.push(openDay(date))
+  }
+  return days
+}
+
+export const AVAILABILITY: DayAvailability[] = buildCalendar()
 
 // ─── Lookup helpers ────────────────────────────────────────────────────────────
 export function getDay(date: string): DayAvailability | undefined {

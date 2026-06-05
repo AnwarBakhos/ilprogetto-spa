@@ -8,7 +8,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { Resend } from 'resend'
 import { generateICS, encodeICSToBase64 } from '../src/lib/ics.js'
-import { buildClientEmail, buildOwnerEmail } from '../src/lib/email-templates.js'
+import { buildClientEmail, buildOwnerEmail, buildFlexibleClientEmail, buildFlexibleOwnerEmail } from '../src/lib/email-templates.js'
 import type { BookingApiRequest, BookingApiResponse, BookingFormData } from '../src/types/booking.js'
 
 // ─── Resend client ────────────────────────────────────────────────────────────
@@ -51,6 +51,18 @@ function validateBooking(data: unknown): data is BookingFormData {
   )
 }
 
+function validateFlexibleBooking(data: unknown): data is BookingFormData {
+  if (!data || typeof data !== 'object') return false
+  const b = data as Record<string, unknown>
+  return (
+    typeof b.firstName === 'string' && b.firstName.trim().length > 0 &&
+    typeof b.lastName === 'string' && b.lastName.trim().length > 0 &&
+    typeof b.email === 'string' && b.email.includes('@') &&
+    b.date === 'flexible' && b.time === 'flexible' &&
+    typeof b.service === 'string'
+  )
+}
+
 // ─── Handler ──────────────────────────────────────────────────────────────────
 export default async function handler(
   req: VercelRequest,
@@ -68,6 +80,33 @@ export default async function handler(
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
   const body = req.body as BookingApiRequest
+
+  // ─── Flexible scheduling path (no date/time selected) ────────────────────
+  if (body?.booking && validateFlexibleBooking(body.booking)) {
+    const { booking } = body
+    const bookingId = generateBookingId()
+    try {
+      await Promise.all([
+        resend.emails.send({
+          from: `iL Progetto LLC <${FROM_EMAIL}>`,
+          to: booking.email,
+          subject: 'We received your consultation request — iL Progetto LLC',
+          html: buildFlexibleClientEmail(booking, bookingId),
+        }),
+        resend.emails.send({
+          from: `iL Progetto LLC <${FROM_EMAIL}>`,
+          to: OWNER_EMAIL,
+          subject: `New flexible consultation request — ${booking.firstName} ${booking.lastName}`,
+          html: buildFlexibleOwnerEmail(booking, bookingId),
+        }),
+      ])
+      res.status(200).json({ ok: true, id: bookingId } satisfies BookingApiResponse)
+    } catch (err) {
+      console.error('Flexible booking email error:', err)
+      res.status(200).json({ ok: true, id: bookingId } satisfies BookingApiResponse)
+    }
+    return
+  }
 
   if (!body?.booking || !validateBooking(body.booking)) {
     res.status(400).json({
