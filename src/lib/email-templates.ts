@@ -173,10 +173,7 @@ export function buildOwnerEmail(booking: BookingFormData, bookingId: string): st
 // ─── Flexible booking emails ──────────────────────────────────────────────────
 
 export function buildFlexibleClientEmail(booking: BookingFormData, bookingId: string): string {
-  return wrap(
-    booking.firstName,
-    `We've received your consultation request and will contact you within 24 hours to schedule a time that works for you.`,
-    `
+  return emailWrapper(`
     <p style="margin:0 0 24px;font-size:15px;color:${MID};line-height:1.75;">
       Hi ${booking.firstName},
     </p>
@@ -206,10 +203,7 @@ export function buildFlexibleClientEmail(booking: BookingFormData, bookingId: st
 }
 
 export function buildFlexibleOwnerEmail(booking: BookingFormData, bookingId: string): string {
-  return wrap(
-    'New Consultation Request',
-    `${booking.firstName} ${booking.lastName} submitted a request without selecting a date — contact them to schedule.`,
-    `
+  return emailWrapper(`
     <p style="margin:0 0 12px;font-size:15px;color:${MID};line-height:1.75;">
       A new consultation request was submitted. <strong style="color:${INK};">No date was selected</strong> — the customer chose to be contacted. Reach out within 24 hours to schedule.
     </p>
