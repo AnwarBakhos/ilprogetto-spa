@@ -5,9 +5,9 @@ import type { CatalogProduct } from '@/types/catalog'
 // The filename must match EXACTLY what is in the selection-imgs folder,
 // with the extension preserved (.jpg or .png as shown in the screenshot).
 // File name → extension map from the screenshot:
-//   .jpg: Aluminum, Faux Wood, Pleated Shades, Roman Shades, Sheer Drapes, Sheer Shades, Woven Wood Shades
+//   .jpg: Aluminum, Faux Wood, Sheer Drapes, Sheer Shades, Woven Wood Shades
 //   .png: Arched Shutters, Awnings, Blackout Curtains, Cafe Style Shutters, Cellular Shades,
-//         Door Shutters, Motorized Exterior, Motorized Shades, Panel Track, Plantation Shutters,
+//         Door Shutters, Motorized Exterior, Motorized Shades, Panel Track, Plantation Shutters, Roman Shades,
 //         Sun Screens, Vertical, Wind-Resistant Exterior
 const img = (filename: string) => `/images/products/${filename}`
 
@@ -33,7 +33,6 @@ export const MEGA_MENU: {
       { id: 'roman', label: 'Roman Shades' },
       { id: 'woven-wood', label: 'Woven Wood Shades' },
       { id: 'sheer', label: 'Sheer Shades' },
-      { id: 'pleated', label: 'Pleated Shades' },
     ],
   },
   {
@@ -62,6 +61,7 @@ export const MEGA_MENU: {
     products: [
       { id: 'blackout-curtains', label: 'Blackout Curtains' },
       { id: 'sheer-drapes', label: 'Sheer Drapes' },
+      { id: 'butterfly', label: 'Butterfly Shades' },
     ],
   },
   {
@@ -191,8 +191,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Ideal for kitchens, bedrooms, and dens',
     ],
     seoTags: ['Roman Shades San Diego', 'Fabric Blinds', 'Custom Window Coverings'],
-    coverImage: img('Roman Shades.jpg'),
-    detailImage: img('Roman Shades.jpg'),
+    coverImage: img('Roman Shades.png'),
+    detailImage: img('Roman Shades.png'),
     galleryDriveIds: [],
   },
   {
@@ -237,28 +237,6 @@ export const PRODUCTS: CatalogProduct[] = [
     seoTags: ['Sheer Shades San Diego', 'Shangri-La Shades', 'Light Filtering Shades'],
     coverImage: img('Sheer Shades.jpg'),
     detailImage: img('Sheer Shades.jpg'),
-    galleryDriveIds: [],
-  },
-  {
-    id: 'pleated',
-    name: 'Pleated Shades',
-    shortName: 'Pleated Shades',
-    eyebrow: 'Clean & Structured',
-    tagline: 'A structured, crisp look with efficient light control.',
-    description:
-      'Pleated shades offer clean geometric structure and smooth light filtering. A practical, stylish choice for offices and modern interiors.',
-    detailCopy:
-      'Single-layer fabric pleated into crisp folds. More compact than cellular when raised, making them ideal for windows where headrail space is limited.',
-    features: [
-      'Crisp, geometric pleat structure',
-      'Compact when raised — great for small headrails',
-      'Wide fabric selection',
-      'Cordless lift available',
-      'Affordable light-filtering option',
-    ],
-    seoTags: ['Pleated Shades San Diego', 'Window Shades San Diego'],
-    coverImage: img('Pleated Shades.jpg'),
-    detailImage: img('Pleated Shades.jpg'),
     galleryDriveIds: [],
   },
 
@@ -491,6 +469,29 @@ export const PRODUCTS: CatalogProduct[] = [
     seoTags: ['Sheer Drapes San Diego', 'Sheer Curtains San Diego', 'Window Drapes San Diego'],
     coverImage: img('Sheer Drapes.jpg'),
     detailImage: img('Sheer Drapes.jpg'),
+    galleryDriveIds: [],
+  },
+
+  {
+    id: 'butterfly',
+    name: 'Butterfly Shades',
+    shortName: 'Butterfly',
+    eyebrow: 'Day & Night Control',
+    tagline: 'Alternating opaque and sheer horizontal bands for precise light layering.',
+    description:
+      'Butterfly shades feature stacked horizontal fabric bands that alternate between opaque and sheer layers. Shift the bands to align for privacy, offset for soft filtered light, or raise fully for an open view.',
+    detailCopy:
+      'A sophisticated evolution of the roller shade. Two layers of alternating solid and translucent horizontal bands glide independently — align them for full privacy, offset them for a soft diffused glow, or raise the shade completely. Clean, modern aesthetic that works in any room.',
+    features: [
+      'Alternating opaque and sheer horizontal bands',
+      'Full privacy, soft light, or open view — one shade',
+      'Cordless and motorized options available',
+      'Clean modern profile, minimal headrail',
+      'Custom width and length',
+    ],
+    seoTags: ['Butterfly Shades San Diego', 'Day Night Blinds San Diego', 'Dual Layer Shades San Diego', 'Combi Blinds San Diego'],
+    coverImage: img('Butterfly.jpeg'),
+    detailImage: img('Butterfly.jpeg'),
     galleryDriveIds: [],
   },
 

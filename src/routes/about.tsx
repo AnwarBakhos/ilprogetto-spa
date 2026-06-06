@@ -199,9 +199,9 @@ function AboutPage() {
               color: 'var(--cream)',
             }}
           >
-            We Come{' '}
+            Bespoke Service.{' '}
             <em className="italic" style={{ color: 'var(--sand-light)' }}>
-              to You.
+              Exceptional Results.
             </em>
           </h1>
 
@@ -209,10 +209,11 @@ function AboutPage() {
             className="text-[17px] leading-[1.85] max-w-[560px] mb-10 fade-up delay-2"
             style={{ color: 'rgba(251,251,249,0.72)' }}
           >
-            iL Progetto LLC is a locally owned, mobile window treatment company serving Southern
-            California. We eliminated the showroom. Instead, our designers arrive at your door
-            with the complete catalog — fabric samples, measuring tools, and pricing — and we
-            handle everything from selection through professional installation.
+            iL Progetto was built on a single conviction: exceptional window treatments
+            demand personal expertise. Our licensed designers arrive at your door with
+            the complete collection and the trained eye to know exactly what your space
+            needs — then handle every detail, from precise measurement through
+            professional installation.
           </p>
 
           {/* Stats row */}

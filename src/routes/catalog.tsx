@@ -11,16 +11,16 @@ import { SITE_URL } from '@/lib/config'
 
 // ─── Drape header styles ───────────────────────────────────────────────────────
 const DRAPE_STYLES = [
-  { name: 'Ripple Fold',            image: '/images/drape-styles/01-ripple-fold.jpg',            description: 'Evenly spaced fabric waves glide along a wave track, creating a continuous architectural ripple. The most contemporary of all header styles.' },
-  { name: 'Triple Pinch Pleat',     image: '/images/drape-styles/02-triple-pinch-pleat.jpg',     description: 'Three precisely folded pleats gathered at each hook point produce a full, structured drape. The gold standard of formal, traditional drapery.' },
-  { name: 'Goblet Pleat',           image: '/images/drape-styles/03-goblet-pleat.jpg',           description: 'A cylindrical cup formed at each pleat point and stuffed to hold its shape. Sculptural and dramatic — ideal for dining rooms and grand spaces.' },
-  { name: 'Double Pinch Pleat',     image: '/images/drape-styles/04-double-pinch-pleat.jpg',     description: 'Two pleats pinched at each interval — a cleaner silhouette than triple pinch while preserving the refined character of a classic pleated header.' },
-  { name: 'Euro Double Pinch',      image: '/images/drape-styles/05-euro-double-pinch-pleat.jpg',description: 'A wider-spaced double pinch for a relaxed, open feel. Works beautifully in both modern and transitional interiors.' },
-  { name: 'Tab Top',                image: '/images/drape-styles/06-tab-top.jpg',                description: 'Fabric loops sewn directly to the panel thread onto the rod. Casual and relaxed, with a handcrafted character that suits informal spaces.' },
-  { name: 'Back Tab',               image: '/images/drape-styles/07-back-tab.jpg',               description: 'Hidden loops behind the fabric deliver a clean, streamlined appearance — the visual simplicity of rod-pocket with structured, even folds.' },
-  { name: 'Inverted Pleat',         image: '/images/drape-styles/08-inverted-pleat.jpg',         description: 'The fold faces backward, leaving a flat tailored front with crisp, architectural lines. A go-to for contemporary and transitional interiors.' },
-  { name: 'Euro Triple Pinch',      image: '/images/drape-styles/09-euro-triple-pinch-pleat.jpg',description: 'A lighter, more open triple pinch — wider spacing between pleat groups creates an airy European sensibility with relaxed formality.' },
-  { name: 'Eyelet Top',             image: '/images/drape-styles/10-eyelet-top.jpg',             description: 'Large metal rings punched through the header allow the rod to pass directly through, producing bold uniform folds with an industrial-chic appeal.' },
+  { name: 'Ripple Fold',          image: '/images/drape-styles/01-ripple-fold.jpg',             description: 'Evenly spaced fabric waves glide along a wave track, creating a continuous architectural ripple. The most contemporary of all header styles.' },
+  { name: 'Tab Top',              image: '/images/drape-styles/03-goblet-pleat.jpg',             description: 'Fabric loops sewn directly to the panel thread onto the rod. Casual and relaxed, with a handcrafted character that suits informal spaces.' },
+  { name: 'Back Tab',              image: '/images/drape-styles/02-triple-pinch-pleat.jpg',           description: 'Hidden loops behind the fabric deliver a clean, streamlined front — the visual simplicity of rod-pocket with structured, even folds.' },
+  { name: 'Goblet Pleat',         image: '/images/drape-styles/04-double-pinch-pleat.jpg',       description: 'A cylindrical cup formed at each pleat point and stuffed to hold its shape. Sculptural and dramatic — ideal for dining rooms and grand spaces.' },
+  { name: 'Inverted Pleat',       image: '/images/drape-styles/05-euro-double-pinch-pleat.jpg',  description: 'The fold faces backward, leaving a flat tailored front with crisp, architectural lines. A go-to for contemporary and transitional interiors.' },
+  { name: 'Euro Double Pinch',    image: '/images/drape-styles/06-tab-top.jpg',                  description: 'A wider-spaced double pinch for a relaxed, open feel. Works beautifully in both modern and transitional interiors.' },
+  { name: 'Double Pinch Pleat',   image: '/images/drape-styles/07-back-tab.jpg',                 description: 'Two pleats pinched at each interval — a cleaner silhouette than triple pinch while preserving the refined character of a classic pleated header.' },
+  { name: 'Euro Triple Pinch',    image: '/images/drape-styles/08-inverted-pleat.jpg',           description: 'A lighter, more open triple pinch — wider spacing between pleat groups creates an airy European sensibility with relaxed formality.' },
+  { name: 'Triple Pinch Pleat',   image: '/images/drape-styles/09-euro-triple-pinch-pleat.jpg',  description: 'Three precisely folded pleats gathered at each hook point produce a full, structured drape. The gold standard of formal, traditional drapery.' },
+  { name: 'Eyelet Top',           image: '/images/drape-styles/10-eyelet-top.jpg',               description: 'Large metal rings punched through the header allow the rod to pass directly through, producing bold uniform folds with an industrial-chic appeal.' },
 ]
 
 
