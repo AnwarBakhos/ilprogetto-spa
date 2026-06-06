@@ -31,7 +31,7 @@ const STATS = [
   { num: '16+',  label: 'Cities Served' },
   { num: '4',    label: 'Counties Covered' },
   { num: 'Free', label: 'In-Home Consult' },
-  { num: '5.0',  label: '32 Google Reviews' },
+  { num: '5.0',  label: 'Rated on Google' },
 ]
 
 function makeIconHtml(active: boolean) {

@@ -204,7 +204,7 @@ export function ReviewFeed({ reviews: propReviews, showAggregate = true }: Revie
               className="block text-[11px] tracking-[0.14em] uppercase mt-1"
               style={{ color: 'var(--mid)' }}
             >
-              <span itemProp="reviewCount">{AGGREGATE_RATING.reviewCount}</span> verified reviews
+              Consistently rated 5 stars across all platforms
             </span>
             <meta itemProp="bestRating" content="5" />
             <meta itemProp="worstRating" content="1" />
