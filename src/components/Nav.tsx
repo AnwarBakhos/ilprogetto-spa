@@ -67,12 +67,21 @@ export function Nav() {
               inactiveProps={{ className: linkCls }}>Home</Link>
           </li>
           <li ref={megaRef} className="relative">
-            <button className={`${linkCls} flex items-center gap-1.5`} onClick={() => setMegaOpen(v => !v)} aria-expanded={megaOpen} aria-haspopup="true">
-              Selections
-              <svg width="9" height="9" viewBox="0 0 9 9" aria-hidden="true" className={`transition-transform duration-200 ${megaOpen ? 'rotate-180' : ''}`}>
-                <path d="M1 3l3.5 3.5L8 3" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-              </svg>
-            </button>
+            <span className="flex items-center gap-0.5">
+              <Link to="/catalog" onClick={() => setMegaOpen(false)}
+                className={linkCls}
+                activeProps={{ className: 'text-white border-b border-white pb-0.5 text-[11px] tracking-[0.18em] uppercase font-[500]' }}
+                inactiveProps={{ className: linkCls }}>
+                Selections
+              </Link>
+              <button
+                className="flex items-center justify-center w-5 h-5 rounded text-white/60 hover:text-white transition-colors"
+                onClick={() => setMegaOpen(v => !v)} aria-expanded={megaOpen} aria-haspopup="true" aria-label="Browse by category">
+                <svg width="9" height="9" viewBox="0 0 9 9" aria-hidden="true" className={`transition-transform duration-200 ${megaOpen ? 'rotate-180' : ''}`}>
+                  <path d="M1 3l3.5 3.5L8 3" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </span>
             {megaOpen && (
               <div className="absolute top-[calc(100%+16px)] left-1/2 -translate-x-1/2 z-[1100] shadow-2xl"
                 style={{ width: 'min(920px, 90vw)', background: 'rgba(10,10,10,0.97)', backdropFilter: 'blur(20px)', border: '0.5px solid rgba(255,255,255,0.12)', borderTop: '2px solid var(--sand)' }}
@@ -192,15 +201,21 @@ export function Nav() {
 
         {/* ── Product categories ── */}
         <div className="border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-          <button
-            className="w-full flex items-center justify-between px-6 py-4 text-[12px] tracking-[0.16em] uppercase text-white/50"
-            onClick={() => setMobileExpanded(v => v === '__products' ? null : '__products')}>
-            Our Selections
-            <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"
-              className={`transition-transform duration-200 ${mobileExpanded === '__products' ? 'rotate-180' : ''}`}>
-              <path d="M1 3.5l4 4 4-4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-            </svg>
-          </button>
+          <div className="flex items-center justify-between px-6 py-4">
+            <Link to="/catalog" onClick={() => setMenuOpen(false)}
+              className="text-[12px] tracking-[0.16em] uppercase text-white/50 hover:text-white transition-colors">
+              Our Selections
+            </Link>
+            <button
+              className="flex items-center justify-center w-7 h-7 rounded text-white/40 hover:text-white transition-colors"
+              aria-label="Browse by category"
+              onClick={() => setMobileExpanded(v => v === '__products' ? null : '__products')}>
+              <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"
+                className={`transition-transform duration-200 ${mobileExpanded === '__products' ? 'rotate-180' : ''}`}>
+                <path d="M1 3.5l4 4 4-4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+              </svg>
+            </button>
+          </div>
           {mobileExpanded === '__products' && (
             <div className="pb-3">
               {MEGA_MENU.map((col) => {

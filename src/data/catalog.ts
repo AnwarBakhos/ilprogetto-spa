@@ -235,8 +235,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Motorized operation available',
     ],
     seoTags: ['Sheer Shades San Diego', 'Shangri-La Shades', 'Light Filtering Shades'],
-    coverImage: img('Sheer Shades.jpg'),
-    detailImage: img('Sheer Shades.jpg'),
+    coverImage: img('Sheer Shades.png'),
+    detailImage: img('Sheer Shades.png'),
     galleryDriveIds: [],
   },
 
@@ -261,8 +261,8 @@ export const PRODUCTS: CatalogProduct[] = [
       'Great for kitchens and bathrooms',
     ],
     seoTags: ['Faux Wood Blinds San Diego', 'Blinds San Diego', 'Moisture Resistant Blinds'],
-    coverImage: img('Faux Wood.jpg'),
-    detailImage: img('Faux Wood.jpg'),
+    coverImage: img('Faux Wood.png'),
+    detailImage: img('Faux Wood.png'),
     galleryDriveIds: [],
   },
   {
