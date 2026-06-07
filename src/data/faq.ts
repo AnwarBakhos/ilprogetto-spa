@@ -37,23 +37,16 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'faq-products-1',
     category: 'products',
-    question: 'What is the difference between zebra shades and Shangri-La shades?',
+    question: 'What is the difference between zebra shades and sheer shades?',
     answer:
-      'Both are dual-layer shades, but they operate differently. <a href="/catalog?product=zebra" style="color:var(--sand);text-decoration:underline">Zebra shades</a> use alternating horizontal stripes of sheer and solid fabric on a single layer — you adjust light by aligning or misaligning the bands. <a href="/catalog?product=sheer" style="color:var(--sand);text-decoration:underline">Shangri-La shades</a> suspend fabric vanes between two separate sheer layers, similar to horizontal blinds inside a sheer curtain. The result is a softer, more luminous diffusion of light. Shangri-La is the more premium and drapery-like of the two.'
+      'Both offer daytime privacy with natural light, but they work differently. <a href="/catalog?product=zebra" style="color:var(--sand);text-decoration:underline">Zebra shades</a> use alternating horizontal stripes of sheer and solid fabric on a single panel — you control light and privacy by aligning or misaligning the bands. <a href="/catalog?product=sheer" style="color:var(--sand);text-decoration:underline">Sheer shades</a> suspend fabric vanes between two sheer layers, producing a softer, more luminous diffusion of light with a refined, drapery-like appearance. Sheer shades are the more elevated of the two and work especially well in living rooms and master bedrooms.'
   },
   {
     id: 'faq-products-2',
     category: 'products',
     question: 'Can I get blackout shades in any style?',
     answer:
-      '<a href="/catalog?product=blackout-curtains" style="color:var(--sand);text-decoration:underline">Blackout lining</a> is available in <a href="/catalog?product=roller" style="color:var(--sand);text-decoration:underline">roller shades</a>, <a href="/catalog?product=roman" style="color:var(--sand);text-decoration:underline">Roman shades</a>, and <a href="/catalog?product=cellular" style="color:var(--sand);text-decoration:underline">cellular honeycomb</a> shades. Full blackout is most naturally achieved with roller shades, which use a single panel of coated blackout fabric with side channels to eliminate light gaps. Roman shades can be lined with blackout fabric but may have small light gaps at the edges — ideal for nurseries and guest rooms but less suitable for home theater applications.'
-  },
-  {
-    id: 'faq-products-3',
-    category: 'products',
-    question: 'How long do custom window treatments typically last?',
-    answer:
-      'With normal use and basic care, quality custom shades last between eight and fifteen years. Motorized systems have drive mechanisms that can be serviced or replaced independently of the fabric. We use commercial-grade components throughout, and all our products are sourced from manufacturers with established <a href="/warranty" style="color:var(--sand);text-decoration:underline">warranty</a> programs.'
+      'Full blackout is achievable in <a href="/catalog?product=roller" style="color:var(--sand);text-decoration:underline">roller shades</a>, <a href="/catalog?product=roman" style="color:var(--sand);text-decoration:underline">Roman shades</a>, <a href="/catalog?product=cellular" style="color:var(--sand);text-decoration:underline">cellular honeycomb shades</a>, and <a href="/catalog?product=blackout-curtains" style="color:var(--sand);text-decoration:underline">blackout drapes</a>. Roller shades with side channels give the most complete light seal and are our top recommendation for bedrooms and media rooms. The styles that are not suitable for blackout are <a href="/catalog?product=zebra" style="color:var(--sand);text-decoration:underline">zebra shades</a>, <a href="/catalog?product=sheer" style="color:var(--sand);text-decoration:underline">sheer shades</a>, and <a href="/catalog?product=butterfly" style="color:var(--sand);text-decoration:underline">butterfly shades</a> — their open-weave construction is designed for light filtering, not light elimination.'
   },
   {
     id: 'faq-products-4',
@@ -64,13 +57,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
 
   // ─── Installation ─────────────────────────────────────────────────────────
-  {
-    id: 'faq-installation-1',
-    category: 'installation',
-    question: 'Who does the installation — your team, or a subcontractor?',
-    answer:
-      'Our own licensed installation team handles every job. We do not subcontract. The same people who measure your windows are involved in the installation, which eliminates the miscommunication errors common in subcontracted work. Our installers carry California Contractors License #1127055 and full liability insurance.'
-  },
   {
     id: 'faq-installation-2',
     category: 'installation',
@@ -108,14 +94,14 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'smart-home',
     question: 'Which smart home systems do your motorized shades work with?',
     answer:
-      'Our <a href="/catalog?product=motorized" style="color:var(--sand);text-decoration:underline">motorized shades</a> integrate with <a href="/smart-home/alexa" style="color:var(--sand);text-decoration:underline">Amazon Alexa</a>, <a href="/smart-home/google-home" style="color:var(--sand);text-decoration:underline">Google Home</a>, <a href="/smart-home/apple-homekit" style="color:var(--sand);text-decoration:underline">Apple HomeKit</a>, SmartThings, and <a href="/smart-home/control4" style="color:var(--sand);text-decoration:underline">Control4</a>. We also offer standalone RF remote and app-only configurations for homes without a central <a href="/<a href="/smart-home" style="color:var(--sand);text-decoration:underline">smart-home</a>" style="color:var(--sand);text-decoration:underline">smart home</a> hub. Our in-house IT team handles the full programming and integration — you do not need to configure anything yourself.'
+      'Our <a href="/catalog?product=motorized" style="color:var(--sand);text-decoration:underline">motorized shades</a> integrate with <a href="/smart-home/alexa" style="color:var(--sand);text-decoration:underline">Amazon Alexa</a>, <a href="/smart-home/google-home" style="color:var(--sand);text-decoration:underline">Google Home</a>, <a href="/smart-home/apple-homekit" style="color:var(--sand);text-decoration:underline">Apple HomeKit</a>, SmartThings, and <a href="/smart-home/control4" style="color:var(--sand);text-decoration:underline">Control4</a>. We also offer standalone RF remote and app-only configurations for homes without a central <a href="/smart-home" style="color:var(--sand);text-decoration:underline">smart home hub</a>. We handle the full programming and integration — you do not need to configure anything yourself.'
   },
   {
     id: 'faq-smart-2',
     category: 'smart-home',
     question: 'What happens to motorized shades if the power goes out?',
     answer:
-      'Battery-powered <a href="/catalog?product=motorized" style="color:var(--sand);text-decoration:underline">motorized shades</a> continue to function normally during a power outage — they run entirely on rechargeable lithium cells. Hardwired shades will not operate without power, though they can typically be manually overridden. We recommend battery-powered motors for most residential applications for this reason.'
+      'Battery-powered <a href="/catalog?product=motorized" style="color:var(--sand);text-decoration:underline">motorized shades</a> continue to function normally during a power outage — they run entirely on rechargeable lithium cells. Hardwired shades will not operate without power. We recommend battery-powered motors for most residential applications for this reason.'
   },
 
   // ─── Commercial ──────────────────────────────────────────────────────────
@@ -143,7 +129,8 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'faq-products-8', category: 'products',
     question: 'What are the best window treatments for privacy without blocking light?',
-    answer: 'Zebra shades, Shangri-La shades, and solar shades all provide daytime privacy while maintaining natural light. Solar shades with 3-5% openness are ideal for rooms where you want to reduce glare and maintain the view.',
+    answer:
+      '<a href="/catalog?product=zebra" style="color:var(--sand);text-decoration:underline">Zebra shades</a>, <a href="/catalog?product=sheer" style="color:var(--sand);text-decoration:underline">sheer shades</a>, and <a href="/catalog?product=butterfly" style="color:var(--sand);text-decoration:underline">butterfly shades</a> are all excellent choices — they maintain natural light while giving you daytime privacy. Solar roller shades with a 3–5% openness factor are ideal for rooms where you also want to reduce glare and preserve the view to the outdoors.',
   },
   {
     id: 'faq-products-5', category: 'products',
@@ -161,19 +148,14 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer: 'Plantation shutters have wide louvers — typically 2.5 to 4.5 inches — providing excellent light control and airflow. They are the dominant style in San Diego residential construction.',
   },
   {
-    id: 'faq-installation-5', category: 'installation',
-    question: 'How long does installation take?',
-    answer: 'Most single-room installations take one to two hours. A full home of eight to twelve windows typically takes four to six hours in a single visit. Lead time from consultation to installation is typically four to six weeks.',
-  },
-  {
     id: 'faq-installation-6', category: 'installation',
     question: 'Do I need to do anything to prepare for installation?',
-    answer: 'Clear the windowsill and a few feet of floor space beneath each window. We clean up all packaging and debris before leaving.',
+    answer: 'Please clear at least four feet of space around each window — on the floor and any nearby furniture. This gives our installers room to work safely and efficiently. We handle all setup and clean up all packaging and debris before leaving.',
   },
   {
     id: 'faq-installation-4', category: 'installation',
     question: 'What warranty covers the installation?',
-    answer: 'iL Progetto provides a one-year installation workmanship warranty. Hardware mechanisms carry a lifetime warranty; fabrics and motors are covered for five years.',
+    answer: 'iL Progetto provides one year of full parts and labor coverage on all installations. Internal hardware mechanisms and brackets carry a lifetime manufacturer warranty. Motorization components are covered for three years by the manufacturer. See our full <a href="/warranty" style="color:var(--sand);text-decoration:underline">warranty page</a> for complete details.',
   },
   {
     id: 'faq-smart-home-3', category: 'smart-home',
@@ -188,12 +170,8 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'faq-maintenance-1', category: 'products',
     question: 'How do I clean window shades and blinds?',
-    answer: 'Most roller shades can be cleaned with a soft brush attachment on a vacuum. For spot cleaning, use a lightly damp cloth with mild soap. Plantation shutters are best cleaned with a damp microfiber cloth.',
-  },
-  {
-    id: 'faq-maintenance-2', category: 'products',
-    question: "How long do window treatments last in San Diego's climate?",
-    answer: "San Diego's intense UV is the primary factor. Plantation shutters in composite materials last 20-25 years. Quality roller shades last 7-12 years. Motorized components last 10+ years.",
+    answer:
+      'Cleaning method depends on the material. For <strong>roller shades, zebra shades, and all fabric treatments</strong> — use only a soft brush or the brush attachment on a vacuum. Never use a damp cloth on fabric shades as moisture can cause warping, staining, or mold. For <strong>plantation shutters and faux wood blinds</strong> — a damp microfiber cloth works well; these hard-surface materials are designed for easy wiping. When in doubt, reach out to us and we will advise for your specific product.',
   },
 ]
 

@@ -46,7 +46,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 }
 
 function BlogIndexPage() {
-  const posts = [...BLOG_POSTS].sort(
+  const posts = [...BLOG_POSTS].filter((p) => !p.draft).sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   )
   const [lead, ...rest] = posts

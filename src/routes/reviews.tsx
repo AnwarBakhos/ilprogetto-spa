@@ -210,7 +210,7 @@ function ReviewsPage() {
           <PlatformCard
             platform="Google Reviews"
             tagline="Share your experience on Google"
-            href="https://www.google.com/search?sca_esv=91a56050fdbf678a&sxsrf=ANbL-n4R2w3byni23resgcZ7r4n376DJCQ:1779966168665&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOS95U84G4tyS04CXSwpqHM7_aldYQEgC8qEuDAmj5gJ0Tt1lxA8PiYo0gN_6XXJiwcTCRtsaZhjZLbnmNjGIq77UHEaM&q=iL+Progetto+LLC+Reviews&sa=X&ved=2ahUKEwif9cfZ6tuUAxUELkQIHYG_Co4Q0bkNegQIQhAH&biw=1912&bih=994&dpr=1#"
+            href="https://g.page/r/CaPXEMsWP63SEBM/review"
             icon={<GoogleIcon />}
             accentColor="#4285F4"
             cta="Write a Google Review"

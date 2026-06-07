@@ -384,6 +384,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'how-long-do-window-treatments-last',
+    draft: true,
     title: 'How Long Do Window Treatments Last? A Complete Lifespan Guide',
     description: "What to expect from your investment: typical lifespans for roller shades, plantation shutters, cellular shades, and motorized systems — and the maintenance habits that extend or shorten them.",
     publishedAt: '2026-04-19',
@@ -428,6 +429,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'custom-vs-offtheshelf-blinds-san-diego',
+    draft: true,
     title: 'Custom vs. Off-the-Shelf Blinds: What San Diego Homeowners Actually Get',
     description: 'A clear-eyed comparison of big box store blinds vs. custom-measured window treatments for San Diego homes — covering fit, appearance, durability, and the hidden costs of each.',
     publishedAt: '2026-04-26',
@@ -473,11 +475,12 @@ export const BLOG_POSTS: BlogPost[] = [
 ]
 
 export function getPost(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((p) => p.slug === slug)
+  return BLOG_POSTS.find((p) => p.slug === slug && !p.draft)
 }
 
 export function getLatestPosts(n = 4): BlogPost[] {
   return [...BLOG_POSTS]
+    .filter((p) => !p.draft)
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .slice(0, n)
 }
