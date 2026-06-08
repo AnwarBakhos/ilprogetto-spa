@@ -5,18 +5,30 @@ import { MEGA_MENU } from '@/data/catalog'
 const LOGO_URL = '/images/logo-300.png'
 
 export function Nav() {
-  const [menuOpen, setMenuOpen]           = useState(false)
-  const [megaOpen, setMegaOpen]           = useState(false)
-  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
+  const [menuOpen, setMenuOpen]               = useState(false)
+  const [megaOpen, setMegaOpen]               = useState(false)
+  // Mobile accordion: whether the "Our Selections" section is open
+  const [productsOpen, setProductsOpen]       = useState(false)
+  // Mobile accordion: which category sub-section is open (e.g. 'shades')
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null)
   const megaRef = useRef<HTMLLIElement>(null)
   const routerState = useRouterState()
   const pathname = routerState.location.pathname
 
+  // Close everything on route change
   useEffect(() => {
     setMenuOpen(false)
     setMegaOpen(false)
-    setMobileExpanded(null)
+    setProductsOpen(false)
+    setExpandedCategory(null)
   }, [pathname])
+
+  // Helper: close the full mobile menu
+  function closeMenu() {
+    setMenuOpen(false)
+    setProductsOpen(false)
+    setExpandedCategory(null)
+  }
 
   useEffect(() => {
     if (!megaOpen) return
@@ -151,7 +163,7 @@ export function Nav() {
             </svg>
           </a>
           <Link to="/booking" className="px-3 py-1.5 text-[10px] tracking-[0.15em] uppercase font-[500] transition-colors"
-            style={{ background: 'var(--sand)', color: '#fff' }} onClick={() => setMenuOpen(false)}>
+            style={{ background: 'var(--sand)', color: '#fff' }} onClick={closeMenu}>
             Book
           </Link>
           <button className="flex flex-col gap-[5px] p-2 ml-1" onClick={() => setMenuOpen(v => !v)}
@@ -186,7 +198,7 @@ export function Nav() {
 
         {/* ── Primary CTA ── */}
         <div className="px-5 pt-5 pb-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-          <Link to="/booking" onClick={() => setMenuOpen(false)}
+          <Link to="/booking" onClick={closeMenu}
             className="flex items-center justify-center w-full py-4 text-[11px] tracking-[0.2em] uppercase font-[500]"
             style={{ background: 'var(--sand)', color: '#fff' }}>
             Book Free In-Home Consultation
@@ -202,29 +214,29 @@ export function Nav() {
         {/* ── Product categories ── */}
         <div className="border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
           <div className="flex items-center justify-between px-6 py-4">
-            <Link to="/catalog" onClick={() => setMenuOpen(false)}
+            <Link to="/catalog" onClick={closeMenu}
               className="text-[12px] tracking-[0.16em] uppercase text-white/50 hover:text-white transition-colors">
               Our Selections
             </Link>
             <button
               className="flex items-center justify-center w-7 h-7 rounded text-white/40 hover:text-white transition-colors"
               aria-label="Browse by category"
-              onClick={() => setMobileExpanded(v => v === '__products' ? null : '__products')}>
+              onClick={() => { setProductsOpen(v => !v); setExpandedCategory(null) }}>
               <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"
-                className={`transition-transform duration-200 ${mobileExpanded === '__products' ? 'rotate-180' : ''}`}>
+                className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}>
                 <path d="M1 3.5l4 4 4-4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
               </svg>
             </button>
           </div>
-          {mobileExpanded === '__products' && (
+          {productsOpen && (
             <div className="pb-3">
               {MEGA_MENU.map((col) => {
-                const isOpen = (mobileExpanded as string) === col.category
+                const isOpen = expandedCategory === col.category
                 return (
                   <div key={col.category} className="border-t" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
                     <button
                       className="w-full flex items-center justify-between px-8 py-3 text-[12px] tracking-[0.14em] uppercase text-white/60"
-                      onClick={() => setMobileExpanded(col.category)}>
+                      onClick={() => setExpandedCategory(v => v === col.category ? null : col.category)}>
                       {col.label}
                       <svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"
                         className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
@@ -236,7 +248,7 @@ export function Nav() {
                         {col.products.map(item => (
                           <Link key={item.id} to="/catalog" search={{ product: item.id }} resetScroll={false}
                             className="py-2 text-[13px] text-white/55 hover:text-white transition-colors"
-                            onClick={() => setMenuOpen(false)}>
+                            onClick={closeMenu}>
                             {item.label}
                           </Link>
                         ))}
@@ -247,7 +259,7 @@ export function Nav() {
               })}
               <div className="px-8 pt-3 border-t" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
                 <Link to="/catalog" className="text-[11px] tracking-[0.14em] uppercase text-[var(--sand)] hover:text-white transition-colors"
-                  onClick={() => setMenuOpen(false)}>
+                  onClick={closeMenu}>
                   View All Products →
                 </Link>
               </div>
@@ -270,7 +282,7 @@ export function Nav() {
           <Link key={to} to={to}
             className="px-6 py-4 text-[13px] tracking-[0.13em] uppercase text-white/70 hover:text-white border-b transition-colors"
             style={{ borderColor: 'rgba(255,255,255,0.05)' }}
-            onClick={() => setMenuOpen(false)}>
+            onClick={closeMenu}>
             {label}
           </Link>
         ))}
