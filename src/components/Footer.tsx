@@ -138,6 +138,7 @@ export function Footer() {
                         <Link
                           to="/catalog"
                           search={{ product: item.id }}
+                          resetScroll={false}
                           className="text-[12px] leading-[1.5] transition-colors hover:text-[var(--sand-light)]"
                           style={{ color: 'rgba(251,251,249,0.55)' }}
                         >

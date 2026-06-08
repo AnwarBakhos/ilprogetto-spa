@@ -267,12 +267,20 @@ function CatalogPage() {
 
   const [activeId, setActiveId] = useState<string | undefined>(urlProduct)
 
+  // ── Skip-scroll ref: pill/card clicks handle their own scroll or deliberately
+  // skip it. When they update the URL, this flag tells the urlProduct effect
+  // not to double-scroll or accidentally scroll on a card toggle.
+  const skipScrollRef = useRef(false)
+
   // ── Shared scroll helper ───────────────────────────────────────────────────
-  // Measures card position AFTER a paint frame so layout is settled.
-  function scrollToCard(id: string) {
+  // Retries until the card element is in the DOM (handles slow mobile paint).
+  function scrollToCard(id: string, attempt = 0) {
     requestAnimationFrame(() => {
       const el = document.getElementById(`card-${id}`)
-      if (!el) return
+      if (!el) {
+        if (attempt < 15) setTimeout(() => scrollToCard(id, attempt + 1), 80)
+        return
+      }
       const stickyBar = document.getElementById('catalog-filter-bar')
       const barH = stickyBar ? stickyBar.getBoundingClientRect().height : 0
       const offset = 76 + barH + 16
@@ -281,29 +289,29 @@ function CatalogPage() {
     })
   }
 
-  // ── Deep-link / mega menu: URL has ?product= on first load ────────────────
+  // ── Deep-link / external nav: fires whenever ?product= changes ────────────
+  // Covers: fresh page load, cross-page nav, and same-page nav from mobile menu.
+  // Pill/card handlers set skipScrollRef so they don't get double-scrolled.
   useEffect(() => {
     if (!urlProduct) return
+    if (skipScrollRef.current) { skipScrollRef.current = false; return }
     setActiveId(urlProduct)
-    // Wait for grid to paint before measuring
-    setTimeout(() => scrollToCard(urlProduct), 400)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    scrollToCard(urlProduct)
+  }, [urlProduct])
 
   // ── Pill click: scroll to card AND open its drawer ────────────────────────
-  // This is the core UX: pill = jump to that product with its detail open.
   function handlePillClick(id: string) {
+    skipScrollRef.current = true
     setActiveId(id)
     void navigate({ search: { product: id }, replace: true, resetScroll: false })
     scrollToCard(id)
   }
 
-  // ── Card click: toggle drawer. Local state only — no navigate, no scroll. ─
-  // navigate() causes TanStack to scroll-to-top; we avoid it here entirely.
+  // ── Card click: toggle drawer. No scroll — just open/close in place. ──────
   function handleCardClick(id: string) {
+    skipScrollRef.current = true
     setActiveId(prev => {
       const next = prev === id ? undefined : id
-      // Update URL silently without triggering router scroll
       void navigate({ search: next ? { product: next } : {}, replace: true, resetScroll: false })
       return next
     })
