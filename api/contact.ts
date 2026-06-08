@@ -148,4 +148,37 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ success: false, error: 'Valid email required.' })
   }
 
-  const data: Required<ContactB
+  const data: Required<ContactBody> = {
+    firstName,
+    lastName,
+    email,
+    phone:   phone   ?? '',
+    address: address ?? '',
+    message: message ?? '',
+    service: service ?? '',
+  }
+
+  try {
+    await Promise.all([
+      // Owner notification
+      resend.emails.send({
+        from:    `iL Progetto Forms <${FROM}>`,
+        to:      OWNER,
+        subject: `New consultation request from ${firstName} ${lastName}`,
+        html:    ownerEmail(data),
+      }),
+      // Auto-reply to customer
+      resend.emails.send({
+        from:    `iL Progetto LLC <${FROM}>`,
+        to:      email,
+        subject: 'We received your message — iL Progetto LLC',
+        html:    autoReplyEmail(firstName),
+      }),
+    ])
+
+    return res.status(200).json({ success: true, message: 'Message sent' })
+  } catch (err) {
+    console.error('Contact form error:', err)
+    return res.status(500).json({ success: false, error: 'Failed to send. Please try again.' })
+  }
+}

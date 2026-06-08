@@ -199,4 +199,33 @@ export default async function handler(
     // If Resend errored on both, release the slot and return 500
     if (clientResult.error && ownerResult.error) {
       BOOKED_SLOTS.delete(key)
-      console.error('Resend error (both):', clientResu
+      console.error('Resend error (both):', clientResult.error, ownerResult.error)
+      res.status(500).json({
+        ok: false,
+        error: 'Email delivery failed. Your slot was not reserved. Please try again.',
+      } satisfies BookingApiResponse)
+      return
+    }
+
+    // Log any partial failure but don't fail the booking
+    if (clientResult.error) {
+      console.error('Client email failed:', clientResult.error)
+    }
+    if (ownerResult.error) {
+      console.error('Owner email failed:', ownerResult.error)
+    }
+
+    res.status(200).json({
+      ok: true,
+      id: bookingId,
+    } satisfies BookingApiResponse)
+  } catch (err) {
+    // Release slot on unexpected error
+    BOOKED_SLOTS.delete(key)
+    console.error('Booking handler error:', err)
+    res.status(500).json({
+      ok: false,
+      error: 'An unexpected error occurred. Please call (858) 338-1678 to book directly.',
+    } satisfies BookingApiResponse)
+  }
+}

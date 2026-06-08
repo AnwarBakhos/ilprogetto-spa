@@ -78,4 +78,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'OPTIONS') return res.status(204).end()
   if (req.method !== 'POST') return res.status(405).json({ ok: false, error: 'Method not allowed' })
 
-  const ip = (req.headers['x-forwarded-for
+  const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ?? 'unknown'
+  if (isRateLimited(ip)) return res.status(429).json({ ok: false, error: 'Too many requests.' })
+
+  const { email } = req.body as { email?: string }
+
+  if (!email || !email.includes('@')) {
+    return res.status(400).json({ ok: false, error: 'Valid email required.' })
+  }
+
+  try {
+    await Promise.all([
+      // Welcome email to subscriber
+      resend.emails.send({
+        from:    `iL Progetto LLC <${FROM}>`,
+        to:      email,
+        subject: 'Your 10% Off Discount — iL Progetto LLC',
+        html:    welcomeEmail(email),
+      }),
+      // Owner notification
+      resend.emails.send({
+        from:    `iL Progetto Signups <${FROM}>`,
+        to:      OWNER,
+        subject: `New newsletter signup: ${email}`,
+        html:    ownerNotification(email),
+      }),
+    ])
+
+    return res.status(200).json({ ok: true })
+  } catch (err) {
+    console.error('Newsletter error:', err)
+    return res.status(500).json({ ok: false, error: 'Failed to send. Please try again.' })
+  }
+}
