@@ -481,6 +481,4 @@ export function getPost(slug: string): BlogPost | undefined {
 export function getLatestPosts(n = 4): BlogPost[] {
   return [...BLOG_POSTS]
     .filter((p) => !p.draft)
-    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-    .slice(0, n)
-}
+    .sort((a, b) => new Date(b.publ
