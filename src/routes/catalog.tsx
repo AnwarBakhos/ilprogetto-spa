@@ -531,4 +531,23 @@ function CatalogPage() {
         </p>
         <h2 className="font-[300] leading-[1.04] tracking-[-0.015em] mb-4"
             style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px, 3.8vw, 50px)' }}>
-          Our Designers <em class
+          Our Designers <em className="italic" style={{ color: 'var(--sand)' }}>Come to You</em>
+        </h2>
+        <p className="text-[15px] leading-[1.8] mb-8 max-w-[440px] mx-auto" style={{ color: 'var(--mid)' }}>
+          Free in-home consultation — we bring samples, measure your windows, and quote on the spot. No obligation.
+        </p>
+        <Link to="/booking" className="inline-block px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
+              style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
+          Book Free In-Home Consultation
+        </Link>
+      </section>
+
+      <style>{`
+        @keyframes drawerIn {
+          from { opacity: 0; transform: translateY(-8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  )
+}

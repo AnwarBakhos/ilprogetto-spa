@@ -40,4 +40,21 @@ const router = createRouter({
 })
 
 // ─── TypeScript type augmentation ─────────────────────────────────────────────
-// Tells TanStack Router what routes
+// Tells TanStack Router what routes exist, enabling type-safe Link `to` props.
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+
+// ─── Mount ────────────────────────────────────────────────────────────────────
+const root = document.getElementById('root')
+if (!root) throw new Error('#root element not found in index.html')
+
+ReactDOM.createRoot(root).render(
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+    </React.StrictMode>,
+)
