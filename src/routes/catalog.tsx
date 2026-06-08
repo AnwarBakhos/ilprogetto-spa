@@ -290,15 +290,12 @@ function CatalogPage() {
   }
 
   // ── Nav/footer/deep-link: fires when ?product= changes in the URL ─────────
-  // After navigate() resolves the router has finished any scroll restoration,
-  // so we measure and scroll once layout is stable.
   useEffect(() => {
     if (!urlProduct) return
     if (skipScrollRef.current) { skipScrollRef.current = false; return }
     setActiveId(urlProduct)
-    // Delay lets React commit the new activeId render + any router scroll
-    // restoration settle before we measure element position.
-    setTimeout(() => scrollToCard(urlProduct), 320)
+    // Small rAF delay so React has committed the activeId re-render before measuring
+    requestAnimationFrame(() => scrollToCard(urlProduct))
   }, [urlProduct])
 
   // ── Pill click ────────────────────────────────────────────────────────────
@@ -534,20 +531,4 @@ function CatalogPage() {
           Our Designers <em className="italic" style={{ color: 'var(--sand)' }}>Come to You</em>
         </h2>
         <p className="text-[15px] leading-[1.8] mb-8 max-w-[440px] mx-auto" style={{ color: 'var(--mid)' }}>
-          Free in-home consultation — we bring samples, measure your windows, and quote on the spot. No obligation.
-        </p>
-        <Link to="/booking" className="inline-block px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
-              style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
-          Book Free In-Home Consultation
-        </Link>
-      </section>
-
-      <style>{`
-        @keyframes drawerIn {
-          from { opacity: 0; transform: translateY(-8px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-    </div>
-  )
-}
+          Free in-home consultation — 

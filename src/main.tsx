@@ -22,8 +22,9 @@ const queryClient = new QueryClient({
 const router = createRouter({
   routeTree,
   context: { queryClient },
-  // Restore scroll position when navigating back
-  scrollRestoration: true,
+  // Let the browser handle scroll restoration natively.
+  // TanStack's own scrollRestoration was overriding our catalog scroll-to-card.
+  scrollRestoration: false,
   // Preload linked routes on hover for instant navigation
   defaultPreload: 'intent',
   defaultPreloadStaleTime: 0,
@@ -44,7 +45,4 @@ if (!root) throw new Error('#root element not found in index.html')
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-    </React.StrictMode>,
-)
+      

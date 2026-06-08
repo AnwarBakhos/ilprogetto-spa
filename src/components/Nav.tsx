@@ -257,37 +257,4 @@ export function Nav() {
                   </div>
                 )
               })}
-              <div className="px-8 pt-3 border-t" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
-                <Link to="/catalog" className="text-[11px] tracking-[0.14em] uppercase text-[var(--sand)] hover:text-white transition-colors"
-                  onClick={closeMenu}>
-                  View All Products →
-                </Link>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* ── Nav links ── */}
-        {[
-          { to: '/',            label: 'Home' },
-          { to: '/about',       label: 'About Us' },
-          { to: '/locations',   label: 'Service Areas' },
-          { to: '/smart-home',  label: 'Smart Home' },
-          { to: '/blog/',       label: 'Journal' },
-          { to: '/inspiration', label: 'Inspiration' },
-          { to: '/faq',         label: 'FAQ' },
-          { to: '/contact',     label: 'Contact' },
-          { to: '/reviews',     label: '★ Reviews' },
-        ].map(({ to, label }) => (
-          <Link key={to} to={to}
-            className="px-6 py-4 text-[13px] tracking-[0.13em] uppercase text-white/70 hover:text-white border-b transition-colors"
-            style={{ borderColor: 'rgba(255,255,255,0.05)' }}
-            onClick={closeMenu}>
-            {label}
-          </Link>
-        ))}
-      </div>
-    )}
-    </>
-  )
-}
+              <div className="px-8 pt-3 border-t" style={{ borderColor: 'rgba(2
