@@ -130,7 +130,6 @@ function LocalBusinessSchema() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "32",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -167,7 +166,9 @@ function RootLayout() {
         Skip to main content
       </a>
       <Nav />
-      <main id="page-content" role="main" style={{ paddingTop: '76px' }}>
+      {/* paddingBottom on mobile accounts for the fixed "Service Info & Offers" bottom bar (~52px).
+          lg:pb-0 removes it on desktop where the bar is a right-edge tab instead. */}
+      <main id="page-content" role="main" style={{ paddingTop: '76px' }} className="pb-[60px] lg:pb-0">
         <Outlet />
       </main>
       <Footer />

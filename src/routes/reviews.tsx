@@ -7,11 +7,11 @@ export const Route = createFileRoute('/reviews')({
   head: () => ({
     meta: [
       { title: 'Customer Reviews | iL Progetto LLC — San Diego Window Treatments' },
-      { name: 'description', content: 'See what San Diego homeowners say about iL Progetto LLC. 32 five-star reviews on Google and Yelp. Custom window treatments, professional installation, free in-home consultation.' },
+      { name: 'description', content: 'See what San Diego homeowners say about iL Progetto LLC. Five-star reviews on Google and Yelp. Custom window treatments, professional installation, free in-home consultation.' },
       { name: 'robots', content: 'index, follow' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'Customer Reviews | iL Progetto LLC — San Diego Window Treatments' },
-      { property: 'og:description', content: 'See what San Diego homeowners say about iL Progetto LLC. 32 five-star reviews on Google and Yelp.' },
+      { property: 'og:description', content: 'See what San Diego homeowners say about iL Progetto LLC. Five-star reviews on Google and Yelp.' },
       { property: 'og:url', content: `${SITE_URL}/reviews` },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
     ],
@@ -21,9 +21,8 @@ export const Route = createFileRoute('/reviews')({
 })
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-const TOTAL_REVIEWS  = 32
-const AVG_RATING     = '5.0'
-const FIVE_STAR_PCT  = '100%'
+const AVG_RATING    = '5.0'
+const FIVE_STAR_PCT = '100%'
 
 function Stars({ count = 5, size = 14, color = 'var(--sand)' }: { count?: number; size?: number; color?: string }) {
   return (
@@ -124,7 +123,6 @@ function ReviewsPage() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
-      reviewCount: String(TOTAL_REVIEWS),
       bestRating: '5',
       worstRating: '1',
     },
@@ -168,7 +166,7 @@ function ReviewsPage() {
                 className="font-[300] leading-[1.04] tracking-[-0.02em] mb-6"
                 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 5vw, 68px)', color: 'var(--cream)' }}
               >
-                {TOTAL_REVIEWS} San Diego Homeowners.{' '}
+                San Diego Homeowners.{' '}
                 <em className="italic" style={{ color: 'var(--sand)' }}>One Common Story.</em>
               </h1>
               <p className="text-[16px] leading-[1.85] mb-10" style={{ color: 'rgba(251,251,249,0.6)' }}>
@@ -193,4 +191,272 @@ function ReviewsPage() {
               {/* Rating block */}
               <div className="p-10 flex items-center gap-8" style={{ background: 'rgba(255,255,255,0.04)', border: '0.5px solid rgba(255,255,255,0.1)' }}>
                 <div>
-                  <p className="font-[200] leading-none" s
+                  <p className="font-[200] leading-none" style={{ fontFamily: 'var(--serif)', fontSize: '88px', color: 'var(--cream)' }}>
+                    {AVG_RATING}
+                  </p>
+                  <Stars size={18} color="var(--sand)" />
+                  <p className="mt-3 text-[11px] tracking-[0.16em] uppercase" style={{ color: 'rgba(251,251,249,0.45)' }}>
+                    Average Rating
+                  </p>
+                </div>
+                <div className="w-px self-stretch" style={{ background: 'rgba(255,255,255,0.1)' }} aria-hidden="true" />
+                <div className="flex flex-col gap-4">
+                  {[
+                    { label: '5-Star Reviews', val: FIVE_STAR_PCT },
+                    { label: 'Response Rate', val: '< 2 hrs' },
+                    { label: 'Platforms', val: 'Google · Yelp' },
+                  ].map(({ label, val }) => (
+                    <div key={label}>
+                      <p className="font-[300] text-[26px] leading-none" style={{ fontFamily: 'var(--serif)', color: 'var(--cream)' }}>{val}</p>
+                      <p className="text-[10px] tracking-[0.12em] uppercase mt-1" style={{ color: 'rgba(251,251,249,0.4)' }}>{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Platform badges */}
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { icon: <GoogleIcon size={20} />, name: 'Google', rating: '5.0', tag: 'Verified' },
+                  { icon: <YelpIcon size={18} />,   name: 'Yelp',   rating: '5.0', tag: 'Verified' },
+                ].map(({ icon, name, rating, tag }) => (
+                  <div key={name} className="flex items-center gap-3 p-4" style={{ background: 'rgba(255,255,255,0.04)', border: '0.5px solid rgba(255,255,255,0.08)' }}>
+                    {icon}
+                    <div>
+                      <p className="text-[12px]" style={{ color: 'var(--cream)' }}>{name} · {rating}</p>
+                      <p className="text-[9px] tracking-[0.14em] uppercase mt-0.5" style={{ color: 'var(--sand)' }}>{tag}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </header>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          2. STATS BAND
+      ══════════════════════════════════════════════════════════════════════ */}
+      <div style={{ background: 'var(--sand)', color: '#fff' }}>
+        <div className="max-w-[1200px] mx-auto px-4 md:px-10 lg:px-20 py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x" style={{ '--tw-divide-color': 'rgba(255,255,255,0.25)' } as React.CSSProperties}>
+            {[
+              { stat: '5.0 ★',        label: 'Perfect Rating' },
+              { stat: '100%',          label: 'Five-Star Reviews' },
+              { stat: '< 2 hrs',       label: 'Response Time' },
+              { stat: 'Lic. #1127055', label: 'Licensed & Insured' },
+            ].map(({ stat, label }) => (
+              <div key={label} className="flex flex-col items-center text-center md:py-1">
+                <p className="font-[300] text-[22px] md:text-[26px]" style={{ fontFamily: 'var(--serif)' }}>{stat}</p>
+                <p className="text-[10px] tracking-[0.16em] uppercase mt-1 opacity-80">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          3. REVIEW GRID
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section id="reviews-grid" aria-label="Customer reviews" className="px-4 md:px-10 lg:px-20 py-20 md:py-28" style={{ background: 'var(--warm)' }}>
+        <div className="max-w-[1200px] mx-auto">
+
+          <div className="flex items-center gap-3 mb-4">
+            <span className="inline-block w-8 h-px" style={{ background: 'var(--sand)' }} aria-hidden="true" />
+            <p className="text-[11px] tracking-[0.22em] uppercase" style={{ color: 'var(--sand)' }}>What They Said</p>
+          </div>
+          <h2 className="font-[300] leading-[1.06] mb-14" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(30px, 3.5vw, 46px)', color: 'var(--ink)' }}>
+            In Their Own Words
+          </h2>
+
+          {/* Bento-style grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5">
+
+            {/* Featured card — spans 1 col, full height with dark bg */}
+            <div className="row-span-2 flex">
+              <FeaturedCard
+                name={FEATURED.name}
+                location={FEATURED.location}
+                text={FEATURED.text}
+                date={FEATURED.date}
+              />
+            </div>
+
+            {/* Regular cards */}
+            {GRID_PICKS.slice(0, 4).map(r => (
+              <ReviewGridCard
+                key={r.id}
+                name={r.name}
+                location={r.location}
+                text={r.text.length > 220 ? r.text.slice(0, 220) + '…' : r.text}
+                date={r.date}
+              />
+            ))}
+
+            {/* Second featured — full width across remaining cols */}
+            <div className="lg:col-span-2 flex" style={{ background: 'var(--sand-pale)', border: '0.5px solid var(--hairline)' }}>
+              <div className="p-8 flex flex-col md:flex-row gap-8 items-center w-full">
+                <div className="flex-shrink-0">
+                  <Stars size={16} />
+                  <p className="mt-4 text-[32px] font-[200] leading-none" style={{ fontFamily: 'var(--serif)', color: 'var(--ink)' }}>
+                    "Exceeded our expectations."
+                  </p>
+                </div>
+                <div className="w-px self-stretch hidden md:block" style={{ background: 'var(--hairline)' }} aria-hidden="true" />
+                <div>
+                  <p className="text-[14px] leading-[1.85]" style={{ color: 'var(--mid)' }}>
+                    "{GRID_PICKS[4]!.text.slice(0, 280)}{GRID_PICKS[4]!.text.length > 280 ? '…' : ''}"
+                  </p>
+                  <p className="mt-4 text-[12px] font-[500]" style={{ color: 'var(--ink)' }}>{GRID_PICKS[4]!.name} · <span style={{ fontWeight: 400, color: 'var(--mid)' }}>{GRID_PICKS[4]!.location}</span></p>
+                </div>
+              </div>
+            </div>
+
+            {/* Last 3 cards */}
+            {GRID_PICKS.slice(5, 8).map(r => (
+              <ReviewGridCard
+                key={r.id}
+                name={r.name}
+                location={r.location}
+                text={r.text.length > 200 ? r.text.slice(0, 200) + '…' : r.text}
+                date={r.date}
+              />
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          4. CAROUSEL (existing component)
+      ══════════════════════════════════════════════════════════════════════ */}
+      <div style={{ background: 'var(--cream)' }}>
+        <div className="max-w-[1200px] mx-auto px-4 md:px-10 lg:px-20 pt-16 pb-4">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="inline-block w-8 h-px" style={{ background: 'var(--sand)' }} aria-hidden="true" />
+            <p className="text-[11px] tracking-[0.22em] uppercase" style={{ color: 'var(--sand)' }}>All Reviews</p>
+          </div>
+          <h2 className="font-[300]" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(26px, 3vw, 38px)', color: 'var(--ink)' }}>
+            Browse Every Story
+          </h2>
+        </div>
+        <ReviewsScrollPanel autoPlayInterval={6000} showControls compact />
+      </div>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          5. LEAVE A REVIEW — dark CTA
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section aria-label="Leave a review" className="px-4 md:px-10 lg:px-20 py-20 md:py-28" style={{ background: 'var(--ink)' }}>
+        <div className="max-w-[900px] mx-auto">
+
+          <div className="text-center mb-16">
+            <p className="text-[11px] tracking-[0.22em] uppercase mb-5" style={{ color: 'var(--sand)' }}>Share Your Experience</p>
+            <h2 className="font-[300] leading-[1.06] mb-5" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px, 4vw, 52px)', color: 'var(--cream)' }}>
+              Your Review Helps a{' '}
+              <em className="italic" style={{ color: 'var(--sand)' }}>Small Business</em>{' '}
+              Grow
+            </h2>
+            <p className="text-[15px] leading-[1.85] max-w-[520px] mx-auto" style={{ color: 'rgba(251,251,249,0.55)' }}>
+              It takes 60 seconds. For a family-owned business like ours, it means everything.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(255,255,255,0.08)' }}>
+            {/* Google */}
+            <a
+              href="https://g.page/r/CaPXEMsWP63SEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-10 transition-colors duration-300"
+              style={{ background: 'var(--ink)' }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(66,133,244,0.08)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'var(--ink)')}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <GoogleIcon size={32} />
+                <div>
+                  <p className="text-[13px]" style={{ color: 'var(--cream)' }}>Google Reviews</p>
+                  <Stars size={11} color="var(--sand)" />
+                </div>
+              </div>
+              <p className="text-[22px] font-[300] leading-[1.2] mb-5" style={{ fontFamily: 'var(--serif)', color: 'var(--cream)' }}>
+                Leave a Google Review
+              </p>
+              <p className="text-[13px] mb-8" style={{ color: 'rgba(251,251,249,0.5)' }}>
+                Google reviews boost local search ranking and help neighbors find us.
+              </p>
+              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase transition-all duration-200 group-hover:gap-3"
+                   style={{ color: '#4285F4' }}>
+                Write a Review
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </a>
+
+            {/* Yelp */}
+            <a
+              href="https://www.yelp.com/writeareview/biz/bbN_heYMnYXA2esAoUKpmQ?return_url=%2Fbiz%2FbbN_heYMnYXA2esAoUKpmQ&review_origin=biz-details-war-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-10 transition-colors duration-300"
+              style={{ background: 'var(--ink)' }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(196,18,0,0.08)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'var(--ink)')}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <YelpIcon size={28} />
+                </div>
+                <div>
+                  <p className="text-[13px]" style={{ color: 'var(--cream)' }}>Yelp</p>
+                  <Stars size={11} color="var(--sand)" />
+                </div>
+              </div>
+              <p className="text-[22px] font-[300] leading-[1.2] mb-5" style={{ fontFamily: 'var(--serif)', color: 'var(--cream)' }}>
+                Leave a Yelp Review
+              </p>
+              <p className="text-[13px] mb-8" style={{ color: 'rgba(251,251,249,0.5)' }}>
+                Yelp reviews help homeowners make confident decisions about who to trust.
+              </p>
+              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase transition-all duration-200 group-hover:gap-3"
+                   style={{ color: '#C41200' }}>
+                Write a Review
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          6. CLOSING + BOOKING CTA
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section className="px-4 md:px-10 lg:px-20 py-24" style={{ background: 'var(--warm)' }}>
+        <div className="max-w-[800px] mx-auto text-center">
+          <p className="text-[18px] md:text-[22px] leading-[1.9] mb-8 font-[300]"
+             style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', color: 'var(--mid)' }}>
+            "Every window treatment we install is a commitment — measured to fit, chosen to last, installed to look like it was always there.
+            When a client takes the time to write about that, it genuinely makes our week."
+          </p>
+          <p className="text-[12px] tracking-[0.18em] uppercase mb-14" style={{ color: 'var(--sand)' }}>
+            — The iL Progetto Team
+          </p>
+          <Link
+            to="/booking"
+            className="inline-flex items-center gap-3 px-10 py-4 text-[11px] tracking-[0.2em] uppercase"
+            style={{ background: 'var(--ink)', color: 'var(--cream)' }}
+          >
+            Book Your Free Consultation
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Link>
+        </div>
+      </section>
+    </>
+  )
+}
