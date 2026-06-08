@@ -267,22 +267,27 @@ function CatalogPage() {
 
   const [activeId, setActiveId] = useState<string | undefined>(urlProduct)
 
-  // ── Skip-scroll ref: pill/card clicks handle their own scroll or deliberately
-  // skip it. When they update the URL, this flag tells the urlProduct effect
-  // not to double-scroll or accidentally scroll on a card toggle.
-  const skipScrollRef = useRef(false)
+  // ── Refs ──────────────────────────────────────────────────────────────────
+  // skipScrollRef: pill/card clicks handle their own scroll; flag tells the
+  //   urlProduct effect not to double-fire or scroll on a card toggle.
+  // isFirstRenderRef: distinguishes fresh page load (layout not yet settled)
+  //   from same-page urlProduct changes (layout already painted).
+  const skipScrollRef     = useRef(false)
+  const isFirstRenderRef  = useRef(true)
 
-  // ── Shared scroll helper ───────────────────────────────────────────────────
-  // Retries until the card element is in the DOM (handles slow mobile paint).
+  // ── Scroll to a product card ───────────────────────────────────────────────
+  // Uses getBoundingClientRect which is viewport-relative, so adding scrollY
+  // gives the absolute document position. Retries when element isn't in DOM yet.
   function scrollToCard(id: string, attempt = 0) {
     requestAnimationFrame(() => {
       const el = document.getElementById(`card-${id}`)
       if (!el) {
-        if (attempt < 15) setTimeout(() => scrollToCard(id, attempt + 1), 80)
+        // Element not yet painted — keep retrying (handles slow mobile renders)
+        if (attempt < 20) setTimeout(() => scrollToCard(id, attempt + 1), 80)
         return
       }
       const stickyBar = document.getElementById('catalog-filter-bar')
-      const barH = stickyBar ? stickyBar.getBoundingClientRect().height : 0
+      const barH = stickyBar?.getBoundingClientRect().height ?? 0
       const offset = 76 + barH + 16
       const top = el.getBoundingClientRect().top + window.scrollY - offset
       window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
@@ -290,13 +295,26 @@ function CatalogPage() {
   }
 
   // ── Deep-link / external nav: fires whenever ?product= changes ────────────
-  // Covers: fresh page load, cross-page nav, and same-page nav from mobile menu.
-  // Pill/card handlers set skipScrollRef so they don't get double-scrolled.
+  // On FIRST render (cross-page nav): layout is still settling — images, fonts,
+  // and the hero section shift card positions for ~400ms after mount. We wait
+  // before measuring so getBoundingClientRect() gives the settled position.
+  // On SAME-PAGE changes (mobile menu while already on /catalog): layout is
+  // already painted so we scroll immediately.
   useEffect(() => {
     if (!urlProduct) return
     if (skipScrollRef.current) { skipScrollRef.current = false; return }
     setActiveId(urlProduct)
-    scrollToCard(urlProduct)
+
+    const firstRender = isFirstRenderRef.current
+    isFirstRenderRef.current = false
+
+    if (firstRender) {
+      // Wait for hero, filter strip, and images to settle their heights
+      setTimeout(() => scrollToCard(urlProduct), 500)
+    } else {
+      // Already on /catalog — layout is stable, scroll right away
+      scrollToCard(urlProduct)
+    }
   }, [urlProduct])
 
   // ── Pill click: scroll to card AND open its drawer ────────────────────────
