@@ -60,7 +60,7 @@ const ESTATE_PRODUCTS = [
   },
   {
     name: 'Roman Shades',
-    img: '/images/products/Roman Shades.jpg',
+    img: '/images/products/Roman Shades.png',
     description:
       'Hand-sewn tailored folds in estate-weight fabrics from our exclusive designer collection. Roman shades are the preferred choice for formal dining rooms and studies where drapery would overwhelm the space.',
   },
@@ -454,7 +454,7 @@ function RanchoSantaFePage() {
           <Link key="motorized" to="/catalog" search={{ product: "motorized" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Motorized Shading</Link>
           <Link key="blackout-curtains" to="/catalog" search={{ product: "blackout-curtains" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Curtains & Drapery</Link>
           <Link key="roman" to="/catalog" search={{ product: "roman" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Roman Shades</Link>
-          <Link key="sheer" to="/catalog" search={{ product: "sheer" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Shangri-La Shades</Link>
+          <Link key="sheer" to="/catalog" search={{ product: "sheer" }} className="px-4 py-2 text-[12px] tracking-[0.1em] uppercase border transition-colors hover:bg-[var(--sand)] hover:text-white hover:border-[var(--sand)]" style={{ borderColor: "var(--hairline)", color: "var(--ink)" }}>Sheer Shades</Link>
         </div>
         <div className="flex flex-wrap gap-6 text-[13px]" style={{ color: 'var(--mid)' }}>
           <Link to="/catalog" style={{ color: 'var(--sand)', textDecoration: 'underline' }}>Browse full catalog →</Link>

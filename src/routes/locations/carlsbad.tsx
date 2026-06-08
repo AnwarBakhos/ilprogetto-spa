@@ -56,7 +56,7 @@ const PRODUCTS = [
   { name: 'Roller Shades',       img: '/images/products/Roller Shades.png' },
   { name: 'Cellular Shades',     img: '/images/products/Cellular Shades.png' },
   { name: 'Woven Wood Shades',   img: '/images/products/Woven Wood Shades.jpg' },
-  { name: 'Roman Shades',        img: '/images/products/Roman Shades.jpg' },
+  { name: 'Roman Shades',        img: '/images/products/Roman Shades.png' },
   { name: 'Zebra Shades',        img: '/images/products/Zebra Shades.png' },
 ]
 

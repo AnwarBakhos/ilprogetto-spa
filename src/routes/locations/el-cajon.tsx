@@ -41,7 +41,7 @@ const supportProducts = [
     desc: 'Solar or blackout fabric on a clean cassette system. Works in any room.',
   },
   {
-    img: '/images/products/Faux Wood.jpg',
+    img: '/images/products/Faux Wood.png',
     name: 'Faux Wood Blinds',
     desc: 'Moisture and heat-resistant alternative to real wood. Won\'t warp or crack in El Cajon\'s 100°F+ summers — ideal for west-facing windows.',
   },

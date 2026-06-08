@@ -44,7 +44,7 @@ const automationProducts = [
     desc: 'Motorized rollers are clean, fast, and available in solar or blackout fabric.',
   },
   {
-    img: '/images/products/Roman Shades.jpg',
+    img: '/images/products/Roman Shades.png',
     name: 'Roman Shades',
     featured: false,
     desc: 'Soft fabric folds that automate beautifully for living rooms and primary suites.',

@@ -31,7 +31,7 @@ const naturalProducts = [
     why: 'Bamboo, rattan, and grasses bring the texture of the hillside inside. These shades age beautifully and complement exposed-beam ceilings common in Escondido ranch homes.',
   },
   {
-    img: '/images/products/Roman Shades.jpg',
+    img: '/images/products/Roman Shades.png',
     name: 'Roman Shades',
     why: 'Soft fabric folds that layer well with woven textures. Available in linen and cotton weaves that reinforce an earthy, understated palette.',
   },

@@ -20,7 +20,7 @@ const products = [
   { name: 'Zebra Shades', img: '/images/products/Zebra Shades.png', desc: 'Alternating sheer and solid bands for precise light and privacy control throughout the day.' },
   { name: 'Cellular Shades', img: '/images/products/Cellular Shades.png', desc: 'Insulating honeycomb cells that reduce heat gain and lower energy costs year-round.' },
   { name: 'Plantation Shutters', img: '/images/products/Plantation Shutters.png', desc: 'Timeless louvered panels — a permanent upgrade that adds lasting value to any home.' },
-  { name: 'Roman Shades', img: '/images/products/Roman Shades.jpg', desc: 'Soft fabric folds that bring warmth and texture to bedrooms and living spaces.' },
+  { name: 'Roman Shades', img: '/images/products/Roman Shades.png', desc: 'Soft fabric folds that bring warmth and texture to bedrooms and living spaces.' },
 ]
 
 function NationalCityPage() {

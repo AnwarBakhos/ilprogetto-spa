@@ -42,7 +42,7 @@ const NATURAL_PRODUCTS = [
   },
   {
     name: 'Roman Shades',
-    img: '/images/products/Roman Shades.jpg',
+    img: '/images/products/Roman Shades.png',
     copy:
       'Clean horizontal folds in linen or cotton — a timeless form that pairs equally well with board-and-batten bungalows and modern open-plan homes in Leucadia and Olivenhain.',
   },

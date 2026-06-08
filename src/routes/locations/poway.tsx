@@ -55,7 +55,7 @@ const moreProducts = [
     note: 'Clean modern lines — blackout or solar fabric, your choice.',
   },
   {
-    img: '/images/products/Faux Wood.jpg',
+    img: '/images/products/Faux Wood.png',
     name: 'Faux Wood Blinds',
     note: "Engineered to never warp in Poway's dry heat — ever.",
   },

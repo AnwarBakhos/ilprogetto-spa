@@ -51,7 +51,7 @@ const products = [
   },
   {
     name: 'Roman Shades',
-    img: '/images/products/Roman Shades.jpg',
+    img: '/images/products/Roman Shades.png',
     desc: 'Soft tailored folds for bedrooms and living spaces — cordless options available.',
   },
 ]

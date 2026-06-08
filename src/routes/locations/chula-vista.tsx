@@ -20,7 +20,7 @@ const products = [
   { name: 'Cellular Shades', img: '/images/products/Cellular Shades.png', desc: 'Honeycomb insulation reduces heat gain — especially valuable in Chula Vista\'s warmer inland neighborhoods.' },
   { name: 'Plantation Shutters', img: '/images/products/Plantation Shutters.png', desc: 'Louvered panels that complement Mediterranean and stucco exteriors common across Eastlake and Sunbow.' },
   { name: 'Motorized Shades', img: '/images/products/Motorized Shades.png', desc: 'App and voice-controlled shading — a natural upgrade for smart home systems in new master-planned builds.' },
-  { name: 'Roman Shades', img: '/images/products/Roman Shades.jpg', desc: 'Tailored fabric folds for bedrooms and living rooms where a softer, warmer look is preferred.' },
+  { name: 'Roman Shades', img: '/images/products/Roman Shades.png', desc: 'Tailored fabric folds for bedrooms and living rooms where a softer, warmer look is preferred.' },
 ]
 
 const reasons = [
