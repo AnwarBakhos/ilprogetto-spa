@@ -282,11 +282,13 @@ function CatalogPage() {
   }
 
   // ── Scroll to a product card ───────────────────────────────────────────────
+  // Use 'instant' — 'smooth' is silently ignored on iOS Safari < 15.4,
+  // and smooth animations can be cancelled by browser scroll restoration.
   function scrollToCard(id: string) {
     const el = document.getElementById(`card-${id}`)
     if (!el) return
     const top = el.getBoundingClientRect().top + window.scrollY - stickyOffset()
-    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+    window.scrollTo({ top: Math.max(0, top), behavior: 'instant' as ScrollBehavior })
   }
 
   // ── Nav/footer/deep-link: fires when ?product= changes in the URL ─────────
@@ -294,8 +296,9 @@ function CatalogPage() {
     if (!urlProduct) return
     if (skipScrollRef.current) { skipScrollRef.current = false; return }
     setActiveId(urlProduct)
-    // Small rAF delay so React has committed the activeId re-render before measuring
-    requestAnimationFrame(() => scrollToCard(urlProduct))
+    // setTimeout gives the browser a tick to finish any post-navigation
+    // housekeeping before we assert our scroll position
+    setTimeout(() => scrollToCard(urlProduct), 80)
   }, [urlProduct])
 
   // ── Pill click ────────────────────────────────────────────────────────────
@@ -304,7 +307,7 @@ function CatalogPage() {
     skipScrollRef.current = true
     setActiveId(id)
     await navigate({ search: { product: id }, replace: true, resetScroll: false })
-    scrollToCard(id)
+    setTimeout(() => scrollToCard(id), 80)
   }
 
   // ── Card click: toggle drawer, no scroll ──────────────────────────────────
@@ -528,23 +531,4 @@ function CatalogPage() {
         </p>
         <h2 className="font-[300] leading-[1.04] tracking-[-0.015em] mb-4"
             style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px, 3.8vw, 50px)' }}>
-          Our Designers <em className="italic" style={{ color: 'var(--sand)' }}>Come to You</em>
-        </h2>
-        <p className="text-[15px] leading-[1.8] mb-8 max-w-[440px] mx-auto" style={{ color: 'var(--mid)' }}>
-          Free in-home consultation — we bring samples, measure your windows, and quote on the spot. No obligation.
-        </p>
-        <Link to="/booking" className="inline-block px-10 py-4 text-[11px] tracking-[0.2em] uppercase btn-interactive"
-              style={{ background: 'var(--ink)', color: 'var(--cream)' }}>
-          Book Free In-Home Consultation
-        </Link>
-      </section>
-
-      <style>{`
-        @keyframes drawerIn {
-          from { opacity: 0; transform: translateY(-8px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-    </div>
-  )
-}
+          Our Designers <em class

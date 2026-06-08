@@ -15,6 +15,15 @@ const queryClient = new QueryClient({
   },
 })
 
+// ─── Scroll restoration ───────────────────────────────────────────────────────
+// We manage scroll ourselves (scroll-to-card on the catalog page).
+// Setting this to 'manual' prevents the browser from overriding our scrolls
+// after navigation — TanStack's scrollRestoration:false hands control to the
+// browser, which would otherwise fire and reset scrollY to 0 after our calls.
+if (typeof window !== 'undefined') {
+  window.history.scrollRestoration = 'manual'
+}
+
 // ─── Router ───────────────────────────────────────────────────────────────────
 // createRouter is called once at module level — not inside a component.
 // This matches how TanStack Router expects it, and ensures the router instance
@@ -31,21 +40,4 @@ const router = createRouter({
 })
 
 // ─── TypeScript type augmentation ─────────────────────────────────────────────
-// Tells TanStack Router what routes exist, enabling type-safe Link `to` props.
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router
-  }
-}
-
-// ─── Mount ────────────────────────────────────────────────────────────────────
-const root = document.getElementById('root')
-if (!root) throw new Error('#root element not found in index.html')
-
-ReactDOM.createRoot(root).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-    </React.StrictMode>,
-)
+// Tells TanStack Router what routes
