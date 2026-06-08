@@ -17,4 +17,11 @@ export interface BlogPost {
   image?: string
   /** Author display name - defaults to 'iL Progetto LLC' if omitted */
   author?: string
-  /** When true the post is hidden from the index and returns 404 on direct UR
+  /** When true the post is hidden from the index and returns 404 on direct URL */
+  draft?: boolean
+}
+
+export interface BlogSection {
+  heading?: string
+  paragraphs: string[]
+}

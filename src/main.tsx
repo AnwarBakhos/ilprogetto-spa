@@ -45,4 +45,7 @@ if (!root) throw new Error('#root element not found in index.html')
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+    </React.StrictMode>,
+)

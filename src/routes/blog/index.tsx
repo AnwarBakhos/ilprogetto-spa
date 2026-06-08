@@ -197,4 +197,7 @@ function BlogIndexPage() {
             Browse Catalog <span aria-hidden="true">→</span>
           </Link>
         </div>
-      </se
+      </section>
+    </div>
+  )
+}
