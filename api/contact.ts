@@ -8,6 +8,16 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 const FROM   = 'info@ilprogettollc.com'
 const OWNER  = 'info@ilprogettollc.com'
+
+// ─── Rate limiting ────────────────────────────────────────────────────────────
+const WINDOW_MS = 10 * 60 * 1000
+const MAX       = 3
+const rlMap     = new Map<string, { count: number; resetAt: number }>()
+function isRateLimited(ip: string): boolean {
+  const now = Date.now(); const e = rlMap.get(ip)
+  if (!e || now > e.resetAt) { rlMap.set(ip, { count: 1, resetAt: now + WINDOW_MS }); return false }
+  if (e.count >= MAX) return true; e.count++; return false
+}
 const BG     = '#F7F4EF'
 const INK    = '#1A1A1A'
 const SAND   = '#C5A880'
@@ -114,15 +124,16 @@ function autoReplyEmail(firstName: string): string {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN ?? '*')
+  const origin = process.env.ALLOWED_ORIGIN ?? 'https://ilprogettollc.com'
+  res.setHeader('Access-Control-Allow-Origin', origin)
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end()
-  }
+  if (req.method === 'OPTIONS') return res.status(204).end()
+  if (req.method !== 'POST') return res.status(405).json({ success: false, error: 'Method not allowed' })
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' })
-  }
+  const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ?? 'unknown'
+  if (isRateLimited(ip)) return res.status(429).json({ success: false, error: 'Too many requests.' })
 
   const { firstName, lastName, email, phone, address, message, service } =
     req.body as ContactBody
@@ -137,37 +148,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ success: false, error: 'Valid email required.' })
   }
 
-  const data: Required<ContactBody> = {
-    firstName,
-    lastName,
-    email,
-    phone:   phone   ?? '',
-    address: address ?? '',
-    message: message ?? '',
-    service: service ?? '',
-  }
-
-  try {
-    await Promise.all([
-      // Owner notification
-      resend.emails.send({
-        from:    `iL Progetto Forms <${FROM}>`,
-        to:      OWNER,
-        subject: `New consultation request from ${firstName} ${lastName}`,
-        html:    ownerEmail(data),
-      }),
-      // Auto-reply to customer
-      resend.emails.send({
-        from:    `iL Progetto LLC <${FROM}>`,
-        to:      email,
-        subject: 'We received your message — iL Progetto LLC',
-        html:    autoReplyEmail(firstName),
-      }),
-    ])
-
-    return res.status(200).json({ success: true, message: 'Message sent' })
-  } catch (err) {
-    console.error('Contact form error:', err)
-    return res.status(500).json({ success: false, error: 'Failed to send. Please try again.' })
-  }
-}
+  const data: Required<ContactB

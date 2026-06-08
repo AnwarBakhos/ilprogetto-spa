@@ -12,12 +12,29 @@ import { buildClientEmail, buildOwnerEmail, buildFlexibleClientEmail, buildFlexi
 import type { BookingApiRequest, BookingApiResponse, BookingFormData } from '../src/types/booking.js'
 
 // ─── Resend client ────────────────────────────────────────────────────────────
-// Key is read from environment variable — never hardcoded.
-// Set in Vercel dashboard: Settings → Environment Variables → RESEND_API_KEY
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const OWNER_EMAIL = 'info@ilprogettollc.com'
-const FROM_EMAIL = 'info@ilprogettollc.com'  // must be a verified Resend domain
+const FROM_EMAIL  = 'info@ilprogettollc.com'
+
+// ─── Rate limiting (in-memory, per serverless instance) ──────────────────────
+// 5 requests per IP per 10 minutes. Resets on cold start — acceptable for a
+// low-traffic service site. Upgrade to Redis/Upstash for persistent limiting.
+const RATE_LIMIT_WINDOW_MS  = 10 * 60 * 1000  // 10 min
+const RATE_LIMIT_MAX        = 5
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
+
+function isRateLimited(ip: string): boolean {
+  const now  = Date.now()
+  const entry = rateLimitMap.get(ip)
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+    return false
+  }
+  if (entry.count >= RATE_LIMIT_MAX) return true
+  entry.count++
+  return false
+}
 
 // ─── In-memory booked slots (V1) ──────────────────────────────────────────────
 // This Set persists for the lifetime of the serverless function instance.
@@ -68,16 +85,25 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ): Promise<void> {
-  // Only accept POST
+  // CORS
+  const origin = process.env.ALLOWED_ORIGIN ?? 'https://ilprogettollc.com'
+  res.setHeader('Access-Control-Allow-Origin', origin)
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+
+  if (req.method === 'OPTIONS') { res.status(204).end(); return }
+
   if (req.method !== 'POST') {
     res.status(405).json({ ok: false, error: 'Method not allowed' } satisfies BookingApiResponse)
     return
   }
 
-  // CORS — restrict to your domain in production
-  res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN ?? '*')
-  res.setHeader('Access-Control-Allow-Methods', 'POST')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  // Rate limiting
+  const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ?? 'unknown'
+  if (isRateLimited(ip)) {
+    res.status(429).json({ ok: false, error: 'Too many requests. Please wait a few minutes.' } satisfies BookingApiResponse)
+    return
+  }
 
   const body = req.body as BookingApiRequest
 
@@ -139,7 +165,7 @@ export default async function handler(
   const icsBase64 = encodeICSToBase64(icsContent)
 
   // ─── Send both emails ─────────────────────────────────────────────────────
-  try { console.log("DEBUG: Processing request...");
+  try {
     const [clientResult, ownerResult] = await Promise.all([
       // Client confirmation
       resend.emails.send({
@@ -173,33 +199,4 @@ export default async function handler(
     // If Resend errored on both, release the slot and return 500
     if (clientResult.error && ownerResult.error) {
       BOOKED_SLOTS.delete(key)
-      console.error('Resend error (both):', clientResult.error, ownerResult.error)
-      res.status(500).json({
-        ok: false,
-        error: 'Email delivery failed. Your slot was not reserved. Please try again.',
-      } satisfies BookingApiResponse)
-      return
-    }
-
-    // Log any partial failure but don't fail the booking
-    if (clientResult.error) {
-      console.error('Client email failed:', clientResult.error)
-    }
-    if (ownerResult.error) {
-      console.error('Owner email failed:', ownerResult.error)
-    }
-
-    res.status(200).json({
-      ok: true,
-      id: bookingId,
-    } satisfies BookingApiResponse)
-  } catch (err) {
-    // Release slot on unexpected error
-    BOOKED_SLOTS.delete(key)
-    console.error('Booking handler error:', err)
-    res.status(500).json({
-      ok: false,
-      error: 'An unexpected error occurred. Please call (858) 338-1678 to book directly.',
-    } satisfies BookingApiResponse)
-  }
-}
+      console.error('Resend error (both):', clientResu

@@ -5,9 +5,19 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { Resend } from 'resend'
 
-const resend    = new Resend(process.env.RESEND_API_KEY)
-const FROM      = 'info@ilprogettollc.com'
-const OWNER     = 'info@ilprogettollc.com'
+const resend = new Resend(process.env.RESEND_API_KEY)
+const FROM   = 'info@ilprogettollc.com'
+const OWNER  = 'info@ilprogettollc.com'
+
+// ─── Rate limiting ────────────────────────────────────────────────────────────
+const WINDOW_MS = 60 * 60 * 1000  // 1 hour — newsletter is most abuse-prone
+const MAX       = 2
+const rlMap     = new Map<string, { count: number; resetAt: number }>()
+function isRateLimited(ip: string): boolean {
+  const now = Date.now(); const e = rlMap.get(ip)
+  if (!e || now > e.resetAt) { rlMap.set(ip, { count: 1, resetAt: now + WINDOW_MS }); return false }
+  if (e.count >= MAX) return true; e.count++; return false
+}
 const BG        = '#F7F4EF'
 const INK       = '#1A1A1A'
 const SAND      = '#C5A572'
@@ -60,39 +70,12 @@ function ownerNotification(email: string): string {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ ok: false, error: 'Method not allowed' })
-  }
+  const origin = process.env.ALLOWED_ORIGIN ?? 'https://ilprogettollc.com'
+  res.setHeader('Access-Control-Allow-Origin', origin)
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
-  res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN ?? '*')
+  if (req.method === 'OPTIONS') return res.status(204).end()
+  if (req.method !== 'POST') return res.status(405).json({ ok: false, error: 'Method not allowed' })
 
-  const { email } = req.body as { email?: string }
-
-  if (!email || !email.includes('@')) {
-    return res.status(400).json({ ok: false, error: 'Valid email required.' })
-  }
-
-  try {
-    await Promise.all([
-      // Welcome email to subscriber
-      resend.emails.send({
-        from:    `iL Progetto LLC <${FROM}>`,
-        to:      email,
-        subject: 'Your 10% Off Discount — iL Progetto LLC',
-        html:    welcomeEmail(email),
-      }),
-      // Owner notification
-      resend.emails.send({
-        from:    `iL Progetto Signups <${FROM}>`,
-        to:      OWNER,
-        subject: `New newsletter signup: ${email}`,
-        html:    ownerNotification(email),
-      }),
-    ])
-
-    return res.status(200).json({ ok: true })
-  } catch (err) {
-    console.error('Newsletter error:', err)
-    return res.status(500).json({ ok: false, error: 'Failed to send. Please try again.' })
-  }
-}
+  const ip = (req.headers['x-forwarded-for
