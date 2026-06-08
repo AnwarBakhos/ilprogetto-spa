@@ -267,65 +267,50 @@ function CatalogPage() {
 
   const [activeId, setActiveId] = useState<string | undefined>(urlProduct)
 
-  // ── Refs ──────────────────────────────────────────────────────────────────
-  // skipScrollRef: pill/card clicks handle their own scroll; flag tells the
-  //   urlProduct effect not to double-fire or scroll on a card toggle.
-  // isFirstRenderRef: distinguishes fresh page load (layout not yet settled)
-  //   from same-page urlProduct changes (layout already painted).
-  const skipScrollRef     = useRef(false)
-  const isFirstRenderRef  = useRef(true)
+  // skipScrollRef: pill/card handlers manage their own scroll; this tells the
+  // urlProduct effect not to double-scroll when they update the URL.
+  const skipScrollRef = useRef(false)
 
-  // ── Scroll to a product card ───────────────────────────────────────────────
-  // Uses getBoundingClientRect which is viewport-relative, so adding scrollY
-  // gives the absolute document position. Retries when element isn't in DOM yet.
-  function scrollToCard(id: string, attempt = 0) {
-    requestAnimationFrame(() => {
-      const el = document.getElementById(`card-${id}`)
-      if (!el) {
-        // Element not yet painted — keep retrying (handles slow mobile renders)
-        if (attempt < 20) setTimeout(() => scrollToCard(id, attempt + 1), 80)
-        return
-      }
-      const stickyBar = document.getElementById('catalog-filter-bar')
-      const barH = stickyBar?.getBoundingClientRect().height ?? 0
-      const offset = 76 + barH + 16
-      const top = el.getBoundingClientRect().top + window.scrollY - offset
-      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
-    })
+  // ── Measure total sticky-header height ────────────────────────────────────
+  function stickyOffset() {
+    const nav    = 76
+    const desktopBar = document.getElementById('catalog-filter-bar')
+    const mobileBar  = document.getElementById('mobile-filter-bar')
+    const barH = (desktopBar?.getBoundingClientRect().height ?? 0)
+               + (mobileBar?.getBoundingClientRect().height ?? 0)
+    return nav + barH + 8
   }
 
-  // ── Deep-link / external nav: fires whenever ?product= changes ────────────
-  // On FIRST render (cross-page nav): layout is still settling — images, fonts,
-  // and the hero section shift card positions for ~400ms after mount. We wait
-  // before measuring so getBoundingClientRect() gives the settled position.
-  // On SAME-PAGE changes (mobile menu while already on /catalog): layout is
-  // already painted so we scroll immediately.
+  // ── Scroll to a product card ───────────────────────────────────────────────
+  function scrollToCard(id: string) {
+    const el = document.getElementById(`card-${id}`)
+    if (!el) return
+    const top = el.getBoundingClientRect().top + window.scrollY - stickyOffset()
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+  }
+
+  // ── Nav/footer/deep-link: fires when ?product= changes in the URL ─────────
+  // After navigate() resolves the router has finished any scroll restoration,
+  // so we measure and scroll once layout is stable.
   useEffect(() => {
     if (!urlProduct) return
     if (skipScrollRef.current) { skipScrollRef.current = false; return }
     setActiveId(urlProduct)
-
-    const firstRender = isFirstRenderRef.current
-    isFirstRenderRef.current = false
-
-    if (firstRender) {
-      // Wait for hero, filter strip, and images to settle their heights
-      setTimeout(() => scrollToCard(urlProduct), 500)
-    } else {
-      // Already on /catalog — layout is stable, scroll right away
-      scrollToCard(urlProduct)
-    }
+    // Delay lets React commit the new activeId render + any router scroll
+    // restoration settle before we measure element position.
+    setTimeout(() => scrollToCard(urlProduct), 320)
   }, [urlProduct])
 
-  // ── Pill click: scroll to card AND open its drawer ────────────────────────
-  function handlePillClick(id: string) {
+  // ── Pill click ────────────────────────────────────────────────────────────
+  // Await navigate so the router finishes before we measure card position.
+  async function handlePillClick(id: string) {
     skipScrollRef.current = true
     setActiveId(id)
-    void navigate({ search: { product: id }, replace: true, resetScroll: false })
+    await navigate({ search: { product: id }, replace: true, resetScroll: false })
     scrollToCard(id)
   }
 
-  // ── Card click: toggle drawer. No scroll — just open/close in place. ──────
+  // ── Card click: toggle drawer, no scroll ──────────────────────────────────
   function handleCardClick(id: string) {
     skipScrollRef.current = true
     setActiveId(prev => {
@@ -408,9 +393,9 @@ function CatalogPage() {
         ))}
       </nav>
 
-      {/* ── Mobile filter strip — horizontal scroll ─────────────────────── */}
-      <div className="lg:hidden flex gap-2 px-6 py-3 overflow-x-auto"
-           style={{ background: 'rgba(245,243,239,0.97)', borderBottom: '0.5px solid var(--hairline)', scrollbarWidth: 'none' }}>
+      {/* ── Mobile filter strip — sticky horizontal scroll ──────────────── */}
+      <div id="mobile-filter-bar" className="lg:hidden flex gap-2 px-6 py-3 overflow-x-auto z-40"
+           style={{ position: 'sticky', top: '76px', background: 'rgba(245,243,239,0.97)', borderBottom: '0.5px solid var(--hairline)', scrollbarWidth: 'none' }}>
         <button
           onClick={() => { setActiveId(undefined); void navigate({ search: {}, replace: true }); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
           className="flex-shrink-0 px-3 py-1.5 text-[10px] tracking-[0.14em] uppercase border transition-colors"
