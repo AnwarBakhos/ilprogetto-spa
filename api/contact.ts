@@ -6,8 +6,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const FROM   = 'info@ilprogettollc.com'
-const OWNER  = 'info@ilprogettollc.com'
+const FROM   = 'info@progettoshades.com'
+const OWNER  = 'info@progettoshades.com'
 
 // ─── Rate limiting ────────────────────────────────────────────────────────────
 const WINDOW_MS = 10 * 60 * 1000
@@ -105,7 +105,7 @@ function autoReplyEmail(firstName: string): string {
         <p style="margin:0 0 32px;font-size:15px;color:#6b6b6b;line-height:1.85;">
           In the meantime, feel free to browse our collection or give us a call if you have any immediate questions.
         </p>
-        <a href="https://ilprogetto-spa.vercel.app/products"
+        <a href="https://www.progettoshades.com/catalog"
            style="display:inline-block;background:${SAND};color:#fff;text-decoration:none;padding:14px 28px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">
           Browse Our Collection
         </a>

@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import type { BookingFormData, BookingStatus, BookingApiResponse } from '@/types/booking'
 import { PRODUCTS } from '@/data/catalog'
+import { useAddressAutocomplete } from '@/lib/useAddressAutocomplete'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface BookingState {
@@ -17,10 +18,10 @@ interface BookingState {
 
 // ─── Form field component ─────────────────────────────────────────────────────
 function Field({
-  label, id, type = 'text', required, placeholder, value, onChange,
+  label, id, type = 'text', required, placeholder, value, onChange, error,
 }: {
   label: string; id: string; type?: string; required?: boolean
-  placeholder?: string; value: string; onChange: (v: string) => void
+  placeholder?: string; value: string; onChange: (v: string) => void; error?: string
 }) {
   return (
     <div>
@@ -41,15 +42,65 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         className="w-full border px-4 py-3 text-[14px] font-[300] outline-none transition-colors"
         style={{
-          borderColor: 'var(--hairline)',
+          borderColor: error ? '#c0392b' : 'var(--hairline)',
           background: 'var(--cream)',
           color: 'var(--ink)',
         }}
-        onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--sand)')}
-        onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--hairline)')}
+        onFocus={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : 'var(--sand)')}
+        onBlur={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : 'var(--hairline)')}
       />
+      {error && <p className="mt-1 text-[11px]" style={{ color: '#c0392b' }}>{error}</p>}
     </div>
   )
+}
+
+// ─── Address field with Google Places autocomplete ───────────────────────────
+function AddressField({
+  value, onChange, error,
+}: {
+  value: string; onChange: (v: string) => void; error?: string
+}) {
+  const inputRef = useRef<HTMLInputElement>(null)
+  useAddressAutocomplete(inputRef, onChange)
+
+  return (
+    <div>
+      <label
+        htmlFor="address"
+        className="block text-[10px] tracking-[0.18em] uppercase mb-2"
+        style={{ color: 'var(--mid)' }}
+      >
+        Property Address<span style={{ color: 'var(--sand)' }} aria-label="required"> *</span>
+      </label>
+      <input
+        ref={inputRef}
+        type="text"
+        id="address"
+        name="address"
+        required
+        autoComplete="street-address"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full border px-4 py-3 text-[14px] font-[300] outline-none transition-colors"
+        style={{
+          borderColor: error ? '#c0392b' : 'var(--hairline)',
+          background: 'var(--cream)',
+          color: 'var(--ink)',
+        }}
+        onFocus={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : 'var(--sand)')}
+        onBlur={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : 'var(--hairline)')}
+      />
+      {error && <p className="mt-1 text-[11px]" style={{ color: '#c0392b' }}>{error}</p>}
+    </div>
+  )
+}
+
+// ─── Validation helpers ───────────────────────────────────────────────────────
+function isValidEmail(v: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())
+}
+function isValidPhone(v: string) {
+  return v.replace(/\D/g, '').length >= 10
 }
 
 // ─── BookingCalendar ──────────────────────────────────────────────────────────
@@ -65,6 +116,17 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
     confirmation: null,
     errorMessage: null,
   })
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({})
+
+  function validateFields(): boolean {
+    const errors: { email?: string; phone?: string } = {}
+    const email = state.form.email ?? ''
+    const phone = state.form.phone ?? ''
+    if (email && !isValidEmail(email)) errors.email = 'Please enter a valid email address.'
+    if (phone && !isValidPhone(phone)) errors.phone = 'Phone must have at least 10 digits.'
+    setFieldErrors(errors)
+    return Object.keys(errors).length === 0
+  }
 
   // ─── Handlers ─────────────────────────────────────────────────────────────
   function updateForm(field: keyof BookingFormData, value: string) {
@@ -74,6 +136,7 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
   async function handleFlexibleSubmit() {
     const { firstName, lastName, email, address } = state.form
     if (!firstName?.trim() || !lastName?.trim() || !email?.trim() || !address?.trim()) return
+    if (!validateFields()) return
 
     setState((s) => ({ ...s, status: 'submitting', errorMessage: null }))
 
@@ -238,12 +301,15 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Email" id="email" type="email" required
-              value={state.form.email ?? ''} onChange={(v) => updateForm('email', v)} />
+              value={state.form.email ?? ''} onChange={(v) => { updateForm('email', v); setFieldErrors((e) => ({ ...e, email: undefined })) }}
+              error={fieldErrors.email} />
             <Field label="Phone" id="phone" type="tel"
-              value={state.form.phone ?? ''} onChange={(v) => updateForm('phone', v)} />
+              value={state.form.phone ?? ''} onChange={(v) => { updateForm('phone', v); setFieldErrors((e) => ({ ...e, phone: undefined })) }}
+              error={fieldErrors.phone} />
           </div>
-          <Field label="Property Address" id="address" required
-            value={state.form.address ?? ''} onChange={(v) => updateForm('address', v)} />
+          <AddressField
+            value={state.form.address ?? ''}
+            onChange={(v) => updateForm('address', v)} />
 
           {/* Service multi-select */}
           <div>
@@ -258,11 +324,10 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
                     key={p.id}
                     type="button"
                     onClick={() => {
-                      const current = (state.form.service ?? 'general').split(',').filter(Boolean)
-                      const isGeneral = p.id === 'general'
+                      const current = (state.form.service ?? 'general').split(',')
                       let next: string[]
-                      if (isGeneral) {
-                        next = selected ? [] : ['general']
+                      if (p.id === 'general') {
+                        next = ['general']
                       } else {
                         const without = current.filter(x => x !== 'general')
                         next = without.includes(p.id)

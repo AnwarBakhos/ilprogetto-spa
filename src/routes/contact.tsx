@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { setupScrollReveal } from '@/lib/utils'
 import { getProduct } from '@/data/catalog'
 import { SITE_URL } from '@/lib/config'
+import { useAddressAutocomplete } from '@/lib/useAddressAutocomplete'
 
 
 // ─── Search params ────────────────────────────────────────────────────────────
@@ -74,6 +75,7 @@ function ContactPage() {
 
   // Form state
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({})
   const preselectedProduct = service ? getProduct(service) : undefined
 
   useEffect(() => {
@@ -83,9 +85,21 @@ function ContactPage() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const form = e.currentTarget
+    const emailVal = (form.elements.namedItem('email') as HTMLInputElement).value
+    const phoneVal = (form.elements.namedItem('phone') as HTMLInputElement).value
+
+    const errors: { email?: string; phone?: string } = {}
+    if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal.trim())) {
+      errors.email = 'Please enter a valid email address.'
+    }
+    if (phoneVal && phoneVal.replace(/\D/g, '').length < 10) {
+      errors.phone = 'Phone must have at least 10 digits.'
+    }
+    if (Object.keys(errors).length > 0) { setFieldErrors(errors); return }
+    setFieldErrors({})
     setStatus('sending')
 
-    const form = e.currentTarget
     const data = {
       firstName: (form.elements.namedItem('fname') as HTMLInputElement).value,
       lastName: (form.elements.namedItem('lname') as HTMLInputElement).value,
@@ -267,16 +281,11 @@ function ContactPage() {
                 <FormField label="Last Name" id="lname" type="text" required placeholder="Smith" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                <FormField label="Email" id="email" type="email" required placeholder="jane@email.com" />
-                <FormField label="Phone" id="phone" type="tel" placeholder="(619) 555-0100" />
+                <FormField label="Email" id="email" type="email" required placeholder="jane@email.com" error={fieldErrors.email} />
+                <FormField label="Phone" id="phone" type="tel" placeholder="(619) 555-0100" error={fieldErrors.phone} />
               </div>
               <div className="mb-4">
-                <FormField
-                  label="Property Address"
-                  id="address"
-                  type="text"
-                  placeholder="1234 Coastal Drive, San Diego CA"
-                />
+                <AddressAutocompleteField placeholder="1234 Coastal Drive, San Diego CA" />
               </div>
               <div className="mb-6">
                 <label
@@ -370,6 +379,35 @@ function ContactPage() {
   )
 }
 
+// ─── Address field with Google Places autocomplete ───────────────────────────
+function AddressAutocompleteField({ placeholder }: { placeholder?: string }) {
+  const inputRef = useRef<HTMLInputElement>(null)
+  useAddressAutocomplete(inputRef, (address) => {
+    if (inputRef.current) inputRef.current.value = address
+  })
+  return (
+    <div>
+      <label
+        htmlFor="address"
+        className="block text-[10px] tracking-[0.18em] uppercase mb-2.5"
+        style={{ color: 'var(--mid)' }}
+      >
+        Property Address
+      </label>
+      <input
+        ref={inputRef}
+        type="text"
+        id="address"
+        name="address"
+        autoComplete="street-address"
+        placeholder={placeholder}
+        className="w-full border border-[var(--hairline)] bg-[var(--cream)] px-4 py-3.5 text-[14px] font-[300] outline-none focus:border-[var(--sand)] transition-colors"
+        style={{ color: 'var(--ink)' }}
+      />
+    </div>
+  )
+}
+
 // ─── Reusable form field ──────────────────────────────────────────────────────
 function FormField({
   label,
@@ -377,12 +415,14 @@ function FormField({
   type,
   required,
   placeholder,
+  error,
 }: {
   label: string
   id: string
   type: string
   required?: boolean
   placeholder?: string
+  error?: string
 }) {
 
   const schema = {
@@ -418,9 +458,15 @@ function FormField({
         name={id}
         required={required}
         placeholder={placeholder}
-        className="w-full border border-[var(--hairline)] bg-[var(--cream)] px-4 py-3.5 text-[14px] font-[300] outline-none focus:border-[var(--sand)] transition-colors"
-        style={{ color: 'var(--ink)' }}
+        className="w-full border bg-[var(--cream)] px-4 py-3.5 text-[14px] font-[300] outline-none transition-colors"
+        style={{
+          borderColor: error ? '#c0392b' : 'var(--hairline)',
+          color: 'var(--ink)',
+        }}
+        onFocus={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : 'var(--sand)')}
+        onBlur={(e) => (e.currentTarget.style.borderColor = error ? '#c0392b' : 'var(--hairline)')}
       />
+      {error && <p className="mt-1 text-[11px]" style={{ color: '#c0392b' }}>{error}</p>}
     </div>
     </>
   )

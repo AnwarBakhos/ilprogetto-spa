@@ -661,6 +661,8 @@ function HeroBookingSurvey() {
   const [phone, setPhone] = useState('')
   const [service, setService] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [emailError, setEmailError] = useState('')
+  const [phoneError, setPhoneError] = useState('')
 
   const fieldStyle: React.CSSProperties = {
     width: '100%',
@@ -683,12 +685,22 @@ function HeroBookingSurvey() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    let hasError = false
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setEmailError('Please enter a valid email address.')
+      hasError = true
+    } else { setEmailError('') }
+    if (phone && phone.replace(/\D/g, '').length < 10) {
+      setPhoneError('Phone must have at least 10 digits.')
+      hasError = true
+    } else { setPhoneError('') }
+    if (hasError) return
     setSubmitting(true)
     try {
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, email, phone, service, message: 'Hero survey lead' }),
+        body: JSON.stringify({ firstName, lastName: '', email, phone, service, message: 'Hero survey lead' }),
       })
       setStep('sent')
     } catch {
@@ -718,14 +730,27 @@ function HeroBookingSurvey() {
           <p style={{ fontSize: '13px', color: 'rgba(251,251,249,0.6)', marginBottom: '22px', lineHeight: 1.5 }}>We bring the showroom to you.</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
             <input type="text" placeholder="First Name" required value={firstName} onChange={(e) => setFirstName(e.target.value)} style={fieldStyle} onFocus={handleFocus} onBlur={handleBlur} />
-            <input type="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} style={fieldStyle} onFocus={handleFocus} onBlur={handleBlur} />
-            <input type="tel" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} style={fieldStyle} onFocus={handleFocus} onBlur={handleBlur} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <input type="email" placeholder="Email" required value={email}
+                onChange={(e) => { setEmail(e.target.value); setEmailError('') }}
+                style={{ ...fieldStyle, borderColor: emailError ? '#f87171' : 'rgba(255,255,255,0.12)' }}
+                onFocus={(e) => (e.currentTarget.style.borderColor = emailError ? '#f87171' : 'var(--sand)')}
+                onBlur={(e) => (e.currentTarget.style.borderColor = emailError ? '#f87171' : 'rgba(255,255,255,0.12)')} />
+              {emailError && <p style={{ fontSize: '11px', color: '#f87171', margin: 0 }}>{emailError}</p>}
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <input type="tel" placeholder="Phone" value={phone}
+                onChange={(e) => { setPhone(e.target.value); setPhoneError('') }}
+                style={{ ...fieldStyle, borderColor: phoneError ? '#f87171' : 'rgba(255,255,255,0.12)' }}
+                onFocus={(e) => (e.currentTarget.style.borderColor = phoneError ? '#f87171' : 'var(--sand)')}
+                onBlur={(e) => (e.currentTarget.style.borderColor = phoneError ? '#f87171' : 'rgba(255,255,255,0.12)')} />
+              {phoneError && <p style={{ fontSize: '11px', color: '#f87171', margin: 0 }}>{phoneError}</p>}
+            </div>
             <select value={service} onChange={(e) => setService(e.target.value)}
               style={{ ...fieldStyle, appearance: 'none', WebkitAppearance: 'none', cursor: 'pointer', color: service ? 'var(--cream)' : 'rgba(251,251,249,0.45)' }}
               onFocus={handleFocus} onBlur={handleBlur}>
               <option value="" disabled hidden>What are you interested in?</option>
               <option value="General Consultation" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>General Consultation</option>
-              <option value="Roller Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Roller Shades</option>
               <option value="Zebra Shades" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Zebra Shades</option>
               <option value="Motorized Blinds" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>Motorized Blinds</option>
               <option value="Plantation Shutters" style={{ background: '#1c1c1a', color:  'var(--cream)' }}>Plantation Shutters</option>
