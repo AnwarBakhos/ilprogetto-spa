@@ -217,16 +217,25 @@ function ReviewsPage() {
               {/* Platform badges */}
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { icon: <GoogleIcon size={20} />, name: 'Google', rating: '5.0', tag: 'Verified' },
-                  { icon: <YelpIcon size={18} />,   name: 'Yelp',   rating: '5.0', tag: 'Verified' },
-                ].map(({ icon, name, rating, tag }) => (
-                  <div key={name} className="flex items-center gap-3 p-4" style={{ background: 'rgba(255,255,255,0.04)', border: '0.5px solid rgba(255,255,255,0.08)' }}>
+                  { icon: <GoogleIcon size={20} />, name: 'Google', rating: '5.0', tag: 'Verified', href: 'https://g.page/r/CaPXEMsWP63SEBM/review' },
+                  { icon: <YelpIcon size={18} />,   name: 'Yelp',   rating: '5.0', tag: 'Verified', href: 'https://www.yelp.com/writeareview/biz/bbN_heYMnYXA2esAoUKpmQ?return_url=%2Fbiz%2FbbN_heYMnYXA2esAoUKpmQ&review_origin=biz-details-war-button' },
+                ].map(({ icon, name, rating, tag, href }) => (
+                  <a
+                    key={name}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-4 transition-colors duration-200"
+                    style={{ background: 'rgba(255,255,255,0.04)', border: '0.5px solid rgba(255,255,255,0.08)' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.10)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)' }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                  >
                     {icon}
                     <div>
                       <p className="text-[12px]" style={{ color: 'var(--cream)' }}>{name} · {rating}</p>
                       <p className="text-[9px] tracking-[0.14em] uppercase mt-0.5" style={{ color: 'var(--sand)' }}>{tag}</p>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -257,7 +266,95 @@ function ReviewsPage() {
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          3. REVIEW GRID
+          3. LEAVE A REVIEW — prominent, at top so users see it immediately
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section aria-label="Leave a review" className="px-4 md:px-10 lg:px-20 py-16 md:py-20" style={{ background: 'var(--ink)' }}>
+        <div className="max-w-[900px] mx-auto">
+
+          <div className="text-center mb-12">
+            <p className="text-[11px] tracking-[0.22em] uppercase mb-5" style={{ color: 'var(--sand)' }}>Share Your Experience</p>
+            <h2 className="font-[300] leading-[1.06] mb-5" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px, 4vw, 52px)', color: 'var(--cream)' }}>
+              Your Review Helps a{' '}
+              <em className="italic" style={{ color: 'var(--sand)' }}>Small Business</em>{' '}
+              Grow
+            </h2>
+            <p className="text-[15px] leading-[1.85] max-w-[520px] mx-auto" style={{ color: 'rgba(251,251,249,0.55)' }}>
+              It takes 60 seconds. For a family-owned business like ours, it means everything.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(255,255,255,0.08)' }}>
+            {/* Google */}
+            <a
+              href="https://g.page/r/CaPXEMsWP63SEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-10 transition-colors duration-300"
+              style={{ background: 'var(--ink)' }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(66,133,244,0.08)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'var(--ink)')}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <GoogleIcon size={32} />
+                <div>
+                  <p className="text-[13px]" style={{ color: 'var(--cream)' }}>Google Reviews</p>
+                  <Stars size={11} color="var(--sand)" />
+                </div>
+              </div>
+              <p className="text-[22px] font-[300] leading-[1.2] mb-5" style={{ fontFamily: 'var(--serif)', color: 'var(--cream)' }}>
+                Leave a Google Review
+              </p>
+              <p className="text-[13px] mb-8" style={{ color: 'rgba(251,251,249,0.5)' }}>
+                Google reviews boost local search ranking and help neighbors find us.
+              </p>
+              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase transition-all duration-200 group-hover:gap-3"
+                   style={{ color: '#4285F4' }}>
+                Write a Review
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </a>
+
+            {/* Yelp */}
+            <a
+              href="https://www.yelp.com/writeareview/biz/bbN_heYMnYXA2esAoUKpmQ?return_url=%2Fbiz%2FbbN_heYMnYXA2esAoUKpmQ&review_origin=biz-details-war-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-10 transition-colors duration-300"
+              style={{ background: 'var(--ink)' }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(196,18,0,0.08)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'var(--ink)')}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <YelpIcon size={28} />
+                </div>
+                <div>
+                  <p className="text-[13px]" style={{ color: 'var(--cream)' }}>Yelp</p>
+                  <Stars size={11} color="var(--sand)" />
+                </div>
+              </div>
+              <p className="text-[22px] font-[300] leading-[1.2] mb-5" style={{ fontFamily: 'var(--serif)', color: 'var(--cream)' }}>
+                Leave a Yelp Review
+              </p>
+              <p className="text-[13px] mb-8" style={{ color: 'rgba(251,251,249,0.5)' }}>
+                Yelp reviews help homeowners make confident decisions about who to trust.
+              </p>
+              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase transition-all duration-200 group-hover:gap-3"
+                   style={{ color: '#C41200' }}>
+                Write a Review
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          4. REVIEW GRID
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="reviews-grid" aria-label="Customer reviews" className="px-4 md:px-10 lg:px-20 py-20 md:py-28" style={{ background: 'var(--warm)' }}>
         <div className="max-w-[1200px] mx-auto">
@@ -343,94 +440,6 @@ function ReviewsPage() {
         </div>
         <ReviewsScrollPanel autoPlayInterval={6000} showControls compact />
       </div>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          5. LEAVE A REVIEW — dark CTA
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section aria-label="Leave a review" className="px-4 md:px-10 lg:px-20 py-20 md:py-28" style={{ background: 'var(--ink)' }}>
-        <div className="max-w-[900px] mx-auto">
-
-          <div className="text-center mb-16">
-            <p className="text-[11px] tracking-[0.22em] uppercase mb-5" style={{ color: 'var(--sand)' }}>Share Your Experience</p>
-            <h2 className="font-[300] leading-[1.06] mb-5" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px, 4vw, 52px)', color: 'var(--cream)' }}>
-              Your Review Helps a{' '}
-              <em className="italic" style={{ color: 'var(--sand)' }}>Small Business</em>{' '}
-              Grow
-            </h2>
-            <p className="text-[15px] leading-[1.85] max-w-[520px] mx-auto" style={{ color: 'rgba(251,251,249,0.55)' }}>
-              It takes 60 seconds. For a family-owned business like ours, it means everything.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(255,255,255,0.08)' }}>
-            {/* Google */}
-            <a
-              href="https://g.page/r/CaPXEMsWP63SEBM/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block p-10 transition-colors duration-300"
-              style={{ background: 'var(--ink)' }}
-              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(66,133,244,0.08)')}
-              onMouseLeave={e => (e.currentTarget.style.background = 'var(--ink)')}
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <GoogleIcon size={32} />
-                <div>
-                  <p className="text-[13px]" style={{ color: 'var(--cream)' }}>Google Reviews</p>
-                  <Stars size={11} color="var(--sand)" />
-                </div>
-              </div>
-              <p className="text-[22px] font-[300] leading-[1.2] mb-5" style={{ fontFamily: 'var(--serif)', color: 'var(--cream)' }}>
-                Leave a Google Review
-              </p>
-              <p className="text-[13px] mb-8" style={{ color: 'rgba(251,251,249,0.5)' }}>
-                Google reviews boost local search ranking and help neighbors find us.
-              </p>
-              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase transition-all duration-200 group-hover:gap-3"
-                   style={{ color: '#4285F4' }}>
-                Write a Review
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                </svg>
-              </div>
-            </a>
-
-            {/* Yelp */}
-            <a
-              href="https://www.yelp.com/writeareview/biz/bbN_heYMnYXA2esAoUKpmQ?return_url=%2Fbiz%2FbbN_heYMnYXA2esAoUKpmQ&review_origin=biz-details-war-button"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block p-10 transition-colors duration-300"
-              style={{ background: 'var(--ink)' }}
-              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(196,18,0,0.08)')}
-              onMouseLeave={e => (e.currentTarget.style.background = 'var(--ink)')}
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <YelpIcon size={28} />
-                </div>
-                <div>
-                  <p className="text-[13px]" style={{ color: 'var(--cream)' }}>Yelp</p>
-                  <Stars size={11} color="var(--sand)" />
-                </div>
-              </div>
-              <p className="text-[22px] font-[300] leading-[1.2] mb-5" style={{ fontFamily: 'var(--serif)', color: 'var(--cream)' }}>
-                Leave a Yelp Review
-              </p>
-              <p className="text-[13px] mb-8" style={{ color: 'rgba(251,251,249,0.5)' }}>
-                Yelp reviews help homeowners make confident decisions about who to trust.
-              </p>
-              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase transition-all duration-200 group-hover:gap-3"
-                   style={{ color: '#C41200' }}>
-                Write a Review
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                </svg>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
           6. CLOSING + BOOKING CTA

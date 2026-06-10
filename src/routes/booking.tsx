@@ -68,9 +68,10 @@ function BookingPage() {
             </em>
           </h1>
           <p className="text-[16px] leading-[1.85]" style={{ color: 'var(--mid)' }}>
-            Choose a date and time below. Our designer arrives at your door with the complete product
-            line — fabric samples, hardware, measuring tools, and pricing — so you can make a fully
-            informed decision in your own space.
+            Fill out the form below and we'll reach out within 24 hours to confirm your appointment.
+            Our designer arrives at your door with the complete product line — fabric samples,
+            hardware, measuring tools, and pricing — so you can make a fully informed decision
+            in your own space.
           </p>
         </div>
       </header>
