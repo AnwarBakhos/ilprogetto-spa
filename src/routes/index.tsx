@@ -656,7 +656,7 @@ function HomePage() {
 // ─── HeroBookingSurvey ────────────────────────────────────────────────────────
 function HeroBookingSurvey() {
   const [step, setStep] = useState<'form' | 'sent'>('form')
-  const [firstName, setFirstName] = useState('')
+  const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [service, setService] = useState('')
@@ -700,7 +700,7 @@ function HeroBookingSurvey() {
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName: '', email, phone, service, message: 'Hero survey lead' }),
+        body: JSON.stringify({ firstName: fullName.split(' ')[0] ?? fullName, lastName: fullName.split(' ').slice(1).join(' '), email, phone, service, message: 'Hero survey lead' }),
       })
       setStep('sent')
     } catch {
@@ -729,7 +729,7 @@ function HeroBookingSurvey() {
           <p style={{ fontFamily: 'var(--serif)', fontSize: '26px', fontWeight: 300, color: 'var(--cream)', lineHeight: 1.15, marginBottom: '6px' }}>Get Your Free Quote</p>
           <p style={{ fontSize: '13px', color: 'rgba(251,251,249,0.6)', marginBottom: '22px', lineHeight: 1.5 }}>We bring the showroom to you.</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
-            <input type="text" placeholder="First Name" required value={firstName} onChange={(e) => setFirstName(e.target.value)} style={fieldStyle} onFocus={handleFocus} onBlur={handleBlur} />
+            <input type="text" placeholder="Full Name" required value={fullName} onChange={(e) => setFullName(e.target.value)} style={fieldStyle} onFocus={handleFocus} onBlur={handleBlur} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
               <input type="email" placeholder="Email" required value={email}
                 onChange={(e) => { setEmail(e.target.value); setEmailError('') }}
