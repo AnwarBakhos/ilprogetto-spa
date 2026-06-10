@@ -404,7 +404,7 @@ function CommercialPage() {
               className="text-[16px] leading-[1.85] mb-12 fade-up delay-2"
               style={{ color: 'rgba(251,251,249,0.72)' }}
             >
-              Call (858) 338-1678 or email info@ilprogettollc.com to discuss your project. We respond
+              Call (858) 338-1678 or email info@progettoshades.com to discuss your project. We respond
               the same business day.
             </p>
             <div className="flex flex-wrap gap-4 fade-up delay-3">
@@ -445,7 +445,7 @@ function CommercialPage() {
             </p>
             {[
               { label: 'Phone', value: '(858) 338-1678', href: 'tel:+18583381678' },
-              { label: 'Email', value: 'info@ilprogettollc.com', href: 'mailto:info@ilprogettollc.com' },
+              { label: 'Email', value: 'info@progettoshades.com', href: 'mailto:info@progettoshades.com' },
               { label: 'License', value: 'California Contractors License #1127055', href: undefined },
               { label: 'Service Area', value: 'San Diego, Riverside, Orange & San Bernardino Counties', href: undefined },
               { label: 'Volume Pricing', value: 'Available for 5+ unit projects', href: undefined },

@@ -22,7 +22,7 @@ export function siteUrl(path: string): string {
 export const BUSINESS_NAME = 'iL Progetto LLC'
 export const BUSINESS_PHONE = '+18583381678'
 export const BUSINESS_PHONE_DISPLAY = '(858) 338-1678'
-export const BUSINESS_EMAIL = 'info@ilprogettollc.com'
+export const BUSINESS_EMAIL = 'info@progettoshades.com'
 export const BUSINESS_LICENSE = 'California Contractors License #1127055'
 export const BUSINESS_ADDRESS = {
   streetAddress: '',

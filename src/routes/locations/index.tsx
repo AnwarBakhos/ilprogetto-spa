@@ -36,7 +36,7 @@ export const Route = (createFileRoute as any)('/locations')({
           name: 'iL Progetto LLC',
           url: `${SITE_URL}`,
           telephone: '+18583381678',
-          email: 'info@ilprogettollc.com',
+          email: 'info@progettoshades.com',
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'San Diego',

@@ -607,7 +607,7 @@ function AboutPage() {
             </p>
             {[
               { label: 'Phone', value: '(858) 338-1678', href: 'tel:+18583381678' },
-              { label: 'Email', value: 'info@ilprogettollc.com', href: 'mailto:info@ilprogettollc.com' },
+              { label: 'Email', value: 'info@progettoshades.com', href: 'mailto:info@progettoshades.com' },
               { label: 'Service Area', value: 'San Diego, Riverside, Orange & San Bernardino Counties', href: undefined },
               { label: 'License', value: 'California Contractors License #1127055', href: undefined },
             ].map(({ label, value, href }) => (

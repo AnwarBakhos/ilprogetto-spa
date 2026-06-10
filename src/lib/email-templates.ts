@@ -70,7 +70,7 @@ function emailWrapper(body: string): string {
                 <strong style="color:${INK};">iL Progetto LLC</strong><br />
                 San Diego, CA 92127<br />
                 <a href="tel:+18583381678" style="color:${SAND};text-decoration:none;">(858) 338-1678</a> ·
-                <a href="mailto:info@ilprogettollc.com" style="color:${SAND};text-decoration:none;">info@ilprogettollc.com</a><br />
+                <a href="mailto:info@progettoshades.com" style="color:${SAND};text-decoration:none;">info@progettoshades.com</a><br />
                 Contractors License #1127055
               </p>
             </td>

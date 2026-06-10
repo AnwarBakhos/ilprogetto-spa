@@ -29,7 +29,7 @@ export const Route = createFileRoute('/')({
         name: 'iL Progetto LLC',
         description: 'Custom window treatments for San Diego homes and offices.',
         telephone: '+18583381678',
-        email: 'info@ilprogettollc.com',
+        email: 'info@progettoshades.com',
         url: `${SITE_URL}`,
         priceRange: '$$',
         image: 'https://drive.google.com/thumbnail?id=1uaY6LDCh59x8TymxSD3VmynmW35bK1ou&sz=w1200',

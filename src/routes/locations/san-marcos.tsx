@@ -92,7 +92,7 @@ function SanMarcosPage() {
     'description': `Custom window treatments in San Marcos, CA. Free in-home consultation — we bring the full catalog to your home.`,
     'url': `${SITE_URL}/locations/san-marcos`,
     'telephone': '+18583381678',
-    'email': 'info@ilprogettollc.com',
+    'email': 'info@progettoshades.com',
     'priceRange': '$$',
     'image': `${SITE_URL}/images/og-image.jpg`,
     'address': {

@@ -97,7 +97,7 @@ function ApplicationForm({ city, position }: { city: string; position: string })
       const data = await res.json() as { ok: boolean; error?: string }
       data.ok ? setStatus('done') : (setStatus('error'), setErr(data.error ?? 'Something went wrong.'))
     } catch {
-      setStatus('error'); setErr('Network error. Please email info@ilprogettollc.com directly.')
+      setStatus('error'); setErr('Network error. Please email info@progettoshades.com directly.')
     }
   }
 

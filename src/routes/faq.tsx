@@ -260,10 +260,10 @@ function FaqPage() {
               style={{ borderColor: 'var(--ink)', color: 'var(--ink)' }}>
               Call (858) 338-1678
             </a>
-            <a href="mailto:info@ilprogettollc.com"
+            <a href="mailto:info@progettoshades.com"
               className="text-center text-[13px] transition-colors"
               style={{ color: 'var(--mid)' }}>
-              info@ilprogettollc.com
+              info@progettoshades.com
             </a>
           </div>
         </div>

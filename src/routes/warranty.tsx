@@ -536,11 +536,11 @@ function WarrantyPage() {
             aria-hidden="true"
           />
           <a
-            href="mailto:info@ilprogettollc.com"
+            href="mailto:info@progettoshades.com"
             className="text-[14px] transition-colors hover:text-[var(--sand-light)]"
             style={{ color: 'rgba(251,251,249,0.75)' }}
           >
-            info@ilprogettollc.com
+            info@progettoshades.com
           </a>
         </div>
 

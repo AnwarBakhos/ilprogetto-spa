@@ -61,8 +61,8 @@ function LegalPage() {
             <Section title="How We Use Your Information"><p>We use the information you provide to contact you regarding your consultation, send appointment confirmations, and follow up on your window treatment project. We do not sell, rent, or share your personal information with third parties for marketing purposes.</p></Section>
             <Section title="Email Communications"><p>Transactional emails are sent via Resend, a third-party email delivery service. Your email address is shared with Resend solely for the purpose of delivering these messages.</p></Section>
             <Section title="Cookies & Analytics"><p>This website does not use tracking cookies or advertising pixels. We do not use Google Analytics, Facebook Pixel, or similar third-party tracking tools.</p></Section>
-            <Section title="Data Retention"><p>Consultation request data is retained for up to twelve months for project coordination and warranty purposes. You may request deletion of your information at any time by emailing info@ilprogettollc.com.</p></Section>
-            <Section title="Contact"><p>For any privacy-related questions or requests, contact us at info@ilprogettollc.com or call (858) 338-1678.</p></Section>
+            <Section title="Data Retention"><p>Consultation request data is retained for up to twelve months for project coordination and warranty purposes. You may request deletion of your information at any time by emailing info@progettoshades.com.</p></Section>
+            <Section title="Contact"><p>For any privacy-related questions or requests, contact us at info@progettoshades.com or call (858) 338-1678.</p></Section>
           </article>
         )}
 
@@ -77,7 +77,7 @@ function LegalPage() {
             </Section>
             <Section title="Installation"><p>Installation is performed by iL Progetto LLC employees holding California Contractors License #1127055. We carry full general liability insurance and workers' compensation coverage. We do not subcontract installation work.</p></Section>
             <Section title="Warranty"><p>All products carry the manufacturer's warranty applicable to the specific item. Our workmanship is warranted for one year from the installation date.</p></Section>
-            <Section title="Cancellations & Rescheduling"><p>Consultations may be cancelled or rescheduled at no charge with at least 24 hours' notice. Please call (858) 338-1678 or email info@ilprogettollc.com to reschedule.</p></Section>
+            <Section title="Cancellations & Rescheduling"><p>Consultations may be cancelled or rescheduled at no charge with at least 24 hours' notice. Please call (858) 338-1678 or email info@progettoshades.com to reschedule.</p></Section>
             <Section title="Limitation of Liability"><p>iL Progetto LLC's liability for any claim arising from our services is limited to the amount paid for the specific product or service giving rise to the claim.</p></Section>
           </article>
         )}
@@ -110,7 +110,7 @@ function LegalPage() {
             </Section>
             <Section title="Feedback">
               <ul style={{ marginTop: '12px', paddingLeft: '20px', lineHeight: '2' }}>
-                <li>Email: <a href="mailto:info@ilprogettollc.com" style={{ color: 'var(--sand)' }}>info@ilprogettollc.com</a></li>
+                <li>Email: <a href="mailto:info@progettoshades.com" style={{ color: 'var(--sand)' }}>info@progettoshades.com</a></li>
                 <li>Phone: <a href="tel:+18583381678" style={{ color: 'var(--sand)' }}>(858) 338-1678</a></li>
               </ul>
             </Section>

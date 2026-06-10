@@ -86,7 +86,7 @@ function LocalBusinessSchema() {
     "alternateName": "iL Progetto Window Treatments",
     "description": "Custom window treatments for San Diego homes and offices. Roller shades, zebra shades, motorized blinds, plantation shutters — measured and installed by our licensed team.",
     "telephone": "+18583381678",
-    "email": "info@ilprogettollc.com",
+    "email": "info@progettoshades.com",
     "url": `${SITE_URL}`,
     "logo": "/images/logo-300.png",
     "image": "/images/og-image.jpg",

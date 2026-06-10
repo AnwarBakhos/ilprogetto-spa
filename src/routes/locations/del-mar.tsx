@@ -77,7 +77,7 @@ function DelMarPage() {
     'description': `Custom window treatments in Del Mar, CA. Free in-home consultation — we bring the full catalog to your home.`,
     'url': `${SITE_URL}/locations/del-mar`,
     'telephone': '+18583381678',
-    'email': 'info@ilprogettollc.com',
+    'email': 'info@progettoshades.com',
     'priceRange': '$$',
     'image': `${SITE_URL}/images/og-image.jpg`,
     'address': {

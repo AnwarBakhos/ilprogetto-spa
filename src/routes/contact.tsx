@@ -21,7 +21,7 @@ export const Route = createFileRoute('/contact')({
       {
         name: 'description',
         content:
-          "Contact iL Progetto LLC for a free in-home window treatment consultation in San Diego. Call or text (858) 338-1678, email info@ilprogettollc.com, or fill out the form. We serve San Diego, Poway, Carlsbad, La Jolla, Del Mar, Chula Vista and all of Southern California.",
+          "Contact iL Progetto LLC for a free in-home window treatment consultation in San Diego. Call or text (858) 338-1678, email info@progettoshades.com, or fill out the form. We serve San Diego, Poway, Carlsbad, La Jolla, Del Mar, Chula Vista and all of Southern California.",
       },
       { property: 'og:image', content: `${SITE_URL}/images/og-image.jpg` },
       { property: 'og:url', content: `${SITE_URL}/contact` },
@@ -49,9 +49,9 @@ const CONTACT_INFO = [
   },
   {
     label: 'Email',
-    value: 'info@ilprogettollc.com',
+    value: 'info@progettoshades.com',
     sub: 'We respond within 24 hours',
-    href: 'mailto:info@ilprogettollc.com',
+    href: 'mailto:info@progettoshades.com',
   },
   {
     label: 'Location',
@@ -229,7 +229,7 @@ function ContactPage() {
                 Please call us at{' '}
                 <a href="tel:+18583381678" style={{ color: 'var(--sand)' }}>(858) 338-1678</a>{' '}
                 or email{' '}
-                <a href="mailto:info@ilprogettollc.com" style={{ color: 'var(--sand)' }}>info@ilprogettollc.com</a>{' '}
+                <a href="mailto:info@progettoshades.com" style={{ color: 'var(--sand)' }}>info@progettoshades.com</a>{' '}
                 directly.
               </p>
             </div>
@@ -391,7 +391,7 @@ function FormField({
     '@id': `${SITE_URL}/#organization`,
     'name': 'iL Progetto LLC',
     'telephone': '+18583381678',
-    'email': 'info@ilprogettollc.com',
+    'email': 'info@progettoshades.com',
     'url': `${SITE_URL}/contact`,
     'image': `${SITE_URL}/images/og-image.jpg`,
     'priceRange': '$$',

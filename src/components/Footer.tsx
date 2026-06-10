@@ -167,8 +167,8 @@ export function Footer() {
               <a href="tel:+18583381678" className="hover:text-[var(--sand-light)] transition-colors">
                 (858) 338-1678
               </a>
-              <a href="mailto:info@ilprogettollc.com" className="hover:text-[var(--sand-light)] transition-colors">
-                info@ilprogettollc.com
+              <a href="mailto:info@progettoshades.com" className="hover:text-[var(--sand-light)] transition-colors">
+                info@progettoshades.com
               </a>
               <p style={{ color: 'rgba(251,251,249,0.4)' }}>San Diego, CA 92127</p>
             </div>

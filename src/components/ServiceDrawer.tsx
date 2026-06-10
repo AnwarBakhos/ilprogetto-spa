@@ -269,7 +269,7 @@ export function ServiceDrawer() {
               </div>
             </a>
 
-            <a href="mailto:info@ilprogettollc.com"
+            <a href="mailto:info@progettoshades.com"
                className="flex items-center gap-3 group">
               <div className="w-8 h-8 rounded-full border flex items-center justify-center flex-shrink-0 transition-colors group-hover:border-[var(--sand)]"
                    style={{ borderColor: 'rgba(255,255,255,0.15)', color: 'rgba(251,251,249,0.5)' }}>
@@ -283,7 +283,7 @@ export function ServiceDrawer() {
                    style={{ color: 'rgba(251,251,249,0.35)' }}>Email</p>
                 <p className="text-[13px] group-hover:text-[var(--sand-light)] transition-colors"
                    style={{ color: 'rgba(251,251,249,0.75)' }}>
-                  info@ilprogettollc.com
+                  info@progettoshades.com
                 </p>
               </div>
             </a>

@@ -161,10 +161,10 @@ function ConfirmedPage() {
             <p className="text-[13px] mt-1" style={{ color: 'var(--mid)' }}>
               Call or text — we respond same day.
             </p>
-            <a href="mailto:info@ilprogettollc.com"
+            <a href="mailto:info@progettoshades.com"
                className="block text-[13px] mt-2 hover:text-[var(--sand)] transition-colors"
                style={{ color: 'var(--mid)' }}>
-              info@ilprogettollc.com
+              info@progettoshades.com
             </a>
           </div>
           <div className="flex flex-col gap-3">

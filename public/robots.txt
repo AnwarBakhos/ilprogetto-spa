@@ -20,4 +20,4 @@ Allow: /
 
 # AI summary: see /llms.txt for machine-readable business info
 
-Sitemap: https://www.ilprogettollc.com/sitemap.xml
+Sitemap: https://www.progettoshades.com/sitemap.xml
