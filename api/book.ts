@@ -14,8 +14,8 @@ import type { BookingApiRequest, BookingApiResponse, BookingFormData } from '../
 // ─── Resend client ────────────────────────────────────────────────────────────
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const OWNER_EMAIL = 'info@ilprogettollc.com'
-const FROM_EMAIL  = 'info@ilprogettollc.com'
+const OWNER_EMAIL = 'info@progettoshades.com'
+const FROM_EMAIL  = 'info@progettoshades.com'
 
 // ─── Rate limiting (in-memory, per serverless instance) ──────────────────────
 // 5 requests per IP per 10 minutes. Resets on cold start — acceptable for a
