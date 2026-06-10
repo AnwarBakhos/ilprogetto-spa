@@ -138,10 +138,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { firstName, lastName, email, phone, address, message, service } =
     req.body as ContactBody
 
-  if (!firstName || !lastName || !email) {
+  if (!firstName || !email) {
     return res
       .status(400)
-      .json({ success: false, error: 'firstName, lastName, and email are required.' })
+      .json({ success: false, error: 'firstName and email are required.' })
   }
 
   if (!email.includes('@')) {
