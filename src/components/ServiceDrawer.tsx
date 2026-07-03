@@ -405,7 +405,7 @@ export function ServiceDrawer() {
         {/* Bottom sheet */}
         <div
           className="fixed left-0 right-0"
-          style={{ zIndex: 900, bottom: 'calc(52px + env(safe-area-inset-bottom))', height: '72vh', transform: open ? 'translateY(0)' : 'translateY(100%)', transition: 'transform 0.38s cubic-bezier(0.4,0,0.2,1)', boxShadow: '0 -8px 40px rgba(0,0,0,0.4)', borderRadius: '16px 16px 0 0', overflow: 'hidden' }}
+          style={{ zIndex: 900, bottom: 'calc(52px + env(safe-area-inset-bottom))', height: 'clamp(320px, 72dvh, 760px)', transform: open ? 'translateY(0)' : 'translateY(100%)', transition: 'transform 0.38s cubic-bezier(0.4,0,0.2,1)', boxShadow: '0 -8px 40px rgba(0,0,0,0.4)', borderRadius: '16px 16px 0 0', overflow: 'hidden' }}
           role="dialog"
           aria-modal="true"
           aria-label="Service info and offers"

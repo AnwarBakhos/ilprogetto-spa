@@ -110,7 +110,7 @@ export function ExitIntentPopup() {
           {/* Top accent bar */}
           <div style={{ height: '3px', background: 'var(--sand)' }} aria-hidden="true" />
 
-          <div className="p-10 md:p-14 relative">
+          <div className="p-6 sm:p-10 md:p-14 relative">
             {/* Close */}
             <button
               onClick={dismiss}

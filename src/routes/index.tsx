@@ -316,7 +316,7 @@ function HomePage() {
       <div ref={ref}>
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <header
-        className="hero relative min-h-screen flex flex-col justify-end overflow-hidden"
+        className="hero relative min-h-screen min-h-dvh flex flex-col justify-end overflow-hidden"
         style={{ background: 'var(--ink)' }}
         aria-label="Hero"
       >
@@ -342,7 +342,7 @@ function HomePage() {
         />
 
         {/* Content */}
-        <div className="relative z-[2] px-4 md:px-10 lg:px-20 pb-20 md:pb-24 lg:pb-28 w-full flex flex-col lg:flex-row lg:items-end lg:gap-16">
+        <div className="relative z-[2] px-4 md:px-10 lg:px-20 pb-20 md:pb-24 lg:pb-28 w-full flex flex-col xl:flex-row xl:items-end xl:gap-16">
           {/* Left: existing hero text */}
           <div className="flex-1 min-w-0">
             <p className="hero fade-up inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-8 text-[var(--sand-light)]">
@@ -408,7 +408,7 @@ function HomePage() {
           </div>
 
           {/* Right: booking survey card */}
-          <div className="w-full lg:w-[380px] flex-shrink-0 pb-0 lg:pb-4 mt-8 lg:mt-0">
+          <div className="w-full max-w-[560px] xl:max-w-none mx-auto xl:mx-0 xl:w-[380px] flex-shrink-0 pb-0 xl:pb-4 mt-10 xl:mt-0">
             <HeroBookingSurvey />
           </div>
         </div>

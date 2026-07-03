@@ -226,3 +226,13 @@ input[type='range']::-moz-range-thumb:hover { transform: scale(1.25); }
 * {
   box-sizing: border-box;
 }
+
+/* ─── Typography refinement (2026-07) ───────────────────── */
+/* Balanced headings avoid orphaned single words on wraps;  */
+/* pretty paragraphs avoid awkward last lines.              */
+h1, h2, h3, blockquote { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* ─── Mobile tap feel ───────────────────────────────────── */
+* { -webkit-tap-highlight-color: transparent; }
+a, button { touch-action: manipulation; }

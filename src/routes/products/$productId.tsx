@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import { PRODUCTS, MEGA_MENU } from '@/data/catalog'
+import { STUDIO_NOTES } from '@/data/studio-notes'
 import type { CatalogProduct } from '@/types/catalog'
 import { BookingCalendar } from '@/components/BookingCalendar'
 import { SITE_URL } from '@/lib/config'
@@ -463,6 +464,31 @@ function ProductPage() {
         </div>
       </section>
 
+      {/* ── Studio Note ────────────────────────────────────────────────────── */}
+      {STUDIO_NOTES[p.id] && (
+        <section aria-label="A note from the studio" style={{ background: 'var(--ink)' }}>
+          <div className="max-w-4xl mx-auto px-6 sm:px-12 py-20 lg:py-24 text-center">
+            <p data-reveal className="text-[10px] tracking-[0.24em] uppercase mb-8" style={{ color: 'var(--sand)' }}>
+              A Note from the Studio
+            </p>
+            <blockquote
+              data-reveal
+              className="font-[300] italic leading-[1.6] mb-9"
+              style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(19px, 2.4vw, 27px)', color: 'var(--cream)' }}
+            >
+              “{STUDIO_NOTES[p.id]}”
+            </blockquote>
+            <div data-reveal className="flex items-center justify-center gap-4">
+              <span className="inline-block w-9 h-px" style={{ background: 'var(--sand)' }} aria-hidden="true" />
+              <cite className="not-italic text-[11px] tracking-[0.2em] uppercase" style={{ color: 'rgba(251,251,249,0.55)' }}>
+                The iL Progetto Studio · San Diego
+              </cite>
+              <span className="inline-block w-9 h-px" style={{ background: 'var(--sand)' }} aria-hidden="true" />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Process ────────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
         <div data-reveal className="mb-12 text-center">
@@ -638,7 +664,7 @@ function ProductPage() {
         </section>
       )}
 
-      {/* ── Final CTA strip ─────────────────────────────────────────────────── */}
+      {/* ── Final CTA strip ───────────────────────────────────────────────────────────────────── */}
       <div className="py-12 px-6 text-center" style={{ background: 'var(--sand)' }}>
         <p className="text-[12px] tracking-[0.2em] uppercase mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
           iL Progetto LLC · San Diego, CA · License #1127055
