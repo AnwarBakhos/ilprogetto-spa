@@ -112,7 +112,7 @@ export function Nav() {
                       <ul className="space-y-1 list-none">
                         {col.products.map((item) => (
                           <li key={item.id}>
-                            <Link to="/catalog" search={{ product: item.id }} resetScroll={false} role="menuitem"
+                            <Link to="/products/$productId" params={{ productId: item.id }} role="menuitem"
                               className="block py-1.5 text-[13px] text-white/65 hover:text-white transition-colors hover:translate-x-0.5 transform duration-100"
                               onClick={() => setMegaOpen(false)}>{item.label}</Link>
                           </li>
@@ -246,7 +246,7 @@ export function Nav() {
                     {isOpen && (
                       <div className="px-10 pb-3 flex flex-col gap-1">
                         {col.products.map(item => (
-                          <Link key={item.id} to="/catalog" search={{ product: item.id }} resetScroll={false}
+                          <Link key={item.id} to="/products/$productId" params={{ productId: item.id }}
                             className="py-2 text-[13px] text-white/55 hover:text-white transition-colors"
                             onClick={closeMenu}>
                             {item.label}

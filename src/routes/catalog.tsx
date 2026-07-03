@@ -165,6 +165,12 @@ function DetailDrawer({ product, onClose }: { product: CatalogProduct; onClose: 
               </li>
             ))}
           </ul>
+          <Link to="/products/$productId" params={{ productId: product.id }}
+                className="inline-flex items-center gap-2 mb-5 text-[11px] tracking-[0.16em] uppercase transition-colors hover:text-[var(--ink)]"
+                style={{ color: 'var(--sand)' }}>
+            Explore {product.shortName} in full
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </Link>
           <div className="flex flex-wrap gap-1.5">
             {product.seoTags.map(tag => (
               <span key={tag} className="text-[10px] tracking-[0.12em] uppercase px-2.5 py-1 border"
@@ -209,6 +215,12 @@ function DetailDrawer({ product, onClose }: { product: CatalogProduct; onClose: 
               </li>
             ))}
           </ul>
+          <Link to="/products/$productId" params={{ productId: product.id }}
+                className="inline-flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase"
+                style={{ color: 'var(--sand)' }}>
+            Explore {product.shortName} in full
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </Link>
         </div>
         <div className="p-6 border-t" style={{ borderColor: 'var(--hairline)', background: 'var(--cream)' }}>
           <MiniBookingForm product={product} />
