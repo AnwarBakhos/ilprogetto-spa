@@ -4,10 +4,11 @@
 
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { Resend } from 'resend'
+import { escapeHtml, isValidEmail } from '../src/lib/sanitize.js'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const FROM   = 'info@ilprogettollc.com'
-const OWNER  = 'info@ilprogettollc.com'
+const FROM   = 'info@progettoshades.com'
+const OWNER  = 'info@progettoshades.com'
 
 // ─── Rate limiting ────────────────────────────────────────────────────────────
 const WINDOW_MS = 60 * 60 * 1000  // 1 hour — newsletter is most abuse-prone
@@ -42,7 +43,7 @@ function welcomeEmail(email: string): string {
         <p style="margin:0 0 32px;font-size:15px;color:#6b6b6b;line-height:1.85;">
           Ready to get started? Book your free consultation and we'll bring our full mobile showroom to your door.
         </p>
-        <a href="https://ilprogetto-spa.vercel.app/booking"
+        <a href="https://www.progettoshades.com/booking"
            style="display:inline-block;background:${SAND};color:#fff;text-decoration:none;padding:14px 28px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">
           Book Free Consultation
         </a>
@@ -70,7 +71,7 @@ function ownerNotification(email: string): string {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const origin = process.env.ALLOWED_ORIGIN ?? 'https://ilprogettollc.com'
+  const origin = process.env.ALLOWED_ORIGIN ?? 'https://www.progettoshades.com'
   res.setHeader('Access-Control-Allow-Origin', origin)
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
@@ -81,11 +82,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ?? 'unknown'
   if (isRateLimited(ip)) return res.status(429).json({ ok: false, error: 'Too many requests.' })
 
-  const { email } = req.body as { email?: string }
+  const rawEmail = (req.body as { email?: string } | undefined)?.email?.trim() ?? ''
 
-  if (!email || !email.includes('@')) {
+  if (!isValidEmail(rawEmail)) {
     return res.status(400).json({ ok: false, error: 'Valid email required.' })
   }
+  const email = rawEmail
+  const emailHtmlSafe = escapeHtml(email)
 
   try {
     await Promise.all([
@@ -94,14 +97,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         from:    `iL Progetto LLC <${FROM}>`,
         to:      email,
         subject: 'Your 10% Off Discount — iL Progetto LLC',
-        html:    welcomeEmail(email),
+        html:    welcomeEmail(emailHtmlSafe),
       }),
       // Owner notification
       resend.emails.send({
         from:    `iL Progetto Signups <${FROM}>`,
         to:      OWNER,
         subject: `New newsletter signup: ${email}`,
-        html:    ownerNotification(email),
+        html:    ownerNotification(emailHtmlSafe),
       }),
     ])
 

@@ -12,7 +12,7 @@
  */
 export const SITE_URL: string =
   (import.meta.env?.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') ??
-  'https://www.ilprogettollc.com'
+  'https://www.progettoshades.com'
 
 /** Convenience: build an absolute URL from a path */
 export function siteUrl(path: string): string {

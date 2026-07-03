@@ -18,7 +18,7 @@ if (!newDomain?.startsWith('https://')) {
   process.exit(1)
 }
 
-const OLD = 'https://www.ilprogettollc.com'
+const OLD = 'https://www.progettoshades.com'
 
 for (const rel of ['public/sitemap.xml', 'public/robots.txt']) {
   const p = resolve(root, rel)

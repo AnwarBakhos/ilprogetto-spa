@@ -22,6 +22,7 @@ import { Route as BookingRouteImport } from './routes/booking'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SmartHomeIndexRouteImport } from './routes/smart-home/index'
+import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as LocationsIndexRouteImport } from './routes/locations/index'
 import { Route as CareersIndexRouteImport } from './routes/careers/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
@@ -29,6 +30,7 @@ import { Route as SmartHomeGoogleHomeRouteImport } from './routes/smart-home/goo
 import { Route as SmartHomeControl4RouteImport } from './routes/smart-home/control4'
 import { Route as SmartHomeAppleHomekitRouteImport } from './routes/smart-home/apple-homekit'
 import { Route as SmartHomeAlexaRouteImport } from './routes/smart-home/alexa'
+import { Route as ProductsProductIdRouteImport } from './routes/products/$productId'
 import { Route as LocationsVistaRouteImport } from './routes/locations/vista'
 import { Route as LocationsTemeculaRouteImport } from './routes/locations/temecula'
 import { Route as LocationsSolanaBeachRouteImport } from './routes/locations/solana-beach'
@@ -116,6 +118,11 @@ const SmartHomeIndexRoute = SmartHomeIndexRouteImport.update({
   path: '/smart-home/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsIndexRoute = LocationsIndexRouteImport.update({
   id: '/locations/',
   path: '/locations/',
@@ -149,6 +156,11 @@ const SmartHomeAppleHomekitRoute = SmartHomeAppleHomekitRouteImport.update({
 const SmartHomeAlexaRoute = SmartHomeAlexaRouteImport.update({
   id: '/smart-home/alexa',
   path: '/smart-home/alexa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsProductIdRoute = ProductsProductIdRouteImport.update({
+  id: '/products/$productId',
+  path: '/products/$productId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LocationsVistaRoute = LocationsVistaRouteImport.update({
@@ -289,6 +301,7 @@ export interface FileRoutesByFullPath {
   '/locations/solana-beach': typeof LocationsSolanaBeachRoute
   '/locations/temecula': typeof LocationsTemeculaRoute
   '/locations/vista': typeof LocationsVistaRoute
+  '/products/$productId': typeof ProductsProductIdRoute
   '/smart-home/alexa': typeof SmartHomeAlexaRoute
   '/smart-home/apple-homekit': typeof SmartHomeAppleHomekitRoute
   '/smart-home/control4': typeof SmartHomeControl4Route
@@ -296,6 +309,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/careers/': typeof CareersIndexRoute
   '/locations/': typeof LocationsIndexRoute
+  '/products/': typeof ProductsIndexRoute
   '/smart-home/': typeof SmartHomeIndexRoute
   '/careers/$city/$position': typeof CareersCityPositionRoute
   '/locations/$city/$product': typeof LocationsCityProductRoute
@@ -332,6 +346,7 @@ export interface FileRoutesByTo {
   '/locations/solana-beach': typeof LocationsSolanaBeachRoute
   '/locations/temecula': typeof LocationsTemeculaRoute
   '/locations/vista': typeof LocationsVistaRoute
+  '/products/$productId': typeof ProductsProductIdRoute
   '/smart-home/alexa': typeof SmartHomeAlexaRoute
   '/smart-home/apple-homekit': typeof SmartHomeAppleHomekitRoute
   '/smart-home/control4': typeof SmartHomeControl4Route
@@ -339,6 +354,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/careers': typeof CareersIndexRoute
   '/locations': typeof LocationsIndexRoute
+  '/products': typeof ProductsIndexRoute
   '/smart-home': typeof SmartHomeIndexRoute
   '/careers/$city/$position': typeof CareersCityPositionRoute
   '/locations/$city/$product': typeof LocationsCityProductRoute
@@ -376,6 +392,7 @@ export interface FileRoutesById {
   '/locations/solana-beach': typeof LocationsSolanaBeachRoute
   '/locations/temecula': typeof LocationsTemeculaRoute
   '/locations/vista': typeof LocationsVistaRoute
+  '/products/$productId': typeof ProductsProductIdRoute
   '/smart-home/alexa': typeof SmartHomeAlexaRoute
   '/smart-home/apple-homekit': typeof SmartHomeAppleHomekitRoute
   '/smart-home/control4': typeof SmartHomeControl4Route
@@ -383,6 +400,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/careers/': typeof CareersIndexRoute
   '/locations/': typeof LocationsIndexRoute
+  '/products/': typeof ProductsIndexRoute
   '/smart-home/': typeof SmartHomeIndexRoute
   '/careers/$city/$position': typeof CareersCityPositionRoute
   '/locations/$city/$product': typeof LocationsCityProductRoute
@@ -421,6 +439,7 @@ export interface FileRouteTypes {
     | '/locations/solana-beach'
     | '/locations/temecula'
     | '/locations/vista'
+    | '/products/$productId'
     | '/smart-home/alexa'
     | '/smart-home/apple-homekit'
     | '/smart-home/control4'
@@ -428,6 +447,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/careers/'
     | '/locations/'
+    | '/products/'
     | '/smart-home/'
     | '/careers/$city/$position'
     | '/locations/$city/$product'
@@ -464,6 +484,7 @@ export interface FileRouteTypes {
     | '/locations/solana-beach'
     | '/locations/temecula'
     | '/locations/vista'
+    | '/products/$productId'
     | '/smart-home/alexa'
     | '/smart-home/apple-homekit'
     | '/smart-home/control4'
@@ -471,6 +492,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/careers'
     | '/locations'
+    | '/products'
     | '/smart-home'
     | '/careers/$city/$position'
     | '/locations/$city/$product'
@@ -507,6 +529,7 @@ export interface FileRouteTypes {
     | '/locations/solana-beach'
     | '/locations/temecula'
     | '/locations/vista'
+    | '/products/$productId'
     | '/smart-home/alexa'
     | '/smart-home/apple-homekit'
     | '/smart-home/control4'
@@ -514,6 +537,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/careers/'
     | '/locations/'
+    | '/products/'
     | '/smart-home/'
     | '/careers/$city/$position'
     | '/locations/$city/$product'
@@ -550,6 +574,7 @@ export interface RootRouteChildren {
   LocationsSolanaBeachRoute: typeof LocationsSolanaBeachRoute
   LocationsTemeculaRoute: typeof LocationsTemeculaRoute
   LocationsVistaRoute: typeof LocationsVistaRoute
+  ProductsProductIdRoute: typeof ProductsProductIdRoute
   SmartHomeAlexaRoute: typeof SmartHomeAlexaRoute
   SmartHomeAppleHomekitRoute: typeof SmartHomeAppleHomekitRoute
   SmartHomeControl4Route: typeof SmartHomeControl4Route
@@ -557,6 +582,7 @@ export interface RootRouteChildren {
   BlogIndexRoute: typeof BlogIndexRoute
   CareersIndexRoute: typeof CareersIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
   SmartHomeIndexRoute: typeof SmartHomeIndexRoute
   CareersCityPositionRoute: typeof CareersCityPositionRoute
 }
@@ -654,6 +680,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SmartHomeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations/': {
       id: '/locations/'
       path: '/locations'
@@ -701,6 +734,13 @@ declare module '@tanstack/react-router' {
       path: '/smart-home/alexa'
       fullPath: '/smart-home/alexa'
       preLoaderRoute: typeof SmartHomeAlexaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$productId': {
+      id: '/products/$productId'
+      path: '/products/$productId'
+      fullPath: '/products/$productId'
+      preLoaderRoute: typeof ProductsProductIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/locations/vista': {
@@ -907,6 +947,7 @@ const rootRouteChildren: RootRouteChildren = {
   LocationsSolanaBeachRoute: LocationsSolanaBeachRoute,
   LocationsTemeculaRoute: LocationsTemeculaRoute,
   LocationsVistaRoute: LocationsVistaRoute,
+  ProductsProductIdRoute: ProductsProductIdRoute,
   SmartHomeAlexaRoute: SmartHomeAlexaRoute,
   SmartHomeAppleHomekitRoute: SmartHomeAppleHomekitRoute,
   SmartHomeControl4Route: SmartHomeControl4Route,
@@ -914,6 +955,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogIndexRoute: BlogIndexRoute,
   CareersIndexRoute: CareersIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
   SmartHomeIndexRoute: SmartHomeIndexRoute,
   CareersCityPositionRoute: CareersCityPositionRoute,
 }

@@ -7,6 +7,7 @@
 
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { Resend } from 'resend'
+import { cleanField, cleanText, isValidEmail } from '../src/lib/sanitize.js'
 import { generateICS, encodeICSToBase64 } from '../src/lib/ics.js'
 import { buildClientEmail, buildOwnerEmail, buildFlexibleClientEmail, buildFlexibleOwnerEmail } from '../src/lib/email-templates.js'
 import type { BookingApiRequest, BookingApiResponse, BookingFormData } from '../src/types/booking.js'
@@ -61,7 +62,7 @@ function validateBooking(data: unknown): data is BookingFormData {
   return (
     typeof b.firstName === 'string' && b.firstName.trim().length > 0 &&
     typeof b.lastName === 'string' && b.lastName.trim().length > 0 &&
-    typeof b.email === 'string' && b.email.includes('@') &&
+    isValidEmail(b.email) &&
     typeof b.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(b.date) &&
     typeof b.time === 'string' && /^\d{2}:\d{2}$/.test(b.time) &&
     typeof b.service === 'string'
@@ -74,10 +75,23 @@ function validateFlexibleBooking(data: unknown): data is BookingFormData {
   return (
     typeof b.firstName === 'string' && b.firstName.trim().length > 0 &&
     typeof b.lastName === 'string' && b.lastName.trim().length > 0 &&
-    typeof b.email === 'string' && b.email.includes('@') &&
+    isValidEmail(b.email) &&
     b.date === 'flexible' && b.time === 'flexible' &&
     typeof b.service === 'string'
   )
+}
+
+// ─── Sanitization ─────────────────────────────────────────────────────────────
+// Escapes HTML + strips newlines on every string field so user input can never
+// inject markup into the email templates or subject lines.
+function sanitizeBooking(b: BookingFormData): BookingFormData {
+  const out: Record<string, unknown> = { ...b }
+  for (const [k, v] of Object.entries(b)) {
+    if (typeof v !== 'string') continue
+    if (k === 'email') { out[k] = v.trim(); continue } // validated by isValidEmail
+    out[k] = k === 'message' || k === 'notes' ? cleanText(v, 5000) : cleanField(v, 300)
+  }
+  return out as unknown as BookingFormData
 }
 
 // ─── Handler ──────────────────────────────────────────────────────────────────
@@ -86,7 +100,7 @@ export default async function handler(
   res: VercelResponse
 ): Promise<void> {
   // CORS
-  const origin = process.env.ALLOWED_ORIGIN ?? 'https://ilprogettollc.com'
+  const origin = process.env.ALLOWED_ORIGIN ?? 'https://www.progettoshades.com'
   res.setHeader('Access-Control-Allow-Origin', origin)
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
@@ -109,7 +123,7 @@ export default async function handler(
 
   // ─── Flexible scheduling path (no date/time selected) ────────────────────
   if (body?.booking && validateFlexibleBooking(body.booking)) {
-    const { booking } = body
+    const booking = sanitizeBooking(body.booking)
     const bookingId = generateBookingId()
     try {
       await Promise.all([
@@ -142,7 +156,7 @@ export default async function handler(
     return
   }
 
-  const { booking } = body
+  const booking = sanitizeBooking(body.booking)
   const key = slotKey(booking.date, booking.time)
 
   // ─── Conflict check ────────────────────────────────────────────────────────

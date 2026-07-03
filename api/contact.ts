@@ -4,6 +4,7 @@
 
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { Resend } from 'resend'
+import { cleanField, cleanText, isValidEmail } from '../src/lib/sanitize.js'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const FROM   = 'info@progettoshades.com'
@@ -124,7 +125,7 @@ function autoReplyEmail(firstName: string): string {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const origin = process.env.ALLOWED_ORIGIN ?? 'https://ilprogettollc.com'
+  const origin = process.env.ALLOWED_ORIGIN ?? 'https://www.progettoshades.com'
   res.setHeader('Access-Control-Allow-Origin', origin)
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
@@ -135,8 +136,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ?? 'unknown'
   if (isRateLimited(ip)) return res.status(429).json({ success: false, error: 'Too many requests.' })
 
-  const { firstName, lastName, email, phone, address, message, service } =
-    req.body as ContactBody
+  const body = (req.body ?? {}) as ContactBody
+
+  // Sanitize ALL user input before it touches email HTML or subject lines
+  const firstName = cleanField(body.firstName, 100)
+  const lastName  = cleanField(body.lastName, 100)
+  const email     = typeof body.email === 'string' ? body.email.trim() : ''
 
   if (!firstName || !email) {
     return res
@@ -144,7 +149,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .json({ success: false, error: 'firstName and email are required.' })
   }
 
-  if (!email.includes('@')) {
+  if (!isValidEmail(email)) {
     return res.status(400).json({ success: false, error: 'Valid email required.' })
   }
 
@@ -152,10 +157,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     firstName,
     lastName,
     email,
-    phone:   phone   ?? '',
-    address: address ?? '',
-    message: message ?? '',
-    service: service ?? '',
+    phone:   cleanField(body.phone, 40),
+    address: cleanField(body.address, 300),
+    message: cleanText(body.message, 5000),
+    service: cleanField(body.service, 120),
   }
 
   try {

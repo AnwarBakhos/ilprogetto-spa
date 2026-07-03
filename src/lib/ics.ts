@@ -23,7 +23,7 @@ function addMinutes(time: string, minutes: number): string {
 
 // ─── Simple UID generator ─────────────────────────────────────────────────────
 function generateUid(): string {
-  return `${Date.now()}-${Math.random().toString(36).slice(2)}@ilprogettollc.com`
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}@progettoshades.com`
 }
 
 // ─── Generate ICS file content ────────────────────────────────────────────────
