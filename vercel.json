@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api/:path*" },
     { "source": "/(.*)",       "destination": "/index.html"  }
@@ -11,13 +12,16 @@
         { "key": "X-Frame-Options",         "value": "DENY" },
         { "key": "X-XSS-Protection",        "value": "1; mode=block" },
         { "key": "Referrer-Policy",         "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy",      "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+        { "key": "Permissions-Policy",      "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://unpkg.com https://*.basemaps.cartocdn.com https://maps.googleapis.com https://maps.gstatic.com; connect-src 'self' https://maps.googleapis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests" }
       ]
     },
     { "source": "/api/:path*",    "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
     { "source": "/assets/:path*", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
     { "source": "/sitemap.xml",   "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }, { "key": "Content-Type", "value": "application/xml; charset=utf-8" }] },
-    { "source": "/robots.txt",    "headers": [{ "key": "Content-Type",  "value": "text/plain; charset=utf-8" }] }
+    { "source": "/robots.txt",    "headers": [{ "key": "Content-Type",  "value": "text/plain; charset=utf-8" }] },
+    { "source": "/llms.txt",      "headers": [{ "key": "Content-Type",  "value": "text/plain; charset=utf-8" }, { "key": "Cache-Control", "value": "public, max-age=86400" }] }
   ]
 }
