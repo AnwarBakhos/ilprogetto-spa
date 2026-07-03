@@ -2,6 +2,35 @@ import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import { PRODUCTS, MEGA_MENU } from '@/data/catalog'
 import { STUDIO_NOTES } from '@/data/studio-notes'
+
+// ─── Hero photography ─────────────────────────────────────────────────────────
+// Real room photography for the page hero (the catalog PNGs are product
+// renders — stretched as a cover background they look washed out).
+const HERO_PHOTOS: Record<string, string> = {
+  roller:              '/images/inspiration/lr-solar-roller-warm.webp',
+  zebra:               '/images/inspiration/lr-zebra-natural-modern.webp',
+  motorized:           '/images/inspiration/out-motorized-estate.webp',
+  cellular:            '/images/inspiration/lr-cellular-topdown-family.webp',
+  roman:               '/images/inspiration/bd-drapery-midcentury.webp',
+  'woven-wood':        '/images/inspiration/out-bamboo-patio-cover.webp',
+  sheer:               '/images/inspiration/lr-vertical-sheer-highrise.webp',
+  'faux-wood':         '/images/inspiration/kt-roller-sink-window.webp',
+  aluminum:            '/images/inspiration/of-roller-home-office.webp',
+  vertical:            '/images/inspiration/lr-vertical-sheer-highrise.webp',
+  'panel-track':       '/images/inspiration/bd-drapery-ripple-detail.webp',
+  plantation:          '/images/inspiration/bd-shutters-garden-view.webp',
+  'cafe-style':        '/images/inspiration/kt-zebra-farmhouse-sink.webp',
+  door:                '/images/inspiration/bd-shutters-garden-view.webp',
+  arched:              '/images/inspiration/bd-shutters-garden-view.webp',
+  'blackout-curtains': '/images/inspiration/bd-blackout-roller-accent.webp',
+  'sheer-drapes':      '/images/inspiration/bd-drapery-ripple-detail.webp',
+  butterfly:           '/images/inspiration/bd-drapery-midcentury.webp',
+  'motorized-exterior':'/images/inspiration/out-motorized-estate.webp',
+  'wind-resistant':    '/images/inspiration/out-motorized-estate.webp',
+  'sun-screens':       '/images/inspiration/of-solar-commercial-1.webp',
+  awnings:             '/images/inspiration/out-bamboo-patio-cover.webp',
+}
+const HERO_FALLBACK = '/images/hero.webp'
 import type { CatalogProduct } from '@/types/catalog'
 import { BookingCalendar } from '@/components/BookingCalendar'
 import { SITE_URL } from '@/lib/config'
@@ -310,19 +339,20 @@ function ProductPage() {
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: 'clamp(480px, 60vh, 700px)' }}>
-        {/* Background image */}
+        {/* Background photography — matches homepage hero treatment */}
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(${p.coverImage})`,
+            backgroundImage: `url(${HERO_PHOTOS[p.id] ?? HERO_FALLBACK})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            backgroundColor: 'var(--ink)',
           }}
         />
-        {/* Gradient overlay */}
+        {/* Gradient overlay — same ink ramp as the homepage */}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(105deg, rgba(26,26,26,0.82) 0%, rgba(26,26,26,0.45) 55%, rgba(26,26,26,0.15) 100%)' }}
+          style={{ background: 'linear-gradient(to top, rgba(28,28,28,0.94) 0%, rgba(28,28,28,0.55) 50%, rgba(28,28,28,0.25) 100%)' }}
         />
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-12 lg:px-20 pb-16 pt-32">
