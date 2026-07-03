@@ -3,34 +3,6 @@ import { useEffect, useRef, useState } from 'react'
 import { PRODUCTS, MEGA_MENU } from '@/data/catalog'
 import { STUDIO_NOTES } from '@/data/studio-notes'
 
-// ─── Hero photography ─────────────────────────────────────────────────────────
-// Real room photography for the page hero (the catalog PNGs are product
-// renders — stretched as a cover background they look washed out).
-const HERO_PHOTOS: Record<string, string> = {
-  roller:              '/images/inspiration/lr-solar-roller-warm.webp',
-  zebra:               '/images/inspiration/lr-zebra-natural-modern.webp',
-  motorized:           '/images/inspiration/out-motorized-estate.webp',
-  cellular:            '/images/inspiration/lr-cellular-topdown-family.webp',
-  roman:               '/images/inspiration/bd-drapery-midcentury.webp',
-  'woven-wood':        '/images/inspiration/out-bamboo-patio-cover.webp',
-  sheer:               '/images/inspiration/lr-vertical-sheer-highrise.webp',
-  'faux-wood':         '/images/inspiration/kt-roller-sink-window.webp',
-  aluminum:            '/images/inspiration/of-roller-home-office.webp',
-  vertical:            '/images/inspiration/lr-vertical-sheer-highrise.webp',
-  'panel-track':       '/images/inspiration/bd-drapery-ripple-detail.webp',
-  plantation:          '/images/inspiration/bd-shutters-garden-view.webp',
-  'cafe-style':        '/images/inspiration/kt-zebra-farmhouse-sink.webp',
-  door:                '/images/inspiration/bd-shutters-garden-view.webp',
-  arched:              '/images/inspiration/bd-shutters-garden-view.webp',
-  'blackout-curtains': '/images/inspiration/bd-blackout-roller-accent.webp',
-  'sheer-drapes':      '/images/inspiration/bd-drapery-ripple-detail.webp',
-  butterfly:           '/images/inspiration/bd-drapery-midcentury.webp',
-  'motorized-exterior':'/images/inspiration/out-motorized-estate.webp',
-  'wind-resistant':    '/images/inspiration/out-motorized-estate.webp',
-  'sun-screens':       '/images/inspiration/of-solar-commercial-1.webp',
-  awnings:             '/images/inspiration/out-bamboo-patio-cover.webp',
-}
-const HERO_FALLBACK = '/images/hero.webp'
 import type { CatalogProduct } from '@/types/catalog'
 import { BookingCalendar } from '@/components/BookingCalendar'
 import { SITE_URL } from '@/lib/config'
@@ -337,72 +309,100 @@ function ProductPage() {
   return (
     <div ref={pageRef} style={{ background: 'var(--cream)', color: 'var(--ink)' }}>
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ minHeight: 'clamp(480px, 60vh, 700px)' }}>
-        {/* Background photography — matches homepage hero treatment */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${HERO_PHOTOS[p.id] ?? HERO_FALLBACK})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundColor: 'var(--ink)',
-          }}
-        />
-        {/* Gradient overlay — same ink ramp as the homepage */}
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(to top, rgba(28,28,28,0.94) 0%, rgba(28,28,28,0.55) 50%, rgba(28,28,28,0.25) 100%)' }}
-        />
-        {/* Content */}
-        <div className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-12 lg:px-20 pb-16 pt-32">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 mb-6 text-[11px] tracking-[0.15em] uppercase" aria-label="Breadcrumb">
-            <Link to="/" style={{ color: 'rgba(255,255,255,0.5)' }} className="hover:text-white transition-colors">Home</Link>
-            <span style={{ color: 'rgba(255,255,255,0.3)' }}>›</span>
-            <Link to="/catalog" style={{ color: 'rgba(255,255,255,0.5)' }} className="hover:text-white transition-colors">Catalog</Link>
-            <span style={{ color: 'rgba(255,255,255,0.3)' }}>›</span>
-            <span style={{ color: 'rgba(255,255,255,0.7)' }}>{p.name}</span>
-          </nav>
-
-          {/* Eyebrow */}
+      {/* ── Hero — split editorial: ink text panel + product imagery ──────── */}
+      <section
+        className="relative overflow-hidden lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]"
+        style={{ background: 'var(--ink)', minHeight: 'clamp(480px, 68vh, 760px)' }}
+      >
+        {/* Left: text panel */}
+        <div className="relative flex flex-col justify-center px-6 sm:px-12 lg:pl-20 lg:pr-16 pt-32 pb-14 lg:pt-32 lg:pb-20">
+          {/* Warm glow, echoes the sand accent */}
           <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 mb-4 text-[10px] tracking-[0.2em] uppercase w-fit"
-            style={{ background: 'var(--sand)', color: '#fff' }}
-          >
-            {p.eyebrow}
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse at 15% 85%, rgba(197,168,114,0.10) 0%, transparent 55%)' }}
+            aria-hidden="true"
+          />
+          <div className="relative">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 mb-8 text-[11px] tracking-[0.15em] uppercase" aria-label="Breadcrumb">
+              <Link to="/" style={{ color: 'rgba(255,255,255,0.45)' }} className="hover:text-white transition-colors">Home</Link>
+              <span style={{ color: 'rgba(255,255,255,0.25)' }}>›</span>
+              <Link to="/catalog" style={{ color: 'rgba(255,255,255,0.45)' }} className="hover:text-white transition-colors">Catalog</Link>
+              <span style={{ color: 'rgba(255,255,255,0.25)' }}>›</span>
+              <span style={{ color: 'rgba(255,255,255,0.65)' }}>{p.name}</span>
+            </nav>
+
+            {/* Eyebrow */}
+            <p className="inline-flex items-center gap-3.5 text-[11px] tracking-[0.22em] uppercase mb-6" style={{ color: 'var(--sand-light, #d8c49a)' }}>
+              <span className="inline-block w-9 h-px bg-current" aria-hidden="true" />
+              {categoryLabel} · {p.eyebrow}
+            </p>
+
+            {/* Headline */}
+            <h1
+              className="font-[300] leading-[1.04] tracking-[-0.02em] mb-6"
+              style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(38px, 4.6vw, 68px)', color: 'var(--cream)' }}
+            >
+              {p.name}
+            </h1>
+            <p
+              className="mb-10 font-[300] leading-[1.75] max-w-[440px]"
+              style={{ color: 'rgba(251,251,249,0.72)', fontSize: 'clamp(15px, 1.6vw, 17px)' }}
+            >
+              {p.tagline}
+            </p>
+
+            {/* CTAs — mirror the homepage hero buttons */}
+            <div className="flex flex-wrap gap-4 mb-12">
+              <button
+                onClick={scrollToBooking}
+                className="px-8 py-4 text-[11px] tracking-[0.18em] uppercase transition-all hover:brightness-110 active:scale-[0.98]"
+                style={{ background: 'var(--sand)', color: 'var(--cream)' }}
+              >
+                Book Free Consultation
+              </button>
+              <Link
+                to="/catalog"
+                className="inline-flex items-center gap-2.5 px-7 py-4 text-[11px] tracking-[0.18em] uppercase border transition-colors hover:border-white"
+                style={{ borderColor: 'rgba(251,251,249,0.35)', color: 'var(--cream)' }}
+              >
+                View Full Catalog <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+
+            {/* Hairline trust row */}
+            <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2 pt-7 border-t" style={{ borderColor: 'rgba(251,251,249,0.16)' }}>
+              <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(251,251,249,0.4)' }}>
+                Custom-measured · Licensed #1127055
+              </span>
+              <a
+                href="tel:+18583381678"
+                className="text-[17px] font-[300] transition-colors hover:text-[var(--sand-light)]"
+                style={{ color: '#fff', fontFamily: 'var(--sans)' }}
+              >
+                (858) 338-1678
+              </a>
+            </div>
           </div>
+        </div>
 
-          {/* Headline */}
-          <h1
-            className="font-[300] leading-[1.05] mb-4 text-white"
-            style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 5vw, 72px)', maxWidth: '700px' }}
+        {/* Right: the product itself, full-bleed */}
+        <div className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-0">
+          <img
+            src={p.coverImage}
+            alt={`${p.name} installed in a San Diego home — iL Progetto LLC`}
+            className="absolute inset-0 w-full h-full object-cover"
+            fetchPriority="high"
+          />
+          {/* Feather the image into the ink panel (desktop) / darken base (mobile) */}
+          <div className="absolute inset-0 hidden lg:block pointer-events-none" style={{ background: 'linear-gradient(90deg, var(--ink) 0%, rgba(28,28,28,0) 20%)' }} aria-hidden="true" />
+          <div className="absolute inset-0 lg:hidden pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(28,28,28,0.45) 0%, transparent 35%)' }} aria-hidden="true" />
+          {/* Caption chip */}
+          <div
+            className="absolute bottom-5 right-5 px-3.5 py-2 text-[10px] tracking-[0.16em] uppercase backdrop-blur-sm"
+            style={{ background: 'rgba(26,26,26,0.62)', color: 'rgba(255,255,255,0.75)', border: '0.5px solid rgba(255,255,255,0.15)' }}
           >
-            {p.name}
-          </h1>
-          <p
-            className="mb-8 font-[300] leading-[1.6]"
-            style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'clamp(15px, 1.8vw, 18px)', maxWidth: '520px' }}
-          >
-            {p.tagline}
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4">
-            <button
-              onClick={scrollToBooking}
-              className="px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-opacity hover:opacity-80"
-              style={{ background: 'var(--sand)', color: '#fff' }}
-            >
-              Book Free Consultation
-            </button>
-            <Link
-              to="/catalog"
-              className="px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase border transition-colors"
-              style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#fff' }}
-            >
-              View Full Catalog
-            </Link>
+            {p.shortName} · San Diego
           </div>
         </div>
       </section>
