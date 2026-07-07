@@ -1,4 +1,5 @@
 import { SITE_URL } from '@/lib/config'
+import { trackContactConversion, trackFinancingInquiry } from '@/lib/analytics'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
@@ -590,6 +591,7 @@ function HomePage() {
             href="https://www.synchrony.com/mmc/P1231451002"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackFinancingInquiry()}
             className="inline-block px-8 py-4 text-[11px] tracking-[0.18em] uppercase transition-colors"
             style={{ background: 'var(--ink)', color: 'var(--cream)' }}
           >
@@ -703,6 +705,7 @@ function HeroBookingSurvey() {
         body: JSON.stringify({ firstName: fullName.split(' ')[0] ?? fullName, lastName: fullName.split(' ').slice(1).join(' '), email, phone, service, message: 'Hero survey lead' }),
       })
       setStep('sent')
+      trackContactConversion()
     } catch {
       setStep('sent')
     } finally {

@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { setupScrollReveal } from '@/lib/utils'
 import { getProduct } from '@/data/catalog'
 import { SITE_URL } from '@/lib/config'
+import { trackContactConversion } from '@/lib/analytics'
 import { useAddressAutocomplete } from '@/lib/useAddressAutocomplete'
 
 
@@ -118,6 +119,7 @@ function ContactPage() {
       })
       if (res.ok) {
         setStatus('sent')
+        trackContactConversion()
       } else {
         setStatus('error')
       }

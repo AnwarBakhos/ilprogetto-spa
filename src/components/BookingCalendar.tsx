@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import type { BookingFormData, BookingStatus, BookingApiResponse } from '@/types/booking'
 import { PRODUCTS } from '@/data/catalog'
 import { useAddressAutocomplete } from '@/lib/useAddressAutocomplete'
+import { trackLeadFormSubmit } from '@/lib/analytics'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface BookingState {
@@ -161,6 +162,7 @@ export function BookingCalendar({ preselectedService }: { preselectedService?: s
       const data = await res.json() as BookingApiResponse
       if (data.ok) {
         setState((s) => ({ ...s, status: 'flexible-confirmed' }))
+        trackLeadFormSubmit()
       } else {
         setState((s) => ({ ...s, status: 'error', errorMessage: data.error ?? 'Something went wrong. Please call (858) 338-1678.' }))
       }

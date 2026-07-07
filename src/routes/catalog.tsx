@@ -6,6 +6,7 @@ import { PRODUCTS, getProduct } from '@/data/catalog'
 import { getAvailableDates } from '@/data/availability'
 import type { CatalogProduct } from '@/types/catalog'
 import type { BookingApiResponse } from '@/types/booking'
+import { trackLeadFormSubmit } from '@/lib/analytics'
 import { SITE_URL } from '@/lib/config'
 
 
@@ -77,7 +78,7 @@ function MiniBookingForm({ product }: { product: CatalogProduct }) {
         body: JSON.stringify({ booking: { firstName: firstName.trim(), lastName: '', email: email.trim(), phone: phone.trim(), address: '', service: product.id, notes: `Catalog enquiry — ${product.name}`, date, time: '09:00' } }),
       })
       const data = await res.json() as BookingApiResponse
-      data.ok ? setStatus('sent') : (setStatus('error'), setErrMsg(data.error ?? 'Something went wrong.'))
+      data.ok ? (setStatus('sent'), trackLeadFormSubmit()) : (setStatus('error'), setErrMsg(data.error ?? 'Something went wrong.'))
     } catch {
       setStatus('error'); setErrMsg('Network error — please call (858) 338-1678.')
     }
