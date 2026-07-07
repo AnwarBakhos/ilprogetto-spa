@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { trackLeadFormSubmit } from '@/lib/analytics'
+import { useEffect } from 'react'
 
 export const Route = createFileRoute('/booking/confirmed')({
   head: () => ({
@@ -50,6 +52,9 @@ const NEXT_STEPS = [
 ]
 
 function ConfirmedPage() {
+  // Google Ads: a completed booking landed here — count the lead once.
+  useEffect(() => { trackLeadFormSubmit() }, [])
+
   // Read params from URL directly — avoids routeTree type mismatch before plugin re-run
   const params = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '')
   const id    = params.get('id')    ?? undefined
