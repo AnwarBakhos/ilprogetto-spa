@@ -1,27 +1,371 @@
 {
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/about-us",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/selections",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/catalog",
+      "permanent": true
+    },
+    {
+      "source": "/faq-s",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/faq",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/legal?tab=privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/legal?tab=terms",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-terms-and-conditions",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/legal?tab=accessibility",
+      "permanent": true
+    },
+    {
+      "source": "/resources/energy-saving-window-treatments",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/blog/honeycomb-shades-energy-savings-california",
+      "permanent": true
+    },
+    {
+      "source": "/resources/benefits-of-smart-shades",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/blog/motorized-blinds-smart-home-san-diego",
+      "permanent": true
+    },
+    {
+      "source": "/resources/roman-shade-vs-roller-shade",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/blog/plantation-shutters-vs-roller-shades-san-diego",
+      "permanent": true
+    },
+    {
+      "source": "/resources/:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/projects/smart",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/products/motorized",
+      "permanent": true
+    },
+    {
+      "source": "/projects/zebra",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/products/zebra",
+      "permanent": true
+    },
+    {
+      "source": "/projects/roman",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/products/roman",
+      "permanent": true
+    },
+    {
+      "source": "/projects/shangri-la",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/products/sheer",
+      "permanent": true
+    },
+    {
+      "source": "/projects/roller",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/products/roller",
+      "permanent": true
+    },
+    {
+      "source": "/projects/honeycomb",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/products/cellular",
+      "permanent": true
+    },
+    {
+      "source": "/projects/:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/catalog",
+      "permanent": true
+    },
+    {
+      "source": "/jobs/window-treatment-installer",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/careers/san-diego/installer",
+      "permanent": true
+    },
+    {
+      "source": "/jobs/window-treatment-sales-representative",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/careers/san-diego/sales",
+      "permanent": true
+    },
+    {
+      "source": "/jobs/:rest*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/careers",
+      "permanent": true
+    },
+    {
+      "source": "/jobs",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/careers",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?ilprogettollc\\.com"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ilprogetto-spa\\.vercel\\.app"
+        }
+      ],
+      "destination": "https://www.progettoshades.com/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/:path*" },
-    { "source": "/(.*)",       "destination": "/index.html"  }
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options",  "value": "nosniff" },
-        { "key": "X-Frame-Options",         "value": "DENY" },
-        { "key": "X-XSS-Protection",        "value": "1; mode=block" },
-        { "key": "Referrer-Policy",         "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy",      "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' https://maps.googleapis.com https://www.googletagmanager.com https://www.googleadservices.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://unpkg.com https://*.basemaps.cartocdn.com https://maps.googleapis.com https://maps.gstatic.com https://www.googletagmanager.com https://www.google.com https://*.google.com https://www.googleadservices.com https://*.doubleclick.net https://www.google-analytics.com; connect-src 'self' https://maps.googleapis.com https://www.googletagmanager.com https://www.google.com https://*.google.com https://www.googleadservices.com https://*.doubleclick.net https://www.google-analytics.com https://*.google-analytics.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' https://maps.googleapis.com https://www.googletagmanager.com https://www.googleadservices.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://unpkg.com https://*.basemaps.cartocdn.com https://maps.googleapis.com https://maps.gstatic.com https://www.googletagmanager.com https://www.google.com https://*.google.com https://www.googleadservices.com https://*.doubleclick.net https://www.google-analytics.com; connect-src 'self' https://maps.googleapis.com https://www.googletagmanager.com https://www.google.com https://*.google.com https://www.googleadservices.com https://*.doubleclick.net https://www.google-analytics.com https://*.google-analytics.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+        }
       ]
     },
-    { "source": "/api/:path*",    "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
-    { "source": "/assets/:path*", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/sitemap.xml",   "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }, { "key": "Content-Type", "value": "application/xml; charset=utf-8" }] },
-    { "source": "/robots.txt",    "headers": [{ "key": "Content-Type",  "value": "text/plain; charset=utf-8" }] },
-    { "source": "/llms.txt",      "headers": [{ "key": "Content-Type",  "value": "text/plain; charset=utf-8" }, { "key": "Cache-Control", "value": "public, max-age=86400" }] }
+    {
+      "source": "/api/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
   ]
 }
