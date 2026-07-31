@@ -70,7 +70,12 @@ const BIZ = {
 
 // ─── 3. Parse data files ─────────────────────────────────────────────────────
 // Products
-const catalogSrc = readFileSync(join(root, 'src/data/catalog.ts'), 'utf8')
+const catalogSrcFull = readFileSync(join(root, 'src/data/catalog.ts'), 'utf8')
+// Scope to the PRODUCTS array only — MEGA_MENU further down also has `id:`
+// entries (without `name:`), which otherwise produce null-named duplicates.
+const pStart = catalogSrcFull.indexOf('export const PRODUCTS')
+const pEnd = catalogSrcFull.indexOf('export const', pStart + 20)
+const catalogSrc = catalogSrcFull.slice(pStart, pEnd === -1 ? undefined : pEnd)
 const PRODUCTS = []
 {
   const ids = [...catalogSrc.matchAll(/\bid:\s*'([a-z-]+)'/g)]
