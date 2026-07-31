@@ -68,8 +68,9 @@ San Diego, Poway, Carlsbad, La Jolla, Del Mar, Encinitas, Solana Beach, Rancho S
 ## Website Structure
 - Homepage: /
 - Product Catalog: /catalog
+- Individual product pages: /products/roller, /products/zebra, /products/cellular, /products/roman, /products/motorized, /products/plantation, /products/blackout-curtains, and 15 more (all linked from /catalog)
 - Book Free Consultation: /booking
-- Service Areas: /locations
+- Service Areas: /locations (16 city pages under /locations/<city>)
 - Smart Home Integration: /smart-home
 - About Us: /about
 - FAQ: /faq
@@ -77,3 +78,8 @@ San Diego, Poway, Carlsbad, La Jolla, Del Mar, Encinitas, Solana Beach, Rancho S
 - Commercial: /commercial
 - Warranty: /warranty
 - Contact: /contact
+
+## Complete Reference
+For the full business dossier — every product with descriptions, features,
+and FAQs; all service-area pages; and all journal articles — see:
+https://www.progettoshades.com/llms-full.txt
