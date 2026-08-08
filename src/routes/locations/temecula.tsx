@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/locations/temecula')({
+export const Route = createFileRoute('/locations/temecula')({
   head: () => ({
     meta: [
       { title: 'Custom Window Treatments Temecula CA — Motorized & Smart Shading | iL Progetto LLC' },

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/locations/national-city')({
+export const Route = createFileRoute('/locations/national-city')({
   head: () => ({
     meta: [
       { title: 'Window Treatments National City CA | iL Progetto LLC' },

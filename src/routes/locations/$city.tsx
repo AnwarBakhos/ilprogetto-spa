@@ -12,7 +12,7 @@ import { CITY_SLUGS } from '@/data/seo'
  *   2. Renders <Outlet /> so the $city.$product child route (which 301-redirects
  *      to /locations/$city) can be reached during the redirect lifecycle.
  */
-export const Route = (createFileRoute as any)('/locations/$city')({
+export const Route = createFileRoute('/locations/$city')({
   loader: ({ params }: any) => {
     const { city } = params as { city: string }
     // All known cities have static routes — anything hitting here is unknown.

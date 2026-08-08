@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/config'
 
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
-export const Route = (createFileRoute as any)('/locations/carlsbad')({
+export const Route = createFileRoute('/locations/carlsbad')({
   head: () => ({
     meta: [
       { title: 'Custom Window Treatments Carlsbad CA — HOA-Approved | iL Progetto LLC' },

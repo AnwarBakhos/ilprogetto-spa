@@ -4,7 +4,7 @@ import { setupScrollReveal } from '@/lib/utils'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/warranty')({
+export const Route = createFileRoute('/warranty')({
   head: () => ({
     meta: [
       { title: 'Warranty | iL Progetto LLC — Custom Window Treatments San Diego' },

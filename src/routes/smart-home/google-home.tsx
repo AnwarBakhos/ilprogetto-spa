@@ -4,7 +4,7 @@ import { setupScrollReveal } from '@/lib/utils'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/smart-home/google-home')({
+export const Route = createFileRoute('/smart-home/google-home')({
   head: () => ({
     meta: [
       { title: 'Google Home Motorized Blinds San Diego | Hey Google Window Treatments — iL Progetto LLC' },

@@ -4,7 +4,7 @@ import { setupScrollReveal } from '@/lib/utils'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/smart-home/alexa')({
+export const Route = createFileRoute('/smart-home/alexa')({
   head: () => ({
     meta: [
       { title: 'Alexa Motorized Blinds San Diego | Voice-Controlled Window Treatments — iL Progetto LLC' },

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/locations/chula-vista')({
+export const Route = createFileRoute('/locations/chula-vista')({
   head: () => ({
     meta: [
       { title: 'Custom Window Treatments Chula Vista CA | iL Progetto LLC' },

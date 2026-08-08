@@ -4,7 +4,7 @@ import { setupScrollReveal } from '@/lib/utils'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/smart-home/control4')({
+export const Route = createFileRoute('/smart-home/control4')({
   head: () => ({
     meta: [
       { title: 'Control4 Motorized Blinds San Diego | Luxury Smart Home Window Treatments — iL Progetto LLC' },

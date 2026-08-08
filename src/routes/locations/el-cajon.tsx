@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/locations/el-cajon')({
+export const Route = createFileRoute('/locations/el-cajon')({
   head: () => ({
     meta: [
       { title: 'Custom Window Treatments El Cajon CA — Heat Solutions | iL Progetto LLC' },

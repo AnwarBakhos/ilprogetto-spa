@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/locations/poway')({
+export const Route = createFileRoute('/locations/poway')({
   head: () => ({
     meta: [
       { title: 'Custom Window Treatments Poway CA — Heat Control | iL Progetto LLC' },

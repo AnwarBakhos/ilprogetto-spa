@@ -4,7 +4,7 @@ import { setupScrollReveal } from '@/lib/utils'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/smart-home/apple-homekit')({
+export const Route = createFileRoute('/smart-home/apple-homekit')({
   head: () => ({
     meta: [
       { title: 'Apple HomeKit Motorized Blinds San Diego | Siri Window Shades — iL Progetto LLC' },

@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/config'
 
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
-export const Route = (createFileRoute as any)('/locations/solana-beach')({
+export const Route = createFileRoute('/locations/solana-beach')({
   head: () => ({
     meta: [
       { title: 'Window Treatments Solana Beach CA — Privacy & Light | iL Progetto LLC' },

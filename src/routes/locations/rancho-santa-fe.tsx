@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/config'
 
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
-export const Route = (createFileRoute as any)('/locations/rancho-santa-fe')({
+export const Route = createFileRoute('/locations/rancho-santa-fe')({
   head: () => ({
     meta: [
       { title: 'Custom Window Treatments Rancho Santa Fe CA — ARB-Compliant | iL Progetto LLC' },

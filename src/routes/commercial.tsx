@@ -4,7 +4,7 @@ import { setupScrollReveal } from '@/lib/utils'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/commercial')({
+export const Route = createFileRoute('/commercial')({
   head: () => ({
     meta: [
       { title: 'Commercial Window Treatments San Diego | Builder & Trade Program — iL Progetto LLC' },

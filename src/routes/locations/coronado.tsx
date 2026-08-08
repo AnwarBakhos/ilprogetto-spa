@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/locations/coronado')({
+export const Route = createFileRoute('/locations/coronado')({
   head: () => ({
     meta: [
       { title: 'Custom Window Treatments Coronado, CA | iL Progetto LLC' },

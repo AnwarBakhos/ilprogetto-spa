@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/config'
 
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
-export const Route = (createFileRoute as any)('/locations/encinitas')({
+export const Route = createFileRoute('/locations/encinitas')({
   head: () => ({
     meta: [
       { title: 'Window Treatments Encinitas CA — Natural Materials | iL Progetto LLC' },

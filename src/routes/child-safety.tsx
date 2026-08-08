@@ -4,7 +4,7 @@ import { setupScrollReveal } from '@/lib/utils'
 import { SITE_URL } from '@/lib/config'
 
 
-export const Route = (createFileRoute as any)('/child-safety')({
+export const Route = createFileRoute('/child-safety')({
   head: () => ({
     meta: [
       { title: 'Child Safety & Cordless Options | iL Progetto LLC San Diego' },

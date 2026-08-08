@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/config'
 
 
 // ─── Route ─────────────────────────────────────────────────────────────────────
-export const Route = (createFileRoute as any)('/locations')({
+export const Route = createFileRoute('/locations/')({
   head: () => ({
     meta: [
       { title: 'Window Treatment Service Areas San Diego County | iL Progetto LLC' },
