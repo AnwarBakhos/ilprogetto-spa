@@ -214,7 +214,7 @@ function ProductCard({
               muted
               playsInline
               loop
-              preload="auto"
+              preload="none"
               className="w-full h-full object-cover"
             />
             {/* Dark scrim so text stays legible over video */}

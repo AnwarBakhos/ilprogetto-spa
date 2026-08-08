@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useRouterState } from '@tanstack/react-router'
 import { MEGA_MENU } from '@/data/catalog'
 
-const LOGO_URL = '/images/logo-300.png'
+const LOGO_URL = '/images/logo-300.webp'
 
 export function Nav() {
   const [menuOpen, setMenuOpen]               = useState(false)
@@ -61,8 +61,8 @@ export function Nav() {
 
         {/* ── Logo ── */}
         <Link to="/" aria-label="iL Progetto home" className="flex items-center gap-3 flex-shrink-0">
-          <img src={LOGO_URL} alt="iL Progetto LLC" className="xl:hidden" style={{ maxHeight: '44px', width: 'auto' }} />
-          <img src={LOGO_URL} alt="iL Progetto LLC" className="hidden xl:block" style={{ maxHeight: '72px', width: 'auto' }} />
+          <img src={LOGO_URL} alt="iL Progetto LLC" width={300} height={300} className="xl:hidden" style={{ maxHeight: '44px', width: 'auto' }} />
+          <img src={LOGO_URL} alt="iL Progetto LLC" width={300} height={300} className="hidden xl:block" style={{ maxHeight: '72px', width: 'auto' }} />
           <div className="hidden xl:block">
             <p className="text-[17px] leading-tight tracking-[0.04em] text-white font-[400]" style={{ fontFamily: 'var(--serif)' }}>
               iL Progetto LLC

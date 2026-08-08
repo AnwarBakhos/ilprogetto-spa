@@ -3,7 +3,7 @@ import { MEGA_MENU } from '@/data/catalog'
 import { CITY_SLUGS, PRODUCT_SLUGS, POSITION_SLUGS, cityName } from '@/data/seo'
 
 const LOGO_WHITE =
-  '/images/logo-300.png'
+  '/images/logo-300.webp'
 
 // ─── Social Icons ─────────────────────────────────────────────────────────────
 const Icons = {

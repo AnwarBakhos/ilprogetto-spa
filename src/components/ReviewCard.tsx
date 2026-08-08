@@ -51,15 +51,15 @@ export function ReviewCard({ review, onClick, showButtons = false }: ReviewCardP
         <div className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
           <a
             href="/booking"
-            className="inline-block px-5 py-2 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
-            style={{ background: 'var(--sand)', color: 'var(--ink)', fontFamily: 'var(--sans)' }}
+            className="inline-block px-5 py-2.5 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
+            style={{ background: 'var(--sand)', color: '#fff', fontFamily: 'var(--sans)', minHeight: '32px' }}
           >
             Book Now
           </a>
           <a
             href="/reviews"
-            className="inline-block px-5 py-2 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
-            style={{ background: 'var(--ink)', color: 'var(--cream)', fontFamily: 'var(--sans)' }}
+            className="inline-block px-5 py-2.5 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
+            style={{ background: 'var(--ink)', color: 'var(--cream)', fontFamily: 'var(--sans)', minHeight: '32px' }}
           >
             See More Reviews
           </a>
@@ -67,8 +67,8 @@ export function ReviewCard({ review, onClick, showButtons = false }: ReviewCardP
             href="https://www.yelp.com/writeareview/biz/bbN_heYMnYXA2esAoUKpmQ?return_url=%2Fbiz%2FbbN_heYMnYXA2esAoUKpmQ"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-5 py-2 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
-            style={{ background: 'var(--sand)', color: 'var(--ink)', fontFamily: 'var(--sans)' }}
+            className="inline-block px-5 py-2.5 text-center text-[10px] tracking-[0.16em] uppercase transition-colors"
+            style={{ background: 'var(--sand)', color: '#fff', fontFamily: 'var(--sans)', minHeight: '32px' }}
           >
             Leave Yelp Review
           </a>
