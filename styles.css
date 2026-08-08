@@ -7,7 +7,7 @@
 :root {
   --cream: #fbfbf9;
   --ink: #1c1c1c;
-  --sand: #c5a880;
+  --sand: #8f6f39; /* WCAG AA: 4.6:1 on cream; was #c5a880 (2.2:1) */
   --sand-light: #e2d4be;
   --sand-pale: #f5ede0;
   --mid: #707070;
@@ -236,3 +236,14 @@ p { text-wrap: pretty; }
 /* ─── Mobile tap feel ───────────────────────────────────── */
 * { -webkit-tap-highlight-color: transparent; }
 a, button { touch-action: manipulation; }
+
+
+/* ─── Touch target size (Lighthouse: 24px min) ──────────── */
+@media (pointer: coarse) {
+  nav[aria-label='Breadcrumb'] a,
+  footer a {
+    display: inline-block;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}

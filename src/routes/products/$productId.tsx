@@ -392,6 +392,8 @@ function ProductPage() {
             src={p.coverImage}
             srcSet={`${p.coverImage.replace('-1200.webp', '-640.webp')} 640w, ${p.coverImage} 1200w`}
             sizes="(min-width: 1024px) 55vw, 100vw"
+            width={1200}
+            height={800}
             alt={`${p.name} installed in a San Diego home — iL Progetto LLC`}
             className="absolute inset-0 w-full h-full object-cover"
             fetchPriority="high"

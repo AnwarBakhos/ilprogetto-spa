@@ -1,85 +1,44 @@
-# iL Progetto LLC — Custom Window Treatments San Diego
+# iL Progetto LLC
 
-## Business Overview
-iL Progetto LLC is a licensed mobile window treatment company serving San Diego County and Southern California. We bring the showroom to the customer — our designer visits the client's home with the full catalog of fabric samples, hardware, and motorization options, provides accurate measurements, and delivers a same-visit quote. No showroom trip required.
+> Licensed mobile window treatment company serving San Diego County and Southern California. The designer brings the full showroom — fabric samples, hardware, motorization — to the client's home, measures every window, and delivers a same-visit quote. Free in-home consultation, custom fabrication, professional installation. California Contractors License #1127055. Phone (858) 338-1678 · info@progettoshades.com · Mon–Sat 8 AM–6 PM · Rated 5.0 from 32 published reviews.
 
-- **Founded:** 2022
-- **License:** California Contractors License #1127055
-- **Phone:** (858) 338-1678
-- **Email:** info@progettoshades.com
-- **Service Model:** Mobile in-home consultation — free, no obligation
-- **Hours:** Monday–Saturday, 8 AM–6 PM
+Key facts: founded 2022; products are custom-measured and custom-made (roller, zebra, cellular, Roman, woven wood and sheer shades; wood, faux-wood, aluminum, vertical and panel-track blinds; plantation, café, door and arched shutters; blackout and sheer drapery; motorized interior and exterior shading, sun screens, awnings); smart-home integration with Alexa, Google Home, Apple HomeKit, Lutron and Control4; financing via Synchrony; 1-year full parts & labor warranty plus lifetime manufacturer warranty on mechanisms; service areas include San Diego, Poway, Carlsbad, La Jolla, Del Mar, Encinitas, Solana Beach, Rancho Santa Fe, Chula Vista, National City, Coronado, El Cajon, Escondido, San Marcos, Vista and Temecula.
 
-## What We Do
-We design, custom-manufacture, and professionally install window treatments for residential and commercial properties across San Diego County.
+## Core Pages
 
-### Products
-- Roller Shades (blackout, light-filtering, sheer)
-- Zebra Shades (alternating sheer/solid bands)
-- Honeycomb / Cellular Shades (energy-efficient)
-- Roman Shades (soft fold, structured lift)
-- Shangri-La / Silhouette Shades
-- Wood & Aluminum Blinds
-- Plantation Shutters (full-height, café style, arched, door)
-- Motorized Shading (app, voice, schedule control — Alexa, Google Home, Apple HomeKit, Lutron, Control4)
-- Curtains & Drapery (10 header styles: Ripple Fold, Pinch Pleat, Goblet, Tab Top, Eyelet, etc.)
-- Exterior Shades & Awnings
-- Commercial & Medical Curtains
+- [Home](https://www.progettoshades.com/): overview of products, services, and the mobile-showroom model
+- [Product Catalog](https://www.progettoshades.com/catalog): all 22 window treatment lines with details
+- [Book a Free Consultation](https://www.progettoshades.com/booking): schedule the in-home visit
+- [FAQ](https://www.progettoshades.com/faq): consultation process, pricing, timelines, child safety, financing
+- [Reviews](https://www.progettoshades.com/reviews): 32 five-star customer reviews
+- [Service Areas](https://www.progettoshades.com/locations): 16 city pages across San Diego County
+- [Smart Home](https://www.progettoshades.com/smart-home): Alexa, Google Home, HomeKit, Control4 integration
+- [Commercial](https://www.progettoshades.com/commercial): offices, hotels, medical facilities
+- [Warranty](https://www.progettoshades.com/warranty): coverage terms
+- [Contact](https://www.progettoshades.com/contact): phone, email, inquiry form
 
-### Services
-- Free in-home consultation and measurement
-- Custom fabrication to exact window dimensions
-- Professional licensed installation
-- Smart home integration (Alexa, Google Home, Apple HomeKit, Control4, Lutron)
-- Commercial installations (offices, hotels, medical facilities, HOA coordination)
-- Builder and trade program with volume pricing
+## Products
 
-## Service Areas
-We serve all of San Diego County and parts of Southern California:
-San Diego, Poway, Carlsbad, La Jolla, Del Mar, Encinitas, Solana Beach, Rancho Santa Fe, Chula Vista, National City, Coronado, El Cajon, Escondido, San Marcos, Vista, Temecula, Oceanside, Santee, Lakeside, Lemon Grove, Bonita, Spring Valley, Alpine, Ramona, and surrounding communities.
+- [Roller Shades](https://www.progettoshades.com/products/roller): blackout, light-filtering and sheer fabrics
+- [Zebra Shades](https://www.progettoshades.com/products/zebra): alternating sheer/solid bands
+- [Cellular Shades](https://www.progettoshades.com/products/cellular): honeycomb insulation, energy savings
+- [Roman Shades](https://www.progettoshades.com/products/roman): tailored fabric folds
+- [Motorized Shading](https://www.progettoshades.com/products/motorized): app, voice and scheduled control
+- [Plantation Shutters](https://www.progettoshades.com/products/plantation): built-in, adds resale value
+- [Blackout Curtains](https://www.progettoshades.com/products/blackout-curtains): triple-pass lining, custom drapery
+- [Woven Wood Shades](https://www.progettoshades.com/products/woven-wood): bamboo, jute, sea grass
+- [Sun Screens](https://www.progettoshades.com/products/sun-screens): 80–90% heat rejection with view
+- [Awnings](https://www.progettoshades.com/products/awnings): retractable exterior shade
 
-## Pricing
-- Custom window treatments: starting around $150–$300 per window depending on product
-- Motorized systems: premium pricing, starting ~$400+ per window
-- Free in-home consultation and measurement included with all orders
-- Financing available
-- Price range: $$
+## Journal
 
-## Why Choose iL Progetto LLC
-- Mobile showroom model — see every sample in your actual light, against your real walls
-- Licensed and insured (California Contractors License #1127055)
-- Every installer is directly employed — never subcontracted
-- 1-year full parts and labor warranty; lifetime manufacturer warranty on mechanisms
-- 5-star rated across Google and Yelp (32 reviews, 5.0 average)
-- Same-visit measurements and quotes
-- Spanish-speaking staff available
+- [Blackout Shades Guide](https://www.progettoshades.com/blog/blackout-shades-san-diego-guide): fabrics, side channels, room-by-room advice
+- [Motorized Blinds & Smart Homes](https://www.progettoshades.com/blog/motorized-blinds-smart-home-san-diego): Alexa/Google/HomeKit integration
+- [Honeycomb Shades & Energy Savings](https://www.progettoshades.com/blog/honeycomb-shades-energy-savings-california): R-values and utility impact
+- [Shutters vs Roller Shades](https://www.progettoshades.com/blog/plantation-shutters-vs-roller-shades-san-diego): side-by-side comparison
+- [San Diego Climate Guide](https://www.progettoshades.com/blog/best-window-treatments-san-diego-climate): coastal, inland and high-sun exposures
 
-## Warranty
-- Operational cords, chains & motorization: 1-year iL Progetto (parts & labor), 3-year manufacturer (parts only)
-- Internal mechanisms & brackets: 1-year iL Progetto (parts & labor), lifetime manufacturer (parts only)
-- Fabric: 1-year iL Progetto and manufacturer warranty
+## Optional
 
-## Social & Reviews
-- Google Business: search "iL Progetto LLC San Diego"
-- Instagram: https://www.instagram.com/ilprogetto.design
-- Facebook: https://www.facebook.com/61561253288372
-- Yelp: https://yelp.to/fuCV4NqXEu
-
-## Website Structure
-- Homepage: /
-- Product Catalog: /catalog
-- Individual product pages: /products/roller, /products/zebra, /products/cellular, /products/roman, /products/motorized, /products/plantation, /products/blackout-curtains, and 15 more (all linked from /catalog)
-- Book Free Consultation: /booking
-- Service Areas: /locations (16 city pages under /locations/<city>)
-- Smart Home Integration: /smart-home
-- About Us: /about
-- FAQ: /faq
-- Blog / Journal: /blog
-- Commercial: /commercial
-- Warranty: /warranty
-- Contact: /contact
-
-## Complete Reference
-For the full business dossier — every product with descriptions, features,
-and FAQs; all service-area pages; and all journal articles — see:
-https://www.progettoshades.com/llms-full.txt
+- [Complete reference](https://www.progettoshades.com/llms-full.txt): every product with descriptions, features and FAQs; all articles; all city pages
+- [Sitemap](https://www.progettoshades.com/sitemap.xml): all indexable URLs

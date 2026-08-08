@@ -345,6 +345,8 @@ function HomePage() {
           src="/images/hero-1280.webp"
           srcSet="/images/hero-640.webp 640w, /images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w"
           sizes="100vw"
+          width={1920}
+          height={1440}
           alt=""
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
@@ -773,6 +775,7 @@ function HeroBookingSurvey() {
               {phoneError && <p style={{ fontSize: '11px', color: '#f87171', margin: 0 }}>{phoneError}</p>}
             </div>
             <select value={service} onChange={(e) => setService(e.target.value)}
+              aria-label="What are you interested in?"
               style={{ ...fieldStyle, appearance: 'none', WebkitAppearance: 'none', cursor: 'pointer', color: service ? 'var(--cream)' : 'rgba(251,251,249,0.45)' }}
               onFocus={handleFocus} onBlur={handleBlur}>
               <option value="" disabled hidden>What are you interested in?</option>
