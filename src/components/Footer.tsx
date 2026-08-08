@@ -130,7 +130,7 @@ export function Footer() {
                 <div key={col.category}>
                   <p
                     className="text-[10px] tracking-[0.18em] uppercase mb-3 font-[500]"
-                    style={{ color: 'var(--sand)' }}
+                    style={{ color: 'var(--sand-light)' }}
                   >
                     {col.label}
                   </p>
