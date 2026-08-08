@@ -57,6 +57,8 @@ export function Footer() {
             <img
               src={LOGO_WHITE}
               alt="iL Progetto LLC"
+              width={300}
+              height={300}
               className="mb-8 opacity-95"
               style={{
                 filter: 'brightness(0) invert(1)',
