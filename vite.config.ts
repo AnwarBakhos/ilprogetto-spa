@@ -45,15 +45,6 @@ export default defineConfig({
           if (id.includes('node_modules/zod')) {
             return 'zod-vendor'
           }
-          if (id.includes('/src/data/seo') || id.includes('/src/data/blog')) {
-            return 'seo-data'
-          }
-          if (id.includes('/src/routes/locations') || id.includes('/src/routes/careers')) {
-            return 'location-routes'
-          }
-          if (id.includes('/src/routes/smart-home')) {
-            return 'smart-home-routes'
-          }
         },
       },
     },
