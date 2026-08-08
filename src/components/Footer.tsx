@@ -82,7 +82,7 @@ export function Footer() {
             {/* Navigate links */}
             <p
               className="text-[10px] tracking-[0.22em] uppercase mb-4"
-              style={{ color: 'rgba(251,251,249,0.35)' }}
+              style={{ color: 'rgba(251,251,249,0.66)' }}
             >
               Navigate
             </p>
@@ -119,7 +119,7 @@ export function Footer() {
           <div>
             <p
               className="text-[10px] tracking-[0.22em] uppercase mb-6"
-              style={{ color: 'rgba(251,251,249,0.35)' }}
+              style={{ color: 'rgba(251,251,249,0.66)' }}
             >
               Products
             </p>
@@ -155,7 +155,7 @@ export function Footer() {
           <div className="lg:text-right lg:ml-auto text-left">
             <p
               className="text-[10px] tracking-[0.22em] uppercase mb-6"
-              style={{ color: 'rgba(251,251,249,0.35)' }}
+              style={{ color: 'rgba(251,251,249,0.66)' }}
             >
               Contact & Legal
             </p>
@@ -169,7 +169,7 @@ export function Footer() {
               <a href="mailto:info@progettoshades.com" className="hover:text-[var(--sand-light)] transition-colors">
                 info@progettoshades.com
               </a>
-              <p style={{ color: 'rgba(251,251,249,0.4)' }}>San Diego, CA 92127</p>
+              <p style={{ color: 'rgba(251,251,249,0.66)' }}>San Diego, CA 92127</p>
             </div>
             <div
               className="flex flex-col gap-2"
@@ -214,7 +214,7 @@ export function Footer() {
             {CITY_SLUGS.map(city => (
               <a key={city} href={`/locations/${city}`}
                  className="text-[11px] tracking-[0.12em] uppercase hover:text-[var(--sand-light)] transition-colors"
-                 style={{ color: 'rgba(251,251,249,0.45)' }}>
+                 style={{ color: 'rgba(251,251,249,0.68)' }}>
                 {cityName(city)}
               </a>
             ))}

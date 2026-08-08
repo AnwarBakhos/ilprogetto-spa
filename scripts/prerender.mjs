@@ -92,6 +92,7 @@ const PRODUCTS = []
       tagline: field(block, 'tagline'),
       description: field(block, 'description'),
       detailCopy: field(block, 'detailCopy'),
+      cover: (block.match(/coverImage:\s*img\('([^']+)'\)/) || [])[1] || null,
       features: stringArray(featuresFrag),
     })
   }
@@ -241,7 +242,21 @@ function faqHtml(items) {
 }
 
 function buildBody(path, m) {
-  const parts = [`<h1>${esc(m.title)}</h1>`]
+  const parts = []
+  // LCP: paint the page's hero image from static HTML, before JS loads.
+  if (path === '/') {
+    parts.push(`<img src="/images/hero-1280.webp" srcset="/images/hero-640.webp 640w, /images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w" sizes="100vw" width="1920" height="1440" fetchpriority="high" alt="Custom window treatments in a San Diego living room" style="width:100%;height:auto;display:block">`)
+  } else {
+    const pm = path.match(/^\/products\/([a-z-]+)$/)
+    if (pm) {
+      const p = PRODUCTS.find((x) => x.id === pm[1])
+      if (p?.cover) {
+        const stem = encodeURIComponent(p.cover.replace(/\.(png|jpe?g)$/i, ''))
+        parts.push(`<img src="/images/products/opt/${stem}-1200.webp" srcset="/images/products/opt/${stem}-640.webp 640w, /images/products/opt/${stem}-1200.webp 1200w" sizes="100vw" width="1200" height="800" fetchpriority="high" alt="${esc(p.name)} — iL Progetto LLC San Diego" style="width:100%;height:auto;display:block">`)
+      }
+    }
+  }
+  parts.push(`<h1>${esc(m.title)}</h1>`)
   if (m.description) parts.push(`<p><em>${esc(m.description)}</em></p>`)
 
   const prodMatch = path.match(/^\/products\/([a-z-]+)$/)

@@ -412,7 +412,7 @@ function HomePage() {
               style={{ borderColor: 'rgba(251,251,249,0.18)' }}
             >
               <span className="text-[10px] tracking-[0.22em] uppercase"
-                    style={{ color: 'rgba(251,251,249,0.45)' }}>
+                    style={{ color: 'rgba(251,251,249,0.68)' }}>
                 Call us anytime
               </span>
               <a
@@ -423,7 +423,7 @@ function HomePage() {
                 (858) 338-1678
               </a>
               <span className="ml-auto text-[10px] tracking-[0.18em] uppercase"
-                    style={{ color: 'rgba(251,251,249,0.35)' }}>
+                    style={{ color: 'rgba(251,251,249,0.66)' }}>
                 License # 1127055
               </span>
             </div>
@@ -776,7 +776,7 @@ function HeroBookingSurvey() {
             </div>
             <select value={service} onChange={(e) => setService(e.target.value)}
               aria-label="What are you interested in?"
-              style={{ ...fieldStyle, appearance: 'none', WebkitAppearance: 'none', cursor: 'pointer', color: service ? 'var(--cream)' : 'rgba(251,251,249,0.45)' }}
+              style={{ ...fieldStyle, appearance: 'none', WebkitAppearance: 'none', cursor: 'pointer', color: service ? 'var(--cream)' : 'rgba(251,251,249,0.68)' }}
               onFocus={handleFocus} onBlur={handleBlur}>
               <option value="" disabled hidden>What are you interested in?</option>
               <option value="General Consultation" style={{ background: '#1c1c1a', color: 'var(--cream)' }}>General Consultation</option>
@@ -793,7 +793,7 @@ function HeroBookingSurvey() {
             style={{ width: '100%', background: 'var(--sand)', color: '#fff', border: 'none', padding: '13px', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', cursor: submitting ? 'wait' : 'pointer', fontFamily: 'var(--sans)', opacity: submitting ? 0.7 : 1 }}>
             {submitting ? 'Sending…' : 'Get My Free Quote →'}
           </button>
-          <p style={{ fontSize: '11px', color: 'rgba(251,251,249,0.35)', marginTop: '10px', textAlign: 'center', lineHeight: 1.6 }}>No obligation · We come to you · No spam.</p>
+          <p style={{ fontSize: '11px', color: 'rgba(251,251,249,0.66)', marginTop: '10px', textAlign: 'center', lineHeight: 1.6 }}>No obligation · We come to you · No spam.</p>
         </form>
       )}
     </div>
