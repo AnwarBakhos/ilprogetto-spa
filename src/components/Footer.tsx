@@ -175,7 +175,7 @@ export function Footer() {
             </div>
             <div
               className="flex flex-col gap-2"
-              style={{ color: 'rgba(251,251,249,0.38)' }}
+              style={{ color: 'rgba(251,251,249,0.66)' }}
             >
               <Link to="/legal" search={{ tab: 'privacy' as const }}
                 className="text-[12px] hover:text-[var(--sand-light)] transition-colors">
@@ -203,7 +203,7 @@ export function Footer() {
         <div className="border-t pt-8 md:pt-12 mb-8 md:mb-12" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
             <p className="text-[10px] tracking-[0.22em] uppercase"
-               style={{ color: 'rgba(251,251,249,0.25)' }}>
+               style={{ color: 'rgba(251,251,249,0.62)' }}>
               Local Service Areas
             </p>
             <a href="/locations"
@@ -227,19 +227,19 @@ export function Footer() {
         <div className="border-t pt-8 mb-10" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
           <div className="flex items-center justify-between mb-4">
             <p className="text-[10px] tracking-[0.22em] uppercase"
-               style={{ color: 'rgba(251,251,249,0.25)' }}>Careers</p>
+               style={{ color: 'rgba(251,251,249,0.62)' }}>Careers</p>
             <a href="/careers/" className="text-[10px] tracking-[0.14em] uppercase hover:text-[var(--sand-light)] transition-colors"
                style={{ color: 'rgba(197,165,114,0.5)' }}>
               View All Positions →
             </a>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-1.5">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
             {CITY_SLUGS.slice(0, 8).flatMap(city =>
               Object.keys(POSITION_SLUGS).map(position => (
                 <a key={`${city}-${position}`}
                    href={`/careers/${city}/${position}`}
-                   className="text-[10px] transition-colors hover:text-[var(--sand-light)]"
-                   style={{ color: 'rgba(251,251,249,0.25)' }}>
+                   className="text-[10px] transition-colors hover:text-[var(--sand-light)] inline-block py-1.5"
+                   style={{ color: 'rgba(251,251,249,0.62)' }}>
                   {cityName(city)} {position === 'technician' ? 'Installer' : 'Sales'}
                 </a>
               ))
