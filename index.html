@@ -30,12 +30,13 @@
     <meta name="twitter:site" content="@ilprogetto" />
 
     <!-- ── Critical resource hints ── -->
-    <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero-1280.webp" imagesrcset="/images/hero-640.webp 640w, /images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w" imagesizes="100vw" fetchpriority="high" />
     <link rel="preload" as="image" href="/images/logo-300.webp" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet" /></noscript>
     <!-- Google tag (gtag.js) — Google Ads AW-16632989382 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16632989382"></script>
     <script src="/gtag-init.js"></script>

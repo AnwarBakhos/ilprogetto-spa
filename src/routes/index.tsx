@@ -1,10 +1,29 @@
 import { SITE_URL } from '@/lib/config'
 import { trackContactConversion, trackFinancingInquiry } from '@/lib/analytics'
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback, lazy, Suspense } from 'react'
 import { setupScrollReveal } from '@/lib/utils'
 import { ReviewsScrollPanel } from '@/components/ReviewsScrollPanel'
-import { InteractiveServiceMap } from '@/components/InteractiveServiceMap'
+// Leaflet is heavy — split it out and mount only when the section nears the viewport
+const InteractiveServiceMap = lazy(() =>
+  import('@/components/InteractiveServiceMap').then((m) => ({ default: m.InteractiveServiceMap })),
+)
+
+function LazyMount({ children, minHeight }: { children: React.ReactNode; minHeight: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      (entries) => { if (entries[0].isIntersecting) { setShow(true); obs.disconnect() } },
+      { rootMargin: '600px' },
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+  return <div ref={ref} style={{ minHeight: show ? undefined : minHeight }}>{show ? children : null}</div>
+}
 
 // ─── SEO ──────────────────────────────────────────────────────────────────────
 export const Route = createFileRoute('/')({
@@ -321,15 +340,15 @@ function HomePage() {
         style={{ background: 'var(--ink)' }}
         aria-label="Hero"
       >
-        {/* Poster / fallback */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(/images/hero.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.55,
-          }}
+        {/* Poster / fallback — responsive, ~24-240KB vs the original 3.9MB */}
+        <img
+          src="/images/hero-1280.webp"
+          srcSet="/images/hero-640.webp 640w, /images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w"
+          sizes="100vw"
+          alt=""
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.55 }}
           aria-hidden="true"
         />
         {/* Gradient overlay */}
@@ -560,7 +579,11 @@ function HomePage() {
       </section>
 
       {/* ── INTERACTIVE SERVICE MAP ──────────────────────────────────────── */}
-      <InteractiveServiceMap />
+      <LazyMount minHeight={480}>
+        <Suspense fallback={<div style={{ minHeight: 480 }} />}>
+          <InteractiveServiceMap />
+        </Suspense>
+      </LazyMount>
 
       {/* ── FINANCING BANNER ─────────────────────────────────────────────────── */}
       <section

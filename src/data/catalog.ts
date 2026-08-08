@@ -9,7 +9,13 @@ import type { CatalogProduct } from '@/types/catalog'
 //   .png: Arched Shutters, Awnings, Blackout Curtains, Cafe Style Shutters, Cellular Shades,
 //         Door Shutters, Motorized Exterior, Motorized Shades, Panel Track, Plantation Shutters, Roman Shades,
 //         Sun Screens, Vertical, Wind-Resistant Exterior
-const img = (filename: string) => `/images/products/${filename}`
+// Optimized variants live in /images/products/opt/<stem>-{640,1200}.webp
+// (generated from the originals; ~95% smaller). Originals kept for reference.
+const img = (filename: string) => {
+  const stem = filename.replace(/\.(png|jpe?g)$/i, '')
+  return `/images/products/opt/${stem}-1200.webp`
+}
+export const imgSmall = (path: string) => path.replace('-1200.webp', '-640.webp')
 
 // ─── Category type ────────────────────────────────────────────────────────────
 export type ProductCategory = 'shades' | 'blinds' | 'shutters' | 'drapes' | 'exterior'
